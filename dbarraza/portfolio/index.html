@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D. Shawn Barraza | Senior Product Designer</title>
-  <link rel="stylesheet" href="styles.css?v=32">
+  <link rel="stylesheet" href="styles.css?v=34">
   <link rel="icon" href="favicon.svg?v=10" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,10 @@
       <a href="index.html" class="logo" style="display: flex; align-items: center;">
         <img src="favicon.svg?v=10" alt="B Logo" style="height: 36px; width: 36px;">
       </a>
-      <nav>
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <nav id="desktop-nav">
         <ul>
           <li><a href="index.html" class="active">Projects</a></li>
           <li><a href="about.html">About</a></li>
@@ -24,6 +27,18 @@
         </ul>
       </nav>
     </header>
+
+    <!-- Mobile Nav Modal -->
+    <div id="mobile-nav-modal" class="modal">
+      <div class="modal-content fullscreen-modal mobile-nav-modal">
+        <button class="modal-close" id="mobile-nav-close">&times;</button>
+        <ul>
+          <li><a href="index.html" class="active">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#contact" class="mobile-contact-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
 
     <main>
       <section class="hero">
@@ -239,6 +254,26 @@
         playHoverSound();
       });
     });
+
+    // Mobile Nav Logic
+    const mobileNavModal = document.getElementById('mobile-nav-modal');
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    const mobileContactLink = document.querySelector('.mobile-contact-link');
+
+    hamburgerBtn.addEventListener('click', () => {
+      mobileNavModal.classList.add('active');
+    });
+
+    mobileNavClose.addEventListener('click', () => {
+      mobileNavModal.classList.remove('active');
+    });
+
+    if (mobileContactLink) {
+      mobileContactLink.addEventListener('click', () => {
+        mobileNavModal.classList.remove('active');
+      });
+    }
 
     // Modal Logic
     const modal = document.getElementById('portfolio-modal');
