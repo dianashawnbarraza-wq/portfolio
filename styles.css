@@ -175,6 +175,12 @@ nav a.active::after {
   background-color: var(--bg-color) !important;
 }
 
+.mobile-nav-modal .modal-close {
+  top: 2rem;
+  right: 2rem;
+  left: auto;
+}
+
 .mobile-nav-modal ul {
   display: flex;
   flex-direction: column;
