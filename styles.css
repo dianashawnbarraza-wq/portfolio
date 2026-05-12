@@ -955,8 +955,6 @@ footer {
     margin: 0 auto;
     /* Add a subtle shadow to match the 3D feel */
     filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
-    /* Use mix-blend-mode to remove the fake checkerboard background */
-    mix-blend-mode: multiply;
   }
 
   .glass-card.ai-card p {
