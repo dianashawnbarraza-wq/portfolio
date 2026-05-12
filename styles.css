@@ -206,6 +206,10 @@ nav a.active::after {
   display: none;
 }
 
+.mobile-only-hero-img {
+  display: none;
+}
+
 /* Hero */
 .hero {
   padding: 4rem 0 0;
@@ -934,13 +938,23 @@ footer {
   }
   
   .hero-mockup-container {
-    max-height: 400px;
-    overflow: hidden;
+    max-height: none;
+    overflow: visible;
+    margin-top: 2rem;
   }
   
-  .iphone-mockup {
-    transform: rotateX(55deg) rotateZ(-35deg) scale(0.4);
-    margin: -400px 0;
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only-hero-img {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+    /* Add a subtle shadow to match the 3D feel */
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
   }
 
   .glass-card.ai-card p {
