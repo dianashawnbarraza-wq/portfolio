@@ -525,7 +525,28 @@ nav a.active {
   color: var(--text-main);
   letter-spacing: -0.01em;
   line-height: 1.3;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.75rem;
+}
+
+.project-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 980px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--link-color);
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .project-description {
