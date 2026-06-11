@@ -382,6 +382,81 @@ nav a.active {
   display: none;
 }
 
+.experience-section {
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.experience-heading {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.experience-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--card-bg);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.experience-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.experience-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.experience-table td {
+  padding: 1.25rem 1.5rem;
+  vertical-align: middle;
+}
+
+.experience-logo-cell {
+  width: 72px;
+}
+
+.experience-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+.experience-info-cell {
+  width: auto;
+}
+
+.experience-company {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.experience-role {
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.experience-date-cell {
+  width: 140px;
+  text-align: right;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--link-color);
+  white-space: nowrap;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1016,6 +1091,37 @@ footer {
     flex-direction: column;
     text-align: center;
     gap: 2rem;
+  }
+
+  .experience-heading {
+    font-size: 1.5rem;
+  }
+
+  .experience-table,
+  .experience-table tbody,
+  .experience-table tr,
+  .experience-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .experience-table tbody tr {
+    padding: 1rem 0;
+  }
+
+  .experience-table td {
+    padding: 0.25rem 1.25rem;
+    border: none;
+  }
+
+  .experience-logo-cell {
+    padding-top: 1.25rem;
+  }
+
+  .experience-date-cell {
+    text-align: left;
+    padding-bottom: 1rem;
+    white-space: normal;
   }
 
   .contact-text {
