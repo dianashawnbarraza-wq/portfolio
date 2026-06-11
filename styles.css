@@ -243,11 +243,19 @@ nav a.active::after {
 .hero-intro {
   font-size: 1.25rem;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: -0.011em;
-  color: var(--text-muted);
+  color: var(--text-main);
   margin: 0;
   max-width: 560px;
+}
+
+.hero-intro-accent {
+  font-weight: 600;
+  background: linear-gradient(90deg, #b344ff, #7b2cbf);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-gradient {
