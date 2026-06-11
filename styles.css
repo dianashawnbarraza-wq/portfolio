@@ -440,6 +440,11 @@ nav a.active {
   letter-spacing: -0.01em;
 }
 
+.experience-company-meta {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
 .experience-role {
   margin-top: 0.25rem;
   font-size: 0.95rem;
@@ -1110,7 +1115,7 @@ footer {
   }
 
   .experience-table td {
-    padding: 0.25rem 1.25rem;
+    padding: 0.25rem 0;
     border: none;
   }
 
