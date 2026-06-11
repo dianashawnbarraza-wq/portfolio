@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D. Shawn Barraza | Senior Product Designer</title>
-  <link rel="stylesheet" href="styles.css?v=43">
+  <link rel="stylesheet" href="styles.css?v=44">
   <link rel="icon" href="favicon.svg?v=11" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +45,7 @@
         <div class="hero-layout">
           <div class="hero-content">
             <h1>Diana Shawn Barraza</h1>
-            <p class="hero-intro"><span class="hero-intro-accent">Product designer (Prev. Square) and AI builder</span> with 10+ years of experience. I turn complex problems into intuitive experiences, combining customer insight, experimentation, and AI-powered workflows to uncover opportunities, align teams, and deliver products that drive measurable outcomes.</p>
+            <p class="hero-intro"><span class="hero-intro-accent">Product designer (ex-Square) and builder</span> with 10+ years of experience designing fintech, banking, mobile native, and platform products. I combine customer insight, experimentation, and AI tools to turn complex systems into clear, high-impact experiences.</p>
             <p class="hero-sectors">Fintech • Banking • Real Estate • Healthcare • Startups</p>
           </div>
           <div class="hero-mockup-container">
@@ -63,8 +63,8 @@
       <section class="work">
         
         <div class="ethos-card">
-          <h3 class="ethos-title">My ethos</h3>
-          <p class="ethos-bold">Make ideas real early. Collaborate openly. Design for the whole system.</p>
+          <h3 class="ethos-title">How I work</h3>
+          <p class="hero-intro ethos-copy">I use research, data, and AI tools to move quickly while staying grounded in customer needs and jobs to be done. I focus on understanding the problem, identifying opportunities, aligning teams, and designing for measurable impact.</p>
         </div>
 
         <div class="grid">
@@ -101,9 +101,11 @@
               <span class="project-label">Square Banking Dashboard Web Experience</span>
             </div>
           </div>
-          <div class="glass-card ai-card">
-            <p>A strong strategic partner, using AI to accelerate discovery and feedback, and pushing changes through code<span class="cursor-blink"></span></p>
-          </div>
+        </div>
+
+        <button type="button" class="show-more-btn" id="show-more-btn" aria-expanded="false">Show more</button>
+
+        <div class="grid portfolio-more hidden" id="portfolio-more">
           <div class="glass-card brand-card">
             <div class="brand-content">
               <img src="flyhomes-logo.png" alt="Flyhomes Logo" class="brand-logo">
@@ -223,6 +225,17 @@
         mobileNavModal.classList.remove('active');
       });
     }
+
+    // Show more / Show less portfolio cards
+    const showMoreBtn = document.getElementById('show-more-btn');
+    const portfolioMore = document.getElementById('portfolio-more');
+
+    showMoreBtn.addEventListener('click', () => {
+      portfolioMore.classList.toggle('hidden');
+      const isExpanded = !portfolioMore.classList.contains('hidden');
+      showMoreBtn.textContent = isExpanded ? 'Show less' : 'Show more';
+      showMoreBtn.setAttribute('aria-expanded', isExpanded);
+    });
 
     // Modal Logic
     const modal = document.getElementById('portfolio-modal');
