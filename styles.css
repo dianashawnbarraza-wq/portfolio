@@ -242,6 +242,16 @@ nav a.active {
   -webkit-text-fill-color: transparent;
 }
 
+.hero-sectors {
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: var(--link-color);
+  max-width: 560px;
+}
+
 .hero-gradient {
   background: linear-gradient(90deg, #ffb6ff, #b344ff);
   -webkit-background-clip: text;
@@ -931,6 +941,11 @@ footer {
 
   .hero-intro {
     font-size: 1.05rem;
+    max-width: none;
+  }
+
+  .hero-sectors {
+    font-size: 0.875rem;
     max-width: none;
   }
 
