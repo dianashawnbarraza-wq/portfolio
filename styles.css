@@ -2,7 +2,7 @@
   --bg-color: #ffffff;
   --text-main: #000000;
   --text-muted: #6e6e73;
-  --link-color: #86868b;
+  --link-color: #636366;
   --accent: #000000;
   --card-bg: #f5f5f7;
   --border-color: #d2d2d7;
@@ -100,8 +100,8 @@ nav ul {
 }
 
 nav a {
-  font-size: 0.85rem;
-  font-weight: 400;
+  font-size: 0.95rem;
+  font-weight: 500;
   color: var(--link-color);
   opacity: 1;
   letter-spacing: -0.01em;
