@@ -493,7 +493,7 @@ nav a.active {
 
 .project-media {
   position: relative;
-  height: 280px;
+  height: 420px;
   overflow: hidden;
   flex-shrink: 0;
 }
