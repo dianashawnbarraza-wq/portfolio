@@ -330,9 +330,10 @@ nav a.active {
 }
 
 .ethos-card {
-  background: transparent;
-  border-radius: 0;
-  padding: 0;
+  width: 100%;
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 2rem 2.5rem;
   margin-bottom: 3rem;
   border: none;
   box-shadow: none;
@@ -340,15 +341,16 @@ nav a.active {
 }
 
 .ethos-title {
-  font-size: 1rem;
+  font-size: 1.75rem;
   font-weight: 600;
   color: var(--text-main);
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .ethos-copy {
-  max-width: 640px;
+  max-width: none;
 }
 
 .show-more-btn {
@@ -963,6 +965,14 @@ footer {
   .hero-sectors {
     font-size: 0.875rem;
     max-width: none;
+  }
+
+  .ethos-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .ethos-title {
+    font-size: 1.5rem;
   }
 
   .ethos-copy {
