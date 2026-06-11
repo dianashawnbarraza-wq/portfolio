@@ -234,8 +234,8 @@ nav a.active::after {
   font-size: clamp(3rem, 6vw, 5.5rem);
   line-height: 1.08;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  word-spacing: 0.08em;
+  letter-spacing: 0.01em;
+  word-spacing: 0.05em;
   margin-bottom: 1.5rem;
   color: var(--text-main);
 }
@@ -940,8 +940,8 @@ footer {
 
   .hero-content h1 {
     font-size: 2.75rem;
-    letter-spacing: 0.015em;
-    word-spacing: 0.06em;
+    letter-spacing: 0.008em;
+    word-spacing: 0.04em;
     margin-bottom: 1rem;
   }
 
