@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study · Increasing Checking Adoption Across Square</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="favicon.svg?v=11" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case-study.css?v=1">
+</head>
+<body class="case-study-body">
+
+  <!-- Password gate -->
+  <div class="cs-gate" id="cs-gate">
+    <div class="cs-gate-card">
+      <h1>Protected case study</h1>
+      <p>Enter the password to view this Staff-level product design case study.</p>
+      <form class="cs-gate-form" id="cs-gate-form">
+        <input type="password" id="cs-password" placeholder="Password" autocomplete="off" required>
+        <button type="submit">View case study</button>
+      </form>
+      <p class="cs-gate-error" id="cs-gate-error" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div id="cs-content" hidden>
+
+    <header class="cs-topbar">
+      <div class="cs-topbar-inner">
+        <a href="index.html" class="cs-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back to portfolio
+        </a>
+        <span class="cs-topbar-label">Case study · Square Banking</span>
+      </div>
+    </header>
+
+    <button class="cs-mobile-nav-btn" id="cs-mobile-nav-btn" type="button">Sections</button>
+
+    <nav class="cs-mobile-nav" id="cs-mobile-nav" aria-label="Case study sections">
+      <button class="cs-mobile-nav-close" id="cs-mobile-nav-close" type="button" aria-label="Close">&times;</button>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#situation">Situation</a></li>
+        <li><a href="#opportunity">Opportunity</a></li>
+        <li><a href="#my-role">My Role</a></li>
+        <li><a href="#actions">Actions</a></li>
+        <li><a href="#before-after">Before vs After</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#reflection">Reflection</a></li>
+      </ul>
+    </nav>
+
+    <div class="cs-shell">
+
+      <aside class="cs-sidebar">
+        <nav aria-label="Case study navigation">
+          <ul class="cs-nav">
+            <li><a href="#overview" class="active">Overview</a></li>
+            <li><a href="#situation">Situation</a></li>
+            <li><a href="#opportunity">Opportunity</a></li>
+            <li><a href="#my-role">My Role</a></li>
+            <li><a href="#actions">Actions</a></li>
+            <li><a href="#before-after">Before vs After</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#reflection">Reflection</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="cs-main">
+
+        <!-- Hero -->
+        <section class="cs-hero" id="overview">
+          <p class="cs-eyebrow">Square · Banking · 2023 – 2026</p>
+          <h1>Increasing Checking Adoption Across Square</h1>
+          <p class="cs-hero-summary">Redesigned onboarding and banking experiences to help sellers discover value, activate faster, and engage more deeply with Square Checking.</p>
+
+          <div class="cs-meta-grid">
+            <div class="cs-meta-item">
+              <label>Role</label>
+              <span>Senior Product Designer · Design DRI</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Timeline</label>
+              <span>Feb 2023 – Feb 2026</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Team</label>
+              <span>Product, Engineering, PMM, Research</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Platforms</label>
+              <span>SPOS · Dashboard · Web</span>
+            </div>
+          </div>
+
+          <div class="cs-metrics-row">
+            <div class="metric-card">
+              <p class="metric-card__value">+XX%</p>
+              <p class="metric-card__label">Checking activation</p>
+              <p class="metric-card__context">Placeholder metric · swap with final data</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">+XX%</p>
+              <p class="metric-card__label">Funded account rate</p>
+              <p class="metric-card__context">Placeholder metric · swap with final data</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">-XX%</p>
+              <p class="metric-card__label">Time to first deposit</p>
+              <p class="metric-card__context">Placeholder metric · swap with final data</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Executive Summary -->
+        <section class="cs-section" id="executive-summary">
+          <h2>Executive Summary</h2>
+          <p class="cs-lead">Square Checking had strong product-market fit but underperformed on activation and ongoing engagement. Sellers opened accounts without understanding value, leading to low funding rates and shallow usage.</p>
+          <p>As Design DRI, I led a multi-quarter initiative to redesign onboarding, modernize checking IA across SPOS and web, and surface clearer account value at key moments. This case study walks through how we identified the opportunity, aligned cross-functional partners, and shipped measurable improvements.</p>
+
+          <div class="quote-block">
+            <p class="quote-block__text">"Placeholder stakeholder quote about the impact of clearer activation flows and improved seller understanding of Checking value."</p>
+            <p class="quote-block__attribution">— Product Lead, Square Banking · Placeholder</p>
+          </div>
+        </section>
+
+        <!-- Situation -->
+        <section class="cs-section" id="situation">
+          <h2>Situation</h2>
+          <p class="cs-lead">Checking was a strategic growth lever for Square Banking, but activation funnels showed significant drop-off and low post-signup engagement.</p>
+          <p>Placeholder: Describe the business context — sellers signing up for Checking without completing funding, unclear value proposition in onboarding, fragmented experiences across SPOS and Dashboard, and legacy IA that didn't reflect modern banking expectations.</p>
+
+          <div class="image-slot image-slot--wide">
+            <span class="image-slot__label">Image · Situation funnel diagram</span>
+            <img src="square-checking-redesign.png" alt="Placeholder: activation funnel or current-state journey map">
+          </div>
+
+          <ul>
+            <li>Placeholder: Low activation-to-funding conversion</li>
+            <li>Placeholder: Unclear value communication during onboarding</li>
+            <li>Placeholder: Inconsistent experience across mobile and web</li>
+            <li>Placeholder: Limited visibility into account health post-signup</li>
+          </ul>
+        </section>
+
+        <!-- Opportunity -->
+        <section class="cs-section" id="opportunity">
+          <h2>Opportunity</h2>
+          <p class="cs-lead">By improving how sellers discover, understand, and act on Checking value, we could unlock meaningful growth in activation, funding, and retention.</p>
+          <p>Placeholder: Frame the opportunity — clearer onboarding narrative, simplified IA, proactive engagement moments, and better alignment between product, design, and go-to-market.</p>
+
+          <div class="process-steps">
+            <div class="process-step">
+              <span class="process-step__num">1</span>
+              <div class="process-step__content">
+                <h4>Clarify value earlier</h4>
+                <p>Placeholder: Surface Checking benefits before and during signup.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">2</span>
+              <div class="process-step__content">
+                <h4>Reduce activation friction</h4>
+                <p>Placeholder: Streamline funding paths and remove dead-end states.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">3</span>
+              <div class="process-step__content">
+                <h4>Modernize checking IA</h4>
+                <p>Placeholder: Unify navigation and information architecture across surfaces.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- My Role -->
+        <section class="cs-section" id="my-role">
+          <h2>My Role</h2>
+          <p class="cs-lead">Design DRI for Square Checking engagement — owning end-to-end design strategy, execution, and cross-functional alignment.</p>
+          <p>Placeholder: Detail responsibilities including discovery, concept development, prototyping, design system alignment, stakeholder reviews, and launch support across SPOS and Dashboard.</p>
+
+          <div class="image-gallery">
+            <div class="image-slot">
+              <span class="image-slot__label">Image · Workshop or alignment session</span>
+            </div>
+            <div class="image-slot">
+              <span class="image-slot__label">Image · Design critique snapshot</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Actions -->
+        <section class="cs-section" id="actions">
+          <h2>Actions</h2>
+          <p class="cs-lead">Four strategic workstreams drove the initiative from insight to shipped product.</p>
+
+          <div class="cs-accordion">
+            <details class="cs-accordion-item" open>
+              <summary>1 · Redesign onboarding & activation flows</summary>
+              <div class="cs-accordion-body">
+                <p>Placeholder: Describe research insights, concept explorations, and how onboarding was restructured to communicate value and guide sellers to first funding faster.</p>
+                <div class="image-slot image-slot--tall">
+                  <span class="image-slot__label">Image · Onboarding flow · Before/after screens</span>
+                  <img src="square-checking-redesign.png" alt="Placeholder: onboarding redesign screens">
+                </div>
+              </div>
+            </details>
+
+            <details class="cs-accordion-item">
+              <summary>2 · Modernize Checking IA across SPOS & web</summary>
+              <div class="cs-accordion-body">
+                <p>Placeholder: Explain IA audit, navigation redesign, and how information hierarchy was simplified for core banking tasks.</p>
+                <div class="image-slot image-slot--tall">
+                  <span class="image-slot__label">Image · IA diagram · SPOS + Dashboard</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="cs-accordion-item">
+              <summary>3 · Improve deposit & funding experiences</summary>
+              <div class="cs-accordion-body">
+                <p>Placeholder: Cover mobile check deposit, cash deposit, and external account linking improvements that reduced friction in getting funds into Checking.</p>
+                <div class="image-gallery">
+                  <div class="image-slot">
+                    <span class="image-slot__label">Image · Deposit flow mobile</span>
+                  </div>
+                  <div class="image-slot">
+                    <span class="image-slot__label">Image · Deposit flow web</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="cs-accordion-item">
+              <summary>4 · Drive engagement through clearer account value</summary>
+              <div class="cs-accordion-body">
+                <p>Placeholder: Describe in-product moments that reinforced Checking value post-activation — balance visibility, activity summaries, and contextual prompts.</p>
+                <div class="image-slot image-slot--wide">
+                  <span class="image-slot__label">Image · Engagement moments · Key UI states</span>
+                </div>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- Before vs After -->
+        <section class="cs-section" id="before-after">
+          <h2>Before vs After</h2>
+          <p class="cs-lead">A side-by-side look at how Checking activation and home experiences evolved.</p>
+
+          <!-- Interactive slider comparison -->
+          <div class="before-after" data-before-after>
+            <div class="before-after__header">
+              <h3>Checking home · SPOS</h3>
+              <div class="before-after__labels">
+                <span>Before</span>
+                <span>After</span>
+              </div>
+            </div>
+            <div class="before-after__compare">
+              <div class="before-after__layer">
+                <div class="image-slot" style="min-height:100%;border:none;border-radius:0;">
+                  <span class="image-slot__label">Before · Checking home SPOS</span>
+                  <img src="square-banking.png" alt="Placeholder: before state checking home">
+                </div>
+              </div>
+              <div class="before-after__layer before-after__after">
+                <div class="image-slot" style="min-height:100%;border:none;border-radius:0;">
+                  <span class="image-slot__label">After · Checking home SPOS</span>
+                  <img src="square-checking-redesign.png" alt="Placeholder: after state checking home">
+                </div>
+              </div>
+              <div class="before-after__handle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg>
+              </div>
+              <input type="range" class="before-after__slider" min="0" max="100" value="50" aria-label="Drag to compare before and after">
+            </div>
+          </div>
+
+          <!-- Static side-by-side -->
+          <div class="before-after" style="margin-top:2rem;">
+            <div class="before-after__header">
+              <h3>Onboarding flow · Dashboard</h3>
+            </div>
+            <div class="before-after__side-by-side">
+              <div>
+                <div class="before-after__side-caption">Before</div>
+                <div class="image-slot image-slot--tall">
+                  <span class="image-slot__label">Before · Onboarding Dashboard</span>
+                </div>
+              </div>
+              <div>
+                <div class="before-after__side-caption">After</div>
+                <div class="image-slot image-slot--tall">
+                  <span class="image-slot__label">After · Onboarding Dashboard</span>
+                  <img src="square-checking-redesign.png" alt="Placeholder: after onboarding">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="image-gallery image-gallery--three" style="margin-top:2rem;">
+            <div class="image-slot">
+              <span class="image-slot__label">Image · Detail state 1</span>
+            </div>
+            <div class="image-slot">
+              <span class="image-slot__label">Image · Detail state 2</span>
+            </div>
+            <div class="image-slot">
+              <span class="image-slot__label">Image · Detail state 3</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Results -->
+        <section class="cs-section" id="results">
+          <h2>Results</h2>
+          <p class="cs-lead">Placeholder outcome summary — measurable improvements in activation, funding, and engagement across Checking.</p>
+
+          <div class="cs-metrics-row" style="margin-bottom:2rem;">
+            <div class="metric-card">
+              <p class="metric-card__value">+XX%</p>
+              <p class="metric-card__label">Activation rate</p>
+              <p class="metric-card__context">Post-launch · 90-day window</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">+XX%</p>
+              <p class="metric-card__label">Funded accounts</p>
+              <p class="metric-card__context">Post-launch · 90-day window</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">+XX pts</p>
+              <p class="metric-card__label">NPS / satisfaction</p>
+              <p class="metric-card__context">Placeholder · swap with final data</p>
+            </div>
+          </div>
+
+          <div class="chart-grid">
+            <div class="chart-card">
+              <h4>Activation funnel · Before vs After</h4>
+              <div class="chart-bars">
+                <div class="chart-bar" style="height:45%"></div>
+                <div class="chart-bar" style="height:55%"></div>
+                <div class="chart-bar chart-bar--highlight" style="height:78%"></div>
+                <div class="chart-bar chart-bar--highlight" style="height:85%"></div>
+              </div>
+              <div class="chart-labels">
+                <span>Signup</span>
+                <span>Verify</span>
+                <span>Fund</span>
+                <span>Active</span>
+              </div>
+            </div>
+            <div class="chart-card">
+              <h4>Weekly active Checking users</h4>
+              <div class="chart-bars">
+                <div class="chart-bar" style="height:30%"></div>
+                <div class="chart-bar" style="height:38%"></div>
+                <div class="chart-bar" style="height:42%"></div>
+                <div class="chart-bar chart-bar--highlight" style="height:65%"></div>
+                <div class="chart-bar chart-bar--highlight" style="height:72%"></div>
+              </div>
+              <div class="chart-labels">
+                <span>Q1</span>
+                <span>Q2</span>
+                <span>Q3</span>
+                <span>Q4</span>
+                <span>Q5</span>
+              </div>
+            </div>
+          </div>
+
+          <p>Placeholder: Summarize business impact, qualitative feedback from sellers and internal stakeholders, and how results informed subsequent Banking roadmap priorities.</p>
+        </section>
+
+        <!-- Reflection -->
+        <section class="cs-section" id="reflection">
+          <h2>Reflection</h2>
+          <p class="cs-lead">What I learned as Design DRI on a high-impact, cross-platform banking initiative.</p>
+          <p>Placeholder: Reflect on balancing speed with systems thinking, partnering with research and data to validate direction, and navigating complexity across SPOS, Dashboard, and regulatory constraints.</p>
+
+          <div class="quote-block">
+            <p class="quote-block__text">"Placeholder personal reflection on what made this work successful — clarity of problem framing, early alignment, and iterative validation with real sellers."</p>
+            <p class="quote-block__attribution">— Diana Shawn Barraza</p>
+          </div>
+
+          <ul>
+            <li>Placeholder: Early prototypes accelerated stakeholder alignment</li>
+            <li>Placeholder: Shared IA principles reduced fragmentation across surfaces</li>
+            <li>Placeholder: Metrics-driven iteration kept the team focused on outcomes</li>
+          </ul>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="case-study.js?v=1"></script>
+</body>
+</html>
