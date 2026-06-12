@@ -66,7 +66,7 @@
         </div>
 
         <div class="grid">
-          <div class="glass-card project-card">
+          <div class="glass-card project-card" data-case-study="case-study-checking.html">
             <div class="project-media">
               <img src="square-checking-redesign.png" alt="Square Checking Redesign">
             </div>
@@ -360,7 +360,13 @@
     }
 
     glassCards.forEach(card => {
-      card.addEventListener('click', openModal);
+      if (card.dataset.caseStudy) {
+        card.addEventListener('click', () => {
+          window.location.href = card.dataset.caseStudy;
+        });
+      } else {
+        card.addEventListener('click', openModal);
+      }
     });
 
     modalClose.addEventListener('click', closeModal);
