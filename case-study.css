@@ -632,6 +632,106 @@ body.case-study-body {
   width: 100%;
 }
 
+/* Phone compare */
+.phone-compare {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  background: var(--cs-surface);
+}
+
+.phone-compare__header {
+  margin-bottom: 1.5rem;
+}
+
+.phone-compare__title {
+  margin: 0 0 0.35rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.phone-compare__hint {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--cs-subtle);
+}
+
+.phone-compare__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.phone-compare__item {
+  margin: 0;
+  text-align: center;
+}
+
+.phone-compare__label {
+  display: block;
+  margin-bottom: 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cs-muted);
+}
+
+.phone-shell {
+  width: min(100%, 280px);
+  margin: 0 auto;
+  padding: 14px 10px 16px;
+  background: linear-gradient(180deg, #2c2c2e 0%, #1c1c1e 100%);
+  border-radius: 46px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 24px 48px rgba(0, 0, 0, 0.18);
+}
+
+.phone-shell__notch {
+  width: 96px;
+  height: 26px;
+  margin: 0 auto 10px;
+  background: #000;
+  border-radius: 20px;
+}
+
+.phone-shell__screen {
+  height: 520px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 34px;
+  background: #000;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+.phone-shell__screen:focus {
+  outline: 2px solid var(--cs-accent);
+  outline-offset: 2px;
+}
+
+.phone-shell__screen::-webkit-scrollbar {
+  width: 6px;
+}
+
+.phone-shell__screen::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+}
+
+.phone-shell__screen img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  border: none;
+}
+
 /* BeforeAfterComparison */
 .before-after {
   margin: 2rem 0;
@@ -956,6 +1056,15 @@ body.case-study-body {
 
   .before-after-grid {
     grid-template-columns: 1fr;
+  }
+
+  .phone-compare__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .phone-shell__screen {
+    height: 460px;
   }
 
   .cs-figure img {

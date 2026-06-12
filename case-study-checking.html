@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="case-study.css?v=8">
+  <link rel="stylesheet" href="case-study.css?v=9">
 </head>
 <body class="case-study-body">
 
@@ -253,25 +253,30 @@
             <li>Accelerated debit card and Apple Pay / Wallet adoption paths</li>
             <li>Simplified money movement so sellers could act without leaving Square</li>
           </ul>
-          <div class="before-after" data-before-after style="margin-top:1.25rem;">
-            <div class="before-after__header">
-              <h3>Checking home · Before vs after</h3>
-              <div class="before-after__labels">
-                <span>Before</span>
-                <span>After</span>
-              </div>
+          <div class="phone-compare">
+            <div class="phone-compare__header">
+              <h3 class="phone-compare__title">Checking home · Before and after</h3>
+              <p class="phone-compare__hint">Scroll inside each device to view the full screen.</p>
             </div>
-            <div class="before-after__compare">
-              <div class="before-after__layer">
-                <img src="checking-before.png" alt="Checking home before redesign">
-              </div>
-              <div class="before-after__layer before-after__after">
-                <img src="checking-after.png" alt="Checking home after redesign">
-              </div>
-              <div class="before-after__handle" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg>
-              </div>
-              <input type="range" class="before-after__slider" min="0" max="100" value="50" aria-label="Drag to compare before and after">
+            <div class="phone-compare__grid">
+              <figure class="phone-compare__item">
+                <figcaption class="phone-compare__label">Before</figcaption>
+                <div class="phone-shell">
+                  <div class="phone-shell__notch" aria-hidden="true"></div>
+                  <div class="phone-shell__screen" tabindex="0" aria-label="Before redesign, scrollable preview">
+                    <img src="checking-before.png" alt="Checking home before redesign">
+                  </div>
+                </div>
+              </figure>
+              <figure class="phone-compare__item">
+                <figcaption class="phone-compare__label">After</figcaption>
+                <div class="phone-shell">
+                  <div class="phone-shell__notch" aria-hidden="true"></div>
+                  <div class="phone-shell__screen" tabindex="0" aria-label="After redesign, scrollable preview">
+                    <img src="checking-after.png" alt="Checking home after redesign">
+                  </div>
+                </div>
+              </figure>
             </div>
           </div>
           <figure class="cs-figure cs-figure--wide cs-prototype">
@@ -321,6 +326,6 @@
     </div>
   </div>
 
-  <script src="case-study.js?v=3"></script>
+  <script src="case-study.js?v=4"></script>
 </body>
 </html>
