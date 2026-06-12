@@ -623,6 +623,15 @@ body.case-study-body {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.cs-figure--gallery {
+  margin: 0;
+}
+
+.cs-figure--gallery img {
+  max-width: 100%;
+  width: 100%;
+}
+
 /* BeforeAfterComparison */
 .before-after {
   margin: 2rem 0;
