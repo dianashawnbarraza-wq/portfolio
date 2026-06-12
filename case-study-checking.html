@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Study · Increasing Checking Adoption Across Square</title>
+  <title>Case Study · Closing the Activation Gap in Square Checking</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="favicon.svg?v=11" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="case-study.css?v=3">
+  <link rel="stylesheet" href="case-study.css?v=6">
 </head>
 <body class="case-study-body">
 
   <div class="cs-gate" id="cs-gate">
     <div class="cs-gate-card">
-      <h1>Protected case study</h1>
-      <p>Enter the password to view this Staff-level product design case study.</p>
+      <button type="button" class="cs-gate-close" id="cs-gate-close" aria-label="Close">&times;</button>
+      <h1>Enter a password</h1>
       <form class="cs-gate-form" id="cs-gate-form">
         <input type="password" id="cs-password" placeholder="Password" autocomplete="off" required>
-        <button type="submit">View case study</button>
+        <button type="submit">Continue</button>
       </form>
       <p class="cs-gate-error" id="cs-gate-error" aria-live="polite"></p>
+      <p class="cs-gate-footer">Don't have a password? <a href="index.html#contact">Get in touch →</a></p>
     </div>
   </div>
 
@@ -42,13 +43,13 @@
     <nav class="cs-mobile-nav" id="cs-mobile-nav" aria-label="Case study sections">
       <button class="cs-mobile-nav-close" id="cs-mobile-nav-close" type="button" aria-label="Close">&times;</button>
       <ul>
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#situation">Situation</a></li>
-        <li><a href="#opportunity">Opportunity</a></li>
-        <li><a href="#my-role">My Role</a></li>
-        <li><a href="#actions">Actions</a></li>
+        <li><a href="#hero">Overview</a></li>
         <li><a href="#results">Results</a></li>
-        <li><a href="#before-after">Before vs After</a></li>
+        <li><a href="#situation">Situation</a></li>
+        <li><a href="#task">Task</a></li>
+        <li><a href="#action">Action</a></li>
+        <li><a href="#system-impact">System Impact</a></li>
+        <li><a href="#results-expanded">Impact</a></li>
         <li><a href="#reflection">Reflection</a></li>
       </ul>
     </nav>
@@ -58,13 +59,13 @@
       <aside class="cs-sidebar">
         <nav aria-label="Case study navigation">
           <ul class="cs-nav">
-            <li><a href="#overview" class="active">Overview</a></li>
-            <li><a href="#situation">Situation</a></li>
-            <li><a href="#opportunity">Opportunity</a></li>
-            <li><a href="#my-role">My Role</a></li>
-            <li><a href="#actions">Actions</a></li>
+            <li><a href="#hero" class="active">Overview</a></li>
             <li><a href="#results">Results</a></li>
-            <li><a href="#before-after">Before vs After</a></li>
+            <li><a href="#situation">Situation</a></li>
+            <li><a href="#task">Task</a></li>
+            <li><a href="#action">Action</a></li>
+            <li><a href="#system-impact">System Impact</a></li>
+            <li><a href="#results-expanded">Impact</a></li>
             <li><a href="#reflection">Reflection</a></li>
           </ul>
         </nav>
@@ -72,10 +73,10 @@
 
       <main class="cs-main">
 
-        <section class="cs-hero" id="overview">
+        <section class="cs-hero" id="hero">
           <p class="cs-eyebrow">Square · Banking · Multi-quarter initiative</p>
-          <h1>Increasing Checking Adoption Across Square</h1>
-          <p class="cs-hero-summary">As Square expanded its banking ecosystem, more sellers were enrolling in Square Checking during onboarding — but many never activated their accounts or engaged with core banking features after signup.</p>
+          <h1>Closing the Activation Gap in Square Checking</h1>
+          <p class="cs-hero-summary">Design DRI for a cross-surface initiative that shifted Square Checking from acquired accounts to active financial relationships — by fixing seller mental models around activation and money movement, not signup volume.</p>
 
           <div class="cs-meta-grid">
             <div class="cs-meta-item">
@@ -84,143 +85,157 @@
             </div>
             <div class="cs-meta-item">
               <label>Scope</label>
-              <span>Strategy · Research · UX · Prototyping</span>
+              <span>Strategy · Checking · Debit · Money Movement</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Timeline</label>
+              <span>Multi-quarter</span>
             </div>
             <div class="cs-meta-item">
               <label>Partners</label>
-              <span>PM, Engineering, Data Science, Content</span>
-            </div>
-            <div class="cs-meta-item">
-              <label>Surfaces</label>
-              <span>Point of Sale · Web</span>
+              <span>PM · Engineering · Data Science · Growth</span>
             </div>
           </div>
 
-          <div class="cs-metrics-row">
+          <div class="cs-metrics-row cs-metrics-row--4">
             <div class="metric-card">
               <p class="metric-card__value">54% → 59%</p>
-              <p class="metric-card__label">Organic seller activation</p>
-              <p class="metric-card__context">Among organically enrolled sellers</p>
+              <p class="metric-card__label">Activation</p>
             </div>
             <div class="metric-card">
-              <p class="metric-card__value">~32% → high 40s</p>
-              <p class="metric-card__label">Onboarding seller activation</p>
-              <p class="metric-card__context">Onboarding-acquired users</p>
+              <p class="metric-card__value">32% → 40%+</p>
+              <p class="metric-card__label">Onboarding activation</p>
             </div>
             <div class="metric-card">
-              <p class="metric-card__value">↓ Drop-off</p>
-              <p class="metric-card__label">Post-verification friction</p>
-              <p class="metric-card__context">Reduced onboarding drop-off after ID verification</p>
+              <p class="metric-card__value">18% → 44%</p>
+              <p class="metric-card__label">Apple Pay / Wallet</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">29% → 51%</p>
+              <p class="metric-card__label">First card spend</p>
             </div>
           </div>
         </section>
 
-        <section class="cs-section" id="executive-summary">
-          <h2>Executive Summary</h2>
-          <p class="cs-lead">Over the course of a multi-quarter product cycle, I led end-to-end product design efforts across Point of Sale and web to improve seller understanding, activation, and engagement with Square Checking.</p>
-          <p>By combining customer research, behavioral data, experimentation, and cross-functional alignment, we redesigned key onboarding and account experiences that helped close activation gaps and increase engagement among newly enrolled sellers.</p>
-          <ul>
-            <li>Increased activation among organically enrolled sellers from <strong>54% → 59%</strong></li>
-            <li>Activation among onboarding-acquired users improved substantially toward our target, moving from approximately <strong>32% toward the high-40% range</strong></li>
-            <li>Reduced onboarding drop-off after identity verification</li>
-            <li>Increased engagement with core banking features including debit card usage, account management, and deposits</li>
-          </ul>
+        <section class="cs-section cs-section--results" id="results">
+          <h2>Results</h2>
+
+          <div class="results-table-wrap results-table-wrap--prominent">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Before</th>
+                  <th>After</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Activation</td>
+                  <td>54%</td>
+                  <td><strong>59%</strong></td>
+                </tr>
+                <tr>
+                  <td>Onboarding activation</td>
+                  <td>32%</td>
+                  <td><strong>40%+</strong></td>
+                </tr>
+                <tr>
+                  <td>Apple Pay / Wallet</td>
+                  <td>18%</td>
+                  <td><strong>44%</strong></td>
+                </tr>
+                <tr>
+                  <td>First card spend</td>
+                  <td>29%</td>
+                  <td><strong>51%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="cs-results-interpretation">Sellers who treated Checking as their financial home activated faster, spent sooner, and kept money inside Square instead of routing payouts elsewhere.</p>
         </section>
 
         <section class="cs-section" id="situation">
           <h2>Situation</h2>
-          <p class="cs-lead">Square Checking offered sellers a business bank account tightly integrated with their existing Square ecosystem.</p>
-          <p>As enrollment expanded through seller onboarding, activation rates lagged behind expectations. Many sellers successfully signed up for Checking but failed to complete key actions needed to realize value from the product.</p>
-          <p>The team knew activation was critical because activated sellers were significantly more likely to engage with Square Banking, use their debit card, receive deposits, and remain active customers over time.</p>
+          <p class="cs-lead">Square scaled Checking enrollment through seller onboarding — but activation did not follow.</p>
+          <p>Onboarding-acquired sellers activated at roughly <strong>32%</strong>, nearly <strong>23 points below</strong> organic signups at <strong>54%</strong>. Many completed identity verification yet never formed a banking relationship with Square.</p>
+          <p>Behavior told the rest of the story: sellers continued sending payouts to external banks, treating Checking as a pass-through rather than their business account. The gap was not awareness of the product — it was adoption of Square as a place to hold and move money.</p>
 
-          <figure class="cs-figure">
-            <img src="checking-before.png" alt="Original Checking home experience before redesign">
-            <figcaption>Original Checking home experience</figcaption>
+          <figure class="cs-figure cs-figure--wide">
+            <img src="checking-activation-funnel.png" alt="Activation rate comparison: 54.1% organic Checking signups vs 31.8% Square onboarding Checking signups, a 23% activation gap">
+            <figcaption>Activation gap · Organic vs onboarding-acquired sellers</figcaption>
           </figure>
         </section>
 
-        <section class="cs-section" id="opportunity">
-          <h2>Opportunity</h2>
-          <p class="cs-lead">Through research and behavioral analysis, we identified three key issues holding back activation.</p>
-
-          <div class="process-steps">
-            <div class="process-step">
-              <span class="process-step__num">1</span>
-              <div class="process-step__content">
-                <h4>Sellers didn't understand they had a bank account</h4>
-                <p>Many sellers completed onboarding but did not fully realize they had enrolled in Square Checking.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">2</span>
-              <div class="process-step__content">
-                <h4>The value of Checking was unclear</h4>
-                <p>Critical actions such as finding account numbers, managing debit cards, receiving deposits, and sending money were difficult to discover.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">3</span>
-              <div class="process-step__content">
-                <h4>Key activation actions were buried</h4>
-                <p>Important onboarding steps and banking tools were hidden behind navigation patterns that sellers rarely explored.</p>
-              </div>
-            </div>
-          </div>
-
-          <p>These issues created friction immediately after signup and contributed to lower activation rates among onboarding-acquired sellers.</p>
-        </section>
-
-        <section class="cs-section" id="my-role">
-          <h2>My Role</h2>
-          <p class="cs-lead">I led the initiative from discovery through launch as Design Directly Responsible Individual (DRI).</p>
-          <p>My responsibilities included:</p>
+        <section class="cs-section" id="task">
+          <h2>Task</h2>
+          <p class="cs-lead">Reframe the problem from interface fixes to behavioral change.</p>
+          <p>The team initially treated low activation as a discoverability issue. Research and funnel analysis showed the opposite: sellers held the wrong <strong>mental model</strong>. They did not see Checking as a bank account — they saw it as another Square feature layered onto payments.</p>
+          <p>I reframed the work around jobs to be done:</p>
           <ul>
-            <li>Defining the experience strategy</li>
-            <li>Conducting and synthesizing research</li>
-            <li>Identifying activation opportunities</li>
-            <li>Partnering with data science to understand drop-off behavior</li>
-            <li>Facilitating alignment across Banking, Growth, and Platform teams</li>
-            <li>Designing and validating solutions</li>
-            <li>Supporting experimentation and launch planning</li>
+            <li>Recognize they have a business bank account at Square</li>
+            <li>Access and understand their balance and payouts</li>
+            <li>Spend from Square via debit card and digital wallet</li>
+            <li>Move money on their terms — without defaulting to an external bank</li>
           </ul>
-          <p>This work spanned multiple surfaces across Point of Sale and web and required balancing customer needs, technical constraints, and business objectives.</p>
+          <p>Success meant shifting <strong>activation</strong> and <strong>money movement</strong> behavior, not increasing signup volume.</p>
         </section>
 
-        <section class="cs-section" id="actions">
-          <h2>Actions</h2>
-          <p class="cs-lead">Four strategic workstreams reframed the problem from increasing signups to increasing successful activation.</p>
+        <section class="cs-section" id="action">
+          <h2>Action</h2>
+          <p class="cs-lead">Five workstreams — from diagnosis through execution.</p>
 
           <div class="cs-accordion">
             <details class="cs-accordion-item" open>
-              <summary>1 · Identified activation as the primary growth lever</summary>
+              <summary>Discovery · Research and journey mapping</summary>
               <div class="cs-accordion-body">
-                <p>I partnered with Product and Data Science to map the seller journey and identify where activation broke down. We found that a significant percentage of sellers completed identity verification but never fully activated their account.</p>
-                <p>This reframed the problem from "increase signups" to "increase successful activation."</p>
-                <figure class="cs-figure cs-figure--wide">
-                  <img src="checking-activation-funnel.png" alt="Activation rate comparison: 54.1% organic Checking signups vs 31.8% Square onboarding Checking signups, a 23% activation gap">
-                  <figcaption>Activation rate · Organic vs onboarding-acquired sellers</figcaption>
-                </figure>
+                <p>Partnered with PM and Data Science to map where activation broke down across signup, verification, first sale, and first transfer. The journey exposed a consistent pattern: sellers celebrated getting paid, then immediately looked for how to move money out — bypassing Checking entirely.</p>
                 <figure class="cs-figure cs-figure--wide">
                   <img src="checking-journey-map.png" alt="User journey map: sellers opened a Square Checking account but didn't adopt it">
-                  <figcaption>Seller journey map · Goals, actions, mental models, and pain points across signup through fund transfer</figcaption>
+                  <figcaption>Seller journey · Goals, mental models, and pain points from signup through fund transfer</figcaption>
                 </figure>
               </div>
             </details>
 
             <details class="cs-accordion-item">
-              <summary>2 · Clarified the value of Checking</summary>
+              <summary>Strategy · Banking as financial home</summary>
               <div class="cs-accordion-body">
-                <p>Research showed sellers often viewed Checking as another Square feature rather than a business bank account. To address this, I redesigned key account surfaces to:</p>
+                <p>Defined an experience strategy that positioned Square Banking as the seller's financial home — not a bolt-on to the payments stack. Prioritized three activation levers: account ownership, debit adoption, and in-product money movement.</p>
+                <p>This shifted roadmap conversations from feature parity to behavioral outcomes.</p>
+              </div>
+            </details>
+
+            <details class="cs-accordion-item">
+              <summary>Alignment · North star and shared metrics</summary>
+              <div class="cs-accordion-body">
+                <p>Checking touched Banking, Growth, and Platform teams with separate roadmaps. I facilitated alignment on a north star vision and a shared metrics framework — activation, first spend, and wallet adoption — so teams could prioritize independently without fragmenting the seller experience.</p>
+                <div class="image-slot image-slot--wide">
+                  <span class="image-slot__label">[INSERT IMAGE HERE]</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="cs-accordion-item">
+              <summary>Exploration · Vision prototyping</summary>
+              <div class="cs-accordion-body">
+                <p>Before committing engineering investment, I used AI-assisted prototyping in Cursor to pressure-test north star directions across Checking, debit, and money movement surfaces. This accelerated stakeholder alignment and narrowed the execution scope to the highest-leverage behavioral changes.</p>
+              </div>
+            </details>
+
+            <details class="cs-accordion-item">
+              <summary>Execution · Debit Card and Money Movement</summary>
+              <div class="cs-accordion-body">
+                <p>Shipped redesigns across Checking home, debit card activation, and money movement — organized around spend and transfer behaviors rather than surface-level reorganization.</p>
                 <ul>
-                  <li>Reinforce account ownership</li>
-                  <li>Surface account and routing information</li>
-                  <li>Highlight debit card access</li>
-                  <li>Improve visibility of deposit and payment capabilities</li>
-                  <li>Create stronger mental models around banking functionality</li>
+                  <li>Reinforced account ownership and payout visibility at the Checking home</li>
+                  <li>Accelerated debit card and Apple Pay / Wallet adoption paths</li>
+                  <li>Simplified money movement so sellers could act without leaving Square</li>
                 </ul>
                 <div class="before-after" data-before-after style="margin-top:1.25rem;">
                   <div class="before-after__header">
-                    <h3>Checking home · Before vs After</h3>
+                    <h3>Checking home · Before vs after</h3>
                     <div class="before-after__labels">
                       <span>Before</span>
                       <span>After</span>
@@ -239,163 +254,49 @@
                     <input type="range" class="before-after__slider" min="0" max="100" value="50" aria-label="Drag to compare before and after">
                   </div>
                 </div>
-              </div>
-            </details>
-
-            <details class="cs-accordion-item">
-              <summary>3 · Prioritized core banking actions</summary>
-              <div class="cs-accordion-body">
-                <p>I reorganized the experience around the actions sellers most frequently needed:</p>
-                <ul>
-                  <li>Access account information</li>
-                  <li>Activate and manage debit cards</li>
-                  <li>Receive deposits</li>
-                  <li>Send and spend money</li>
-                </ul>
-                <p>Rather than introducing additional features, we simplified the experience and reduced friction around existing behaviors.</p>
-                <figure class="cs-figure">
-                  <img src="checking-after.png" alt="New banking experience after redesign">
-                  <figcaption>New banking experience · Square Checking</figcaption>
+                <figure class="cs-figure cs-figure--wide cs-prototype">
+                  <div class="cs-prototype__embed">
+                    <iframe
+                      title="Square Checking redesign prototype"
+                      src="https://embed.figma.com/proto/1dSTyZctUteozMk19tEPid/Portfolio?node-id=953-3303&viewport=309%2C630%2C0.2&scaling=scale-down&content-scaling=fixed&starting-point-node-id=953%3A3303&show-proto-sidebar=1&page-id=&embed-host=share"
+                      allowfullscreen
+                      loading="lazy"></iframe>
+                  </div>
+                  <figcaption>Interactive prototype · Checking, debit, and money movement flows</figcaption>
                 </figure>
               </div>
             </details>
-
-            <details class="cs-accordion-item">
-              <summary>4 · Aligned multiple teams around a shared vision</summary>
-              <div class="cs-accordion-body">
-                <p>Because Checking touched several product areas, success depended on coordination across teams. I facilitated workshops, created experience principles, and aligned stakeholders around a unified activation strategy.</p>
-                <p>This helped prioritize work across multiple roadmaps while maintaining a consistent seller experience.</p>
-                <div class="image-slot image-slot--wide">
-                  <span class="image-slot__label">Image · Strategy framework or north star vision</span>
-                </div>
-              </div>
-            </details>
           </div>
         </section>
 
-        <section class="cs-section" id="results">
+        <section class="cs-section" id="system-impact">
+          <h2>System Impact</h2>
+          <p class="cs-lead">Established reusable patterns that extended beyond Checking.</p>
+          <ul>
+            <li>Shared activation framework adopted across Banking product areas</li>
+            <li>Consistent mental model language — financial home, money movement, first spend — applied across POS and web</li>
+            <li>Reusable patterns for account ownership, debit activation, and payout visibility surfaced in adjacent banking initiatives</li>
+            <li>Cross-team metric alignment reduced conflicting priorities across Growth and Platform roadmaps</li>
+          </ul>
+        </section>
+
+        <section class="cs-section" id="results-expanded">
           <h2>Results</h2>
-          <p class="cs-lead">The redesigned experience improved seller understanding of Checking and increased engagement with core banking actions.</p>
-
-          <h3 class="cs-subheading">Activation performance</h3>
-          <div class="results-table-wrap">
-            <table class="results-table">
-              <thead>
-                <tr>
-                  <th>Metric</th>
-                  <th>Before</th>
-                  <th>After</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Organic seller activation</td>
-                  <td>54%</td>
-                  <td><strong>59%</strong></td>
-                </tr>
-                <tr>
-                  <td>Onboarding seller activation</td>
-                  <td>~32% baseline</td>
-                  <td><strong>High-40% range</strong></td>
-                </tr>
-                <tr>
-                  <td>Onboarding drop-off</td>
-                  <td>High</td>
-                  <td><strong>Reduced</strong></td>
-                </tr>
-                <tr>
-                  <td>Core banking engagement</td>
-                  <td>Baseline</td>
-                  <td><strong>Increased</strong></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="cs-metrics-row" style="margin-top:2rem;">
-            <div class="metric-card">
-              <p class="metric-card__value">+5 pts</p>
-              <p class="metric-card__label">Organic activation</p>
-              <p class="metric-card__context">54% → 59%</p>
-            </div>
-            <div class="metric-card">
-              <p class="metric-card__value">↑</p>
-              <p class="metric-card__label">Onboarding activation</p>
-              <p class="metric-card__context">~32% toward high-40% range</p>
-            </div>
-            <div class="metric-card">
-              <p class="metric-card__value">↑</p>
-              <p class="metric-card__label">Core feature engagement</p>
-              <p class="metric-card__context">Debit card, deposits, account management</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="cs-section" id="before-after">
-          <h2>What Changed</h2>
-          <p class="cs-lead">A clear before and after across seller understanding, discoverability, and core banking actions.</p>
-
-          <div class="before-after-grid">
-            <div class="before-after-column">
-              <h3 class="cs-subheading">Before</h3>
-              <ul>
-                <li>Sellers often didn't realize they had a bank account</li>
-                <li>Banking capabilities were difficult to discover</li>
-                <li>Key actions required multiple steps</li>
-                <li>Debit card value was underrepresented</li>
-              </ul>
-              <figure class="cs-figure">
-                <img src="checking-before.png" alt="Before: original Checking experience">
-                <figcaption>Before experience</figcaption>
-              </figure>
-            </div>
-            <div class="before-after-column">
-              <h3 class="cs-subheading">After</h3>
-              <ul>
-                <li>Checking value clearly communicated</li>
-                <li>Account information easily accessible</li>
-                <li>Core banking actions surfaced prominently</li>
-                <li>Debit card and spending experiences integrated into onboarding</li>
-              </ul>
-              <figure class="cs-figure">
-                <img src="checking-after.png" alt="After: redesigned Checking experience">
-                <figcaption>After experience</figcaption>
-              </figure>
-            </div>
-          </div>
-
-          <div class="before-after" data-before-after style="margin-top:2rem;">
-            <div class="before-after__header">
-              <h3>Interactive comparison · Checking home</h3>
-              <div class="before-after__labels">
-                <span>Before</span>
-                <span>After</span>
-              </div>
-            </div>
-            <div class="before-after__compare">
-              <div class="before-after__layer">
-                <img src="checking-before.png" alt="Before Checking home">
-              </div>
-              <div class="before-after__layer before-after__after">
-                <img src="checking-after.png" alt="After Checking home">
-              </div>
-              <div class="before-after__handle" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg>
-              </div>
-              <input type="range" class="before-after__slider" min="0" max="100" value="50" aria-label="Drag to compare before and after">
-            </div>
-          </div>
+          <p class="cs-lead">Behavior changed — not just numbers on a dashboard.</p>
+          <p>Onboarding-acquired sellers began treating Checking as a real account. More completed activation, added cards to Apple Pay and Wallet, and made first purchases from Square-issued debit — signals that the mental model had shifted.</p>
+          <p>Money movement patterns changed too. Sellers who previously routed payouts to external banks increasingly held and spent balances inside Square. Post-verification drop-off fell as the path from signup to first meaningful banking action shortened.</p>
+          <p>The work did not require major new functionality. It required clarity — about what Checking is, how money flows, and why Square should be the place sellers manage it.</p>
         </section>
 
         <section class="cs-section" id="reflection">
           <h2>Reflection</h2>
-          <p class="cs-lead">This project reinforced that activation is often a product understanding problem rather than a feature problem.</p>
-          <p>By clarifying value, simplifying key workflows, and aligning teams around customer needs, we were able to improve activation without introducing significant new functionality.</p>
-          <p>More importantly, the work established a foundation for future growth initiatives across the Square Banking ecosystem.</p>
+          <p class="cs-lead">Activation is a mental model problem.</p>
+          <p>Sellers did not fail to activate because they lacked buttons or labels. They failed because they never understood Checking as their bank. Fixing that required strategy, alignment, and behavioral design — not incremental UI polish.</p>
+          <p>At Staff level, the highest-leverage work was reframing the problem, aligning teams on shared outcomes, and using systems thinking — including AI-assisted exploration — to validate direction before scale. The metrics followed once sellers understood where their money lived and how to move it.</p>
 
           <div class="quote-block">
-            <p class="quote-block__text">"Activation is often a product understanding problem rather than a feature problem."</p>
-            <p class="quote-block__attribution">— Key takeaway from this initiative</p>
+            <p class="quote-block__text">"Activation is a mental model problem — not a feature problem."</p>
+            <p class="quote-block__attribution">— Core insight from this initiative</p>
           </div>
         </section>
 
@@ -403,6 +304,6 @@
     </div>
   </div>
 
-  <script src="case-study.js?v=1"></script>
+  <script src="case-study.js?v=2"></script>
 </body>
 </html>

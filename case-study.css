@@ -44,22 +44,59 @@ body.case-study-body {
 .cs-gate.hidden { display: none; }
 
 .cs-gate-card {
+  position: relative;
   width: 100%;
   max-width: 400px;
   text-align: center;
+  padding: 2rem 1.5rem 1.5rem;
+}
+
+.cs-gate-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--cs-subtle);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.cs-gate-close:hover {
+  color: var(--cs-text);
+  background: var(--cs-surface);
 }
 
 .cs-gate-card h1 {
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: -0.02em;
-  margin: 0 0 0.5rem;
+  margin: 0 0 1.25rem;
 }
 
-.cs-gate-card p {
+.cs-gate-footer {
+  margin: 1.25rem 0 0;
+  font-size: 0.875rem;
   color: var(--cs-muted);
-  font-size: 0.95rem;
-  margin: 0 0 1.5rem;
+}
+
+.cs-gate-footer a {
+  color: var(--cs-text);
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.cs-gate-footer a:hover {
+  opacity: 0.7;
 }
 
 .cs-gate-form {
@@ -265,6 +302,29 @@ body.case-study-body {
   font-weight: 500;
 }
 
+.cs-prototype {
+  margin-top: 2.5rem;
+}
+
+.cs-prototype__embed {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--cs-radius);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: #fff;
+}
+
+.cs-prototype__embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .results-table-wrap {
   overflow-x: auto;
   margin: 1rem 0;
@@ -389,6 +449,35 @@ body.case-study-body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+}
+
+.cs-metrics-row--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.cs-section--results {
+  padding-top: 0;
+}
+
+.cs-results-interpretation {
+  margin: 1.5rem 0 0;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--cs-text);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.results-table-wrap--prominent {
+  margin-top: 0.5rem;
+}
+
+.results-table-wrap--prominent .results-table {
+  font-size: 1rem;
+}
+
+.results-table-wrap--prominent .results-table td strong {
+  font-size: 1.0625rem;
 }
 
 /* MetricCard */
