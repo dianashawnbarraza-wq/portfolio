@@ -43,36 +43,17 @@ body.case-study-body {
 
 .cs-gate.hidden { display: none; }
 
+.cs-gate-back {
+  position: absolute;
+  top: 0.85rem;
+  left: 24px;
+  z-index: 1;
+}
+
 .cs-gate-card {
-  position: relative;
   width: 100%;
   max-width: 400px;
   text-align: center;
-  padding: 2rem 1.5rem 1.5rem;
-}
-
-.cs-gate-close {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background: transparent;
-  color: var(--cs-subtle);
-  font-size: 1.5rem;
-  line-height: 1;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: color 0.2s ease, background 0.2s ease;
-}
-
-.cs-gate-close:hover {
-  color: var(--cs-text);
-  background: var(--cs-surface);
 }
 
 .cs-gate-card h1 {

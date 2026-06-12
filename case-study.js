@@ -7,11 +7,6 @@
   const form = document.getElementById('cs-gate-form');
   const errorEl = document.getElementById('cs-gate-error');
   const passwordInput = document.getElementById('cs-password');
-  const closeBtn = document.getElementById('cs-gate-close');
-
-  closeBtn.addEventListener('click', () => {
-    window.location.href = 'index.html';
-  });
 
   function unlock() {
     sessionStorage.setItem(STORAGE_KEY, '1');
