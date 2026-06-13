@@ -436,8 +436,26 @@ body.case-study-body {
   grid-template-columns: repeat(4, 1fr);
 }
 
-.cs-section--results {
-  padding-top: 0;
+.cs-section--impact {
+  padding-top: 120px;
+}
+
+.cs-section--impact h2 {
+  margin-top: 3.5rem;
+}
+
+.cs-impact-hero {
+  margin: 0;
+  text-align: center;
+}
+
+.cs-impact-hero img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  display: inline-block;
+  border-radius: var(--cs-radius);
+  border: 1px solid var(--cs-border);
 }
 
 .cs-results-interpretation {
