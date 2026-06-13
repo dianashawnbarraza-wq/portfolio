@@ -703,9 +703,10 @@ body.case-study-body {
 }
 
 .phone-shell {
-  width: min(100%, 280px);
+  width: fit-content;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 14px 10px 16px;
+  padding: 10px;
   background: linear-gradient(180deg, #2c2c2e 0%, #1c1c1e 100%);
   border-radius: 46px;
   box-shadow:
@@ -713,24 +714,26 @@ body.case-study-body {
     0 24px 48px rgba(0, 0, 0, 0.18);
 }
 
-.phone-shell__notch {
-  width: 96px;
-  height: 26px;
-  margin: 0 auto 10px;
-  background: #000;
-  border-radius: 20px;
+.phone-shell--before .phone-shell__screen {
+  width: 255px;
+}
+
+.phone-shell--after .phone-shell__screen {
+  width: 265px;
 }
 
 .phone-shell__screen {
   height: 520px;
+  max-width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   border-radius: 34px;
-  background: #000;
+  background: #fff;
+  line-height: 0;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 }
 
 .phone-shell__screen:focus {
@@ -749,10 +752,13 @@ body.case-study-body {
 
 .phone-shell__screen img {
   width: 100%;
+  max-width: none;
   height: auto;
   display: block;
-  border-radius: 0;
+  margin: 0;
   border: none;
+  border-radius: 0;
+  image-rendering: auto;
 }
 
 /* BeforeAfterComparison */
