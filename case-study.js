@@ -1,6 +1,6 @@
 (function () {
   const PASSWORD = 'iterate2026';
-  const STORAGE_KEY = 'cs-auth-checking-adoption';
+  const STORAGE_KEY = document.body.dataset.authKey || 'cs-auth-checking-adoption';
 
   const gate = document.getElementById('cs-gate');
   const content = document.getElementById('cs-content');
