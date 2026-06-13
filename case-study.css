@@ -454,9 +454,8 @@ body.case-study-body {
   max-width: 100%;
   height: auto;
   display: block;
-  border: none;
-  border-radius: 0;
-  background: transparent;
+  border-radius: var(--cs-radius);
+  border: 1px solid var(--cs-border);
 }
 
 .cs-results-interpretation {
