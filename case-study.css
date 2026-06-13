@@ -451,9 +451,9 @@ body.case-study-body {
 
 .cs-impact-hero img {
   width: 100%;
-  max-width: 320px;
+  max-width: 100%;
   height: auto;
-  display: inline-block;
+  display: block;
   border-radius: var(--cs-radius);
   border: 1px solid var(--cs-border);
 }
