@@ -233,8 +233,28 @@
 
         <section class="cs-section" id="design">
           <h2>Design</h2>
-          <p class="cs-lead">OCR-powered bill scanning that started from seller intent.</p>
-          <p>I advocated for an OCR-powered scanning experience that extracted key payment details directly from a bill document. Before, sellers completed a manual setup flow with required fields like vendor name, email, and contact name. After, the experience started from intent.</p>
+          <p class="cs-lead">From manual vendor setup to intent-first bill connection.</p>
+
+          <h3 class="cs-subheading">Before · Manual entry and cold start</h3>
+          <p>Before the redesign, Bill Pay required sellers to build every payment from scratch. Adding a bill meant searching for a vendor, creating a new vendor profile, and filling in contact, address, and bank details before a payment could move forward. This cold start created friction, drop-off, and made recurring bill setup especially painful.</p>
+
+          <div class="image-gallery image-gallery--three">
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-before-list.png" alt="Bill Pay list view with manual add flow" loading="lazy">
+              <figcaption>Bill Pay list · Manual add entry point</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-before-add-vendor.png" alt="Bill details screen requiring vendor selection or manual add" loading="lazy">
+              <figcaption>Bill details · Search or add a new vendor</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-before-create-vendor.png" alt="Create vendor form with manual contact and account fields" loading="lazy">
+              <figcaption>Create vendor · Multi-field manual setup</figcaption>
+            </figure>
+          </div>
+
+          <h3 class="cs-subheading">After · Intent-first bill connection</h3>
+          <p>I advocated for an OCR-powered scanning experience that extracted key payment details directly from a bill document. Instead of starting with vendor fields, the experience started from intent.</p>
           <ul>
             <li>Bill Pay list view with a clear entry point to add a bill</li>
             <li>"How would you like to pay?" with paths to scan a bill, pay a vendor, or mail a check</li>
