@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study · Increasing Successful Payment Completion for Square Bill Pay Vendors</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="favicon.png?v=1" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case-study.css?v=17">
+</head>
+<body class="case-study-body" data-auth-key="cs-auth-bill-pay-vendors">
+
+  <div class="cs-gate" id="cs-gate">
+    <a href="index.html" class="cs-gate-back cs-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Return to portfolio
+    </a>
+    <div class="cs-gate-card">
+      <h1>Enter a password</h1>
+      <form class="cs-gate-form" id="cs-gate-form">
+        <input type="password" id="cs-password" placeholder="Password" autocomplete="off" required>
+        <button type="submit">Continue</button>
+      </form>
+      <p class="cs-gate-error" id="cs-gate-error" aria-live="polite"></p>
+      <p class="cs-gate-footer">Don't have a password? <a href="index.html#contact">Get in touch →</a></p>
+    </div>
+  </div>
+
+  <div id="cs-content" hidden>
+
+    <header class="cs-topbar">
+      <div class="cs-topbar-inner">
+        <a href="index.html" class="cs-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back to portfolio
+        </a>
+        <span class="cs-topbar-label">Case study · Square Bill Pay</span>
+      </div>
+    </header>
+
+    <button class="cs-mobile-nav-btn" id="cs-mobile-nav-btn" type="button">Sections</button>
+
+    <nav class="cs-mobile-nav" id="cs-mobile-nav" aria-label="Case study sections">
+      <button class="cs-mobile-nav-close" id="cs-mobile-nav-close" type="button" aria-label="Close">&times;</button>
+      <ul>
+        <li><a href="#hero">Overview</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#situation">Situation</a></li>
+        <li><a href="#task">Task</a></li>
+        <li><a href="#action">Action</a></li>
+        <li><a href="#exploration">Exploration</a></li>
+        <li><a href="#design">Design</a></li>
+        <li><a href="#system-impact">System Impact</a></li>
+        <li><a href="#results-expanded">Results</a></li>
+        <li><a href="#reflection">Reflection</a></li>
+      </ul>
+    </nav>
+
+    <div class="cs-shell">
+
+      <aside class="cs-sidebar">
+        <nav aria-label="Case study navigation">
+          <ul class="cs-nav">
+            <li><a href="#hero" class="active">Overview</a></li>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#situation">Situation</a></li>
+            <li><a href="#task">Task</a></li>
+            <li><a href="#action">Action</a></li>
+            <li><a href="#exploration">Exploration</a></li>
+            <li><a href="#design">Design</a></li>
+            <li><a href="#system-impact">System Impact</a></li>
+            <li><a href="#results-expanded">Results</a></li>
+            <li><a href="#reflection">Reflection</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="cs-main">
+
+        <section class="cs-hero" id="hero">
+          <p class="cs-eyebrow">Square · Bill Pay · Vendor acceptance</p>
+          <h1>Increasing Successful Payment Completion for Square Bill Pay Vendors</h1>
+          <p class="cs-hero-summary">Building trust into Square Bill Pay's payment acceptance experience. I led design for a secure bank connection flow that gave vendors a faster, more familiar way to receive payments without relying on manual entry or printed checks.</p>
+
+          <div class="cs-meta-grid">
+            <div class="cs-meta-item">
+              <label>Role</label>
+              <span>Design DRI</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Scope</label>
+              <span>Vendor acceptance · Bill Pay · Payments</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Timeline</label>
+              <span>4 weeks</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Partners</label>
+              <span>PM · Engineering · Risk</span>
+            </div>
+          </div>
+
+          <div class="cs-metrics-row cs-metrics-row--4">
+            <div class="metric-card">
+              <p class="metric-card__value">52% → 73%</p>
+              <p class="metric-card__label">Payment acceptance completion</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">78% → 49%</p>
+              <p class="metric-card__label">Manual bank entry</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">↑</p>
+              <p class="metric-card__label">Vendor activation speed</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">↑</p>
+              <p class="metric-card__label">Seller payment confidence</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section cs-section--impact" id="impact">
+          <figure class="cs-impact-hero">
+            <img src="square-bill-pay-v3.png" alt="Square Bill Pay vendor payment acceptance experience">
+          </figure>
+          <h2>Impact</h2>
+
+          <div class="results-table-wrap results-table-wrap--prominent">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Before</th>
+                  <th>After</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Vendor payment acceptance completion</td>
+                  <td>52%</td>
+                  <td><strong>73%</strong></td>
+                </tr>
+                <tr>
+                  <td>Manual bank entry</td>
+                  <td>78%</td>
+                  <td><strong>49%</strong></td>
+                </tr>
+                <tr>
+                  <td>Vendor activation</td>
+                  <td>Delayed by setup friction</td>
+                  <td><strong>Faster path to payout</strong></td>
+                </tr>
+                <tr>
+                  <td>Seller confidence</td>
+                  <td>Uncertain vendor completion</td>
+                  <td><strong>Higher acceptance reliability</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="cs-results-interpretation">The new acceptance experience did not just remove steps. It gave vendors a reason to finish setup by replacing manual data entry with a secure connection pattern they already understood from banking products.</p>
+        </section>
+
+        <section class="cs-section" id="situation">
+          <h2>Situation</h2>
+          <p class="cs-lead">Square Bill Pay enabled sellers to send payments to vendors, but vendors had limited ways to receive those funds.</p>
+          <p>Previously, vendors could manually enter their bank account information or download a check to process payment externally. Both options supported delivery, but they introduced friction at the moment vendors needed to take action.</p>
+          <p>Vendors wanted to get paid. Connecting a bank account made that harder than it should have been. They received an email when a payment was waiting, then faced a setup flow that asked for sensitive financial details or pushed them toward a check they might never deposit.</p>
+          <p>That created real problems on both sides of the transaction:</p>
+          <ul>
+            <li>Manual entry increased the chance of errors</li>
+            <li>Vendors hesitated to share bank details without clear context</li>
+            <li>Check based payments slowed money movement or went uncashed</li>
+            <li>Sellers lacked confidence that vendors would successfully accept payments</li>
+          </ul>
+          <p>The problem was not only reducing steps. We needed to build enough trust for vendors to complete setup in the first place.</p>
+        </section>
+
+        <section class="cs-section" id="task">
+          <h2>Task</h2>
+          <p class="cs-lead">Help vendors securely connect their bank account and receive payments faster.</p>
+          <p>We identified an opportunity to create a more familiar banking experience by introducing a trusted account connection flow. The goal was to reduce friction without reducing confidence.</p>
+          <p>I needed to define a vendor payment acceptance experience that felt safe, explained why Square needed account access, and still met financial compliance requirements across product, engineering, and risk partners.</p>
+        </section>
+
+        <section class="cs-section" id="action">
+          <h2>Action</h2>
+          <p class="cs-lead">Three workstreams from trust framing through compliant delivery.</p>
+
+          <div class="cs-accordion">
+            <details class="cs-accordion-item" open>
+              <summary>Discovery · Reframing the problem around trust</summary>
+              <div class="cs-accordion-body">
+                <p>Early exploration showed the biggest barrier was not simply the number of fields. Vendors needed confidence before they acted: why Square needed this information, whether their account was secure, and what happened after they connected.</p>
+                <p>I shifted the experience from "Enter your bank details" to "Securely connect your existing bank account." That reframing changed how we wrote copy, sequenced the flow, and evaluated success.</p>
+              </div>
+            </details>
+
+            <details class="cs-accordion-item">
+              <summary>Strategy · A new way to get paid</summary>
+              <div class="cs-accordion-body">
+                <p>The redesigned experience added a third path for vendors: connect a bank account through a trusted integration, alongside manual entry and check download.</p>
+                <p>Instead of starting with routing numbers, account numbers, and verification fields, vendors could connect via Plaid securely, enter banking information manually if they preferred, or download a check. The fastest path became the most visible one without removing fallback options compliance required.</p>
+              </div>
+            </details>
+
+            <details class="cs-accordion-item">
+              <summary>Delivery · Designing for confidence</summary>
+              <div class="cs-accordion-body">
+                <p>Financial products require users to feel safe before taking action. I partnered with product, engineering, and risk to simplify the setup journey while preserving the controls those teams needed.</p>
+                <p>Key decisions included clear expectations in messaging, familiar bank connection interaction patterns, and focused actions that guided vendors toward the fastest path to payment instead of presenting every option at once.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section class="cs-section" id="exploration">
+          <h2>Exploration</h2>
+          <p class="cs-lead">Mapping vendor concerns to design opportunities.</p>
+          <p>Research surfaced three recurring concerns during setup: privacy, security, and confusing steps with no explanation of what came next. Those insights shaped an opportunity map that prioritized explaining why account connection was needed, using familiar patterns vendors recognized from other financial products, and reducing manual entry wherever possible.</p>
+
+          <figure class="cs-figure cs-figure--wide">
+            <div class="image-slot image-slot--wide">
+              <span class="image-slot__label">Research insights</span>
+            </div>
+            <figcaption>Opportunity map · Vendor concerns mapped to design responses</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section" id="design">
+          <h2>Design</h2>
+          <p class="cs-lead">From manual setup to a trusted connection flow.</p>
+
+          <h3 class="cs-subheading">Before · Existing vendor payment acceptance</h3>
+          <p>When a vendor received a payment notification, the existing flow asked them to choose a payout method, then either type sensitive bank details by hand or download a check. Manual input, limited options, and delayed activation lowered confidence during setup.</p>
+
+          <div class="process-steps">
+            <div class="process-step">
+              <span class="process-step__num">1</span>
+              <div class="process-step__content">
+                <h4>Payment received</h4>
+                <p>Vendor gets an email that funds are waiting to be accepted.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">2</span>
+              <div class="process-step__content">
+                <h4>Choose payout method</h4>
+                <p>Vendor selects between bank deposit or check download.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">3</span>
+              <div class="process-step__content">
+                <h4>Manual bank entry or check</h4>
+                <p>Vendor enters routing and account numbers, or prints a check to process elsewhere.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">4</span>
+              <div class="process-step__content">
+                <h4>Verification</h4>
+                <p>Additional steps confirm account details before funds move.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">5</span>
+              <div class="process-step__content">
+                <h4>Payment received</h4>
+                <p>Funds arrive after setup completes, often with delay or drop off along the way.</p>
+              </div>
+            </div>
+          </div>
+
+          <figure class="cs-figure cs-figure--wide">
+            <div class="image-slot image-slot--wide">
+              <span class="image-slot__label">Before flow diagram</span>
+            </div>
+            <figcaption>Before state · Manual entry and check based acceptance paths</figcaption>
+          </figure>
+
+          <h3 class="cs-subheading">After · Secure bank connection</h3>
+          <p>The new experience introduced connect bank as a primary path. Vendors authenticated through a familiar connection model, saw what information was shared, and reached confirmation faster. Manual entry and check download remained available, but the flow emphasized the path most likely to complete.</p>
+
+          <div class="process-steps">
+            <div class="process-step">
+              <span class="process-step__num">1</span>
+              <div class="process-step__content">
+                <h4>Connect bank</h4>
+                <p>Vendor chooses a secure connection instead of typing account details.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">2</span>
+              <div class="process-step__content">
+                <h4>Authenticate</h4>
+                <p>Vendor signs in through a trusted bank connection experience.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">3</span>
+              <div class="process-step__content">
+                <h4>Payment received</h4>
+                <p>Funds move with fewer errors and less time between notification and payout.</p>
+              </div>
+            </div>
+          </div>
+
+          <figure class="cs-figure cs-figure--wide">
+            <div class="image-slot image-slot--wide">
+              <span class="image-slot__label">Before / after comparison</span>
+            </div>
+            <figcaption>Flow comparison · Manual entry versus secure connection</figcaption>
+          </figure>
+
+          <h3 class="cs-subheading">Shipped experience</h3>
+          <p>The final designs focused on clarity at each decision point: why connection was needed, what happened next, and how vendors could complete setup without feeling exposed.</p>
+
+          <div class="image-gallery image-gallery--three">
+            <figure class="cs-figure cs-figure--gallery">
+              <div class="image-slot">
+                <span class="image-slot__label">Payment notification</span>
+              </div>
+              <figcaption>Payment notification</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <div class="image-slot">
+                <span class="image-slot__label">Connect bank</span>
+              </div>
+              <figcaption>Connect bank CTA</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <div class="image-slot">
+                <span class="image-slot__label">Bank selection</span>
+              </div>
+              <figcaption>Bank selection</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <div class="image-slot">
+                <span class="image-slot__label">Confirmation</span>
+              </div>
+              <figcaption>Confirmation state</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="cs-section" id="system-impact">
+          <h2>System Impact</h2>
+          <p class="cs-lead">Established trust patterns for vendor facing payment flows.</p>
+          <ul>
+            <li>Secure bank connection model reusable across vendor acceptance surfaces</li>
+            <li>Shared messaging framework explaining why account access is needed and what happens next</li>
+            <li>Focused action pattern that guides users to the fastest compliant path without hiding required fallbacks</li>
+            <li>Cross functional alignment between design, product, engineering, and risk on vendor setup requirements</li>
+          </ul>
+        </section>
+
+        <section class="cs-section" id="results-expanded">
+          <h2>Results</h2>
+          <p class="cs-lead">A more streamlined path for vendors to receive money.</p>
+          <p>The new payment acceptance experience increased vendor payment acceptance completion from <strong>52% to 73%</strong> and reduced reliance on manual bank entry from <strong>78% to 49%</strong>. Vendors reached payout faster, and sellers gained confidence that payments would actually complete.</p>
+
+          <figure class="cs-figure cs-figure--wide">
+            <div class="image-slot image-slot--wide">
+              <span class="image-slot__label">Experiment results</span>
+            </div>
+            <figcaption>Metrics dashboard · Acceptance completion and manual entry rates</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section" id="reflection">
+          <h2>Reflection</h2>
+          <p class="cs-lead">Payment experiences depend on trust, not just transactions.</p>
+          <p>By introducing a secure bank connection flow, we transformed vendor payment acceptance from a manual setup process into a faster, more familiar experience. In fintech, reducing friction is only half the problem. The best experiences remove uncertainty so users feel confident moving money.</p>
+          <p>This project reinforced that vendors were willing to connect their accounts when the product explained why, used patterns they recognized, and respected the sensitivity of the moment. That lesson applies anywhere money changes hands between two parties who do not share the same context.</p>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="case-study.js?v=5"></script>
+</body>
+</html>

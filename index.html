@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D. Shawn Barraza | Senior Product Designer</title>
-  <link rel="stylesheet" href="styles.css?v=54">
+  <link rel="stylesheet" href="styles.css?v=55">
   <link rel="icon" href="favicon.png?v=1" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,9 +20,9 @@
       </button>
       <nav id="desktop-nav">
         <ul>
-          <li><a href="index.html" class="active">Projects</a></li>
-          <li><a href="https://www.dropbox.com/scl/fi/dkzby1m0ysuqr9kfutpiz/Diana-Shawn-Barraza-Design-Portfolio-May-2026.pdf?rlkey=ckn6az8215zdku1g57gd9855a&st=bg5yp2i5&dl=0" target="_blank" rel="noopener noreferrer">View portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#featured-works">Work</a></li>
+          <li><a href="mailto:dianashawnbarraza@gmail.com">Contact</a></li>
+          <li><a href="https://www.linkedin.com/in/dianashawnbarraza" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         </ul>
       </nav>
     </header>
@@ -32,9 +32,9 @@
       <div class="modal-content fullscreen-modal mobile-nav-modal">
         <button class="modal-close" id="mobile-nav-close" aria-label="Close menu">&times;</button>
         <ul>
-          <li><a href="index.html" class="active">Projects</a></li>
-          <li><a href="https://www.dropbox.com/scl/fi/dkzby1m0ysuqr9kfutpiz/Diana-Shawn-Barraza-Design-Portfolio-May-2026.pdf?rlkey=ckn6az8215zdku1g57gd9855a&st=bg5yp2i5&dl=0" target="_blank" rel="noopener noreferrer">View portfolio</a></li>
-          <li><a href="#contact" class="mobile-contact-link">Contact</a></li>
+          <li><a href="#featured-works">Work</a></li>
+          <li><a href="mailto:dianashawnbarraza@gmail.com">Contact</a></li>
+          <li><a href="https://www.linkedin.com/in/dianashawnbarraza" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         </ul>
       </div>
     </div>
@@ -65,6 +65,8 @@
           <h3 class="ethos-title">How I work</h3>
           <p class="hero-intro ethos-copy">I use research, data, and AI tools to move quickly while staying grounded in customer needs and jobs to be done. I focus on understanding the problem, identifying opportunities, aligning teams, and designing for measurable impact.</p>
         </div>
+
+        <h2 id="featured-works" class="section-header">Featured works</h2>
 
         <div class="grid">
           <div class="glass-card project-card" data-case-study="case-study-checking.html">
@@ -112,19 +114,19 @@
               <p class="project-description">Reimagined card issuance and onboarding to help sellers access funds faster and drive earlier card adoption.</p>
             </div>
           </div>
-          <div class="glass-card project-card">
+          <div class="glass-card project-card" data-case-study="case-study-bill-pay-vendors.html">
             <div class="project-media">
               <img src="square-bill-pay-v3.png" alt="Square Bill Pay">
             </div>
             <div class="project-meta">
-              <h3 class="project-title">Driving Bill Pay Payment Success Through Stripe Integration</h3>
+              <h3 class="project-title">Increasing Successful Payment Completion for Square Bill Pay Vendors</h3>
               <div class="project-pills">
                 <span class="project-pill">Payments</span>
                 <span class="project-pill">Square</span>
                 <span class="project-pill">Platform</span>
                 <span class="project-pill">Operations</span>
               </div>
-              <p class="project-description">Streamlined vendor onboarding and payment workflows through Stripe integration to improve acceptance and completion.</p>
+              <p class="project-description">Introduced a secure bank connection flow so vendors could accept Square Bill Pay payments with less friction and more confidence.</p>
             </div>
           </div>
         </div>
@@ -319,8 +321,6 @@
     const mobileNavModal = document.getElementById('mobile-nav-modal');
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileNavClose = document.getElementById('mobile-nav-close');
-    const mobileContactLink = document.querySelector('.mobile-contact-link');
-
     hamburgerBtn.addEventListener('click', () => {
       mobileNavModal.classList.add('active');
     });
@@ -329,11 +329,11 @@
       mobileNavModal.classList.remove('active');
     });
 
-    if (mobileContactLink) {
-      mobileContactLink.addEventListener('click', () => {
+    mobileNavModal.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
         mobileNavModal.classList.remove('active');
       });
-    }
+    });
 
     // Show more / Show less portfolio cards
     const showMoreBtn = document.getElementById('show-more-btn');

@@ -329,6 +329,16 @@ nav a.active {
   padding: 40px 0 0;
 }
 
+.section-header {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  scroll-margin-top: 5rem;
+}
+
 .ethos-card {
   width: 100%;
   background: var(--card-bg);
