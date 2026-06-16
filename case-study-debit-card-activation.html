@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study · Redefining Debit Card Activation for Square Checking</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="favicon.png?v=1" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case-study.css?v=17">
+</head>
+<body class="case-study-body" data-auth-key="cs-auth-debit-card-activation">
+
+  <div class="cs-gate" id="cs-gate">
+    <a href="index.html" class="cs-gate-back cs-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Return to portfolio
+    </a>
+    <div class="cs-gate-card">
+      <h1>Enter a password</h1>
+      <form class="cs-gate-form" id="cs-gate-form">
+        <input type="password" id="cs-password" placeholder="Password" autocomplete="off" required>
+        <button type="submit">Continue</button>
+      </form>
+      <p class="cs-gate-error" id="cs-gate-error" aria-live="polite"></p>
+      <p class="cs-gate-footer">Don't have a password? <a href="index.html#contact">Get in touch →</a></p>
+    </div>
+  </div>
+
+  <div id="cs-content" hidden>
+
+    <header class="cs-topbar">
+      <div class="cs-topbar-inner">
+        <a href="index.html" class="cs-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back to portfolio
+        </a>
+        <span class="cs-topbar-label">Case study · Square Banking</span>
+      </div>
+    </header>
+
+    <button class="cs-mobile-nav-btn" id="cs-mobile-nav-btn" type="button">Sections</button>
+
+    <nav class="cs-mobile-nav" id="cs-mobile-nav" aria-label="Case study sections">
+      <button class="cs-mobile-nav-close" id="cs-mobile-nav-close" type="button" aria-label="Close">&times;</button>
+      <ul>
+        <li><a href="#hero">Overview</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#situation">Situation</a></li>
+        <li><a href="#task">Task</a></li>
+        <li><a href="#action">Action</a></li>
+        <li><a href="#exploration">Exploration</a></li>
+        <li><a href="#design">Design</a></li>
+        <li><a href="#system-impact">System Impact</a></li>
+        <li><a href="#results-expanded">Results</a></li>
+        <li><a href="#reflection">Reflection</a></li>
+      </ul>
+    </nav>
+
+    <div class="cs-shell">
+
+      <aside class="cs-sidebar">
+        <nav aria-label="Case study navigation">
+          <ul class="cs-nav">
+            <li><a href="#hero" class="active">Overview</a></li>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#situation">Situation</a></li>
+            <li><a href="#task">Task</a></li>
+            <li><a href="#action">Action</a></li>
+            <li><a href="#exploration">Exploration</a></li>
+            <li><a href="#design">Design</a></li>
+            <li><a href="#system-impact">System Impact</a></li>
+            <li><a href="#results-expanded">Results</a></li>
+            <li><a href="#reflection">Reflection</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="cs-main">
+
+        <section class="cs-hero" id="hero">
+          <p class="cs-eyebrow">Square · Banking · Debit Card</p>
+          <h1>Redefining Debit Card Activation for Square Checking</h1>
+          <p class="cs-hero-summary">Improving debit card activation by separating access to money from physical card ownership. After redesigning Square Checking to better communicate banking value, I led design on a follow-on initiative that challenged a core onboarding assumption: that sellers needed a physical Square Debit Card to fully activate and use their account.</p>
+          <p class="cs-hero-summary">Related work: <a href="case-study-checking.html">Closing the Activation Gap in Square Checking</a></p>
+
+          <div class="cs-meta-grid">
+            <div class="cs-meta-item">
+              <label>Role</label>
+              <span>Senior Product Designer</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Scope</label>
+              <span>Debit Card · Checking · Activation</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Team</label>
+              <span>Banking and Cards</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Partners</label>
+              <span>PM · Engineering · Research · Analytics</span>
+            </div>
+          </div>
+
+          <div class="cs-metrics-row cs-metrics-row--4">
+            <div class="metric-card">
+              <p class="metric-card__value">↑</p>
+              <p class="metric-card__label">Checking activation</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">↓</p>
+              <p class="metric-card__label">Card step drop off</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">↑</p>
+              <p class="metric-card__label">Virtual card adoption</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">↑</p>
+              <p class="metric-card__label">First month active usage</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section cs-section--impact" id="impact">
+          <figure class="cs-impact-hero">
+            <img src="square-virtual-debit-card.png" alt="Square Virtual Debit Card for Checking activation">
+          </figure>
+          <h2>Impact</h2>
+
+          <div class="results-table-wrap results-table-wrap--prominent">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Before</th>
+                  <th>After</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Square Checking activation</td>
+                  <td>Baseline</td>
+                  <td><strong>Increased</strong></td>
+                </tr>
+                <tr>
+                  <td>Drop off at debit card step</td>
+                  <td>High abandonment</td>
+                  <td><strong>Reduced</strong></td>
+                </tr>
+                <tr>
+                  <td>Virtual card adoption</td>
+                  <td>Secondary path</td>
+                  <td><strong>Increased</strong></td>
+                </tr>
+                <tr>
+                  <td>Time to first spend</td>
+                  <td>Delayed by card delivery</td>
+                  <td><strong>Reduced</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <figure class="cs-figure cs-figure--wide">
+            <div class="image-slot image-slot--wide">
+              <span class="image-slot__label">Impact metrics</span>
+            </div>
+            <figcaption>Experiment results · Activation, drop off, and virtual card metrics</figcaption>
+          </figure>
+
+          <p class="cs-results-interpretation">Separating account activation from physical card fulfillment helped sellers who wanted digital access first complete Checking setup and start spending without waiting for mail delivery.</p>
+        </section>
+
+        <section class="cs-section" id="situation">
+          <h2>Situation</h2>
+          <p class="cs-lead">When sellers signed up for Square Checking, they could access banking features to manage finances, move money, and spend their Square balance.</p>
+          <p>We noticed a significant drop off when sellers reached the debit card ordering step. Sellers who skipped ordering a physical card were less likely to complete Square Checking activation.</p>
+          <p>The initial assumption was technical: if a seller skipped card ordering, should we simply create their Checking account anyway? Through research and funnel analysis, we uncovered a deeper issue. Some sellers were not skipping because they did not want Square Checking. They were skipping because they did not want a physical debit card.</p>
+          <p>Our activation experience had connected banking access to a physical card. Square Checking activation felt tied to ordering a Square Debit Card, which created friction for sellers who preferred digital wallets, did not carry physical cards, wanted immediate access before receiving a mailed card, or were unsure whether skipping the card meant losing access to their account.</p>
+          <p>The experience was optimized around card fulfillment instead of seller intent.</p>
+        </section>
+
+        <section class="cs-section" id="task">
+          <h2>Task</h2>
+          <p class="cs-lead">Create a more flexible path to Square Checking activation.</p>
+          <p>Many sellers expected a modern banking experience where they could access funds immediately, use a virtual card, add their card to a digital wallet, and decide later if they wanted a physical card. The opportunity was not just removing a step. It was redesigning activation around how sellers actually wanted to access their money.</p>
+          <p>Success meant increasing Square Checking completion, reducing abandonment at card ordering, improving confidence in virtual card access, and helping sellers start spending sooner.</p>
+        </section>
+
+        <section class="cs-section" id="action">
+          <h2>Action</h2>
+          <p class="cs-lead">From funnel analysis to a reframed activation model.</p>
+
+          <div class="cs-accordion">
+            <details class="cs-accordion-item" open>
+              <summary>Discovery · Finding the real drop off</summary>
+              <div class="cs-accordion-body">
+                <p>I analyzed the onboarding funnel and identified a pattern. Sellers reached the card ordering step but abandoned before completing activation. The key question became whether sellers were rejecting Square Checking or rejecting the requirement of a physical card.</p>
+                <p>Research and behavioral insights showed the second. The mental model we needed to support was "I want access to my money," not "I need a physical card."</p>
+              </div>
+            </details>
+
+            <details class="cs-accordion-item">
+              <summary>Strategy · Flexible banking access</summary>
+              <div class="cs-accordion-body">
+                <p>I partnered with product management, engineering, research, analytics, and banking teams to reframe the problem and define a more flexible onboarding experience.</p>
+                <p>Square Checking became the primary value moment. The card became a way to access money, not the requirement to unlock banking. Virtual card access moved from an alternative path to a first class way to begin spending.</p>
+              </div>
+            </details>
+
+            <details class="cs-accordion-item">
+              <summary>Delivery · Confidence at the card step</summary>
+              <div class="cs-accordion-body">
+                <p>The redesigned experience gave sellers immediate digital access, a clear choice between physical and virtual card paths, and messaging that explained skipping the physical card did not mean losing access to Square Checking.</p>
+                <p>We surfaced digital card options at the moment sellers needed reassurance and aligned the flow with expectations from digital first financial products.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section class="cs-section" id="exploration">
+          <h2>Exploration</h2>
+          <p class="cs-lead">What sellers expected from modern banking activation.</p>
+          <p>Exploration focused on four expectations that the card first model did not meet:</p>
+          <ul>
+            <li>Access funds immediately without waiting for delivery</li>
+            <li>Use a virtual card as a complete spending path</li>
+            <li>Add a card to Apple Pay or another digital wallet</li>
+            <li>Order a physical card later if it fit their workflow</li>
+          </ul>
+          <p>This reframing shifted design conversations from "how do we get sellers through card ordering" to "how do we help sellers choose how they want to spend."</p>
+        </section>
+
+        <section class="cs-section" id="design">
+          <h2>Design</h2>
+          <p class="cs-lead">From card first activation to flexible banking access.</p>
+
+          <h3 class="cs-subheading">Before · Card first activation</h3>
+          <p>Sellers signed up for Square Checking, were prompted to order a physical Square Debit Card, and only gained full access after completing card ordering. Sellers who wanted digital access first had no clear path forward.</p>
+
+          <div class="process-steps">
+            <div class="process-step">
+              <span class="process-step__num">1</span>
+              <div class="process-step__content">
+                <h4>Sign up for Square Checking</h4>
+                <p>Seller begins onboarding into Square Banking.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">2</span>
+              <div class="process-step__content">
+                <h4>Order a physical debit card</h4>
+                <p>Seller is prompted to complete card ordering before moving on.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">3</span>
+              <div class="process-step__content">
+                <h4>Complete card ordering</h4>
+                <p>Seller enters shipping details and waits for delivery.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">4</span>
+              <div class="process-step__content">
+                <h4>Gain full Checking access</h4>
+                <p>Banking features unlock after the card path is complete.</p>
+              </div>
+            </div>
+          </div>
+
+          <figure class="cs-figure cs-figure--wide">
+            <div class="image-slot image-slot--wide">
+              <span class="image-slot__label">Before flow</span>
+            </div>
+            <figcaption>Before state · Card first activation model</figcaption>
+          </figure>
+
+          <h3 class="cs-subheading">After · Flexible banking access</h3>
+          <p>Sellers sign up, gain access to their account, and choose how they want to spend: a physical card, or a virtual card with digital wallet support. They can start using funds immediately without waiting for mail delivery.</p>
+
+          <div class="process-steps">
+            <div class="process-step">
+              <span class="process-step__num">1</span>
+              <div class="process-step__content">
+                <h4>Sign up for Square Checking</h4>
+                <p>Seller begins onboarding into Square Banking.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">2</span>
+              <div class="process-step__content">
+                <h4>Access the account</h4>
+                <p>Seller completes Checking setup without card fulfillment as a gate.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">3</span>
+              <div class="process-step__content">
+                <h4>Choose how to spend</h4>
+                <p>Seller selects a physical card, virtual card, or digital wallet path.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">4</span>
+              <div class="process-step__content">
+                <h4>Start using funds</h4>
+                <p>Seller can spend immediately through their chosen path.</p>
+              </div>
+            </div>
+          </div>
+
+          <figure class="cs-figure cs-figure--wide">
+            <div class="image-slot image-slot--wide">
+              <span class="image-slot__label">After flow</span>
+            </div>
+            <figcaption>After state · Flexible banking access model</figcaption>
+          </figure>
+
+          <h3 class="cs-subheading">Key design decisions</h3>
+          <ul>
+            <li><strong>Separate account activation from card fulfillment.</strong> Square Checking became the unlock, not the debit card order.</li>
+            <li><strong>Introduce virtual card access earlier.</strong> Digital options appeared when sellers needed reassurance, not as a hidden fallback.</li>
+            <li><strong>Build a modern banking experience.</strong> The flow matched expectations from digital first financial products sellers already used.</li>
+          </ul>
+
+          <div class="image-gallery image-gallery--three">
+            <figure class="cs-figure cs-figure--gallery">
+              <div class="image-slot">
+                <span class="image-slot__label">Card choice</span>
+              </div>
+              <figcaption>Physical or virtual card selection</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <div class="image-slot">
+                <span class="image-slot__label">Virtual card</span>
+              </div>
+              <figcaption>Virtual card access</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <div class="image-slot">
+                <span class="image-slot__label">Digital wallet</span>
+              </div>
+              <figcaption>Add to Apple Pay or Wallet</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="cs-section" id="system-impact">
+          <h2>System Impact</h2>
+          <p class="cs-lead">Established a more flexible activation model across Banking.</p>
+          <ul>
+            <li>Decoupled Checking activation from physical card fulfillment across onboarding flows</li>
+            <li>Virtual card and digital wallet patterns reusable in card issuance experiences</li>
+            <li>Shared language around seller intent and access to money applied beyond debit card ordering</li>
+            <li>Cross team alignment on activation metrics that reflected completion, not just card orders</li>
+          </ul>
+        </section>
+
+        <section class="cs-section" id="results-expanded">
+          <h2>Results</h2>
+          <p class="cs-lead">Sellers completed activation and started spending sooner.</p>
+          <p>The redesigned experience increased Square Checking activation, reduced drop off at the debit card step, grew virtual card adoption, and shortened time to first spend. Sellers who previously abandoned at card ordering could complete setup and access their balance through a path that matched how they wanted to bank.</p>
+          <p>Detailed experiment metrics are available on request. Placeholder dashboard below for final numbers.</p>
+        </section>
+
+        <section class="cs-section" id="reflection">
+          <h2>Reflection</h2>
+          <p class="cs-lead">Activation issues are often symptoms of a product assumption.</p>
+          <p>The challenge was not that sellers did not want Square Checking. The challenge was that our experience defined access too narrowly. By separating banking access from physical card ownership, we created a more flexible experience that helped sellers start using their money sooner.</p>
+          <p>This work also reinforced how follow on initiatives benefit from prior context. After improving how sellers understood Checking value, the next barrier was clearer: the card step was filtering out sellers who were ready to bank digitally. Fixing that required owning the card experience, not just optimizing a funnel step.</p>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="case-study.js?v=5"></script>
+</body>
+</html>

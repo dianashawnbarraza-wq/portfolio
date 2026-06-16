@@ -333,9 +333,11 @@ nav a.active {
   font-size: 1.75rem;
   font-weight: 600;
   color: var(--text-main);
+  margin-top: 3rem;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
   line-height: 1.2;
+  text-align: center;
   scroll-margin-top: 5rem;
 }
 

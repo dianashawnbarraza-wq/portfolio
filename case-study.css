@@ -401,6 +401,16 @@ body.case-study-body {
   margin: 0 0 2rem;
 }
 
+.cs-hero-summary a {
+  color: var(--cs-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cs-hero-summary a:hover {
+  color: var(--cs-text);
+}
+
 .cs-meta-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
