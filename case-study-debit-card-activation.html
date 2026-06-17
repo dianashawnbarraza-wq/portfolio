@@ -232,88 +232,22 @@
 
         <section class="cs-section" id="design">
           <h2>Design</h2>
-          <p class="cs-lead">From card first activation to flexible banking access.</p>
+          <p class="cs-lead">Move Checking account creation ahead of optional card ordering.</p>
 
-          <h3 class="cs-subheading">Before · Card first activation</h3>
-          <p>Sellers signed up for Square Checking, were prompted to order a physical Square Debit Card, and only gained full access after completing card ordering. Sellers who wanted digital access first had no clear path forward.</p>
-
-          <div class="process-steps">
-            <div class="process-step">
-              <span class="process-step__num">1</span>
-              <div class="process-step__content">
-                <h4>Sign up for Square Checking</h4>
-                <p>Seller begins onboarding into Square Banking.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">2</span>
-              <div class="process-step__content">
-                <h4>Order a physical debit card</h4>
-                <p>Seller is prompted to complete card ordering before moving on.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">3</span>
-              <div class="process-step__content">
-                <h4>Complete card ordering</h4>
-                <p>Seller enters shipping details and waits for delivery.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">4</span>
-              <div class="process-step__content">
-                <h4>Gain full Checking access</h4>
-                <p>Banking features unlock after the card path is complete.</p>
-              </div>
-            </div>
-          </div>
+          <h3 class="cs-subheading">Before · Checking account created after card ordering</h3>
+          <p>Sellers moved through account creation, banking signup, and identity verification before reaching debit card personalization and shipping. The Checking account was not created until the end of that flow. If a seller dropped during card ordering, they left without an account, a virtual card, or access to banking features.</p>
 
           <figure class="cs-figure cs-figure--wide">
-            <div class="image-slot image-slot--wide">
-              <span class="image-slot__label">Before flow</span>
-            </div>
-            <figcaption>Before state · Card first activation model</figcaption>
+            <img src="checking-activation-before-flow.png" alt="Before flow showing Checking account creation only after debit card personalization and shipping address steps" loading="lazy">
+            <figcaption>Before · Checking account creation happened after physical card ordering</figcaption>
           </figure>
 
-          <h3 class="cs-subheading">After · Choice-led activation with virtual card</h3>
-          <p>Sellers sign up, receive their Checking account with an instant virtual debit card, and choose how they want to spend. They can add the virtual card to a digital wallet, start spending immediately, or order a physical card when it fits their workflow.</p>
-
-          <div class="process-steps">
-            <div class="process-step">
-              <span class="process-step__num">1</span>
-              <div class="process-step__content">
-                <h4>Sign up for Square Checking</h4>
-                <p>Seller begins onboarding into Square Banking.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">2</span>
-              <div class="process-step__content">
-                <h4>Receive Checking with a virtual card</h4>
-                <p>Seller gets a Checking account and instant virtual debit card without ordering a physical card first.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">3</span>
-              <div class="process-step__content">
-                <h4>Choose how to spend</h4>
-                <p>Seller uses the virtual card, adds it to a digital wallet, or orders a physical card.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">4</span>
-              <div class="process-step__content">
-                <h4>Start using funds</h4>
-                <p>Seller can spend immediately through their chosen path.</p>
-              </div>
-            </div>
-          </div>
+          <h3 class="cs-subheading">After · Checking account created before optional card ordering</h3>
+          <p>In the updated flow, the Checking account is provisioned during banking signup and identity verification, before sellers reach debit card ordering. At that point, physical card ordering becomes optional. Sellers can skip it, access a virtual debit card, and use banking features immediately, or order a physical card when they want one.</p>
 
           <figure class="cs-figure cs-figure--wide">
-            <div class="image-slot image-slot--wide">
-              <span class="image-slot__label">After flow</span>
-            </div>
-            <figcaption>After state · Flexible banking access model</figcaption>
+            <img src="checking-activation-after-flow.png" alt="After flow showing Checking account creation before optional debit card ordering with a skip option" loading="lazy">
+            <figcaption>After · Checking account creation moved ahead of optional physical card ordering</figcaption>
           </figure>
 
           <h3 class="cs-subheading">Key design decisions</h3>
