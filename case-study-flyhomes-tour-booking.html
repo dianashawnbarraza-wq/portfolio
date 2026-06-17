@@ -117,7 +117,7 @@
 
         <section class="cs-section cs-section--impact" id="impact">
           <figure class="cs-impact-hero">
-            <img src="flyhomes-internal.png" alt="Flyhomes internal tour management tool redesign">
+            <img src="flyhomes-tour-detail-after.png?v=1" alt="Redesigned Flyhomes Terminal tour detail experience">
           </figure>
           <h2>Impact</h2>
 
@@ -187,6 +187,17 @@
           <h2>Action</h2>
           <p class="cs-lead">From workflow mapping to API integration and a ground-up redesign.</p>
           <p>I started by mapping the existing tour coordination workflow using a Jobs-to-Be-Done framework to understand how booking teams managed requests, where decisions were being made, and where automation could remove friction.</p>
+
+          <figure class="cs-figure cs-figure--flow">
+            <button type="button" class="cs-flow-expand" aria-label="Expand Jobs-to-Be-Done discovery flow">
+              <img src="flyhomes-tour-jtbd-flow.png?v=1" alt="Jobs-to-Be-Done flow mapping manual tour coordination steps and opportunities for automation in Terminal" width="1024" height="488" loading="lazy" decoding="async">
+              <span class="cs-flow-expand__hint">Click to enlarge</span>
+            </button>
+            <figcaption>Discovery · Jobs-to-Be-Done flow showing manual coordination gaps outside Terminal</figcaption>
+          </figure>
+
+          <p>The flow highlighted where Terminal already supported tour booking management and where booking agents still relied on manual steps—routing tours in Google Maps, emailing seller agents, checking calendars, and confirming with customers. Those pink steps became the clearest opportunities for automation.</p>
+
           <p>Through this synthesis, I identified key workflow gaps:</p>
           <ul>
             <li>Manual assignment of tour specialists</li>
@@ -215,6 +226,12 @@
             <li>Repetitive information patterns slowed scanning</li>
             <li>Accessibility issues impacted usability</li>
           </ul>
+          <p>Booking agents managed each request across dense forms, manual Slack links, and a separate map view—with little visibility into where a tour stood in the coordination process.</p>
+
+          <figure class="cs-figure cs-figure--wide">
+            <img src="flyhomes-tour-before.png?v=1" alt="Flyhomes Terminal tour detail before redesign showing dense forms and manual coordination fields" width="1024" height="592" loading="lazy" decoding="async">
+            <figcaption>Before · Manual coordination, unclear hierarchy, and fragmented information</figcaption>
+          </figure>
 
           <h3 class="cs-subheading">After · Redesigned tour management</h3>
           <p>Key improvements included:</p>
@@ -227,8 +244,13 @@
           </ul>
 
           <figure class="cs-figure cs-figure--wide">
-            <img src="flyhomes-internal.png" alt="Flyhomes internal tour management tool after redesign" loading="lazy">
-            <figcaption>After · Automated routing, clearer hierarchy, and batch workflows</figcaption>
+            <img src="flyhomes-tour-table-after.png?v=1" alt="Redesigned Flyhomes Terminal upcoming tour requests table with clearer status and assignment columns" width="1024" height="730" loading="lazy" decoding="async">
+            <figcaption>After · Tour table with clearer status, assignment, and prioritization</figcaption>
+          </figure>
+
+          <figure class="cs-figure cs-figure--wide">
+            <img src="flyhomes-tour-detail-after.png?v=1" alt="Redesigned Flyhomes Terminal tour detail with step-based workflow, route optimization, and property list" width="1024" height="729" loading="lazy" decoding="async">
+            <figcaption>After · Tour detail with step-based workflow, route optimization, and activity timeline</figcaption>
           </figure>
         </section>
 
