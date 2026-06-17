@@ -284,13 +284,15 @@ body.case-study-body {
 
 .cs-figure--flow .cs-flow-expand img {
   width: 100%;
-  max-width: 100%;
+  max-width: 1024px;
   height: auto;
 }
 
 .cs-flow-expand {
   display: block;
   width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
   padding: 0;
   border: 1px solid var(--cs-border);
   border-radius: var(--cs-radius);
@@ -310,7 +312,7 @@ body.case-study-body {
 
 .cs-flow-expand img {
   width: 100%;
-  max-width: 100%;
+  max-width: 1024px;
   height: auto;
   display: block;
   border: none;
