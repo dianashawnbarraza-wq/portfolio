@@ -1021,6 +1021,51 @@ footer {
   transform: translateY(0) scale(1);
 }
 
+.modal--dialog {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 24px;
+}
+
+.modal-content--dialog {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 24px;
+  border: 1px solid var(--border-color);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transform: translateY(12px) scale(0.96);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+}
+
+.modal--dialog.active .modal-content--dialog {
+  transform: translateY(0) scale(1);
+}
+
+.modal-content--dialog h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.modal-content--dialog p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.modal-close--dialog {
+  top: 1rem;
+  left: auto;
+  right: 1rem;
+}
+
 .modal-close {
   position: absolute;
   top: 2rem;

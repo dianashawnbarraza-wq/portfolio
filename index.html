@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D. Shawn Barraza | Senior Product Designer</title>
-  <link rel="stylesheet" href="styles.css?v=57">
+  <link rel="stylesheet" href="styles.css?v=58">
   <link rel="icon" href="favicon.png?v=1" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,7 @@
           <div class="hero-content">
             <h1>Diana Shawn Barraza</h1>
             <p class="hero-intro"><span class="hero-intro-accent">Product designer (ex-Square) and builder</span> with 10+ years of experience designing fintech, banking, mobile native, and platform products. I combine customer insight, experimentation, and AI tools to turn complex systems into clear, high-impact experiences.</p>
-            <p class="hero-sectors">Fintech • Banking • Real Estate • Healthcare • Startups</p>
+            <p class="hero-sectors">Fintech • Banking • Real Estate • Healthcare • Buyer Experiences</p>
           </div>
           <div class="hero-mockup-container">
             <div class="iphone-mockup desktop-only">
@@ -148,7 +148,7 @@
               <p class="project-description">Redesigned internal tour management to cut confirmation time from hours to minutes and help buyers compete during the 2020–2021 housing boom.</p>
             </div>
           </div>
-          <div class="glass-card project-card">
+          <div class="glass-card project-card" data-coming-soon>
             <div class="project-media">
               <img src="flyhomes-search.png" alt="Flyhomes Search Mobile App Design">
             </div>
@@ -162,7 +162,7 @@
               <p class="project-description">Mobile search experience helping buyers discover and evaluate homes faster.</p>
             </div>
           </div>
-          <div class="glass-card project-card">
+          <div class="glass-card project-card" data-coming-soon>
             <div class="project-media">
               <img src="flyhomes-tours.png" alt="Flyhomes Tours Redesign">
             </div>
@@ -299,6 +299,15 @@
     Let's talk
   </a>
 
+  <!-- Coming Soon Modal -->
+  <div id="coming-soon-modal" class="modal modal--dialog" aria-hidden="true">
+    <div class="modal-content modal-content--dialog" role="dialog" aria-labelledby="coming-soon-title">
+      <button class="modal-close modal-close--dialog" id="coming-soon-close" aria-label="Close">&times;</button>
+      <h2 id="coming-soon-title">Coming soon</h2>
+      <p>This case study is on the way. Check back shortly.</p>
+    </div>
+  </div>
+
   <!-- Portfolio Modal -->
   <div id="portfolio-modal" class="modal">
     <div class="modal-content fullscreen-modal">
@@ -347,7 +356,8 @@
     // Modal Logic
     const modal = document.getElementById('portfolio-modal');
     const modalClose = document.getElementById('modal-close');
-    const modalOverlay = document.getElementById('modal-overlay');
+    const comingSoonModal = document.getElementById('coming-soon-modal');
+    const comingSoonClose = document.getElementById('coming-soon-close');
     const glassCards = document.querySelectorAll('.glass-card');
 
     function openModal() {
@@ -358,18 +368,39 @@
       modal.classList.remove('active');
     }
 
+    function openComingSoon() {
+      comingSoonModal.classList.add('active');
+      comingSoonModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeComingSoon() {
+      comingSoonModal.classList.remove('active');
+      comingSoonModal.setAttribute('aria-hidden', 'true');
+    }
+
     glassCards.forEach(card => {
       if (card.dataset.caseStudy) {
         card.addEventListener('click', () => {
           window.location.href = card.dataset.caseStudy;
         });
+      } else if (card.hasAttribute('data-coming-soon')) {
+        card.addEventListener('click', openComingSoon);
       } else {
         card.addEventListener('click', openModal);
       }
     });
 
     modalClose.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', closeModal);
+    comingSoonClose.addEventListener('click', closeComingSoon);
+    comingSoonModal.addEventListener('click', (e) => {
+      if (e.target === comingSoonModal) closeComingSoon();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && comingSoonModal.classList.contains('active')) {
+        closeComingSoon();
+      }
+    });
   </script>
 </body>
 </html>
