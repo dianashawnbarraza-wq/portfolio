@@ -147,8 +147,9 @@
     };
 
     const open = (source) => {
-      img.src = source.dataset.flowSrc || source.currentSrc || source.src;
+      img.src = source.currentSrc || source.src;
       img.alt = source.alt;
+      img.style.width = '';
       lightbox.hidden = false;
       document.body.style.overflow = 'hidden';
       closeBtn.focus();

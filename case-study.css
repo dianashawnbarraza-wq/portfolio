@@ -364,7 +364,8 @@ body.case-study-body {
 }
 
 .cs-flow-lightbox__inner {
-  width: min(calc(100vw - 48px), 3072px);
+  width: auto;
+  max-width: calc(100vw - 48px);
   max-height: calc(100vh - 72px);
   overflow: auto;
   border-radius: var(--cs-radius);
@@ -373,8 +374,8 @@ body.case-study-body {
 }
 
 .cs-flow-lightbox__img {
-  width: 100%;
-  max-width: none;
+  width: auto;
+  max-width: 100%;
   height: auto;
   display: block;
 }
