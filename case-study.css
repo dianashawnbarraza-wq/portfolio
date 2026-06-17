@@ -316,6 +316,7 @@ body.case-study-body {
   display: block;
   border: none;
   border-radius: 0;
+  image-rendering: auto;
 }
 
 .cs-flow-expand__hint {
@@ -334,10 +335,11 @@ body.case-study-body {
   inset: 0;
   z-index: 10000;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   justify-content: center;
   padding: 24px;
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(0, 0, 0, 0.92);
 }
 
 .cs-flow-lightbox[hidden] {
@@ -348,6 +350,7 @@ body.case-study-body {
   position: absolute;
   top: 16px;
   right: 16px;
+  z-index: 2;
   width: 44px;
   height: 44px;
   border: none;
@@ -363,19 +366,55 @@ body.case-study-body {
   background: rgba(255, 255, 255, 0.2);
 }
 
+.cs-flow-lightbox__toolbar {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.cs-flow-lightbox__zoom {
+  min-width: 56px;
+  padding: 0.45rem 0.75rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cs-flow-lightbox__zoom:hover,
+.cs-flow-lightbox__zoom.is-active {
+  background: rgba(255, 255, 255, 0.18);
+}
+
 .cs-flow-lightbox__inner {
-  width: min(1024px, calc(100vw - 48px));
-  max-height: calc(100vh - 48px);
+  width: calc(100vw - 48px);
+  max-width: none;
+  height: calc(100vh - 120px);
+  margin: 56px auto 0;
   overflow: auto;
   border-radius: var(--cs-radius);
   background: #fff;
+  -webkit-overflow-scrolling: touch;
 }
 
 .cs-flow-lightbox__img {
-  width: 1024px;
-  max-width: 100%;
+  width: auto;
+  max-width: none;
   height: auto;
   display: block;
+  image-rendering: auto;
 }
 
 .cs-figure figcaption {
