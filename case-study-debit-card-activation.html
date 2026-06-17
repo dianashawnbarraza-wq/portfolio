@@ -260,15 +260,6 @@
           <h3 class="cs-subheading">Before · Card details treated wallet setup as secondary</h3>
           <p>The previous card management design listed Add to Apple Wallet as a row item alongside billing address and card controls. For sellers who wanted to spend through a digital wallet, that buried the action they cared about most. I brought this gap to the team and advocated elevating Add to Apple Wallet to a primary action on the card detail screen, an opportunity to improve how we surfaced wallet setup at the moment sellers expected it.</p>
 
-          <figure class="cs-figure">
-            <div class="phone-shell phone-shell--before">
-              <div class="phone-shell__screen" tabindex="0" aria-label="Before redesign, Add to Apple Wallet appeared as a secondary row item on the card details screen">
-                <img src="debit-card-before-card-details.png?v=1" alt="Card details screen with Add to Apple Wallet as a list row instead of a primary action" width="255" height="1024" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <figcaption>Before · Add to Apple Wallet was a list row, not a primary action</figcaption>
-          </figure>
-
           <h3 class="cs-subheading">After · Checking account created before optional card ordering</h3>
           <p>In the updated flow, the Checking account is provisioned during banking signup and identity verification, before sellers reach debit card ordering. At that point, physical card ordering becomes optional. Sellers can skip it, access a virtual debit card, and use banking features immediately, or order a physical card when they want one.</p>
 
@@ -280,32 +271,54 @@
             <figcaption>After · Checking account creation moved ahead of optional physical card ordering</figcaption>
           </figure>
 
+          <h3 class="cs-subheading">After · Checking home with virtual card ready to spend</h3>
+          <p>When sellers skip physical card ordering, they still receive a Square Checking account and an instant virtual debit card. The updated Banking home surfaces that virtual card with a clear Add to Apple Wallet call to action, encouraging sellers to add their card and start spending right away instead of waiting for mail delivery.</p>
+
+          <figure class="cs-figure">
+            <div class="phone-shell phone-shell--after">
+              <div class="phone-shell__screen" tabindex="0" aria-label="After redesign, sellers who skip physical card ordering land on Checking home with a virtual card and Add to Apple Wallet encouragement">
+                <img src="debit-card-after-checking-home.png?v=1" alt="Square Banking Checking home showing virtual debit card with Add to Apple Wallet button" width="265" height="1024" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <figcaption>After · Virtual card and wallet setup surfaced at activation</figcaption>
+          </figure>
+
+          <h3 class="cs-subheading">After · Card details with wallet as primary and physical card optional</h3>
+          <p>The redesigned card detail screen elevates Add to Apple Wallet to a primary action, matching how sellers expect to set up a digital wallet. It also introduces Order a physical card as a secondary entry point with clear value messaging, so sellers who skipped ordering during signup can still see why a physical card matters and opt in when it fits their workflow.</p>
+
+          <div class="phone-compare">
+            <div class="phone-compare__header">
+              <h3 class="phone-compare__title">Card details · Before and after</h3>
+              <p class="phone-compare__hint">Scroll inside each device to view the full screen.</p>
+            </div>
+            <div class="phone-compare__grid">
+              <figure class="phone-compare__item">
+                <figcaption class="phone-compare__label">Before</figcaption>
+                <div class="phone-shell phone-shell--before">
+                  <div class="phone-shell__screen" tabindex="0" aria-label="Before redesign, Add to Apple Wallet appeared as a secondary row item">
+                    <img src="debit-card-before-card-details.png?v=1" alt="Card details before redesign with Add to Apple Wallet as a list row" width="255" height="1024" loading="lazy" decoding="async">
+                  </div>
+                </div>
+              </figure>
+              <figure class="phone-compare__item">
+                <figcaption class="phone-compare__label">After</figcaption>
+                <div class="phone-shell phone-shell--after">
+                  <div class="phone-shell__screen" tabindex="0" aria-label="After redesign, Add to Apple Wallet is a primary action with optional physical card ordering">
+                    <img src="debit-card-after-card-details.png?v=1" alt="Card details after redesign with Add to Apple Wallet as primary action and Order a physical card entry point" width="265" height="1024" loading="lazy" decoding="async">
+                  </div>
+                </div>
+              </figure>
+            </div>
+          </div>
+
           <h3 class="cs-subheading">Key design decisions</h3>
           <ul>
             <li><strong>Remove debit card ordering as a signup requirement.</strong> Based on research insight, I advocated provisioning Checking with a virtual card instead of gating the account on physical card fulfillment.</li>
             <li><strong>Give sellers choice in how they spend.</strong> Virtual card, digital wallet, and optional physical card ordering became parallel paths, not a single required step.</li>
             <li><strong>Introduce virtual card access at activation.</strong> Sellers could start spending immediately without waiting for mail delivery.</li>
             <li><strong>Elevate Add to Apple Wallet to a primary action.</strong> I identified that the previous card detail screen buried wallet setup in a list and advocated making it a top-level action on the redesigned screen.</li>
+            <li><strong>Keep physical card ordering available with clear value.</strong> Sellers who skip during signup can still order a physical card later from card details, with messaging that explains ATM access and in-person spending.</li>
           </ul>
-
-          <div class="image-gallery image-gallery--three">
-            <figure class="cs-figure cs-figure--gallery">
-              <div class="image-slot">
-                <span class="image-slot__label">Card choice</span>
-              </div>
-              <figcaption>Physical or virtual card selection</figcaption>
-            </figure>
-            <figure class="cs-figure cs-figure--gallery">
-              <div class="image-slot">
-                <span class="image-slot__label">Virtual card</span>
-              </div>
-              <figcaption>Virtual card access</figcaption>
-            </figure>
-            <figure class="cs-figure cs-figure--gallery">
-              <img src="virtual-card-issuance-hero.png?v=2" alt="Updated card detail screen with Add to Apple Wallet elevated as a primary action" width="1024" height="716" loading="lazy" decoding="async">
-              <figcaption>After · Add to Apple Wallet as a primary action</figcaption>
-            </figure>
-          </div>
         </section>
 
         <section class="cs-section" id="system-impact">
