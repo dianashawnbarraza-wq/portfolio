@@ -276,6 +276,108 @@ body.case-study-body {
   max-width: 100%;
 }
 
+/* Expandable flow diagrams */
+.cs-figure--flow {
+  margin: 1.5rem 0 0;
+}
+
+.cs-flow-expand {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  background: var(--cs-surface);
+  cursor: zoom-in;
+  text-align: left;
+  overflow: hidden;
+  font: inherit;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cs-flow-expand:hover {
+  border-color: #d4d4d8;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.cs-flow-expand__viewport {
+  display: block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+}
+
+.cs-flow-expand__viewport img {
+  width: 1024px;
+  max-width: none;
+  height: auto;
+  display: block;
+  border: none;
+  border-radius: 0;
+}
+
+.cs-flow-expand__hint {
+  display: block;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--cs-subtle);
+  text-align: center;
+  border-top: 1px solid var(--cs-border);
+  background: #fff;
+}
+
+.cs-flow-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.88);
+}
+
+.cs-flow-lightbox[hidden] {
+  display: none;
+}
+
+.cs-flow-lightbox__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.cs-flow-lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.cs-flow-lightbox__inner {
+  width: min(1024px, calc(100vw - 48px));
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  border-radius: var(--cs-radius);
+  background: #fff;
+}
+
+.cs-flow-lightbox__img {
+  width: 1024px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .cs-figure figcaption {
   margin-top: 0.75rem;
   font-size: 0.8125rem;

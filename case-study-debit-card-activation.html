@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="case-study.css?v=17">
+  <link rel="stylesheet" href="case-study.css?v=18">
 </head>
 <body class="case-study-body" data-auth-key="cs-auth-debit-card-activation">
 
@@ -237,16 +237,26 @@
           <h3 class="cs-subheading">Before · Checking account created after card ordering</h3>
           <p>Sellers moved through account creation, banking signup, and identity verification before reaching debit card personalization and shipping. The Checking account was not created until the end of that flow. If a seller dropped during card ordering, they left without an account, a virtual card, or access to banking features.</p>
 
-          <figure class="cs-figure cs-figure--wide">
-            <img src="checking-activation-before-flow.png" alt="Before flow showing Checking account creation only after debit card personalization and shipping address steps" loading="lazy">
+          <figure class="cs-figure cs-figure--flow">
+            <button type="button" class="cs-flow-expand" aria-label="Expand before flow diagram">
+              <span class="cs-flow-expand__viewport">
+                <img src="checking-activation-before-flow.png" alt="Before flow showing Checking account creation only after debit card personalization and shipping address steps" width="1024" height="369" loading="lazy" decoding="async">
+              </span>
+              <span class="cs-flow-expand__hint">Scroll to view · Click to expand</span>
+            </button>
             <figcaption>Before · Checking account creation happened after physical card ordering</figcaption>
           </figure>
 
           <h3 class="cs-subheading">After · Checking account created before optional card ordering</h3>
           <p>In the updated flow, the Checking account is provisioned during banking signup and identity verification, before sellers reach debit card ordering. At that point, physical card ordering becomes optional. Sellers can skip it, access a virtual debit card, and use banking features immediately, or order a physical card when they want one.</p>
 
-          <figure class="cs-figure cs-figure--wide">
-            <img src="checking-activation-after-flow.png" alt="After flow showing Checking account creation before optional debit card ordering with a skip option" loading="lazy">
+          <figure class="cs-figure cs-figure--flow">
+            <button type="button" class="cs-flow-expand" aria-label="Expand after flow diagram">
+              <span class="cs-flow-expand__viewport">
+                <img src="checking-activation-after-flow.png" alt="After flow showing Checking account creation before optional debit card ordering with a skip option" width="1024" height="402" loading="lazy" decoding="async">
+              </span>
+              <span class="cs-flow-expand__hint">Scroll to view · Click to expand</span>
+            </button>
             <figcaption>After · Checking account creation moved ahead of optional physical card ordering</figcaption>
           </figure>
 
@@ -307,6 +317,6 @@
     </div>
   </div>
 
-  <script src="case-study.js?v=5"></script>
+  <script src="case-study.js?v=6"></script>
 </body>
 </html>

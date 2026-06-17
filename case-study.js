@@ -38,6 +38,7 @@
     initBeforeAfter();
     initMobileNav();
     initFadeIn();
+    initFlowExpand();
   }
 
   function initStickyNav() {
@@ -114,6 +115,59 @@
       el.style.transform = 'translateY(12px)';
       el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       observer.observe(el);
+    });
+  }
+
+  function initFlowExpand() {
+    const triggers = document.querySelectorAll('.cs-flow-expand');
+    if (!triggers.length) return;
+
+    let lightbox = document.getElementById('cs-flow-lightbox');
+    if (!lightbox) {
+      lightbox = document.createElement('div');
+      lightbox.id = 'cs-flow-lightbox';
+      lightbox.className = 'cs-flow-lightbox';
+      lightbox.hidden = true;
+      lightbox.innerHTML = `
+        <button type="button" class="cs-flow-lightbox__close" aria-label="Close expanded diagram">&times;</button>
+        <div class="cs-flow-lightbox__inner">
+          <img src="" alt="" class="cs-flow-lightbox__img">
+        </div>
+      `;
+      document.body.appendChild(lightbox);
+    }
+
+    const img = lightbox.querySelector('.cs-flow-lightbox__img');
+    const closeBtn = lightbox.querySelector('.cs-flow-lightbox__close');
+
+    const close = () => {
+      lightbox.hidden = true;
+      img.removeAttribute('src');
+      document.body.style.overflow = '';
+    };
+
+    const open = (source) => {
+      img.src = source.currentSrc || source.src;
+      img.alt = source.alt;
+      lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    };
+
+    triggers.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const source = btn.querySelector('img');
+        if (source) open(source);
+      });
+    });
+
+    closeBtn.addEventListener('click', close);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lightbox.hidden) close();
     });
   }
 })();
