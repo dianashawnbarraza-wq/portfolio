@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D. Shawn Barraza | Senior Product Designer</title>
-  <link rel="stylesheet" href="styles.css?v=56">
+  <link rel="stylesheet" href="styles.css?v=57">
   <link rel="icon" href="favicon.png?v=1" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,9 +131,9 @@
           </div>
         </div>
 
-        <button type="button" class="show-more-btn" id="show-more-btn" aria-expanded="false">Show more</button>
-
-        <div class="grid portfolio-more hidden" id="portfolio-more">
+        <div class="portfolio-more-wrap is-collapsed" id="portfolio-more-wrap">
+          <div class="portfolio-more-peek">
+            <div class="grid portfolio-more" id="portfolio-more">
           <div class="glass-card brand-card">
             <div class="brand-content">
               <img src="flyhomes-logo.png" alt="Flyhomes Logo" class="brand-logo">
@@ -197,6 +197,10 @@
               <p class="mono-copy">Recognized as a Distinguished Educator for leadership and mentorship.</p>
             </div>
           </div>
+          </div>
+          <div class="portfolio-more-fade" aria-hidden="true"></div>
+          </div>
+          <button type="button" class="show-more-btn" id="show-more-btn" aria-expanded="false">Show more</button>
         </div>
 
         <section class="experience-section">
@@ -337,11 +341,11 @@
 
     // Show more / Show less portfolio cards
     const showMoreBtn = document.getElementById('show-more-btn');
-    const portfolioMore = document.getElementById('portfolio-more');
+    const portfolioMoreWrap = document.getElementById('portfolio-more-wrap');
 
     showMoreBtn.addEventListener('click', () => {
-      portfolioMore.classList.toggle('hidden');
-      const isExpanded = !portfolioMore.classList.contains('hidden');
+      portfolioMoreWrap.classList.toggle('is-collapsed');
+      const isExpanded = !portfolioMoreWrap.classList.contains('is-collapsed');
       showMoreBtn.textContent = isExpanded ? 'Show less' : 'Show more';
       showMoreBtn.setAttribute('aria-expanded', isExpanded);
     });
