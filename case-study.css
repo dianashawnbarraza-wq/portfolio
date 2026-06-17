@@ -287,7 +287,7 @@ body.case-study-body {
   padding: 0;
   border: 1px solid var(--cs-border);
   border-radius: var(--cs-radius);
-  background: var(--cs-surface);
+  background: #fff;
   cursor: zoom-in;
   text-align: left;
   overflow: hidden;
@@ -301,22 +301,12 @@ body.case-study-body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
-.cs-flow-expand__viewport {
-  display: block;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  background: #fff;
-}
-
-.cs-flow-expand__viewport img {
-  width: 1024px;
-  max-width: none;
+.cs-flow-expand img {
+  width: 100%;
   height: auto;
   display: block;
   border: none;
   border-radius: 0;
-  image-rendering: auto;
 }
 
 .cs-flow-expand__hint {
@@ -335,10 +325,9 @@ body.case-study-body {
   inset: 0;
   z-index: 10000;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 48px 24px 24px;
   background: rgba(0, 0, 0, 0.92);
 }
 
@@ -366,43 +355,9 @@ body.case-study-body {
   background: rgba(255, 255, 255, 0.2);
 }
 
-.cs-flow-lightbox__toolbar {
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
-  gap: 8px;
-  padding: 8px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-}
-
-.cs-flow-lightbox__zoom {
-  min-width: 56px;
-  padding: 0.45rem 0.75rem;
-  border: none;
-  border-radius: 999px;
-  background: transparent;
-  color: #fff;
-  font: inherit;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.cs-flow-lightbox__zoom:hover,
-.cs-flow-lightbox__zoom.is-active {
-  background: rgba(255, 255, 255, 0.18);
-}
-
 .cs-flow-lightbox__inner {
-  width: calc(100vw - 48px);
-  max-width: none;
-  height: calc(100vh - 120px);
-  margin: 56px auto 0;
+  width: min(100%, 1200px);
+  max-height: calc(100vh - 72px);
   overflow: auto;
   border-radius: var(--cs-radius);
   background: #fff;
@@ -410,11 +365,9 @@ body.case-study-body {
 }
 
 .cs-flow-lightbox__img {
-  width: auto;
-  max-width: none;
+  width: 100%;
   height: auto;
   display: block;
-  image-rendering: auto;
 }
 
 .cs-figure figcaption {

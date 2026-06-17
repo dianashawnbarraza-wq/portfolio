@@ -122,13 +122,6 @@
     const triggers = document.querySelectorAll('.cs-flow-expand');
     if (!triggers.length) return;
 
-    const zoomLevels = [
-      { label: 'Fit', scale: 'fit' },
-      { label: '100%', scale: 1 },
-      { label: '125%', scale: 1.25 },
-      { label: '150%', scale: 1.5 }
-    ];
-
     let lightbox = document.getElementById('cs-flow-lightbox');
     if (!lightbox) {
       lightbox = document.createElement('div');
@@ -137,7 +130,6 @@
       lightbox.hidden = true;
       lightbox.innerHTML = `
         <button type="button" class="cs-flow-lightbox__close" aria-label="Close expanded diagram">&times;</button>
-        <div class="cs-flow-lightbox__toolbar" role="toolbar" aria-label="Zoom controls"></div>
         <div class="cs-flow-lightbox__inner">
           <img src="" alt="" class="cs-flow-lightbox__img">
         </div>
@@ -146,58 +138,17 @@
     }
 
     const img = lightbox.querySelector('.cs-flow-lightbox__img');
-    const inner = lightbox.querySelector('.cs-flow-lightbox__inner');
-    const toolbar = lightbox.querySelector('.cs-flow-lightbox__toolbar');
     const closeBtn = lightbox.querySelector('.cs-flow-lightbox__close');
-    let nativeWidth = 3072;
-    let activeScale = 'fit';
-
-    zoomLevels.forEach(({ label, scale }) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'cs-flow-lightbox__zoom';
-      btn.textContent = label;
-      btn.dataset.scale = String(scale);
-      btn.addEventListener('click', () => setZoom(scale));
-      toolbar.appendChild(btn);
-    });
-
-    const setZoom = (scale) => {
-      activeScale = scale;
-      let width = nativeWidth;
-      if (scale === 'fit') {
-        width = Math.min(nativeWidth, Math.max(inner.clientWidth - 32, 320));
-      } else {
-        width = Math.round(nativeWidth * Number(scale));
-      }
-      img.style.width = `${width}px`;
-      toolbar.querySelectorAll('.cs-flow-lightbox__zoom').forEach((btn) => {
-        btn.classList.toggle('is-active', btn.dataset.scale === String(scale));
-      });
-    };
 
     const close = () => {
       lightbox.hidden = true;
       img.removeAttribute('src');
-      img.style.width = '';
-      inner.scrollLeft = 0;
-      inner.scrollTop = 0;
       document.body.style.overflow = '';
     };
 
     const open = (source) => {
-      const fullSrc = source.dataset.flowFull || source.currentSrc || source.src;
-      img.src = fullSrc;
+      img.src = source.currentSrc || source.src;
       img.alt = source.alt;
-      nativeWidth = source.naturalWidth || Number(source.getAttribute('width')) * 3 || 3072;
-
-      img.onload = () => {
-        nativeWidth = img.naturalWidth || nativeWidth;
-        setZoom(activeScale);
-        inner.scrollLeft = 0;
-        inner.scrollTop = 0;
-      };
-
       lightbox.hidden = false;
       document.body.style.overflow = 'hidden';
       closeBtn.focus();
@@ -216,8 +167,7 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (lightbox.hidden) return;
-      if (e.key === 'Escape') close();
+      if (e.key === 'Escape' && !lightbox.hidden) close();
     });
   }
 })();
