@@ -211,7 +211,7 @@
               <summary>Delivery · Confidence at the card step</summary>
               <div class="cs-accordion-body">
                 <p>The redesigned experience gave sellers immediate digital access, a clear choice between physical and virtual card paths, and messaging that explained skipping the physical card did not mean losing access to Square Checking.</p>
-                <p>We surfaced digital card options at the moment sellers needed reassurance and aligned the flow with expectations from digital first financial products.</p>
+                <p>We surfaced digital card options at the moment sellers needed reassurance and aligned the flow with expectations from digital first financial products. I also advocated improving the card detail screen by elevating Add to Apple Wallet from a buried list row to a primary action so wallet setup matched seller intent.</p>
               </div>
             </details>
           </div>
@@ -245,6 +245,30 @@
             <figcaption>Before · Checking account creation happened after physical card ordering</figcaption>
           </figure>
 
+          <h3 class="cs-subheading">Before · Dropped into balance without a path back</h3>
+          <p>When sellers abandoned debit card ordering, they landed in the traditional Balance experience. The screen looked like a completed banking setup: available balance, transfer, and recent activity. Nothing indicated they had not finished signing up for Square Checking, and there was no way to resume the flow and finalize their account. Sellers who dropped off were effectively stuck.</p>
+
+          <figure class="cs-figure">
+            <div class="phone-shell phone-shell--before">
+              <div class="phone-shell__screen" tabindex="0" aria-label="Before redesign, sellers who dropped during card ordering saw the traditional Balance screen with no path back to finish Checking signup">
+                <img src="debit-card-before-balance.png?v=1" alt="Square Point of Sale Balance screen with no indication of incomplete Checking signup" width="255" height="1024" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <figcaption>Before · Balance looked complete even when Checking signup was unfinished</figcaption>
+          </figure>
+
+          <h3 class="cs-subheading">Before · Card details treated wallet setup as secondary</h3>
+          <p>The previous card management design listed Add to Apple Wallet as a row item alongside billing address and card controls. For sellers who wanted to spend through a digital wallet, that buried the action they cared about most. I brought this gap to the team and advocated elevating Add to Apple Wallet to a primary action on the card detail screen, an opportunity to improve how we surfaced wallet setup at the moment sellers expected it.</p>
+
+          <figure class="cs-figure">
+            <div class="phone-shell phone-shell--before">
+              <div class="phone-shell__screen" tabindex="0" aria-label="Before redesign, Add to Apple Wallet appeared as a secondary row item on the card details screen">
+                <img src="debit-card-before-card-details.png?v=1" alt="Card details screen with Add to Apple Wallet as a list row instead of a primary action" width="255" height="1024" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <figcaption>Before · Add to Apple Wallet was a list row, not a primary action</figcaption>
+          </figure>
+
           <h3 class="cs-subheading">After · Checking account created before optional card ordering</h3>
           <p>In the updated flow, the Checking account is provisioned during banking signup and identity verification, before sellers reach debit card ordering. At that point, physical card ordering becomes optional. Sellers can skip it, access a virtual debit card, and use banking features immediately, or order a physical card when they want one.</p>
 
@@ -261,6 +285,7 @@
             <li><strong>Remove debit card ordering as a signup requirement.</strong> Based on research insight, I advocated provisioning Checking with a virtual card instead of gating the account on physical card fulfillment.</li>
             <li><strong>Give sellers choice in how they spend.</strong> Virtual card, digital wallet, and optional physical card ordering became parallel paths, not a single required step.</li>
             <li><strong>Introduce virtual card access at activation.</strong> Sellers could start spending immediately without waiting for mail delivery.</li>
+            <li><strong>Elevate Add to Apple Wallet to a primary action.</strong> I identified that the previous card detail screen buried wallet setup in a list and advocated making it a top-level action on the redesigned screen.</li>
           </ul>
 
           <div class="image-gallery image-gallery--three">
@@ -277,10 +302,8 @@
               <figcaption>Virtual card access</figcaption>
             </figure>
             <figure class="cs-figure cs-figure--gallery">
-              <div class="image-slot">
-                <span class="image-slot__label">Digital wallet</span>
-              </div>
-              <figcaption>Add to Apple Pay or Wallet</figcaption>
+              <img src="virtual-card-issuance-hero.png?v=2" alt="Updated card detail screen with Add to Apple Wallet elevated as a primary action" width="1024" height="716" loading="lazy" decoding="async">
+              <figcaption>After · Add to Apple Wallet as a primary action</figcaption>
             </figure>
           </div>
         </section>
