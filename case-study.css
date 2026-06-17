@@ -279,6 +279,13 @@ body.case-study-body {
 /* Expandable flow diagrams */
 .cs-figure--flow {
   margin: 1.5rem 0 0;
+  width: 100%;
+}
+
+.cs-figure--flow .cs-flow-expand img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 .cs-flow-expand {
@@ -303,6 +310,7 @@ body.case-study-body {
 
 .cs-flow-expand img {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
   border: none;
@@ -356,7 +364,7 @@ body.case-study-body {
 }
 
 .cs-flow-lightbox__inner {
-  width: min(100%, 1200px);
+  width: min(calc(100vw - 48px), 3072px);
   max-height: calc(100vh - 72px);
   overflow: auto;
   border-radius: var(--cs-radius);
@@ -366,6 +374,7 @@ body.case-study-body {
 
 .cs-flow-lightbox__img {
   width: 100%;
+  max-width: none;
   height: auto;
   display: block;
 }

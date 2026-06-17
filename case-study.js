@@ -147,7 +147,7 @@
     };
 
     const open = (source) => {
-      img.src = source.currentSrc || source.src;
+      img.src = source.dataset.flowSrc || source.currentSrc || source.src;
       img.alt = source.alt;
       lightbox.hidden = false;
       document.body.style.overflow = 'hidden';
