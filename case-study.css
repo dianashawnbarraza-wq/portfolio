@@ -762,6 +762,10 @@ body.case-study-body {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.image-gallery--four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .cs-figure--gallery {
   margin: 0;
 }
@@ -769,6 +773,11 @@ body.case-study-body {
 .cs-figure--gallery img {
   max-width: 100%;
   width: 100%;
+}
+
+.cs-figure--narrow {
+  max-width: 320px;
+  margin: 1.5rem auto;
 }
 
 .cs-gallery-note {
@@ -1202,6 +1211,7 @@ body.case-study-body {
 
   .image-gallery,
   .image-gallery--three,
+  .image-gallery--four,
   .chart-grid {
     grid-template-columns: 1fr;
   }

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="case-study.css?v=24">
+  <link rel="stylesheet" href="case-study.css?v=26">
 </head>
 <body class="case-study-body" data-auth-key="cs-auth-bill-pay-vendors">
 
@@ -127,7 +127,7 @@
 
         <section class="cs-section cs-section--impact" id="impact">
           <figure class="cs-impact-hero">
-            <img src="square-bill-pay-v3.png" alt="Square Bill Pay vendor payment acceptance experience">
+            <img src="billpay-vendor-acceptance-hero.png?v=1" alt="Square Bill Pay vendor payment acceptance with Plaid bank connection">
           </figure>
           <h2>Impact</h2>
 
@@ -282,7 +282,7 @@
                 <figcaption class="phone-compare__label">Before</figcaption>
                 <div class="phone-shell phone-shell--before">
                   <div class="phone-shell__screen" tabindex="0" aria-label="Before payment notification email">
-                    <img src="billpay-vendor-email-before.png?v=2" alt="Before vendor payment notification email" width="530" height="2048" loading="lazy" decoding="async">
+                    <img src="billpay-vendor-before-01-notification.png?v=1" alt="Before vendor payment notification email" width="530" height="2048" loading="lazy" decoding="async">
                   </div>
                 </div>
               </figure>
@@ -290,7 +290,7 @@
                 <figcaption class="phone-compare__label">After</figcaption>
                 <div class="phone-shell phone-shell--after">
                   <div class="phone-shell__screen" tabindex="0" aria-label="After payment notification email">
-                    <img src="billpay-vendor-email-after.png?v=2" alt="After vendor payment notification email" width="530" height="2048" loading="lazy" decoding="async">
+                    <img src="billpay-vendor-after-01-notification.png?v=1" alt="After vendor payment notification email" width="530" height="2048" loading="lazy" decoding="async">
                   </div>
                 </div>
               </figure>
@@ -298,85 +298,127 @@
           </div>
 
           <h3 class="cs-subheading">Before · Payment portal and acceptance flow</h3>
-          <p>When vendors clicked through, they landed in a payment portal with two options: enter ACH bank details manually or download a check. Manual input, limited paths, and delayed activation lowered confidence during setup.</p>
+          <p>When vendors clicked through, they landed in a payment portal that repeated the same notification-first hierarchy: sender, amount, then bill metadata—before surfacing how to get paid. Two paths were available, but both added friction: typing sensitive bank details by hand or downloading a check to process elsewhere.</p>
 
           <div class="process-steps">
             <div class="process-step">
               <span class="process-step__num">1</span>
               <div class="process-step__content">
                 <h4>Payment notification</h4>
-                <p>Vendor receives an email that a seller would like to pay them via Square.</p>
+                <p>Vendor receives an email that a seller would like to pay them via Square, with metadata stacked above the accept action.</p>
               </div>
             </div>
             <div class="process-step">
               <span class="process-step__num">2</span>
               <div class="process-step__content">
                 <h4>Open the payment portal</h4>
-                <p>Vendor opens the portal from the email to accept the payment.</p>
+                <p>Vendor opens the portal from the email and chooses between bank transfer or digital check—without a clear default path.</p>
               </div>
             </div>
             <div class="process-step">
               <span class="process-step__num">3</span>
               <div class="process-step__content">
-                <h4>Enter ACH details or download a check</h4>
-                <p>Vendor either types routing and account numbers or downloads a check to process elsewhere.</p>
+                <h4>Enter ACH details manually</h4>
+                <p>Vendor types routing and account numbers into plain fields, increasing error risk and hesitation around sharing financial data.</p>
               </div>
             </div>
             <div class="process-step">
               <span class="process-step__num">4</span>
               <div class="process-step__content">
-                <h4>Verification</h4>
-                <p>Additional steps confirm account details before funds move.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">5</span>
-              <div class="process-step__content">
-                <h4>Payment received</h4>
-                <p>Funds arrive after setup completes, often with delay or drop off along the way.</p>
+                <h4>Download a digital check</h4>
+                <p>Alternatively, vendor downloads a check to print and deposit—adding steps and delay before funds arrive.</p>
               </div>
             </div>
           </div>
 
-          <figure class="cs-figure cs-figure--wide">
-            <div class="image-slot image-slot--wide">
-              <span class="image-slot__label">Before flow diagram</span>
-            </div>
-            <figcaption>Before state · Manual entry and check based acceptance paths</figcaption>
-          </figure>
+          <p class="cs-gallery-note">Before acceptance flow · End to end</p>
+          <div class="image-gallery image-gallery--four">
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-vendor-before-01-notification.png?v=1" alt="Before vendor payment notification email from Square Bill Pay" width="530" height="2048" loading="lazy" decoding="async">
+              <figcaption>1 · Payment notification</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-vendor-before-02-portal.png?v=1" alt="Before vendor payment portal with bank transfer and digital check options" width="530" height="1032" loading="lazy" decoding="async">
+              <figcaption>2 · Payment portal</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-vendor-before-03-ach.png?v=1" alt="Before vendor payment portal with manual routing and account number fields expanded" width="530" height="1367" loading="lazy" decoding="async">
+              <figcaption>3 · Manual bank entry</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-vendor-before-04-check.png?v=1" alt="Before vendor payment portal with digital check download expanded" width="530" height="1428" loading="lazy" decoding="async">
+              <figcaption>4 · Digital check download</figcaption>
+            </figure>
+          </div>
 
           <h3 class="cs-subheading">After · Secure bank connection</h3>
-          <p>The new experience introduced connect bank as a primary path. Vendors authenticated through a familiar connection model, saw what information was shared, and reached confirmation faster. Manual entry and check download remained available, but the flow emphasized the path most likely to complete.</p>
+          <p>The new experience carried the conversion-first hierarchy from the email into the payment portal: amount and sender up front, a clear path to link a bank account, and supporting details below. Vendors authenticated through Plaid—a connection model they already recognized from banking products—and reached confirmation faster. Manual entry and check download remained available, but the flow emphasized the path most likely to complete.</p>
 
           <div class="process-steps">
             <div class="process-step">
               <span class="process-step__num">1</span>
               <div class="process-step__content">
-                <h4>Connect bank</h4>
-                <p>Vendor chooses a secure connection instead of typing account details.</p>
+                <h4>Payment notification</h4>
+                <p>Vendor receives a conversion-first email with amount, sender, and accept action above supporting details.</p>
               </div>
             </div>
             <div class="process-step">
               <span class="process-step__num">2</span>
               <div class="process-step__content">
-                <h4>Authenticate</h4>
-                <p>Vendor signs in through a trusted bank connection experience.</p>
+                <h4>Payment portal</h4>
+                <p>Vendor lands on a portal that leads with “Your payment is ready,” surfaces link bank as the primary action, and moves bill details below.</p>
               </div>
             </div>
             <div class="process-step">
               <span class="process-step__num">3</span>
               <div class="process-step__content">
-                <h4>Payment received</h4>
-                <p>Funds move with fewer errors and less time between notification and payout.</p>
+                <h4>Plaid consent</h4>
+                <p>Vendor reviews how Plaid will connect their account, with manual entry available as a fallback.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">4</span>
+              <div class="process-step__content">
+                <h4>Bank connection</h4>
+                <p>Vendor selects their bank and authenticates through Plaid instead of typing routing and account numbers.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">5</span>
+              <div class="process-step__content">
+                <h4>Payment confirmed</h4>
+                <p>Vendor sees confirmation that funds are on the way, with a clear timeline for payout.</p>
               </div>
             </div>
           </div>
 
-          <figure class="cs-figure cs-figure--wide">
-            <div class="image-slot image-slot--wide">
-              <span class="image-slot__label">Before / after comparison</span>
-            </div>
-            <figcaption>Flow comparison · Manual entry versus secure connection</figcaption>
+          <p class="cs-gallery-note">After acceptance flow · End to end</p>
+          <div class="image-gallery image-gallery--three">
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-vendor-after-01-notification.png?v=1" alt="After vendor payment notification email with amount-first hierarchy" width="530" height="2048" loading="lazy" decoding="async">
+              <figcaption>1 · Payment notification</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-vendor-after-02-portal.png?v=1" alt="After vendor payment portal with Your payment is ready and link bank CTA" width="530" height="1821" loading="lazy" decoding="async">
+              <figcaption>2 · Payment portal</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-vendor-after-03-plaid-consent.png?v=1" alt="Plaid consent modal to continue linking bank account" width="530" height="1160" loading="lazy" decoding="async">
+              <figcaption>3 · Plaid consent</figcaption>
+            </figure>
+          </div>
+
+          <figure class="cs-figure cs-figure--wide cs-figure--flow">
+            <button type="button" class="cs-flow-expand" aria-label="Expand Plaid bank connection flow">
+              <img src="billpay-vendor-after-04-plaid-flow.png?v=1" alt="Plaid bank connection flow from consent through bank selection, credentials, and success" width="2048" height="986" loading="lazy" decoding="async">
+              <span class="cs-flow-expand__hint">Click to enlarge</span>
+            </button>
+            <figcaption>4 · Plaid bank connection</figcaption>
+          </figure>
+
+          <figure class="cs-figure cs-figure--gallery cs-figure--narrow">
+            <img src="billpay-vendor-after-05-success.png?v=1" alt="Vendor payment success screen confirming funds are on the way" width="530" height="1160" loading="lazy" decoding="async">
+            <figcaption>5 · Payment confirmed</figcaption>
           </figure>
 
           <h3 class="cs-subheading">Shipped experience</h3>
@@ -384,26 +426,16 @@
 
           <div class="image-gallery image-gallery--three">
             <figure class="cs-figure cs-figure--gallery">
-              <img src="billpay-vendor-email-after.png?v=2" alt="Redesigned Square Bill Pay vendor payment notification email" width="530" height="2048" loading="lazy" decoding="async">
-              <figcaption>Payment notification</figcaption>
+              <img src="billpay-vendor-after-02-portal.png?v=1" alt="Redesigned vendor payment portal with link bank as primary action" width="530" height="1821" loading="lazy" decoding="async">
+              <figcaption>Payment portal</figcaption>
             </figure>
             <figure class="cs-figure cs-figure--gallery">
-              <div class="image-slot">
-                <span class="image-slot__label">Connect bank</span>
-              </div>
-              <figcaption>Connect bank CTA</figcaption>
+              <img src="billpay-vendor-after-03-plaid-consent.png?v=1" alt="Plaid consent step before bank connection" width="530" height="1160" loading="lazy" decoding="async">
+              <figcaption>Plaid consent</figcaption>
             </figure>
             <figure class="cs-figure cs-figure--gallery">
-              <div class="image-slot">
-                <span class="image-slot__label">Bank selection</span>
-              </div>
-              <figcaption>Bank selection</figcaption>
-            </figure>
-            <figure class="cs-figure cs-figure--gallery">
-              <div class="image-slot">
-                <span class="image-slot__label">Confirmation</span>
-              </div>
-              <figcaption>Confirmation state</figcaption>
+              <img src="billpay-vendor-after-05-success.png?v=1" alt="Payment success confirmation with payout timeline" width="530" height="1160" loading="lazy" decoding="async">
+              <figcaption>Payment confirmed</figcaption>
             </figure>
           </div>
         </section>
