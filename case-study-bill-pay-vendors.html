@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="case-study.css?v=17">
+  <link rel="stylesheet" href="case-study.css?v=24">
 </head>
 <body class="case-study-body" data-auth-key="cs-auth-bill-pay-vendors">
 
@@ -84,7 +84,7 @@
         <section class="cs-hero" id="hero">
           <p class="cs-eyebrow">Square · Bill Pay · Vendor acceptance</p>
           <h1>Redesigning Bill Pay’s vendor acceptance experience to build trust and increase successful payment completion</h1>
-          <p class="cs-hero-summary">Building trust into Square Bill Pay's payment acceptance experience. I led design for a secure bank connection flow that gave vendors a faster, more familiar way to receive payments without relying on manual entry or printed checks.</p>
+          <p class="cs-hero-summary">Building trust into Square Bill Pay’s vendor acceptance experience—from the payment notification email through the payment portal. I led design across the top of funnel, reframing the vendor email for conversion and introducing a secure Plaid bank connection flow that replaced manual entry as the default path to getting paid.</p>
 
           <div class="cs-meta-grid">
             <div class="cs-meta-item">
@@ -107,16 +107,16 @@
 
           <div class="cs-metrics-row cs-metrics-row--4">
             <div class="metric-card">
+              <p class="metric-card__value">69% → 87%</p>
+              <p class="metric-card__label">Notification click-through</p>
+            </div>
+            <div class="metric-card">
               <p class="metric-card__value">52% → 73%</p>
               <p class="metric-card__label">Payment acceptance completion</p>
             </div>
             <div class="metric-card">
               <p class="metric-card__value">78% → 49%</p>
               <p class="metric-card__label">Manual bank entry</p>
-            </div>
-            <div class="metric-card">
-              <p class="metric-card__value">↑</p>
-              <p class="metric-card__label">Vendor activation speed</p>
             </div>
             <div class="metric-card">
               <p class="metric-card__value">↑</p>
@@ -142,6 +142,11 @@
               </thead>
               <tbody>
                 <tr>
+                  <td>Notification email click-through</td>
+                  <td>69%</td>
+                  <td><strong>87%</strong></td>
+                </tr>
+                <tr>
                   <td>Vendor payment acceptance completion</td>
                   <td>52%</td>
                   <td><strong>73%</strong></td>
@@ -165,14 +170,14 @@
             </table>
           </div>
 
-          <p class="cs-results-interpretation">The new acceptance experience did not just remove steps. It gave vendors a reason to finish setup by replacing manual data entry with a secure connection pattern they already understood from banking products.</p>
+          <p class="cs-results-interpretation">Improvements started at the top of the funnel. Redesigning the payment notification email raised click-through from 69% to 87% by answering what vendors needed to know before they clicked. That set up stronger completion downstream once we introduced a secure bank connection vendors already recognized from banking products.</p>
         </section>
 
         <section class="cs-section" id="situation">
           <h2>Situation</h2>
           <p class="cs-lead">Square Bill Pay enabled sellers to send payments to vendors, but vendors had limited ways to receive those funds.</p>
           <p>Previously, vendors could manually enter their bank account information or download a check to process payment externally. Both options supported delivery, but they introduced friction at the moment vendors needed to take action.</p>
-          <p>Vendors wanted to get paid. Connecting a bank account made that harder than it should have been. They received an email when a payment was waiting, then faced a setup flow that asked for sensitive financial details or pushed them toward a check they might never deposit.</p>
+          <p>Vendors wanted to get paid. They received an email when a payment was waiting—but that email was built like a transaction receipt, not a conversion moment. Only after clicking through did they face a setup flow that asked for sensitive financial details or pushed them toward a check they might never deposit.</p>
           <p>That created real problems on both sides of the transaction:</p>
           <ul>
             <li>Manual entry increased the chance of errors</li>
@@ -198,8 +203,15 @@
             <details class="cs-accordion-item" open>
               <summary>Discovery · Reframing the problem around trust</summary>
               <div class="cs-accordion-body">
-                <p>Early exploration showed the biggest barrier was not simply the number of fields. Vendors needed confidence before they acted: why Square needed this information, whether their account was secure, and what happened after they connected.</p>
-                <p>I shifted the experience from "Enter your bank details" to "Securely connect your existing bank account." That reframing changed how we wrote copy, sequenced the flow, and evaluated success.</p>
+                <p>Early exploration showed the biggest barrier was not simply the number of fields in the payment portal. Vendors needed confidence before they acted—and the payment notification email was failing that test first.</p>
+                <p>The email was optimized for notification, not conversion. When a vendor opened it, their mental state was: “Is this real? Why am I getting this? What do I need to do? Is it safe?” The layout did not fully answer those questions before asking them to click.</p>
+                <p>The hierarchy led with sender and metadata—bill ID, due dates, line items—instead of what mattered for conversion:</p>
+                <ul>
+                  <li><strong>What we needed:</strong> amount → sender → how to get paid → details</li>
+                  <li><strong>What we had:</strong> sender → amount → metadata</li>
+                </ul>
+                <p>I redesigned the notification to lead with the payment amount, clarify who sent it, surface a single accept action, and move supporting details below the fold. Notification email click-through improved from <strong>69% to 87%</strong>, giving more vendors a confident path into the acceptance flow.</p>
+                <p>Inside the portal, I shifted the experience from “Enter your bank details” to “Securely connect your existing bank account.” That reframing changed how we wrote copy, sequenced the flow, and evaluated success end to end.</p>
               </div>
             </details>
 
@@ -243,19 +255,50 @@
             <p class="quote-block__text">“When someone sends me money, I just want to get it and move on. I don’t want a bunch of extra steps between me and getting paid.”</p>
             <p class="quote-block__attribution">Alex, Golden Hour Photography</p>
           </blockquote>
+
+          <h3 class="cs-subheading">Notification email · What vendors need before they click</h3>
+          <p>Discovery surfaced a recurring pattern: vendors paused at the email itself, not just the portal. The previous notification read like a bill statement. It prioritized sender name and transaction metadata over the questions vendors actually had when money was waiting for them: “Is this real? Why am I getting this? What do I need to do? Is it safe?”</p>
+          <p>For conversion, the hierarchy needed to be <strong>amount → sender → how to get paid → details</strong>—not sender → amount → metadata.</p>
         </section>
 
         <section class="cs-section" id="design">
           <h2>Design</h2>
-          <p class="cs-lead">From manual setup to a trusted connection flow.</p>
+          <p class="cs-lead">From a notification-first email to a conversion-first path into payment acceptance.</p>
 
-          <h3 class="cs-subheading">Before · Existing vendor payment acceptance</h3>
-          <p>When a seller initiated a Bill Pay payment, the vendor received an email notification that funds were waiting. From there, they opened a payment portal with two options: enter ACH bank details manually or download a check. Manual input, limited paths, and delayed activation lowered confidence during setup.</p>
+          <h3 class="cs-subheading">Before · Payment notification optimized for notice, not action</h3>
+          <p>The previous email led with “[Seller] would like to pay you,” buried the amount in body copy, and stacked bill ID, due date, and line-item metadata above the accept action. It assumed vendors already understood Square Bill Pay. Many did not—and the hierarchy gave them no fast answer to whether the payment was real, safe, or worth their time.</p>
 
-          <figure class="cs-figure cs-figure--wide">
-            <img src="billpay-vendor-payment-email.png" alt="Email notification from Square that Pied Piper would like to pay the vendor using Square Bill Pay" loading="lazy">
-            <figcaption>Payment notification · Vendor email when a seller sends a Bill Pay payment</figcaption>
-          </figure>
+          <h3 class="cs-subheading">After · Payment notification built for conversion</h3>
+          <p>I reordered the email around the hierarchy vendors needed: amount first, then sender, then a clear “Accept payment” action, with supporting details moved below. The design answered “Is this real?”, “Who sent it?”, “What do I do?”, and “Is it safe?” before vendors had to hunt for the next step.</p>
+          <p>Notification email click-through improved from <strong>69% to 87%</strong>—a stronger top of funnel that fed more vendors into the redesigned acceptance experience below.</p>
+
+          <div class="phone-compare">
+            <div class="phone-compare__header">
+              <h3 class="phone-compare__title">Payment notification · Before and after</h3>
+              <p class="phone-compare__hint">Scroll inside each device to view the full email.</p>
+            </div>
+            <div class="phone-compare__grid">
+              <figure class="phone-compare__item">
+                <figcaption class="phone-compare__label">Before</figcaption>
+                <div class="phone-shell phone-shell--before">
+                  <div class="phone-shell__screen" tabindex="0" aria-label="Before payment notification email">
+                    <img src="billpay-vendor-email-before.png?v=1" alt="Before vendor payment notification email" width="255" height="1024" loading="lazy" decoding="async">
+                  </div>
+                </div>
+              </figure>
+              <figure class="phone-compare__item">
+                <figcaption class="phone-compare__label">After</figcaption>
+                <div class="phone-shell phone-shell--after">
+                  <div class="phone-shell__screen" tabindex="0" aria-label="After payment notification email">
+                    <img src="billpay-vendor-email-after.png?v=1" alt="After vendor payment notification email" width="265" height="1024" loading="lazy" decoding="async">
+                  </div>
+                </div>
+              </figure>
+            </div>
+          </div>
+
+          <h3 class="cs-subheading">Before · Payment portal and acceptance flow</h3>
+          <p>When vendors clicked through, they landed in a payment portal with two options: enter ACH bank details manually or download a check. Manual input, limited paths, and delayed activation lowered confidence during setup.</p>
 
           <div class="process-steps">
             <div class="process-step">
@@ -341,7 +384,7 @@
 
           <div class="image-gallery image-gallery--three">
             <figure class="cs-figure cs-figure--gallery">
-              <img src="billpay-vendor-payment-email.png" alt="Square Bill Pay vendor payment email notification" loading="lazy">
+              <img src="billpay-vendor-email-after.png?v=1" alt="Redesigned Square Bill Pay vendor payment notification email" loading="lazy">
               <figcaption>Payment notification</figcaption>
             </figure>
             <figure class="cs-figure cs-figure--gallery">
@@ -378,8 +421,8 @@
 
         <section class="cs-section" id="results-expanded">
           <h2>Results</h2>
-          <p class="cs-lead">A more streamlined path for vendors to receive money.</p>
-          <p>The new payment acceptance experience increased vendor payment acceptance completion from <strong>52% to 73%</strong> and reduced reliance on manual bank entry from <strong>78% to 49%</strong>. Vendors reached payout faster, and sellers gained confidence that payments would actually complete.</p>
+          <p class="cs-lead">A stronger top of funnel and a more trusted path to payout.</p>
+          <p>Redesigning the payment notification email raised click-through from <strong>69% to 87%</strong>, bringing more vendors into the acceptance flow with clearer intent. The new payment portal experience then increased vendor payment acceptance completion from <strong>52% to 73%</strong> and reduced reliance on manual bank entry from <strong>78% to 49%</strong>. Vendors reached payout faster, and sellers gained confidence that payments would actually complete.</p>
 
           <figure class="cs-figure cs-figure--wide">
             <div class="image-slot image-slot--wide">
@@ -400,6 +443,6 @@
     </div>
   </div>
 
-  <script src="case-study.js?v=5"></script>
+  <script src="case-study.js?v=11"></script>
 </body>
 </html>
