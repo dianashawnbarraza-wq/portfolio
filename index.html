@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D. Shawn Barraza | Senior Product Designer</title>
-  <link rel="stylesheet" href="styles.css?v=58">
+  <link rel="stylesheet" href="styles.css?v=59">
   <link rel="icon" href="favicon.png?v=1" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,26 +12,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <header>
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner">
       <a href="index.html" class="logo" aria-label="Home">B<span class="logo-cursor" aria-hidden="true"></span></a>
       <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
       <nav id="desktop-nav">
         <ul>
+          <li><a href="#about">About</a></li>
           <li><a href="#featured-works">Work</a></li>
           <li><a href="mailto:dianashawnbarraza@gmail.com">Contact</a></li>
           <li><a href="https://www.linkedin.com/in/dianashawnbarraza" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         </ul>
       </nav>
-    </header>
+    </div>
+  </header>
+
+  <div class="container">
 
     <!-- Mobile Nav Modal -->
     <div id="mobile-nav-modal" class="modal">
       <div class="modal-content fullscreen-modal mobile-nav-modal">
         <button class="modal-close" id="mobile-nav-close" aria-label="Close menu">&times;</button>
         <ul>
+          <li><a href="#about">About</a></li>
           <li><a href="#featured-works">Work</a></li>
           <li><a href="mailto:dianashawnbarraza@gmail.com">Contact</a></li>
           <li><a href="https://www.linkedin.com/in/dianashawnbarraza" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
@@ -61,9 +66,9 @@
 
       <section class="work">
         
-        <div class="ethos-card">
-          <h3 class="ethos-title">How I work</h3>
-          <p class="hero-intro ethos-copy">I use research, data, and AI tools to move quickly while staying grounded in customer needs and jobs to be done. I focus on understanding the problem, identifying opportunities, aligning teams, and designing for measurable impact.</p>
+        <div class="ethos-card" id="about">
+          <h3 class="ethos-title">About</h3>
+          <p class="hero-intro ethos-copy">I'm a seasoned product designer passionate about new skills and workflows, research, and UX writing. At UCLA Extension, I taught UX Iteration and was named a Distinguished Educator.</p>
         </div>
 
         <h2 id="featured-works" class="section-header">Featured works</h2>
@@ -323,6 +328,13 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const siteHeader = document.getElementById('site-header');
+    const updateHeaderScroll = () => {
+      siteHeader.classList.toggle('is-scrolled', window.scrollY > 12);
+    };
+    window.addEventListener('scroll', updateHeaderScroll, { passive: true });
+    updateHeaderScroll();
 
     // Mobile Nav Logic
     const mobileNavModal = document.getElementById('mobile-nav-modal');
