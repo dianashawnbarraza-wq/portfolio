@@ -259,6 +259,28 @@ body.case-study-body {
   margin: 1.5rem 0 1rem;
 }
 
+.cs-miniheading {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--cs-text);
+  margin: 1.25rem 0 0.5rem;
+}
+
+.cs-nested-section {
+  margin-top: 2.5rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--cs-border);
+}
+
+.cs-nested-section > .cs-nested-section__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--cs-text);
+  margin: 0 0 1.25rem;
+}
+
 .cs-figure {
   margin: 1.5rem 0 0;
 }
