@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study · Transforming Heal From On-Demand Visits Into Primary Care</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="favicon.png?v=1" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case-study.css?v=30">
+</head>
+<body class="case-study-body" data-auth-key="cs-auth-heal-primary-care">
+
+  <div class="cs-gate" id="cs-gate">
+    <a href="index.html" class="cs-gate-back cs-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Return to portfolio
+    </a>
+    <div class="cs-gate-card">
+      <h1>Enter a password</h1>
+      <form class="cs-gate-form" id="cs-gate-form">
+        <input type="password" id="cs-password" placeholder="Password" autocomplete="off" required>
+        <button type="submit">Continue</button>
+      </form>
+      <p class="cs-gate-error" id="cs-gate-error" aria-live="polite"></p>
+      <p class="cs-gate-footer">Don't have a password? <a href="index.html#contact">Get in touch →</a></p>
+    </div>
+  </div>
+
+  <div id="cs-content" hidden>
+
+    <header class="cs-topbar">
+      <div class="cs-topbar-inner">
+        <a href="index.html" class="cs-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back to portfolio
+        </a>
+        <span class="cs-topbar-label">Case study · Heal</span>
+      </div>
+    </header>
+
+    <button class="cs-mobile-nav-btn" id="cs-mobile-nav-btn" type="button">Sections</button>
+
+    <nav class="cs-mobile-nav" id="cs-mobile-nav" aria-label="Case study sections">
+      <button class="cs-mobile-nav-close" id="cs-mobile-nav-close" type="button" aria-label="Close">&times;</button>
+      <ul>
+        <li><a href="#hero">Overview</a></li>
+        <li><a href="#situation">Situation</a></li>
+        <li><a href="#task">Task</a></li>
+        <li><a href="#action">Action</a></li>
+        <li><a href="#results">Results</a></li>
+      </ul>
+    </nav>
+
+    <div class="cs-shell">
+
+      <aside class="cs-sidebar">
+        <nav aria-label="Case study navigation">
+          <ul class="cs-nav">
+            <li><a href="#hero" class="active">Overview</a></li>
+            <li><a href="#situation">Situation</a></li>
+            <li><a href="#task">Task</a></li>
+            <li><a href="#action">Action</a></li>
+            <li><a href="#results">Results</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="cs-main">
+
+        <section class="cs-hero" id="hero">
+          <p class="cs-eyebrow">Heal · Healthcare · Patient Experience</p>
+          <h1>Transforming Heal From On-Demand Visits Into Primary Care</h1>
+          <p class="cs-hero-summary">Heal originally launched as an on-demand healthcare experience, allowing patients to book a doctor to come to their home. The experience was optimized around urgent needs: a patient needed care, selected the next available doctor, chose a time, verified payment or insurance, and completed their visit.</p>
+          <p class="cs-hero-summary">As Heal evolved toward a primary care model, the product challenge changed. Success was no longer defined by a single completed appointment, but by establishing ongoing patient relationships through preventative care, routine testing, and long-term health management.</p>
+          <p class="cs-hero-summary">The existing experience unintentionally reinforced an urgent-care mindset. Patients were choosing whoever was available rather than selecting a physician they trusted. This led to lower repeat booking rates, weaker provider relationships, and challenges meeting the requirements of a Medicare-focused primary care model. The opportunity was to redesign the doctor selection experience to help patients find the right PCP while reducing friction for users who were less comfortable navigating healthcare forms.</p>
+
+          <div class="cs-meta-grid">
+            <div class="cs-meta-item">
+              <label>Role</label>
+              <span>Product Designer</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Scope</label>
+              <span>PCP selection · Patient booking · Medicare</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Focus</label>
+              <span>Primary care transition</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Partners</label>
+              <span>PM · Engineering · Support</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section" id="situation">
+          <h2>Situation</h2>
+          <p>Heal was transitioning from an on-demand doctor marketplace into a primary care platform where patients would establish ongoing relationships with physicians.</p>
+          <p>The original experience was designed around urgent care:</p>
+          <p class="cs-lead">Find an available doctor → select a time → enter insurance/payment → complete visit</p>
+          <p>This model successfully optimized for immediate access, but it unintentionally shaped patient behavior. Patients treated Heal as a one-time service rather than a long-term care relationship. They selected the first available physician rather than choosing a doctor they trusted, which resulted in lower PCP attachment and fewer repeat visits.</p>
+          <p>The behavioral gap also created operational challenges. Since patients could not easily select or return to a preferred physician within the app, support teams received frequent booking requests from patients trying to:</p>
+          <ul>
+            <li>Find a previous doctor</li>
+            <li>Book follow-up visits with the same physician</li>
+            <li>Understand whether they had an ongoing relationship with their provider</li>
+          </ul>
+
+          <h3 class="cs-subheading">Before the redesign</h3>
+          <ul>
+            <li>Only ~25% of patients returned to book with the same physician</li>
+            <li>~30% of repeat-visit intent required support intervention or additional guidance</li>
+            <li>PCP selection was not part of the booking journey</li>
+            <li>The booking experience optimized for availability rather than continuity of care</li>
+          </ul>
+
+          <p>As Heal expanded into primary care and Medicare-focused care, the product needed to support stronger patient-provider relationships while meeting requirements around identity verification, insurance validation, and PCP assignment.</p>
+          <p>The challenge was to redesign the experience so choosing a doctor felt like a personal care decision, not an administrative intake process.</p>
+        </section>
+
+        <section class="cs-section" id="task">
+          <h2>Task</h2>
+          <p>I was responsible for designing a PCP selection experience that moved patients from “find a doctor now” to “choose a doctor who can manage their health.”</p>
+          <p>The experience needed to:</p>
+          <ul>
+            <li>Create trust before a patient committed to a provider</li>
+            <li>Support Medicare requirements around identity and insurance verification</li>
+            <li>Work for a broad patient population such as adults</li>
+          </ul>
+        </section>
+
+        <section class="cs-section" id="action">
+          <h2>Action</h2>
+          <p>I redesigned Heal’s doctor booking experience from an “Uber for healthcare” model into a primary care matching experience.</p>
+          <p>The previous experience asked patients to enter basic details to get immediate care without choice in who they were seeing. I shifted the flow to progressive doctor discovery.</p>
+
+          <h3 class="cs-subheading">New booking flow</h3>
+          <div class="process-steps">
+            <div class="process-step">
+              <span class="process-step__num">1</span>
+              <div class="process-step__content">
+                <h4>Understand care needs</h4>
+                <p>Primary care, managing ongoing conditions, or getting immediate care.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">2</span>
+              <div class="process-step__content">
+                <h4>Match preferences</h4>
+                <p>Patients indicated preferences that influence trust and compatibility—doctor gender, language, specialty.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">3</span>
+              <div class="process-step__content">
+                <h4>Add insurance</h4>
+                <p>Insurance became a progressive step rather than an upfront blocker. Patients could add insurance, choose self-pay, or continue if unsure.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">4</span>
+              <div class="process-step__content">
+                <h4>Review matched providers</h4>
+                <p>Instead of a list of available doctors, patients saw personalized recommendations based on what they had input.</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="cs-lead">The experience changed the mental model from “Who can see me?” to “Who do I want managing my health?”</p>
+
+          <figure class="cs-figure cs-figure--wide">
+            <img src="heal-consumer.png?v=1" alt="Heal patient app showing doctor selection and primary care booking" width="1024" height="700" loading="lazy" decoding="async">
+            <figcaption>Patient-facing doctor selection experience</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section" id="results">
+          <h2>Results</h2>
+          <p>The redesigned flow created a stronger bridge between acquisition and long-term care. The new experience reduced the feeling of clinical paperwork upfront and increased confidence during provider selection.</p>
+
+          <div class="cs-metrics-row cs-metrics-row--results">
+            <div class="metric-card">
+              <p class="metric-card__value">↓ 20–30%</p>
+              <p class="metric-card__label">Booking-related support contacts</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">↑ 25%</p>
+              <p class="metric-card__label">Patients selecting a preferred provider</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">↑ 15%</p>
+              <p class="metric-card__label">Repeat visits with the same physician</p>
+            </div>
+          </div>
+
+          <ul>
+            <li>↓ <strong>20–30% reduction</strong> in booking-related support contacts</li>
+            <li>↑ <strong>25% increase</strong> in patients selecting a preferred provider</li>
+            <li>↑ <strong>15% increase</strong> in repeat visits with the same physician</li>
+            <li>Supported Medicare requirements by integrating verification and insurance steps without making the experience feel like an administrative workflow</li>
+          </ul>
+
+          <p class="cs-results-interpretation">The biggest product shift was moving Heal from an urgent-care transaction into a trusted primary care relationship.</p>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="case-study.js?v=12"></script>
+</body>
+</html>
