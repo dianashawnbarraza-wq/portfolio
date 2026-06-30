@@ -39,6 +39,7 @@
     initMobileNav();
     initFadeIn();
     initFlowExpand();
+    initFlowPrototype();
   }
 
   function initStickyNav() {
@@ -169,6 +170,63 @@
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !lightbox.hidden) close();
+    });
+  }
+
+  function initFlowPrototype() {
+    document.querySelectorAll('[data-flow-prototype]').forEach((root) => {
+      const steps = [...root.querySelectorAll('[data-flow-step]')].map((step) => ({
+        src: step.dataset.src,
+        alt: step.dataset.alt,
+        label: step.dataset.label,
+      }));
+
+      if (!steps.length) return;
+
+      const img = root.querySelector('[data-flow-screen]');
+      const caption = root.querySelector('[data-flow-caption]');
+      const progress = root.querySelector('[data-flow-progress]');
+      const prevBtn = root.querySelector('[data-flow-prev]');
+      const nextBtn = root.querySelector('[data-flow-next]');
+      const screen = root.querySelector('[data-flow-tap]');
+
+      if (!img || !caption || !progress || !prevBtn || !nextBtn || !screen) return;
+
+      let index = 0;
+
+      const render = () => {
+        const step = steps[index];
+        img.src = step.src;
+        img.alt = step.alt;
+        caption.textContent = step.label;
+        progress.textContent = `${index + 1} / ${steps.length}`;
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === steps.length - 1;
+        screen.setAttribute('aria-label', `${step.label}. Tap for next screen.`);
+      };
+
+      const go = (delta) => {
+        const nextIndex = index + delta;
+        if (nextIndex < 0 || nextIndex >= steps.length) return;
+        index = nextIndex;
+        render();
+      };
+
+      prevBtn.addEventListener('click', () => go(-1));
+      nextBtn.addEventListener('click', () => go(1));
+      screen.addEventListener('click', () => {
+        if (index < steps.length - 1) go(1);
+      });
+      screen.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          if (index < steps.length - 1) go(1);
+        }
+        if (e.key === 'ArrowLeft') go(-1);
+        if (e.key === 'ArrowRight') go(1);
+      });
+
+      render();
     });
   }
 })();
