@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Study · Transforming Heal From On-Demand Visits Into Primary Care</title>
+  <title>Case Study · Closing the Loop: How Introducing Primary Care Physicians Converted On-Demand Visits Into Ongoing Care</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="favicon.png?v=1" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1">
@@ -48,6 +48,7 @@
       <button class="cs-mobile-nav-close" id="cs-mobile-nav-close" type="button" aria-label="Close">&times;</button>
       <ul>
         <li><a href="#hero">Overview</a></li>
+        <li><a href="#impact">Impact</a></li>
         <li><a href="#situation">Situation</a></li>
         <li><a href="#task">Task</a></li>
         <li><a href="#action">Action</a></li>
@@ -61,6 +62,7 @@
         <nav aria-label="Case study navigation">
           <ul class="cs-nav">
             <li><a href="#hero" class="active">Overview</a></li>
+            <li><a href="#impact">Impact</a></li>
             <li><a href="#situation">Situation</a></li>
             <li><a href="#task">Task</a></li>
             <li><a href="#action">Action</a></li>
@@ -73,7 +75,7 @@
 
         <section class="cs-hero" id="hero">
           <p class="cs-eyebrow">Heal · Healthcare · Patient Experience</p>
-          <h1>Transforming Heal From On-Demand Visits Into Primary Care</h1>
+          <h1>Closing the Loop: How Introducing Primary Care Physicians Converted On-Demand Visits Into Ongoing Care</h1>
           <p class="cs-hero-summary">Heal originally launched as an on-demand healthcare experience, allowing patients to book a doctor to come to their home. The experience was optimized around urgent needs: a patient needed care, selected the next available doctor, chose a time, verified payment or insurance, and completed their visit.</p>
           <p class="cs-hero-summary">As Heal evolved toward a primary care model, the product challenge changed. Success was no longer defined by a single completed appointment, but by establishing ongoing patient relationships through preventative care, routine testing, and long-term health management.</p>
           <p class="cs-hero-summary">The existing experience unintentionally reinforced an urgent-care mindset. Patients were choosing whoever was available rather than selecting a physician they trusted. This led to lower repeat booking rates, weaker provider relationships, and challenges meeting the requirements of a Medicare-focused primary care model. The opportunity was to redesign the doctor selection experience to help patients find the right PCP while reducing friction for users who were less comfortable navigating healthcare forms.</p>
@@ -96,6 +98,27 @@
               <span>PM · Engineering · Support</span>
             </div>
           </div>
+
+          <div class="cs-metrics-row">
+            <div class="metric-card">
+              <p class="metric-card__value">~25% → ~40%</p>
+              <p class="metric-card__label">Repeat visits with same physician</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">Not in flow → ↑ 25%</p>
+              <p class="metric-card__label">Preferred provider selection</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">~30% → ~21%</p>
+              <p class="metric-card__label">Repeat-visit support intervention</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section cs-section--impact" id="impact">
+          <figure class="cs-impact-hero">
+            <img src="heal-pcp-hero.png?v=1" alt="Heal primary care physician selection experience showing matched provider recommendations">
+          </figure>
         </section>
 
         <section class="cs-section" id="situation">
@@ -173,10 +196,116 @@
 
           <p class="cs-lead">The experience changed the mental model from “Who can see me?” to “Who do I want managing my health?”</p>
 
-          <figure class="cs-figure cs-figure--wide">
-            <img src="heal-consumer.png?v=1" alt="Heal patient app showing doctor selection and primary care booking" width="1024" height="700" loading="lazy" decoding="async">
-            <figcaption>Patient-facing doctor selection experience</figcaption>
-          </figure>
+          <div class="cs-nested-section" id="action-design">
+            <h3 class="cs-nested-section__title">Design</h3>
+
+            <div class="phone-compare">
+              <div class="phone-compare__header">
+                <h3 class="phone-compare__title">Doctor selection before and after</h3>
+                <p class="phone-compare__hint">Scroll inside each device to view the full screen.</p>
+              </div>
+              <div class="phone-compare__grid">
+                <figure class="phone-compare__item">
+                  <figcaption class="phone-compare__label">Before</figcaption>
+                  <div class="phone-shell phone-shell--before">
+                    <div class="phone-shell__screen" tabindex="0" aria-label="Before on-demand doctor matching">
+                      <img src="heal-pcp-before-06-matching.png?v=1" alt="Before Heal booking flow showing next available doctor matching" width="640" height="1322" loading="lazy" decoding="async">
+                    </div>
+                  </div>
+                </figure>
+                <figure class="phone-compare__item">
+                  <figcaption class="phone-compare__label">After</figcaption>
+                  <div class="phone-shell phone-shell--after">
+                    <div class="phone-shell__screen" tabindex="0" aria-label="After primary care provider matching">
+                      <img src="heal-pcp-after-04-match-results.png?v=1" alt="After Heal booking flow showing personalized primary care provider recommendations" width="640" height="1322" loading="lazy" decoding="async">
+                    </div>
+                  </div>
+                </figure>
+              </div>
+            </div>
+
+            <h3 class="cs-subheading">Before on-demand booking flow</h3>
+            <p>Patients entered location and details, picked a time, and were matched to whoever was available—optimizing for speed, not continuity of care.</p>
+
+            <p class="cs-gallery-note">Before booking flow</p>
+            <div class="image-gallery image-gallery--four">
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-before-01-location.png?v=1" alt="Before Heal booking: enter visit location" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>1. Location</figcaption>
+              </figure>
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-before-02-patient.png?v=1" alt="Before Heal booking: patient details" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>2. Patient details</figcaption>
+              </figure>
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-before-03-when.png?v=1" alt="Before Heal booking: select visit time" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>3. When</figcaption>
+              </figure>
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-before-04-payment.png?v=1" alt="Before Heal booking: payment and insurance" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>4. Payment</figcaption>
+              </figure>
+            </div>
+            <div class="image-gallery image-gallery--four">
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-before-05-request-confirmed.png?v=1" alt="Before Heal booking: request confirmed" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>5. Request confirmed</figcaption>
+              </figure>
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-before-06-matching.png?v=1" alt="Before Heal booking: matching to next available doctor" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>6. Matching</figcaption>
+              </figure>
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-before-07-your-visit.png?v=1" alt="Before Heal booking: your visit details" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>7. Your visit</figcaption>
+              </figure>
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-before-08-upcoming-visit.png?v=1" alt="Before Heal booking: upcoming visit summary" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>8. Upcoming visit</figcaption>
+              </figure>
+            </div>
+
+            <h3 class="cs-subheading">After primary care matching flow</h3>
+            <p>Patients chose a care path, set preferences, added insurance progressively, and reviewed matched providers before booking—building trust before commitment.</p>
+
+            <p class="cs-gallery-note">After booking flow</p>
+            <div class="image-gallery image-gallery--four">
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-after-01-home-pcp-modal.png?v=1" alt="After Heal booking: primary care physician introduction modal" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>1. PCP introduction</figcaption>
+              </figure>
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-after-02-home.png?v=1" alt="After Heal booking: home with primary care entry point" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>2. Home</figcaption>
+              </figure>
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-after-03-preferences.png?v=1" alt="After Heal booking: doctor preference matching" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>3. Preferences</figcaption>
+              </figure>
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-after-04-match-results.png?v=1" alt="After Heal booking: matched provider recommendations" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>4. Match results</figcaption>
+              </figure>
+            </div>
+            <div class="image-gallery image-gallery--four">
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-after-05-doctor-profile.png?v=1" alt="After Heal booking: doctor profile for provider selection" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>5. Doctor profile</figcaption>
+              </figure>
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-after-06-patient.png?v=1" alt="After Heal booking: patient details" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>6. Patient details</figcaption>
+              </figure>
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-after-07-payment.png?v=1" alt="After Heal booking: insurance and payment" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>7. Payment</figcaption>
+              </figure>
+              <figure class="cs-figure cs-figure--gallery">
+                <img src="heal-pcp-after-08-request-confirmed.png?v=1" alt="After Heal booking: request confirmed with selected provider" width="640" height="1322" loading="lazy" decoding="async">
+                <figcaption>8. Request confirmed</figcaption>
+              </figure>
+            </div>
+          </div>
         </section>
 
         <section class="cs-section" id="results">
