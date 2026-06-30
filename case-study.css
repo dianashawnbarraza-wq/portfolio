@@ -922,6 +922,70 @@ body.case-study-body {
   image-rendering: auto;
 }
 
+/* Flow prototype — static phone frames, no in-device scroll */
+.flow-prototype {
+  margin: 1.5rem 0 2.5rem;
+}
+
+.flow-prototype__track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 1.5rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.flow-prototype__step {
+  margin: 0;
+  text-align: center;
+  flex: 0 1 200px;
+  max-width: 220px;
+}
+
+.flow-prototype__step figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--cs-subtle);
+}
+
+.flow-prototype .phone-shell {
+  padding: 8px;
+  border-radius: 38px;
+}
+
+.flow-prototype .phone-shell--before .phone-shell__screen,
+.flow-prototype .phone-shell--after .phone-shell__screen {
+  width: 200px;
+}
+
+.flow-prototype .phone-shell__screen {
+  height: auto;
+  aspect-ratio: 640 / 1322;
+  overflow: hidden;
+  -webkit-overflow-scrolling: auto;
+  overscroll-behavior: auto;
+  scrollbar-width: none;
+}
+
+.flow-prototype .phone-shell__screen::-webkit-scrollbar {
+  display: none;
+}
+
+.flow-prototype .phone-shell__screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.flow-prototype .phone-compare__hint {
+  display: none;
+}
+
+.flow-prototype .phone-compare__grid {
+  gap: 2.5rem;
+}
+
 /* BeforeAfterComparison */
 .before-after {
   margin: 2rem 0;
@@ -1256,6 +1320,10 @@ body.case-study-body {
 
   .phone-shell__screen {
     height: 460px;
+  }
+
+  .flow-prototype .phone-shell__screen {
+    height: auto;
   }
 
   .cs-figure img {

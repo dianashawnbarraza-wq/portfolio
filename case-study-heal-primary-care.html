@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="case-study.css?v=30">
+  <link rel="stylesheet" href="case-study.css?v=31">
 </head>
 <body class="case-study-body" data-auth-key="cs-auth-heal-primary-care">
 
@@ -196,27 +196,26 @@
 
           <p class="cs-lead">The experience changed the mental model from “Who can see me?” to “Who do I want managing my health?”</p>
 
-          <div class="cs-nested-section" id="action-design">
+          <div class="cs-nested-section flow-prototype" id="action-design">
             <h3 class="cs-nested-section__title">Design</h3>
 
             <div class="phone-compare">
               <div class="phone-compare__header">
                 <h3 class="phone-compare__title">Doctor selection before and after</h3>
-                <p class="phone-compare__hint">Scroll inside each device to view the full screen.</p>
               </div>
               <div class="phone-compare__grid">
-                <figure class="phone-compare__item">
+                <figure class="phone-compare__item flow-prototype__step">
                   <figcaption class="phone-compare__label">Before</figcaption>
                   <div class="phone-shell phone-shell--before">
-                    <div class="phone-shell__screen" tabindex="0" aria-label="Before on-demand doctor matching">
+                    <div class="phone-shell__screen" aria-label="Before on-demand doctor matching">
                       <img src="heal-pcp-before-06-matching.png?v=1" alt="Before Heal booking flow showing next available doctor matching" width="640" height="1322" loading="lazy" decoding="async">
                     </div>
                   </div>
                 </figure>
-                <figure class="phone-compare__item">
+                <figure class="phone-compare__item flow-prototype__step">
                   <figcaption class="phone-compare__label">After</figcaption>
                   <div class="phone-shell phone-shell--after">
-                    <div class="phone-shell__screen" tabindex="0" aria-label="After primary care provider matching">
+                    <div class="phone-shell__screen" aria-label="After primary care provider matching">
                       <img src="heal-pcp-after-04-match-results.png?v=1" alt="After Heal booking flow showing personalized primary care provider recommendations" width="640" height="1322" loading="lazy" decoding="async">
                     </div>
                   </div>
@@ -228,31 +227,53 @@
             <p>Patients entered location and details, picked a time, and were matched to whoever was available—optimizing for speed, not continuity of care.</p>
 
             <p class="cs-gallery-note">Before booking flow</p>
-            <div class="image-gallery image-gallery--four">
-              <figure class="cs-figure cs-figure--gallery">
-                <img src="heal-pcp-before-01-location.png?v=1" alt="Before Heal booking: enter visit location" width="640" height="1322" loading="lazy" decoding="async">
+            <div class="flow-prototype__track">
+              <figure class="flow-prototype__step">
+                <div class="phone-shell phone-shell--before">
+                  <div class="phone-shell__screen" aria-label="Before step 1: location">
+                    <img src="heal-pcp-before-01-location.png?v=1" alt="Before Heal booking: enter visit location" width="640" height="1322" loading="lazy" decoding="async">
+                  </div>
+                </div>
                 <figcaption>1. Location</figcaption>
               </figure>
-              <figure class="cs-figure cs-figure--gallery">
-                <img src="heal-pcp-before-02-patient.png?v=1" alt="Before Heal booking: patient details" width="640" height="1322" loading="lazy" decoding="async">
+              <figure class="flow-prototype__step">
+                <div class="phone-shell phone-shell--before">
+                  <div class="phone-shell__screen" aria-label="Before step 2: patient details">
+                    <img src="heal-pcp-before-02-patient.png?v=1" alt="Before Heal booking: patient details" width="640" height="1322" loading="lazy" decoding="async">
+                  </div>
+                </div>
                 <figcaption>2. Patient details</figcaption>
               </figure>
-              <figure class="cs-figure cs-figure--gallery">
-                <img src="heal-pcp-before-03-when.png?v=1" alt="Before Heal booking: select visit time" width="640" height="1322" loading="lazy" decoding="async">
+              <figure class="flow-prototype__step">
+                <div class="phone-shell phone-shell--before">
+                  <div class="phone-shell__screen" aria-label="Before step 3: when">
+                    <img src="heal-pcp-before-03-when.png?v=1" alt="Before Heal booking: select visit time" width="640" height="1322" loading="lazy" decoding="async">
+                  </div>
+                </div>
                 <figcaption>3. When</figcaption>
               </figure>
-              <figure class="cs-figure cs-figure--gallery">
-                <img src="heal-pcp-before-04-payment.png?v=1" alt="Before Heal booking: payment and insurance" width="640" height="1322" loading="lazy" decoding="async">
+              <figure class="flow-prototype__step">
+                <div class="phone-shell phone-shell--before">
+                  <div class="phone-shell__screen" aria-label="Before step 4: payment">
+                    <img src="heal-pcp-before-04-payment.png?v=1" alt="Before Heal booking: payment and insurance" width="640" height="1322" loading="lazy" decoding="async">
+                  </div>
+                </div>
                 <figcaption>4. Payment</figcaption>
               </figure>
-            </div>
-            <div class="image-gallery image-gallery--four">
-              <figure class="cs-figure cs-figure--gallery">
-                <img src="heal-pcp-before-05-request-confirmed.png?v=1" alt="Before Heal booking: request confirmed" width="640" height="1322" loading="lazy" decoding="async">
+              <figure class="flow-prototype__step">
+                <div class="phone-shell phone-shell--before">
+                  <div class="phone-shell__screen" aria-label="Before step 5: request confirmed">
+                    <img src="heal-pcp-before-05-request-confirmed.png?v=1" alt="Before Heal booking: request confirmed" width="640" height="1322" loading="lazy" decoding="async">
+                  </div>
+                </div>
                 <figcaption>5. Request confirmed</figcaption>
               </figure>
-              <figure class="cs-figure cs-figure--gallery">
-                <img src="heal-pcp-before-08-upcoming-visit.png?v=1" alt="Before Heal booking: upcoming visit summary" width="640" height="1322" loading="lazy" decoding="async">
+              <figure class="flow-prototype__step">
+                <div class="phone-shell phone-shell--before">
+                  <div class="phone-shell__screen" aria-label="Before step 6: upcoming visit">
+                    <img src="heal-pcp-before-08-upcoming-visit.png?v=1" alt="Before Heal booking: upcoming visit summary" width="640" height="1322" loading="lazy" decoding="async">
+                  </div>
+                </div>
                 <figcaption>6. Upcoming visit</figcaption>
               </figure>
             </div>
@@ -261,40 +282,54 @@
             <p>Patients chose a care path, set preferences, added insurance progressively, and reviewed matched providers before booking—building trust before commitment.</p>
 
             <p class="cs-gallery-note">After booking flow</p>
-            <div class="image-gallery image-gallery--four">
-              <figure class="cs-figure cs-figure--gallery">
-                <img src="heal-pcp-after-01-home-pcp-modal.png?v=1" alt="After Heal booking: primary care physician introduction modal" width="640" height="1322" loading="lazy" decoding="async">
+            <div class="flow-prototype__track">
+              <figure class="flow-prototype__step">
+                <div class="phone-shell phone-shell--after">
+                  <div class="phone-shell__screen" aria-label="After step 1: PCP introduction">
+                    <img src="heal-pcp-after-01-home-pcp-modal.png?v=1" alt="After Heal booking: primary care physician introduction modal" width="640" height="1322" loading="lazy" decoding="async">
+                  </div>
+                </div>
                 <figcaption>1. PCP introduction</figcaption>
               </figure>
-              <figure class="cs-figure cs-figure--gallery">
-                <img src="heal-pcp-after-02-home.png?v=1" alt="After Heal booking: home with primary care entry point" width="640" height="1322" loading="lazy" decoding="async">
+              <figure class="flow-prototype__step">
+                <div class="phone-shell phone-shell--after">
+                  <div class="phone-shell__screen" aria-label="After step 2: home">
+                    <img src="heal-pcp-after-02-home.png?v=1" alt="After Heal booking: home with primary care entry point" width="640" height="1322" loading="lazy" decoding="async">
+                  </div>
+                </div>
                 <figcaption>2. Home</figcaption>
               </figure>
-              <figure class="cs-figure cs-figure--gallery">
-                <img src="heal-pcp-after-03-preferences.png?v=1" alt="After Heal booking: doctor preference matching" width="640" height="1322" loading="lazy" decoding="async">
-                <figcaption>3. Preferences</figcaption>
+              <figure class="flow-prototype__step">
+                <div class="phone-shell phone-shell--after">
+                  <div class="phone-shell__screen" aria-label="After step 3: doctor profile">
+                    <img src="heal-pcp-after-05-doctor-profile.png?v=1" alt="After Heal booking: doctor profile for provider selection" width="640" height="1322" loading="lazy" decoding="async">
+                  </div>
+                </div>
+                <figcaption>3. Doctor profile</figcaption>
               </figure>
-              <figure class="cs-figure cs-figure--gallery">
-                <img src="heal-pcp-after-04-match-results.png?v=1" alt="After Heal booking: matched provider recommendations" width="640" height="1322" loading="lazy" decoding="async">
-                <figcaption>4. Match results</figcaption>
+              <figure class="flow-prototype__step">
+                <div class="phone-shell phone-shell--after">
+                  <div class="phone-shell__screen" aria-label="After step 4: patient details">
+                    <img src="heal-pcp-after-06-patient.png?v=1" alt="After Heal booking: patient details" width="640" height="1322" loading="lazy" decoding="async">
+                  </div>
+                </div>
+                <figcaption>4. Patient details</figcaption>
               </figure>
-            </div>
-            <div class="image-gallery image-gallery--four">
-              <figure class="cs-figure cs-figure--gallery">
-                <img src="heal-pcp-after-05-doctor-profile.png?v=1" alt="After Heal booking: doctor profile for provider selection" width="640" height="1322" loading="lazy" decoding="async">
-                <figcaption>5. Doctor profile</figcaption>
+              <figure class="flow-prototype__step">
+                <div class="phone-shell phone-shell--after">
+                  <div class="phone-shell__screen" aria-label="After step 5: payment">
+                    <img src="heal-pcp-after-07-payment.png?v=1" alt="After Heal booking: insurance and payment" width="640" height="1322" loading="lazy" decoding="async">
+                  </div>
+                </div>
+                <figcaption>5. Payment</figcaption>
               </figure>
-              <figure class="cs-figure cs-figure--gallery">
-                <img src="heal-pcp-after-06-patient.png?v=1" alt="After Heal booking: patient details" width="640" height="1322" loading="lazy" decoding="async">
-                <figcaption>6. Patient details</figcaption>
-              </figure>
-              <figure class="cs-figure cs-figure--gallery">
-                <img src="heal-pcp-after-07-payment.png?v=1" alt="After Heal booking: insurance and payment" width="640" height="1322" loading="lazy" decoding="async">
-                <figcaption>7. Payment</figcaption>
-              </figure>
-              <figure class="cs-figure cs-figure--gallery">
-                <img src="heal-pcp-after-08-request-confirmed.png?v=1" alt="After Heal booking: request confirmed with selected provider" width="640" height="1322" loading="lazy" decoding="async">
-                <figcaption>8. Request confirmed</figcaption>
+              <figure class="flow-prototype__step">
+                <div class="phone-shell phone-shell--after">
+                  <div class="phone-shell__screen" aria-label="After step 6: request confirmed">
+                    <img src="heal-pcp-after-08-request-confirmed.png?v=1" alt="After Heal booking: request confirmed with selected provider" width="640" height="1322" loading="lazy" decoding="async">
+                  </div>
+                </div>
+                <figcaption>6. Request confirmed</figcaption>
               </figure>
             </div>
           </div>
