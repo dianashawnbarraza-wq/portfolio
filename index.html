@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diana Shawn Barraza | Senior Staff Product Designer · Former Square · AI Builder</title>
+  <title>Diana Shawn Barraza | Seasoned Product Designer · Former Square · AI Builder</title>
   <meta name="description" content="Senior staff product designer previously at Square. Portfolio of fintech, banking, startup, and platform work—plus AI workflows, Cursor-built prototypes, research, UX writing, and measurable product outcomes.">
   <meta name="keywords" content="senior staff product designer, senior product designer, former Square designer, previously at Square, Square product design, fintech product designer, startup product designer, AI builder, AI workflows, Cursor design, design to code, product design portfolio, UX design, Los Angeles product designer, banking design, mobile product design, experimentation, jobs to be done">
   <meta name="author" content="Diana Shawn Barraza">
@@ -23,7 +23,7 @@
   <meta name="twitter:title" content="Diana Shawn Barraza | Senior Staff Product Designer">
   <meta name="twitter:description" content="Senior staff product designer, previously at Square. Fintech, startups, AI workflows, and Cursor-built product design.">
   <meta name="twitter:image" content="https://barrazaxd.com/diana_shawn_barraza.png?v=1">
-  <link rel="stylesheet" href="styles.css?v=61">
+  <link rel="stylesheet" href="styles.css?v=63">
   <link rel="icon" href="favicon.png?v=1" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -140,10 +140,12 @@
       <section class="hero">
         <div class="hero-layout">
           <div class="hero-content">
+            <div class="hero-availability" aria-label="Open to opportunities">
+              <span class="hero-availability-pill">Open to freelance</span>
+              <span class="hero-availability-pill">Full-time opportunities</span>
+            </div>
             <h1>Diana Shawn Barraza</h1>
-            <p class="hero-role">Senior staff product designer · Previously at Square · AI builder</p>
-            <p class="hero-intro"><span class="hero-intro-accent">Product designer, former Square, and builder</span> with 10+ years designing fintech, banking, startup, and platform products. I combine research, experimentation, AI workflows, and Cursor to turn complex systems into clear, high-impact experiences.</p>
-            <p class="hero-sectors">Fintech · Banking · Startups · Healthcare · Real Estate · AI Workflows</p>
+            <p class="hero-intro"><span class="hero-intro-accent">Seasoned Product Designer, AI Builder, and former designer at Square</span> with 10+ years designing fintech, banking, startup, and platform products. I combine research, experimentation, AI workflows, and Cursor to turn complex systems into clear, high-impact experiences.</p>
           </div>
           <div class="hero-mockup-container">
             <div class="iphone-mockup desktop-only">
@@ -152,7 +154,28 @@
                 <img src="square-banking.png" alt="Square Banking product design work by Diana Shawn Barraza, former Square product designer">
               </div>
             </div>
-            <img src="iphone-mobile-hero.png" alt="Square Banking mobile product design by senior staff product designer Diana Shawn Barraza" class="mobile-only-hero-img">
+            <img src="iphone-mobile-hero.png" alt="Square Banking mobile product design by Diana Shawn Barraza" class="mobile-only-hero-img">
+          </div>
+        </div>
+
+        <div class="hero-logo-marquee" aria-label="Companies Diana Shawn Barraza has worked with">
+          <div class="hero-logo-marquee__track">
+            <div class="hero-logo-marquee__group">
+              <img src="square-logo.svg" alt="Square" class="hero-logo-marquee__logo" width="88" height="24">
+              <img src="flyhomes-logo.png" alt="Flyhomes" class="hero-logo-marquee__logo" width="120" height="28">
+              <img src="ucla-logo.png" alt="UCLA Extension" class="hero-logo-marquee__logo" width="120" height="28">
+              <img src="vetted-logo.svg" alt="Vetted Petcare" class="hero-logo-marquee__logo" width="100" height="28">
+              <img src="heal-logo.png" alt="Heal" class="hero-logo-marquee__logo" width="72" height="28">
+              <img src="freelance-logo.svg" alt="Freelance" class="hero-logo-marquee__logo" width="88" height="28">
+            </div>
+            <div class="hero-logo-marquee__group" aria-hidden="true">
+              <img src="square-logo.svg" alt="" class="hero-logo-marquee__logo" width="88" height="24">
+              <img src="flyhomes-logo.png" alt="" class="hero-logo-marquee__logo" width="120" height="28">
+              <img src="ucla-logo.png" alt="" class="hero-logo-marquee__logo" width="120" height="28">
+              <img src="vetted-logo.svg" alt="" class="hero-logo-marquee__logo" width="100" height="28">
+              <img src="heal-logo.png" alt="" class="hero-logo-marquee__logo" width="72" height="28">
+              <img src="freelance-logo.svg" alt="" class="hero-logo-marquee__logo" width="88" height="28">
+            </div>
           </div>
         </div>
       </section>
@@ -166,8 +189,18 @@
 
         <h2 id="featured-works" class="section-header">Featured works</h2>
 
-        <div class="grid">
-          <div class="glass-card project-card" data-case-study="case-study-checking.html">
+        <div class="work-filters" role="toolbar" aria-label="Filter featured work by category">
+          <button type="button" class="work-filter-pill is-active" data-work-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="work-filter-pill" data-work-filter="banking" aria-pressed="false">Banking</button>
+          <button type="button" class="work-filter-pill" data-work-filter="payments" aria-pressed="false">Payments</button>
+          <button type="button" class="work-filter-pill" data-work-filter="healthcare" aria-pressed="false">Healthcare</button>
+          <button type="button" class="work-filter-pill" data-work-filter="real-estate" aria-pressed="false">Real Estate</button>
+        </div>
+
+        <p class="work-filter-empty" id="work-filter-empty" hidden>No projects in this category yet.</p>
+
+        <div class="grid" id="featured-work-grid">
+          <div class="glass-card project-card" data-case-study="case-study-checking.html" data-work-categories="banking">
             <div class="project-media">
               <img src="square-checking-redesign.png" alt="Square Checking Redesign">
             </div>
@@ -182,7 +215,7 @@
               <p class="project-description">Leading with vision and customer jobs to be done to help Square sellers understand, move, and manage money.</p>
             </div>
           </div>
-          <div class="glass-card project-card" data-case-study="case-study-biller-network.html">
+          <div class="glass-card project-card" data-case-study="case-study-biller-network.html" data-work-categories="payments">
             <div class="project-media">
               <img src="square-biller-network.png" alt="Square Biller Network">
             </div>
@@ -197,7 +230,7 @@
               <p class="project-description">Expanded how bills enter Bill Pay so sellers could pay more recurring expenses and grow payment volume.</p>
             </div>
           </div>
-          <div class="glass-card project-card" data-case-study="case-study-debit-card-activation.html">
+          <div class="glass-card project-card" data-case-study="case-study-debit-card-activation.html" data-work-categories="banking">
             <div class="project-media">
               <img src="virtual-card-issuance-hero.png?v=3" alt="Square Banking Checking home and virtual debit card details">
             </div>
@@ -212,7 +245,7 @@
               <p class="project-description">Creating a faster path from account creation to usable spend through virtual card-first onboarding.</p>
             </div>
           </div>
-          <div class="glass-card project-card" data-case-study="case-study-bill-pay-vendors.html?v=3">
+          <div class="glass-card project-card" data-case-study="case-study-bill-pay-vendors.html?v=3" data-work-categories="payments">
             <div class="project-media">
               <img src="billpay-vendor-acceptance-hero.png?v=1" alt="Square Bill Pay vendor payment acceptance with Plaid bank connection">
             </div>
@@ -232,7 +265,7 @@
         <div class="portfolio-more-wrap is-collapsed" id="portfolio-more-wrap">
           <div class="portfolio-more-peek">
             <div class="grid portfolio-more" id="portfolio-more">
-          <div class="glass-card project-card" data-case-study="case-study-flyhomes-tour-booking.html">
+          <div class="glass-card project-card" data-case-study="case-study-flyhomes-tour-booking.html" data-work-categories="real-estate">
             <div class="project-media">
               <img src="flyhomes-internal.png" alt="Flyhomes internal tour management tool">
             </div>
@@ -246,7 +279,7 @@
               <p class="project-description">Redesigned internal tour management to cut confirmation time from hours to minutes and help buyers compete during the 2020–2021 housing boom.</p>
             </div>
           </div>
-          <div class="glass-card project-card" data-coming-soon>
+          <div class="glass-card project-card" data-coming-soon data-work-categories="real-estate">
             <div class="project-media">
               <img src="flyhomes-search.png" alt="Flyhomes Search Mobile App Design">
             </div>
@@ -260,7 +293,7 @@
               <p class="project-description">Mobile search experience helping buyers discover and evaluate homes faster.</p>
             </div>
           </div>
-          <div class="glass-card project-card" data-case-study="case-study-heal-primary-care.html?v=2">
+          <div class="glass-card project-card" data-case-study="case-study-heal-primary-care.html?v=2" data-work-categories="healthcare">
             <div class="project-media">
               <img src="heal-pcp-thumbnail.png?v=1" alt="Heal primary care before and after: on-demand matching vs selecting a primary care physician">
             </div>
@@ -275,7 +308,7 @@
               <p class="project-description">Redesigned doctor selection from urgent-care booking into a PCP matching experience—building trust, meeting Medicare requirements, and increasing repeat visits.</p>
             </div>
           </div>
-          <div class="glass-card project-card" data-case-study="case-study-heal-health-monitoring.html">
+          <div class="glass-card project-card" data-case-study="case-study-heal-health-monitoring.html" data-work-categories="healthcare">
             <div class="project-media">
               <img src="heal-monitoring-final.png?v=1" alt="Heal physician health monitoring app">
             </div>
@@ -372,7 +405,7 @@
       <div class="contact-card" id="about">
         <img src="diana_shawn_barraza.png?v=1" alt="Diana Shawn Barraza, senior staff product designer previously at Square" class="contact-image">
         <div class="contact-content">
-          <p class="contact-text">I'm a senior staff product designer passionate about new skills and workflows, research, UX writing, and AI-native product design. Previously at Square and across startups including Flyhomes and Heal. At UCLA Extension, I taught UX Iteration and was named a Distinguished Educator.</p>
+          <p class="contact-text">I'm a seasoned product designer passionate about new skills and workflows, research, UX writing, and AI-native product design. Previously at Square and across startups including Flyhomes and Heal. At UCLA Extension, I taught UX Iteration and was named a Distinguished Educator.</p>
           <div class="contact-links">
             <a href="https://www.linkedin.com/in/dianashawnbarraza" target="_blank" rel="noopener noreferrer">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -457,6 +490,51 @@
       const isExpanded = !portfolioMoreWrap.classList.contains('is-collapsed');
       showMoreBtn.textContent = isExpanded ? 'Show less' : 'Show more';
       showMoreBtn.setAttribute('aria-expanded', isExpanded);
+    });
+
+    // Featured work category filters
+    const workFilterButtons = document.querySelectorAll('[data-work-filter]');
+    const featuredWorkCards = document.querySelectorAll('#featured-work-grid .project-card');
+    const portfolioMoreCards = document.querySelectorAll('#portfolio-more .project-card');
+    const workFilterEmpty = document.getElementById('work-filter-empty');
+
+    workFilterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.workFilter;
+
+        workFilterButtons.forEach((btn) => {
+          const isActive = btn === button;
+          btn.classList.toggle('is-active', isActive);
+          btn.setAttribute('aria-pressed', isActive);
+        });
+
+        let visibleCount = 0;
+
+        const applyFilter = (cards) => {
+          cards.forEach((card) => {
+            const categories = (card.dataset.workCategories || '').split(/\s+/);
+            const isVisible = filter === 'all' || categories.includes(filter);
+            card.classList.toggle('is-filter-hidden', !isVisible);
+            if (isVisible) visibleCount += 1;
+          });
+        };
+
+        applyFilter(featuredWorkCards);
+        applyFilter(portfolioMoreCards);
+
+        if (filter !== 'all' && portfolioMoreCards.length) {
+          const hasPortfolioMatches = [...portfolioMoreCards].some((card) => !card.classList.contains('is-filter-hidden'));
+          if (hasPortfolioMatches) {
+            portfolioMoreWrap.classList.remove('is-collapsed');
+            showMoreBtn.textContent = 'Show less';
+            showMoreBtn.setAttribute('aria-expanded', 'true');
+          }
+        }
+
+        if (workFilterEmpty) {
+          workFilterEmpty.hidden = visibleCount > 0;
+        }
+      });
     });
 
     // Modal Logic
