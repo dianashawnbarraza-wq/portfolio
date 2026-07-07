@@ -78,7 +78,7 @@
         <section class="cs-hero" id="hero">
           <p class="cs-eyebrow">Heal · Healthcare · Patient &amp; Provider</p>
           <h1>Preventative care with data-driven patient health monitoring</h1>
-          <p class="cs-hero-summary">Heal was an on-demand healthcare company that sent doctors to patients’ homes for accessible, same-day care. I worked across patient and provider experiences; as Design DRI, I led an end-to-end health monitoring product that gave doctors visibility into chronic conditions at home—a capability that proved essential to Heal’s Medicare approval.</p>
+          <p class="cs-hero-summary">Heal was an on-demand healthcare company that sent doctors to patients’ homes for accessible, same-day care. I worked across patient and provider experiences. As Design DRI, I led an end-to-end health monitoring product that gave doctors visibility into chronic conditions between visits, a capability that proved essential to Heal’s Medicare approval.</p>
 
           <div class="cs-meta-grid">
             <div class="cs-meta-item">
@@ -87,7 +87,7 @@
             </div>
             <div class="cs-meta-item">
               <label>Timeline</label>
-              <span>1 month</span>
+              <span>1 month to validated MVP design</span>
             </div>
             <div class="cs-meta-item">
               <label>Team</label>
@@ -171,21 +171,28 @@
             </table>
           </div>
 
-          <p class="cs-results-interpretation">User-centered design translated into high-growth, high-margin recurring revenue. Monitoring became a foundation for preventative care at home—and a milestone on Heal’s path to acquisition by Humana.</p>
+          <p class="cs-results-interpretation">User-centered design translated into high-growth, high-margin recurring revenue. Monitoring became the foundation for preventative care at home and shifted Heal’s model from episodic visits to ongoing primary care.</p>
         </section>
 
         <section class="cs-section" id="situation">
           <h2>Situation</h2>
-          <p class="cs-lead">Heal provided on-demand, same-day doctor house calls—bringing accessible care into patients’ homes rather than treating every visit as a one-off appointment.</p>
-          <p>Our ambition was primary, preventative care delivered by Heal doctors—not episodic urgent visits. As Heal moved toward Medicare acceptance, we saw an opportunity: proactive, data-driven monitoring could help doctors treat patients with chronic conditions at home, especially adults 65 and older who benefit most from continuous oversight between visits.</p>
-          <p>Doctors needed better visibility into patient health over time. Without it, chronic conditions were harder to manage remotely, repeat engagement suffered, and Heal could not fully demonstrate the preventative value Medicare required.</p>
+          <p class="cs-lead">Between visits, doctors were blind.</p>
+          <p>Heal provided on-demand, same-day doctor house calls, bringing care into patients’ homes rather than treating every visit as a one-off appointment. Our ambition was bigger: primary, preventative care delivered by Heal doctors, not episodic urgent visits.</p>
+          <p>The obstacle was visibility. A doctor saw a patient for an hour at home, then nothing until the next call. For adults 65 and older living with chronic conditions like hypertension and diabetes, the moments that matter most happen in that gap: the readings that drift, the medication that stops working, the early signal of an acute episode. Remote monitoring data technically existed in the system, but it lived behind notifications with no way to act on exceptions inline. Without a durable view into patient health over time, chronic conditions were harder to manage, repeat engagement suffered, and Heal could not demonstrate the preventative value Medicare required.</p>
         </section>
 
         <section class="cs-section" id="task">
           <h2>Task</h2>
-          <p class="cs-lead">Strategize and design an end-to-end patient health monitoring experience for physician use.</p>
-          <p>As Design DRI, I partnered across product, engineering, and clinical teams to define how monitoring would work for doctors recommending it, patients living with chronic conditions, and the business model behind recurring care.</p>
-          <p>We set a concrete growth target: increase Heal’s repeat patient rate from <strong>39% to 45%</strong> by introducing patient monitoring—while building the clinical and product foundation needed for Medicare approval.</p>
+          <p class="cs-lead">Design an end-to-end patient health monitoring experience for physicians, against a hard growth target.</p>
+          <p>As Design DRI, I partnered across product, engineering, and clinical teams to define how monitoring would work for the doctors recommending it, the patients living with chronic conditions, and the business model behind recurring care.</p>
+          <p>We set a concrete goal: increase Heal’s repeat patient rate from <strong>39% to 45%</strong> by introducing patient monitoring, while building the clinical and product foundation Medicare approval required.</p>
+          <p><strong>Constraints:</strong></p>
+          <ul>
+            <li><strong>Clinical safety.</strong> A missed threshold alert is not a UX bug, it is a patient outcome. Alert visibility could not depend on a doctor remembering to check a notification tray.</li>
+            <li><strong>One month.</strong> The MVP design had to be validated with practicing physicians inside a single month, which shaped every process decision below.</li>
+            <li><strong>High-volume practice days.</strong> Doctors reviewing monitoring data between house calls needed one-glance comprehension, not exploration.</li>
+            <li><strong>Regulatory bar.</strong> Medicare’s chronic care requirements set the floor for documentation, review cadence, and care continuity. The workflow had to satisfy them by default, not by discipline.</li>
+          </ul>
         </section>
 
         <section class="cs-section" id="action">
@@ -197,8 +204,7 @@
               <summary>Discovery · Arriving at an ideal patient journey</summary>
               <div class="cs-accordion-body">
                 <p>I began with an interview with the Head of Medicine, then worked alongside a project manager to establish a doctor panel for weekly feedback sessions.</p>
-                <p>Together we answered two critical questions for our MVP: how and when a doctor would recommend monitoring to a patient predisposed to or living with a condition, and which conditions to target first.</p>
-                <p>Working with the panel and engineering, we co-created a patient journey for Medicare patients with chronic conditions—mapping when data collection, physician review, and intervention should happen across the care cycle.</p>
+                <p>Together we answered two critical questions for the MVP: how and when a doctor would recommend monitoring to a patient predisposed to or living with a condition, and which conditions to target first. Working with the panel and engineering, we co-created a patient journey for Medicare patients with chronic conditions, mapping when data collection, physician review, and intervention should happen across the care cycle.</p>
                 <figure class="cs-figure cs-figure--flow">
                   <button type="button" class="cs-flow-expand" aria-label="Expand patient journey flow">
                     <img src="heal-monitoring-journey-flow.png?v=1" alt="Patient journey from initial Heal visit through in-person equipment setup to virtual follow-up monitoring" width="1024" height="206" loading="lazy" decoding="async">
@@ -212,9 +218,8 @@
             <details class="cs-accordion-item">
               <summary>Prototyping · Information architecture and data visualization</summary>
               <div class="cs-accordion-body">
-                <p>I designed an initial physician experience focused on information architecture, data visualization, and core requests from the panel: viewing medication and patient history in one place.</p>
-                <p>Early feedback was positive, with clear gaps to close. Doctors needed to contact patients directly, manage how long monitoring would run, and interact with charts that surfaced detail on demand—not static summaries.</p>
-                <p>I iterated through weekly panel sessions, tightening workflows for clinical decision-making while keeping the experience scannable during high-volume practice days.</p>
+                <p>I designed an initial physician experience focused on information architecture, data visualization, and the panel’s core request: medication and patient history in one place.</p>
+                <p>Early feedback was positive, with clear gaps to close. Doctors needed to contact patients directly, manage how long monitoring would run, and interact with charts that surfaced detail on demand rather than static summaries. I iterated through weekly panel sessions, tightening workflows for clinical decision-making while keeping every screen scannable during high-volume practice days.</p>
               </div>
             </details>
           </div>
@@ -223,12 +228,13 @@
         <section class="cs-section" id="design">
           <h2>Design</h2>
           <p class="cs-lead">From a schedule-first tool to a monitoring-first morning briefing.</p>
-          <p>The existing physician app centered on daily logistics—appointments, patient lookup, and chart review. Remote monitoring data existed, but lived behind notifications with no way to act on exceptions inline. The redesign put threshold alerts where doctors already start their day.</p>
+          <p>The existing physician app centered on daily logistics: appointments, patient lookup, and chart review. Monitoring data lived behind a notification bell, competing with every other ping for attention.</p>
+          <p>The redesign rests on one decision: in clinical work, an alert is not an interruption to the doctor’s day, it is the doctor’s day. So threshold alerts moved out of notifications and onto the surface where doctors already start each morning. The new Overview is a briefing that answers the question every physician asks first, which of today’s patients needs my attention, by placing inline monitoring alerts, upcoming appointments, and patient status in a single prioritized view.</p>
 
           <h3 class="cs-subheading">Before · Schedule-centric workflow</h3>
           <ul>
-            <li><strong>Appointments</strong> — daily schedule</li>
-            <li><strong>Patient detail</strong> — overview, history, prescriptions</li>
+            <li><strong>Appointments:</strong> daily schedule</li>
+            <li><strong>Patient detail:</strong> overview, history, prescriptions</li>
           </ul>
 
           <div class="image-gallery">
@@ -256,8 +262,8 @@
 
           <h3 class="cs-subheading">After · Monitoring-first briefing</h3>
           <ul>
-            <li><strong>Overview</strong> — morning briefing with inline monitoring alerts instead of buried notifications</li>
-            <li><strong>Patient detail</strong> — monitoring tab with trend charts, device context, and prescriptions</li>
+            <li><strong>Overview:</strong> morning briefing with inline monitoring alerts instead of buried notifications</li>
+            <li><strong>Patient detail:</strong> monitoring tab with trend charts, device context, and prescriptions, so a doctor can read weeks of readings in seconds and judge signal against device noise</li>
           </ul>
 
           <div class="image-gallery">
@@ -286,14 +292,13 @@
 
         <section class="cs-section" id="results-expanded">
           <h2>Results</h2>
-          <p class="cs-lead">User-centered design led to high-growth, high-margin recurring revenue.</p>
+          <p class="cs-lead">Physician visibility unlocked preventative care at home.</p>
           <ul>
-            <li>Heal’s repeat patient rate increased to <strong>47%</strong>, exceeding our 45% goal while reducing acute episodes and improving health outcomes</li>
+            <li>Repeat patient rate increased to <strong>47%</strong>, exceeding the 45% goal, while acute episodes fell and health outcomes improved</li>
             <li>With monitoring paid by Medicare, the program was free for patients and drove recurring net margins of <strong>more than $4M per year</strong></li>
-            <li><strong>39% reduction</strong> in unnecessary prescriptions for monitored patients</li>
-            <li>Monitoring capabilities supported Heal’s Medicare approval and later <strong>acquisition by Humana</strong></li>
+            <li>Unnecessary prescriptions dropped <strong>39%</strong> for monitored patients, because doctors adjusted care based on trends instead of single readings</li>
+            <li>Monitoring capabilities directly supported Heal’s Medicare approval, the unlock that made ongoing primary care at home economically viable</li>
           </ul>
-          <p>This project showed how designing for physician visibility—not just patient-facing features—could unlock preventative care at home. By giving doctors a durable view into chronic conditions, we helped Heal move from on-demand visits to ongoing primary care.</p>
         </section>
 
       </main>
