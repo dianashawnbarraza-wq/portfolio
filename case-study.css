@@ -961,7 +961,7 @@ body.case-study-body {
   aspect-ratio: 1120 / 834;
   overflow: hidden;
   border-radius: 16px;
-  background: #fff;
+  background: #f5f5f4;
   line-height: 0;
 }
 
@@ -972,8 +972,10 @@ body.case-study-body {
   margin: 0;
   border: none;
   border-radius: 0;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(1.1);
+  transform-origin: center top;
 }
 
 .ipad-shell--hero .ipad-shell__screen {
