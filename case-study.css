@@ -925,7 +925,7 @@ body.case-study-body {
   width: fit-content;
   max-width: 100%;
   margin: 0 auto;
-  padding: 6px;
+  padding: 8px;
   background: #292524;
   border-radius: 22px;
   box-shadow:
@@ -937,7 +937,7 @@ body.case-study-body {
 .ipad-shell::before {
   content: "";
   position: absolute;
-  left: 10px;
+  left: 12px;
   top: 50%;
   z-index: 2;
   width: 3px;
@@ -956,7 +956,9 @@ body.case-study-body {
 }
 
 .ipad-shell__screen {
-  margin-left: 4px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1120 / 834;
   overflow: hidden;
   border-radius: 16px;
   background: #fff;
@@ -965,11 +967,13 @@ body.case-study-body {
 
 .ipad-shell__screen img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   margin: 0;
   border: none;
   border-radius: 0;
+  object-fit: contain;
+  object-position: center;
 }
 
 .ipad-shell--hero .ipad-shell__screen {
