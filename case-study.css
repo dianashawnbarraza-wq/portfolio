@@ -917,9 +917,76 @@ body.case-study-body {
   height: auto;
   display: block;
   margin: 0;
+}
+
+/* iPad shell (landscape) */
+.ipad-shell {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 6px;
+  background: #292524;
+  border-radius: 22px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.08),
+    0 24px 48px rgba(0, 0, 0, 0.14);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ipad-shell::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  z-index: 2;
+  width: 3px;
+  height: 32px;
+  border-radius: 999px;
+  background: #44403c;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.ipad-shell--after {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.08),
+    0 0 0 3px rgba(120, 113, 108, 0.22),
+    0 24px 48px rgba(0, 0, 0, 0.14);
+}
+
+.ipad-shell__screen {
+  margin-left: 4px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+  line-height: 0;
+}
+
+.ipad-shell__screen img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
   border: none;
   border-radius: 0;
-  image-rendering: auto;
+}
+
+.ipad-shell--hero .ipad-shell__screen {
+  width: min(920px, 100%);
+}
+
+.cs-impact-hero .ipad-shell,
+.cs-figure .ipad-shell {
+  margin: 0 auto;
+}
+
+.cs-figure--gallery .ipad-shell {
+  width: 100%;
+}
+
+.cs-figure--gallery .ipad-shell__screen {
+  width: 100%;
 }
 
 /* Flow prototype — click-through phone viewers */
