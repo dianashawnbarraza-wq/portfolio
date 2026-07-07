@@ -811,27 +811,83 @@ nav a.active {
   width: 100%;
   overflow: hidden;
   border-radius: 16px;
-  background: #f5f5f4;
+  background: #edf1f6;
   line-height: 0;
-  aspect-ratio: 1120 / 834;
 }
 
 .project-media--ipad .ipad-shell__screen img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  transform: scale(1.1);
-  transform-origin: center top;
+  height: auto;
+  display: block;
   transition: none;
 }
 
-.glass-card.project-card:hover .project-media--ipad .ipad-shell__screen img {
-  transform: scale(1.1);
+.ipad-thumbnail-expand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
 }
 
 .glass-card.project-card:hover .project-media--ipad .ipad-shell {
   transform: scale(1.04);
+}
+
+.screen-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px 24px;
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.screen-lightbox[hidden] {
+  display: none;
+}
+
+.screen-lightbox__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.screen-lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.screen-lightbox__inner {
+  width: auto;
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 72px);
+  overflow: auto;
+  border-radius: 16px;
+  background: #edf1f6;
+  -webkit-overflow-scrolling: touch;
+}
+
+.screen-lightbox__img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .project-media img {

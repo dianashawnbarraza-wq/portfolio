@@ -23,7 +23,7 @@
   <meta name="twitter:title" content="Diana Shawn Barraza | Staff Product Designer">
   <meta name="twitter:description" content="Staff Product Designer, 10+ years in fintech and healthcare, previously at Square. Banking, payments, and platform work with AI-native workflows.">
   <meta name="twitter:image" content="https://barrazaxd.com/diana_shawn_barraza.png?v=1">
-  <link rel="stylesheet" href="styles.css?v=71">
+  <link rel="stylesheet" href="styles.css?v=72">
   <link rel="icon" href="favicon.png?v=1" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -308,11 +308,13 @@
           </div>
           <div class="glass-card project-card" data-case-study="case-study-heal-health-monitoring.html" data-work-categories="healthcare">
             <div class="project-media project-media--ipad">
-              <div class="ipad-shell ipad-shell--after">
-                <div class="ipad-shell__screen">
-                  <img src="heal-monitoring-after-patient-monitoring.png?v=2" alt="Heal physician monitoring: patient detail with blood pressure trend chart in iPad frame">
+              <button type="button" class="ipad-thumbnail-expand" aria-label="View larger: Heal patient monitoring with blood pressure trend chart">
+                <div class="ipad-shell ipad-shell--after">
+                  <div class="ipad-shell__screen">
+                    <img src="heal-monitoring-after-patient-monitoring.png?v=3" alt="Heal physician monitoring: patient detail with blood pressure trend chart in iPad frame">
+                  </div>
                 </div>
-              </div>
+              </button>
             </div>
             <div class="project-meta">
               <h3 class="project-title">Preventative care with data-driven patient health monitoring</h3>
@@ -455,6 +457,13 @@
     </div>
   </div>
 
+  <div id="screen-lightbox" class="screen-lightbox" hidden>
+    <button type="button" class="screen-lightbox__close" id="screen-lightbox-close" aria-label="Close expanded view">&times;</button>
+    <div class="screen-lightbox__inner">
+      <img src="" alt="" class="screen-lightbox__img" id="screen-lightbox-img">
+    </div>
+  </div>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -574,6 +583,41 @@
       } else {
         card.addEventListener('click', openModal);
       }
+    });
+
+    const screenLightbox = document.getElementById('screen-lightbox');
+    const screenLightboxImg = document.getElementById('screen-lightbox-img');
+    const screenLightboxClose = document.getElementById('screen-lightbox-close');
+
+    function closeScreenLightbox() {
+      screenLightbox.hidden = true;
+      screenLightboxImg.removeAttribute('src');
+      document.body.style.overflow = '';
+    }
+
+    function openScreenLightbox(source) {
+      screenLightboxImg.src = source.currentSrc || source.src;
+      screenLightboxImg.alt = source.alt;
+      screenLightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+      screenLightboxClose.focus();
+    }
+
+    document.querySelectorAll('.ipad-thumbnail-expand').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const source = btn.querySelector('img');
+        if (source) openScreenLightbox(source);
+      });
+    });
+
+    screenLightboxClose.addEventListener('click', closeScreenLightbox);
+    screenLightbox.addEventListener('click', (e) => {
+      if (e.target === screenLightbox) closeScreenLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !screenLightbox.hidden) closeScreenLightbox();
     });
 
     modalClose.addEventListener('click', closeModal);

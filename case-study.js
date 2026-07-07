@@ -38,7 +38,7 @@
     initBeforeAfter();
     initMobileNav();
     initFadeIn();
-    initFlowExpand();
+    initScreenLightbox();
     initFlowPrototype();
   }
 
@@ -119,8 +119,8 @@
     });
   }
 
-  function initFlowExpand() {
-    const triggers = document.querySelectorAll('.cs-flow-expand');
+  function initScreenLightbox() {
+    const triggers = document.querySelectorAll('.cs-flow-expand, .cs-ipad-expand');
     if (!triggers.length) return;
 
     let lightbox = document.getElementById('cs-flow-lightbox');
@@ -130,7 +130,7 @@
       lightbox.className = 'cs-flow-lightbox';
       lightbox.hidden = true;
       lightbox.innerHTML = `
-        <button type="button" class="cs-flow-lightbox__close" aria-label="Close expanded diagram">&times;</button>
+        <button type="button" class="cs-flow-lightbox__close" aria-label="Close expanded view">&times;</button>
         <div class="cs-flow-lightbox__inner">
           <img src="" alt="" class="cs-flow-lightbox__img">
         </div>
