@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="case-study.css?v=24">
+  <link rel="stylesheet" href="case-study.css?v=25">
 </head>
 <body class="case-study-body" data-auth-key="cs-auth-heal-health-monitoring">
 
@@ -121,7 +121,7 @@
 
         <section class="cs-section cs-section--impact" id="impact">
           <figure class="cs-impact-hero">
-            <img src="heal-monitoring-final.png?v=1" alt="Final Heal physician monitoring dashboard with interactive vitals and telemedicine">
+            <img src="heal-monitoring-after-overview.png?v=1" alt="Heal physician overview with inline monitoring alerts for blood pressure and glucose threshold exceptions">
           </figure>
           <h2>Impact</h2>
 
@@ -215,30 +215,52 @@
 
         <section class="cs-section" id="design">
           <h2>Design</h2>
-          <p class="cs-lead">A more complete picture of patient health—for doctors managing chronic care at home.</p>
+          <p class="cs-lead">From a schedule-first tool to a monitoring-first morning briefing.</p>
+          <p>The existing physician app centered on daily logistics—appointments, patient lookup, and chart review. Remote monitoring data existed, but lived behind notifications with no way to act on exceptions inline. The redesign put threshold alerts where doctors already start their day.</p>
 
-          <h3 class="cs-subheading">Prototype · Information architecture and data visualization</h3>
-          <p>My first physician-facing design tackled information architecture, data visualization, and panel requests to view medication and history in one view. Feedback was positive—and surfaced needs for patient contact, monitoring duration controls, and interactive charts.</p>
-
-          <figure class="cs-figure cs-figure--wide">
-            <img src="heal-monitoring-prototype.png?v=1" alt="Early Heal physician monitoring prototype with vitals charts and medication sidebar" width="1024" height="700" loading="lazy" decoding="async">
-            <figcaption>Prototype · Consolidated vitals, charts, and patient history in one view</figcaption>
-          </figure>
-
-          <h3 class="cs-subheading">Final · Monitoring with telemedicine and interactive detail</h3>
-          <p>The final physician monitoring experience unified vitals trends, medication history, and patient context in a single view. Further discovery led us to integrate telemedicine within the platform so doctors could act on monitoring signals without leaving the workflow.</p>
-
+          <h3 class="cs-subheading">Before · Schedule-centric workflow</h3>
           <ul>
-            <li>Consolidated health data and history for faster clinical review</li>
-            <li>Interactive charts with drill-down detail on demand</li>
-            <li>Patient contact and monitoring duration controls built into the flow</li>
-            <li>Telemedicine entry points tied to monitoring alerts and trends</li>
+            <li><strong>Appointments</strong> — daily schedule</li>
+            <li><strong>Patients</strong> — full panel list</li>
+            <li><strong>Patient detail</strong> — overview, history, prescriptions</li>
           </ul>
 
-          <figure class="cs-figure cs-figure--wide">
-            <img src="heal-monitoring-final.png?v=1" alt="Final Heal physician monitoring dashboard with interactive vitals table, video call, and telemedicine scheduling" width="1024" height="700" loading="lazy" decoding="async">
-            <figcaption>Final design · Interactive vitals, patient contact, and integrated telemedicine</figcaption>
-          </figure>
+          <div class="image-gallery image-gallery--three">
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="heal-monitoring-before-appointments.png?v=1" alt="Before Heal physician app: appointments daily schedule with today's visits" width="1280" height="900" loading="lazy" decoding="async">
+              <figcaption>Appointments · Daily schedule</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="heal-monitoring-before-patients.png?v=1" alt="Before Heal physician app: full patient panel list with search and filters" width="1280" height="900" loading="lazy" decoding="async">
+              <figcaption>Patients · Full panel list</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="heal-monitoring-before-patient-overview.png?v=1" alt="Before Heal patient detail: overview, history, and prescriptions sidebar" width="1280" height="900" loading="lazy" decoding="async">
+              <figcaption>Patient detail · Overview, history, prescriptions</figcaption>
+            </figure>
+          </div>
+
+          <h3 class="cs-subheading">After · Monitoring-first briefing</h3>
+          <ul>
+            <li><strong>Overview</strong> — morning briefing with inline monitoring alerts instead of buried notifications</li>
+            <li><strong>Patients</strong> — monitoring cards surfacing anyone who exceeded threshold</li>
+            <li><strong>Patient detail</strong> — monitoring tab with trend charts, device context, and prescriptions</li>
+          </ul>
+
+          <div class="image-gallery image-gallery--three">
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="heal-monitoring-after-overview.png?v=1" alt="After Heal physician overview: morning briefing with inline BP and glucose monitoring alerts" width="1280" height="900" loading="lazy" decoding="async">
+              <figcaption>Overview · Morning briefing with inline alerts</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="heal-monitoring-after-patients.png?v=1" alt="After Heal patients view: monitoring cards for patients with threshold exceptions" width="1280" height="900" loading="lazy" decoding="async">
+              <figcaption>Patients · Monitoring cards for threshold exceptions</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="heal-monitoring-after-patient-monitoring.png?v=1" alt="After Heal patient detail: monitoring tab with blood pressure trend chart and threshold alert" width="1280" height="900" loading="lazy" decoding="async">
+              <figcaption>Patient detail · Monitoring with trend charts</figcaption>
+            </figure>
+          </div>
         </section>
 
         <section class="cs-section" id="results-expanded">
