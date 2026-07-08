@@ -1101,7 +1101,7 @@ nav a.active {
   font-size: 1.125rem;
   font-weight: 400;
   font-style: italic;
-  color: var(--text-muted);
+  color: var(--text-main);
   line-height: 1.65;
   letter-spacing: -0.011em;
   margin-bottom: 2.5rem;
