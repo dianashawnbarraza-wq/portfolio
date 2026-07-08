@@ -40,6 +40,72 @@
     initFadeIn();
     initScreenLightbox();
     initFlowPrototype();
+    initCaseStudyNav();
+  }
+
+  const CASE_STUDIES = [
+    { file: 'case-study-checking.html', title: 'Lifting Square Checking activation by centering design around money movement' },
+    { file: 'case-study-biller-network.html', title: 'Increasing Bill Pay coverage by eliminating the cold start' },
+    { file: 'case-study-debit-card-activation.html', title: 'Decoupling the debit card from Checking with virtual card-first onboarding' },
+    { file: 'case-study-bill-pay-vendors.html', title: 'Getting vendors to trust their first Bill Pay payment' },
+    { file: 'case-study-flyhomes-tour-booking.html', title: 'Cutting tour confirmation from hours to minutes' },
+    { file: 'case-study-heal-primary-care.html', title: 'From one-time visits to ongoing primary care' },
+    { file: 'case-study-heal-health-monitoring.html', title: 'Preventative care with data-driven patient health monitoring' },
+  ];
+
+  function initCaseStudyNav() {
+    const main = document.querySelector('.cs-main');
+    if (!main || document.querySelector('.cs-case-nav')) return;
+
+    const currentFile = window.location.pathname.split('/').pop() || '';
+    const index = CASE_STUDIES.findIndex((study) => currentFile === study.file);
+    if (index === -1) return;
+
+    const prev = index > 0 ? CASE_STUDIES[index - 1] : null;
+    const next = index < CASE_STUDIES.length - 1 ? CASE_STUDIES[index + 1] : null;
+
+    const nav = document.createElement('nav');
+    nav.className = 'cs-case-nav';
+    nav.setAttribute('aria-label', 'Case study navigation');
+
+    const inner = document.createElement('div');
+    inner.className = 'cs-case-nav__inner';
+
+    if (prev) {
+      const prevLink = document.createElement('a');
+      prevLink.className = 'cs-case-nav__link cs-case-nav__link--prev';
+      prevLink.href = prev.file;
+      prevLink.innerHTML = `<span class="cs-case-nav__eyebrow">Previous</span><span class="cs-case-nav__title">${prev.title}</span>`;
+      inner.appendChild(prevLink);
+    } else {
+      const backLink = document.createElement('a');
+      backLink.className = 'cs-case-nav__link cs-case-nav__link--prev';
+      backLink.href = 'index.html#featured-works';
+      backLink.innerHTML = '<span class="cs-case-nav__eyebrow">Portfolio</span><span class="cs-case-nav__title">All featured work</span>';
+      inner.appendChild(backLink);
+    }
+
+    const progress = document.createElement('span');
+    progress.className = 'cs-case-nav__progress';
+    progress.textContent = `${index + 1} / ${CASE_STUDIES.length}`;
+    inner.appendChild(progress);
+
+    if (next) {
+      const nextLink = document.createElement('a');
+      nextLink.className = 'cs-case-nav__link cs-case-nav__link--next';
+      nextLink.href = next.file;
+      nextLink.innerHTML = `<span class="cs-case-nav__eyebrow">Next case study</span><span class="cs-case-nav__title">${next.title}</span>`;
+      inner.appendChild(nextLink);
+    } else {
+      const backLink = document.createElement('a');
+      backLink.className = 'cs-case-nav__link cs-case-nav__link--next';
+      backLink.href = 'index.html#featured-works';
+      backLink.innerHTML = '<span class="cs-case-nav__eyebrow">Portfolio</span><span class="cs-case-nav__title">Back to all featured work</span>';
+      inner.appendChild(backLink);
+    }
+
+    nav.appendChild(inner);
+    main.appendChild(nav);
   }
 
   function initStickyNav() {
