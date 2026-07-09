@@ -23,7 +23,7 @@ a{color:inherit}
 ::selection{background:var(--accent);color:var(--ink)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
-/* ---------- gate ---------- */
+/* gate */
 #gate{position:fixed;inset:0;background:var(--ink);z-index:100;display:flex;align-items:center;justify-content:center}
 .gate-box{width:min(440px,88vw);text-align:center}
 .gate-box .brand{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:-.02em;margin-bottom:8px}
@@ -35,25 +35,25 @@ a{color:inherit}
 .gate-box button:hover{opacity:.85}
 .gate-err{color:#f08e8e;font-size:15px;margin-top:14px;min-height:20px;font-family:var(--mono)}
 
-/* ---------- selector ---------- */
-#selector{position:fixed;inset:0;background:var(--ink);z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;opacity:1;transition:opacity .45s ease;overflow-y:auto}
+/* selector */
+#selector{position:fixed;inset:0;background:var(--ink);z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;opacity:1;transition:opacity .45s;overflow-y:auto}
 #selector.hidden,#gate.hidden{opacity:0;pointer-events:none}
 .sel-eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
-.sel-title{font-family:var(--display);font-weight:700;font-size:clamp(34px,5vw,56px);letter-spacing:-.03em;text-align:center;line-height:1.08}
-.sel-sub{color:var(--muted);font-size:clamp(16px,1.6vw,19px);margin-top:16px;text-align:center;max-width:36em;line-height:1.6}
-.sel-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:52px;width:min(1100px,94vw)}
-.sel-card{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px 28px 26px;transition:transform .25s,border-color .25s;position:relative;overflow:hidden}
+.sel-title{font-family:var(--display);font-weight:700;font-size:clamp(32px,4.6vw,52px);letter-spacing:-.03em;text-align:center;line-height:1.08}
+.sel-sub{color:var(--muted);font-size:clamp(15px,1.5vw,18px);margin-top:14px;text-align:center;max-width:36em;line-height:1.6}
+.sel-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:16px;margin-top:44px;width:min(1240px,95vw)}
+.sel-card{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px 24px 22px;transition:transform .25s,border-color .25s;position:relative;overflow:hidden}
 .sel-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--card-accent);transform:scaleX(0);transform-origin:left;transition:transform .35s}
 .sel-card:hover,.sel-card:focus-visible{transform:translateY(-3px);border-color:var(--card-accent)}
 .sel-card:hover::before,.sel-card:focus-visible::before{transform:scaleX(1)}
-.sel-key{font-family:var(--mono);font-size:13px;color:var(--dim);border:1px solid var(--line);border-radius:6px;padding:3px 9px;display:inline-block;margin-bottom:20px}
-.sel-card h3{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
-.sel-card p{color:var(--muted);font-size:15.5px;line-height:1.55}
-.sel-card .cases{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-family:var(--mono);font-size:13px;color:var(--dim);line-height:1.9}
+.sel-key{font-family:var(--mono);font-size:12.5px;color:var(--dim);border:1px solid var(--line);border-radius:6px;padding:3px 9px;display:inline-block;margin-bottom:16px}
+.sel-card h3{font-family:var(--display);font-size:21px;font-weight:600;letter-spacing:-.02em;margin-bottom:9px}
+.sel-card p{color:var(--muted);font-size:14.5px;line-height:1.55}
+.sel-card .cases{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px;color:var(--dim);line-height:1.85}
 .sel-card .cases span{color:var(--card-accent)}
-.sel-foot{margin-top:48px;font-family:var(--mono);font-size:13px;color:var(--dim);text-align:center}
+.sel-foot{margin-top:40px;font-family:var(--mono);font-size:13px;color:var(--dim);text-align:center}
 
-/* ---------- deck chrome ---------- */
+/* chrome */
 #deck{position:fixed;inset:0;display:none;flex-direction:column}
 #deck.active{display:flex}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 32px;border-bottom:1px solid var(--line);flex-shrink:0;z-index:10;background:var(--ink)}
@@ -61,18 +61,16 @@ a{color:inherit}
 .topbar .who span{color:var(--accent);font-family:var(--mono);font-weight:500;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;margin-left:14px}
 .crumbs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
 .crumbs::-webkit-scrollbar{display:none}
-.crumb{font-family:var(--mono);font-size:13.5px;letter-spacing:.04em;color:var(--dim);padding:8px 14px;border-radius:7px;white-space:nowrap;transition:color .2s,background .2s}
+.crumb{font-family:var(--mono);font-size:13.5px;color:var(--dim);padding:8px 14px;border-radius:7px;white-space:nowrap;transition:color .2s,background .2s}
 .crumb:hover{color:var(--text)}
 .crumb.active{color:var(--accent);background:var(--accent-soft)}
 .topbar .tools{display:flex;gap:8px}
 .topbar .tools button{font-family:var(--mono);font-size:12.5px;color:var(--dim);border:1px solid var(--line);border-radius:7px;padding:7px 12px;white-space:nowrap;transition:color .2s,border-color .2s}
 .topbar .tools button:hover{color:var(--text);border-color:var(--dim)}
-
 .stage{flex:1;position:relative;overflow:hidden}
-.slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:clamp(20px,3.5vw,56px);opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .45s,transform .45s,visibility 0s .45s;overflow-y:auto}
+.slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:clamp(20px,3.2vw,52px);opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .45s,transform .45s,visibility 0s .45s;overflow-y:auto}
 .slide.active{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .45s,transform .45s,visibility 0s}
 .slide-inner{width:min(1240px,100%);margin:auto}
-
 .bottombar{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;border-top:1px solid var(--line);flex-shrink:0;background:var(--ink)}
 .dots{display:flex;gap:8px}
 .dot{width:7px;height:7px;border-radius:4px;background:var(--line);transition:background .25s,width .25s;padding:0}
@@ -82,7 +80,7 @@ a{color:inherit}
 .hint{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 .hint kbd{border:1px solid var(--line);border-radius:4px;padding:1px 7px;font-family:inherit}
 
-/* ---------- shared ---------- */
+/* shared */
 .eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .eyebrow::after{content:'';height:1px;width:44px;background:var(--accent);opacity:.4;order:1}
 .eyebrow .case-tag{color:var(--dim);letter-spacing:.08em;order:2}
@@ -90,16 +88,15 @@ a{color:inherit}
 .meta-row b{color:var(--muted);font-weight:500}
 .chip{font-family:var(--mono);font-size:13.5px;color:var(--muted);border:1px solid var(--line);border-radius:100px;padding:8px 16px}
 .chip.hot{border-color:var(--accent);color:var(--accent)}
+h2.sec{font-family:var(--display);font-size:clamp(26px,3.4vw,42px);font-weight:700;letter-spacing:-.025em;max-width:18em;margin-bottom:32px;line-height:1.15}
 
-/* intro */
+/* intro / about / builder */
 .t-intro h1{font-family:var(--display);font-weight:700;font-size:clamp(40px,6vw,80px);letter-spacing:-.035em;line-height:1.05;max-width:14em}
 .t-intro .sub{color:var(--muted);font-size:clamp(17px,1.8vw,22px);line-height:1.6;margin-top:28px;max-width:36em}
 .t-intro .agenda{display:flex;gap:14px;margin-top:48px;flex-wrap:wrap}
 .agenda-item{border:1px solid var(--line);border-radius:12px;padding:18px 24px;background:var(--surface)}
 .agenda-item .n{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.1em}
 .agenda-item .t{font-family:var(--display);font-size:18px;font-weight:600;margin-top:6px}
-
-/* about: experience */
 .t-about .grid{display:grid;grid-template-columns:1fr auto;gap:56px;align-items:start}
 .t-about h2{font-family:var(--display);font-size:clamp(28px,3.6vw,46px);font-weight:700;letter-spacing:-.025em;line-height:1.15;margin-bottom:24px}
 .t-about .bio{color:var(--muted);font-size:clamp(16px,1.7vw,20px);line-height:1.7;max-width:34em}
@@ -107,17 +104,11 @@ a{color:inherit}
 .t-about .bio b{color:var(--text);font-weight:600}
 .t-about .headshot{width:clamp(140px,16vw,220px);height:clamp(140px,16vw,220px);border-radius:22px;object-fit:cover;border:1px solid var(--line)}
 .logo-row{display:flex;gap:14px 34px;flex-wrap:wrap;align-items:center;margin-top:38px;padding-top:28px;border-top:1px solid var(--line)}
-.logo-row .lg{font-family:var(--display);font-weight:700;font-size:clamp(18px,2vw,24px);letter-spacing:-.02em;color:var(--faint);transition:color .3s}
-.slide.active .logo-row .lg{animation:logoIn .6s both}
-.logo-row .lg:nth-child(1){animation-delay:.1s}.logo-row .lg:nth-child(2){animation-delay:.2s}
-.logo-row .lg:nth-child(3){animation-delay:.3s}.logo-row .lg:nth-child(4){animation-delay:.4s}
-.logo-row .lg:nth-child(5){animation-delay:.5s}.logo-row .lg:nth-child(6){animation-delay:.6s}
-.logo-row .lg:nth-child(7){animation-delay:.7s}
-.logo-row .lg:hover{color:var(--muted)}
-@keyframes logoIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.logo-row .lg{font-family:var(--display);font-weight:700;font-size:clamp(18px,2vw,24px);letter-spacing:-.02em;color:var(--faint)}
+.slide.active .logo-row .lg{animation:rise .6s both}
+.logo-row .lg:nth-child(1){animation-delay:.1s}.logo-row .lg:nth-child(2){animation-delay:.2s}.logo-row .lg:nth-child(3){animation-delay:.3s}.logo-row .lg:nth-child(4){animation-delay:.4s}.logo-row .lg:nth-child(5){animation-delay:.5s}.logo-row .lg:nth-child(6){animation-delay:.6s}.logo-row .lg:nth-child(7){animation-delay:.7s}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .logo-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:14px}
-
-/* about: builder */
 .t-builder h1{font-family:var(--display);font-weight:700;font-size:clamp(36px,5.4vw,70px);letter-spacing:-.035em;line-height:1.06;margin-bottom:14px}
 .t-builder h1 em{font-style:normal;color:var(--accent)}
 .t-builder .sub{color:var(--muted);font-size:clamp(16px,1.7vw,20px);line-height:1.65;max-width:36em;margin-bottom:34px}
@@ -139,31 +130,25 @@ a{color:inherit}
 .bp .k{font-family:var(--mono);font-size:11.5px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase}
 @keyframes bpIn{to{opacity:1;transform:translateX(0)}}
 
-/* data */
-.t-data .big{font-family:var(--mono);font-weight:600;font-size:clamp(80px,14vw,188px);letter-spacing:-.05em;line-height:1;display:flex;align-items:baseline;gap:.12em}
+/* data / funnel / fog */
+.t-data .big{font-family:var(--mono);font-weight:600;font-size:clamp(76px,13vw,176px);letter-spacing:-.05em;line-height:1;display:flex;align-items:baseline;gap:.12em}
 .t-data .big .unit{font-size:.34em;color:var(--accent)}
 .t-data .biglabel{font-family:var(--display);font-size:clamp(22px,2.6vw,32px);font-weight:600;letter-spacing:-.02em;margin-top:22px;max-width:24em;line-height:1.25}
 .t-data .support{color:var(--muted);font-size:clamp(16px,1.6vw,19px);line-height:1.65;margin-top:18px;max-width:42em}
 .t-data .aside{margin-top:34px;display:inline-flex;gap:12px;align-items:baseline;font-family:var(--mono);font-size:14px;color:var(--dim);border:1px solid var(--line);border-radius:10px;padding:13px 18px;max-width:46em;line-height:1.5}
 .t-data .aside b{color:var(--accent);font-weight:600;white-space:nowrap}
-
-/* funnel */
-.t-funnel h2{font-family:var(--display);font-size:clamp(26px,3.4vw,42px);font-weight:700;letter-spacing:-.025em;margin-bottom:34px;max-width:18em;line-height:1.15}
 .funnel{display:flex;flex-direction:column;gap:12px;max-width:820px}
 .fstep{display:grid;grid-template-columns:220px 1fr;gap:18px;align-items:center}
 .fstep .fl{font-family:var(--mono);font-size:14px;color:var(--muted);text-align:right}
 .fstep .fbar{height:52px;border-radius:9px;background:var(--raised);border:1px solid var(--line);position:relative;overflow:hidden}
 .fstep .fbar i{position:absolute;inset:0;background:var(--accent-soft);border-right:3px solid var(--accent);width:var(--w);transition:width 1s ease .2s}
 .slide:not(.active) .fstep .fbar i{width:0 !important}
-.fstep .fv{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:13px;color:var(--dim)}
 .fstep.dropzone .fbar{border-color:#e0655f}
 .fstep.dropzone .fbar i{border-right-color:#e0655f;background:rgba(224,101,95,.12)}
 .fstep.dropzone .fl{color:var(--text);font-weight:500}
 .fdrop{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;color:#e0655f;border:1px solid rgba(224,101,95,.4);border-radius:100px;padding:6px 14px;margin:6px 0 6px 238px}
-.t-funnel .fnote{margin-top:26px;color:var(--muted);font-size:clamp(15px,1.5vw,18px);line-height:1.65;max-width:42em}
-.t-funnel .fnote b{color:var(--text)}
-
-/* fog / reframe */
+.fnote{margin-top:26px;color:var(--muted);font-size:clamp(15px,1.5vw,18px);line-height:1.65;max-width:42em}
+.fnote b{color:var(--text)}
 .t-fog .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
 .panel{border-radius:16px;padding:34px 32px;min-height:250px;display:flex;flex-direction:column}
 .panel .tag{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
@@ -178,13 +163,12 @@ a{color:inherit}
 .panel.reframe p{color:var(--muted)}
 
 /* ship / phases / insight */
-.t-ship h2,.t-phases h2,.t-work h2,.t-proto h2,.t-next h2{font-family:var(--display);font-size:clamp(26px,3.4vw,42px);font-weight:700;letter-spacing:-.025em;max-width:18em;margin-bottom:32px;line-height:1.15}
 .ship-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px}
 .ship-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
 .ship-card .k{font-family:var(--mono);font-size:12.5px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase}
 .ship-card h4{font-family:var(--display);font-size:20px;font-weight:600;margin:12px 0 10px}
 .ship-card p{color:var(--muted);font-size:16px;line-height:1.6}
-.phase-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.phase-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px}
 .phase{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
 .phase .ph{font-family:var(--mono);font-size:12.5px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
 .phase .ph::after{content:'';flex:1;height:1px;background:var(--line)}
@@ -194,23 +178,91 @@ a{color:inherit}
 .phase .badge{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--accent);border-radius:100px;padding:4px 12px;margin-top:14px;font-weight:600}
 .insight{margin-top:24px;border-left:3px solid var(--accent);padding:6px 0 6px 22px;font-family:var(--display);font-size:clamp(18px,2vw,24px);font-weight:600;line-height:1.35;max-width:32em}
 .insight span{color:var(--dim);display:block;font-family:var(--mono);font-size:13px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.signal{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 24px;display:flex;gap:26px;align-items:center;max-width:720px}
+.signal svg{flex-shrink:0}
+.signal .sl{font-family:var(--mono);font-size:13px;color:var(--dim);line-height:1.7}
+.signal .sl b{color:var(--accent);font-weight:600}
 
-/* work (image) */
+/* debit tracker animation */
+.t-debit .grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.mini-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.mini{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.mini .k{font-family:var(--mono);font-size:11.5px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase}
+.mini h4{font-family:var(--display);font-size:17px;font-weight:600;margin:8px 0 6px}
+.mini p{color:var(--muted);font-size:14.5px;line-height:1.55}
+.tracker-wrap{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px}
+.tracker-wrap .tw-label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
+.tracker{background:#fff;color:#111;border-radius:14px;padding:22px 22px 20px;font-family:var(--body)}
+.tracker .tk-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.tracker h4{font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-.01em}
+.tracker .tk-pill{font-size:11.5px;color:#555;background:#f0f0f2;border-radius:100px;padding:4px 11px;white-space:nowrap}
+.tracker .tk-desc{color:#555;font-size:14px;line-height:1.55;margin-top:8px;min-height:3.2em}
+.tk-prog{display:flex;gap:6px;margin:16px 0 4px}
+.tk-prog i{flex:1;height:5px;border-radius:3px;background:#e7e7ea;transition:background .5s}
+.tk-prog i.on{background:#111}
+.tk-steps{display:flex;justify-content:space-between;font-size:10.5px;color:#999;margin-bottom:16px}
+.tk-steps span.on{color:#111;font-weight:600}
+.tk-wallet{display:flex;align-items:center;justify-content:center;gap:8px;background:#111;color:#fff;border-radius:100px;padding:12px;font-size:14px;font-weight:600}
+.tk-virtual{margin-top:10px;text-align:center;font-size:12px;color:#3a7d44;font-weight:600}
+.tracker-note{font-family:var(--mono);font-size:12.5px;color:var(--dim);margin-top:14px;line-height:1.6}
+
+
+.tk-stage{background:#fff;border-radius:14px;padding:10px;min-height:120px;display:flex;align-items:center}
+.tk-stage img{width:100%;border-radius:8px;display:block;transition:opacity .25s ease;opacity:1}
+.tk-cap{font-size:14px;color:var(--muted);line-height:1.6;margin-top:12px;min-height:3.2em}
+.tk-prog{display:flex;gap:6px;margin:16px 0 4px}
+.tk-prog i{flex:1;height:5px;border-radius:3px;background:var(--line);transition:background .5s}
+.tk-prog i.on{background:var(--accent)}
+.tk-steps{display:flex;justify-content:space-between;font-size:10.5px;color:var(--faint);margin-bottom:4px;font-family:var(--mono)}
+.tk-steps span.on{color:var(--accent);font-weight:600}
+
+/* work / results / next / close */
 .t-work figure{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(14px,2vw,28px);text-align:center}
 .t-work img{max-width:100%;max-height:min(56vh,620px);height:auto;border-radius:10px}
 .t-work figcaption{font-family:var(--mono);font-size:13.5px;color:var(--dim);margin-top:16px;text-align:left}
-.t-work .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .img-missing{border:1px dashed var(--line);border-radius:10px;padding:60px 24px;color:var(--dim);font-family:var(--mono);font-size:14px;line-height:1.7}
+.t-results .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:10px 0 30px}
+.metric{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:32px 30px;position:relative;overflow:hidden}
+.metric::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px;background:var(--accent)}
+.metric.hero{grid-column:1 / -1;background:var(--accent-soft);border-color:var(--accent);padding:38px 34px}
+.metric .val{font-family:var(--mono);font-weight:600;font-size:clamp(40px,5.5vw,64px);letter-spacing:-.04em;line-height:1}
+.metric.hero .val{font-size:clamp(52px,7.5vw,90px)}
+.metric .val .from{color:var(--dim)}
+.metric .val .arrow{color:var(--accent);font-size:.55em;vertical-align:middle;margin:0 .14em}
+.metric .lab{font-size:clamp(15px,1.5vw,18px);color:var(--muted);margin-top:14px;line-height:1.5}
+.metric.hero .lab{font-size:clamp(16px,1.7vw,20px);color:var(--text)}
+.t-results .rigor{border-top:1px solid var(--line);padding-top:22px;color:var(--muted);font-size:clamp(16px,1.6vw,19px);line-height:1.65;max-width:46em}
+.t-results .rigor b{color:var(--text);font-weight:600}
+.t-next .nextwrap{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch}
+.t-next .story{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:34px 32px}
+.t-next .story p{color:var(--muted);font-size:clamp(15.5px,1.6vw,18.5px);line-height:1.7}
+.t-next .story p + p{margin-top:14px}
+.t-next .story b{color:var(--text)}
+.t-next .protoslot{border:1px dashed var(--line);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:34px;text-align:center;min-height:300px}
+.t-next .protoslot .badge{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--accent);border-radius:100px;padding:5px 14px;font-weight:600}
+.t-next .protoslot p{font-family:var(--mono);font-size:13.5px;color:var(--dim);line-height:1.7;max-width:26em}
+.t-close .close-grid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+.t-close h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,4.8vw,62px);letter-spacing:-.03em;line-height:1.1;max-width:14em}
+.t-close .also{margin-top:28px;font-size:clamp(16px,1.6vw,19px);color:var(--muted);line-height:1.7;max-width:36em}
+.t-close .also b{color:var(--text);font-weight:600}
+.stack{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.t-close .contact{margin-top:44px;display:flex;gap:28px;flex-wrap:wrap;font-family:var(--mono);font-size:15px}
+.t-close .contact a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+.t-close .contact a:hover{border-color:var(--accent)}
+.t-close .headshot{width:clamp(120px,14vw,190px);height:clamp(120px,14vw,190px);border-radius:20px;object-fit:cover;border:1px solid var(--line)}
+.count{font-variant-numeric:tabular-nums}
 
-/* prototype phones */
+/* device frames */
 .t-proto .phones{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,44px);justify-items:center}
 .ph-col{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;max-width:400px}
+.ph-col.wide{max-width:860px}
 .ph-label{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
 .ph-label.after{color:var(--accent)}
 .phone{width:min(300px,80vw);aspect-ratio:9/18.5;border-radius:40px;border:9px solid #1d1d21;background:#000;overflow:hidden;position:relative;box-shadow:0 24px 70px rgba(0,0,0,.55)}
 .phone .notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:34%;height:16px;border-radius:100px;background:#000;z-index:5;pointer-events:none}
-.phone .screen{position:absolute;inset:0;overflow-y:auto;background:#fff;scrollbar-width:none}
-.phone .screen::-webkit-scrollbar{display:none}
+.tablet{width:min(820px,92vw);aspect-ratio:4/3;border-radius:26px;border:10px solid #1d1d21;background:#000;overflow:hidden;position:relative;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+.phone .screen,.tablet .screen{position:absolute;inset:0;overflow-y:auto;background:#fff;scrollbar-width:none}
+.phone .screen::-webkit-scrollbar,.tablet .screen::-webkit-scrollbar{display:none}
 .shot{position:relative;line-height:0}
 .shot img{width:100%;display:block}
 .hs{position:absolute;background:transparent;border-radius:10px}
@@ -221,53 +273,126 @@ a{color:inherit}
 .ph-chips button{font-family:var(--mono);font-size:12px;color:var(--dim);border:1px solid var(--line);border-radius:100px;padding:6px 13px;transition:color .2s,border-color .2s}
 .ph-chips button:hover{color:var(--text)}
 .ph-chips button.on{color:var(--accent);border-color:var(--accent)}
-.ph-cap{font-family:var(--mono);font-size:12.5px;color:var(--dim);text-align:center;min-height:2.6em;max-width:32em;line-height:1.5}
+.ph-cap{font-family:var(--mono);font-size:12.5px;color:var(--dim);text-align:center;min-height:2.6em;max-width:36em;line-height:1.5}
 .step-dots{display:flex;gap:6px;justify-content:center}
 .step-dots i{width:6px;height:6px;border-radius:3px;background:var(--line)}
 .step-dots i.on{background:var(--accent);width:18px}
 .tapzone{position:absolute;inset:0;cursor:pointer}
-.t-proto .proto-note{margin-top:22px;font-family:var(--mono);font-size:13px;color:var(--dim);text-align:center}
+.proto-note{margin-top:22px;font-family:var(--mono);font-size:13px;color:var(--dim);text-align:center}
 
-/* results */
-.t-results .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:10px 0 30px}
-.metric{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:32px 30px;position:relative;overflow:hidden}
-.metric::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px;background:var(--accent)}
-.metric.hero{grid-column:1 / -1;background:var(--accent-soft);border-color:var(--accent);padding:38px 34px}
-.metric .val{font-family:var(--mono);font-weight:600;font-size:clamp(40px,5.5vw,64px);letter-spacing:-.04em;line-height:1}
-.metric.hero .val{font-size:clamp(56px,8vw,96px)}
-.metric .val .from{color:var(--dim)}
-.metric .val .arrow{color:var(--accent);font-size:.55em;vertical-align:middle;margin:0 .14em}
-.metric .lab{font-size:clamp(15px,1.5vw,18px);color:var(--muted);margin-top:14px;line-height:1.5}
-.metric.hero .lab{font-size:clamp(16px,1.7vw,20px);color:var(--text)}
-.t-results .rigor{border-top:1px solid var(--line);padding-top:22px;color:var(--muted);font-size:clamp(16px,1.6vw,19px);line-height:1.65;max-width:46em}
-.t-results .rigor b{color:var(--text);font-weight:600}
+/* light mock UI inside frames (coded prototypes) */
+.mock{background:#f4f4f6;color:#141416;min-height:100%;font-family:var(--body);font-size:13px;line-height:1.45;text-align:left;padding-bottom:24px}
+.mock *{box-sizing:border-box}
+.mock .mtop{padding:44px 18px 8px;font-size:12px;color:#666;display:flex;justify-content:space-between}
+.mock h1{font-family:var(--display);font-size:24px;letter-spacing:-.02em;padding:6px 18px 12px;color:#0e0e10}
+.mock .mtabs{display:flex;gap:16px;padding:0 18px 10px;border-bottom:1px solid #e4e4e8;font-weight:600;color:#8a8a90;font-size:14px}
+.mock .mtabs b{color:#0e0e10;border-bottom:2px solid #0e0e10;padding-bottom:8px;margin-bottom:-1px}
+.mock .mrow{display:flex;align-items:center;gap:12px;background:#fff;margin:10px 14px 0;padding:14px;border-radius:12px}
+.mock .mrow .av{width:38px;height:38px;border-radius:9px;background:#ececf0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#555;flex-shrink:0}
+.mock .mrow .av.pge{background:#1a9ad7;color:#fff}
+.mock .mrow .mi{flex:1;min-width:0}
+.mock .mrow .mi b{display:block;font-size:14px;color:#0e0e10}
+.mock .mrow .mi span{color:#8a8a90;font-size:12px}
+.mock .mrow .mr{text-align:right;font-size:13px}
+.mock .mrow .mr b{display:block;color:#0e0e10}
+.mock .st{font-size:11.5px;font-weight:600}
+.mock .st.new{color:#1d6ff2}
+.mock .st.sched{color:#8a8a90}
+.mock .st.ready{color:#2e8b46}
+.mock .mtoast{position:sticky;bottom:12px;margin:16px 14px 0;background:#111;color:#fff;border-radius:12px;padding:13px 15px;display:flex;gap:10px;align-items:center;font-size:12.5px}
+.mock .mtoast i{width:16px;height:16px;border-radius:50%;background:#2e8b46;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:10px}
+.mock .mbtn{display:block;background:#0e0e10;color:#fff;text-align:center;border-radius:100px;padding:13px;margin:16px 14px 0;font-weight:600;font-size:14px;cursor:pointer}
+.mock .mfield{background:#fff;margin:10px 14px 0;padding:13px 14px;border-radius:12px}
+.mock .mfield span{display:block;color:#8a8a90;font-size:11.5px;margin-bottom:3px}
+.mock .mfield b{font-size:14px;color:#0e0e10;font-weight:600}
+.mock .prefill{display:inline-block;background:#e8f3ea;color:#2e8b46;font-size:10.5px;font-weight:700;border-radius:100px;padding:3px 9px;margin:12px 14px 0}
+.mock .mail{background:#fff;margin:12px 14px 0;border-radius:12px;padding:16px}
+.mock .mail .from{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.mock .mail .from .av{width:34px;height:34px;border-radius:50%;background:#1a9ad7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px}
+.mock .mail h3{font-size:15px;margin-bottom:6px;color:#0e0e10}
+.mock .mail p{color:#666;font-size:12.5px;margin-bottom:10px}
+.mock .attach{display:inline-flex;gap:7px;align-items:center;border:1px solid #e4e4e8;border-radius:9px;padding:8px 12px;font-size:12px;color:#444}
+.mock .fwdbar{margin:14px 14px 0;background:#eef4ff;border:1.5px dashed #1d6ff2;border-radius:12px;padding:13px 14px;font-size:12.5px;color:#1d5bd6;cursor:pointer}
+.mock .fwdbar b{display:block;font-size:13px;margin-top:2px;color:#0e2f7a}
+/* clinical tablet mock */
+.clin{background:#f6f7f9;color:#16181d;min-height:100%;font-family:var(--body);font-size:13px;text-align:left;display:flex;flex-direction:column}
+.clin .cbar{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;background:#fff;border-bottom:1px solid #e6e8ec}
+.clin .cbar h1{font-family:var(--display);font-size:19px;letter-spacing:-.01em}
+.clin .cbar span{color:#8a8f98;font-size:12px}
+.clin .cbody{display:grid;grid-template-columns:1.5fr 1fr;gap:14px;padding:16px 22px;flex:1}
+.clin h2{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8a8f98;margin-bottom:10px;font-weight:600}
+.clin .alert{background:#fff;border:1px solid #e6e8ec;border-left:4px solid #d9534f;border-radius:11px;padding:13px 15px;margin-bottom:10px;cursor:pointer;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.clin .alert.warn{border-left-color:#e6a23c}
+.clin .alert.info{border-left-color:#8f9bb3}
+.clin .alert b{display:block;font-size:14px}
+.clin .alert span{color:#8a8f98;font-size:12px}
+.clin .rchip{font-size:11px;font-weight:700;border-radius:100px;padding:4px 10px;white-space:nowrap}
+.clin .rchip.hi{background:#fdecea;color:#c0392b}
+.clin .rchip.md{background:#fdf3e3;color:#b5760f}
+.clin .visit{background:#fff;border:1px solid #e6e8ec;border-radius:11px;padding:11px 14px;margin-bottom:9px;font-size:12.5px;color:#444}
+.clin .visit b{color:#16181d}
+.clin .pback{color:#1d6ff2;font-size:13px;font-weight:600;cursor:pointer;padding:14px 22px 0}
+.clin .pgrid{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;padding:14px 22px;flex:1}
+.clin .card{background:#fff;border:1px solid #e6e8ec;border-radius:12px;padding:16px}
+.clin .card h3{font-size:14px;margin-bottom:10px}
+.clin .bpstat{display:flex;gap:22px;margin-bottom:8px}
+.clin .bpstat div b{font-size:20px;font-family:var(--mono)}
+.clin .bpstat div span{display:block;color:#8a8f98;font-size:11px}
+.clin .med{display:flex;justify-content:space-between;font-size:12.5px;padding:8px 0;border-bottom:1px solid #f0f1f4}
+.clin .cact{display:flex;gap:8px;margin-top:12px}
+.clin .cact div{flex:1;text-align:center;border-radius:100px;padding:10px;font-size:12.5px;font-weight:600;cursor:pointer}
+.clin .cact .pri{background:#111;color:#fff}
+.clin .cact .sec2{border:1.5px solid #d8dae0}
+/* flyhomes browser */
+.browser{width:min(1080px,96vw);margin:0 auto;border-radius:14px;border:1px solid var(--line);overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.5);background:#fff;color:#16181d;font-size:13px;text-align:left}
+.browser .bbar{display:flex;gap:8px;align-items:center;background:#ececef;padding:10px 14px;border-bottom:1px solid #ddd}
+.browser .bbar i{width:10px;height:10px;border-radius:50%;background:#cfcfd4}
+.browser .bbar i:nth-child(1){background:#e0655f}.browser .bbar i:nth-child(2){background:#e0b45f}.browser .bbar i:nth-child(3){background:#6fbf73}
+.browser .url{flex:1;background:#fff;border-radius:7px;padding:5px 12px;font-family:var(--mono);font-size:11px;color:#888;margin-left:8px}
+.fly{display:grid;grid-template-columns:190px 1fr;min-height:480px}
+.fly .side{background:#14161c;color:#c9ccd4;padding:18px 0}
+.fly .side .flogo{font-family:var(--display);font-weight:700;color:#fff;padding:0 18px 16px;font-size:15px;letter-spacing:-.01em}
+.fly .side .ni{padding:10px 18px;cursor:pointer;font-size:13px;display:flex;gap:10px;align-items:center}
+.fly .side .ni.on{background:#232733;color:#fff;border-left:3px solid #45c4a0;padding-left:15px}
+.fly .main{padding:18px 20px;background:#f5f6f8;overflow:auto}
+.fly h1{font-family:var(--display);font-size:18px;margin-bottom:14px;letter-spacing:-.01em}
+.fly .kan{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.fly .kcol{background:#eceef2;border-radius:10px;padding:10px}
+.fly .kcol h5{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a8f98;margin-bottom:9px;display:flex;justify-content:space-between}
+.fly .kcard{background:#fff;border:1px solid #e2e4e9;border-radius:9px;padding:10px 11px;margin-bottom:8px}
+.fly .kcard b{display:block;font-size:12.5px;margin-bottom:2px}
+.fly .kcard span{color:#8a8f98;font-size:11px}
+.fly .sig{display:inline-block;font-size:9.5px;font-weight:700;border-radius:100px;padding:2px 8px;margin-top:6px;margin-right:4px}
+.fly .sig.fin{background:#e4f4ee;color:#1d7a55}
+.fly .sig.urg{background:#fdecea;color:#c0392b}
+.fly .sig.int{background:#eef1fd;color:#3b52c4}
+.fly table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #e2e4e9;border-radius:10px;overflow:hidden}
+.fly th{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:#8a8f98;text-align:left;padding:10px 14px;border-bottom:1px solid #e9ebef;background:#fafbfc}
+.fly td{padding:12px 14px;border-bottom:1px solid #f0f1f4;font-size:13px}
+.fly tr.click{cursor:pointer}
+.fly tr.click:hover{background:#f7fbf9}
+.fly .tst{font-size:11px;font-weight:700;border-radius:100px;padding:4px 10px}
+.fly .tst.triage{background:#fdf3e3;color:#b5760f}
+.fly .tst.sched{background:#e4f4ee;color:#1d7a55}
+.fly .det{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}
+.fly .dcard{background:#fff;border:1px solid #e2e4e9;border-radius:10px;padding:16px}
+.fly .dcard h3{font-size:14px;margin-bottom:4px}
+.fly .dcard .sub{color:#8a8f98;font-size:12px;margin-bottom:10px}
+.fly .home-row{display:flex;justify-content:space-between;font-size:12.5px;padding:9px 0;border-bottom:1px solid #f0f1f4}
+.fly .steps .stp{display:flex;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid #f0f1f4}
+.fly .steps .num{width:24px;height:24px;border-radius:50%;background:#eceef2;color:#666;font-size:11.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fly .steps .stp.done .num{background:#1d7a55;color:#fff}
+.fly .steps .si{flex:1}
+.fly .steps .si b{display:block;font-size:12.5px}
+.fly .steps .si span{color:#8a8f98;font-size:11.5px}
+.fly .steps .go{background:#14161c;color:#fff;border-radius:100px;padding:7px 14px;font-size:11.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.fly .steps .go.dis{background:#e5e7eb;color:#a5a8b0;cursor:default}
+.fly .steps .donechip{color:#1d7a55;font-size:11.5px;font-weight:700;white-space:nowrap}
+.fly .banner{background:#e4f4ee;color:#1d7a55;border:1px solid #bfe6d6;border-radius:10px;padding:12px 14px;font-weight:700;font-size:13px;margin-bottom:12px}
+.fly .back{color:#1d6ff2;font-weight:600;font-size:12.5px;cursor:pointer;margin-bottom:12px;display:inline-block}
 
-/* next phase */
-.t-next .nextwrap{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch}
-.t-next .story{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:34px 32px}
-.t-next .story p{color:var(--muted);font-size:clamp(15.5px,1.6vw,18.5px);line-height:1.7}
-.t-next .story p + p{margin-top:14px}
-.t-next .story b{color:var(--text)}
-.t-next .protoslot{border:1px dashed var(--line);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:34px;text-align:center;min-height:300px}
-.t-next .protoslot .badge{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--accent);border-radius:100px;padding:5px 14px;font-weight:600}
-.t-next .protoslot p{font-family:var(--mono);font-size:13.5px;color:var(--dim);line-height:1.7;max-width:26em}
-
-/* close */
-.t-close .close-grid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
-.t-close h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,4.8vw,62px);letter-spacing:-.03em;line-height:1.1;max-width:14em}
-.t-close .also{margin-top:28px;font-size:clamp(16px,1.6vw,19px);color:var(--muted);line-height:1.7;max-width:36em}
-.t-close .also b{color:var(--text);font-weight:600}
-.stack{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
-.t-close .contact{margin-top:44px;display:flex;gap:28px;flex-wrap:wrap;font-family:var(--mono);font-size:15px}
-.t-close .contact a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
-.t-close .contact a:hover{border-color:var(--accent)}
-.t-close .headshot{width:clamp(120px,14vw,190px);height:clamp(120px,14vw,190px);border-radius:20px;object-fit:cover;border:1px solid var(--line)}
-
-.count{font-variant-numeric:tabular-nums}
-
-@media (max-width:880px){
-  .sel-cards{grid-template-columns:1fr;gap:12px}
-  .t-fog .cols,.t-results .metrics,.phase-row,.t-builder .grid,.t-proto .phones,.t-work .two,.t-next .nextwrap{grid-template-columns:1fr}
+@media (max-width:900px){
+  .t-fog .cols,.t-results .metrics,.phase-row,.t-builder .grid,.t-proto .phones,.t-next .nextwrap,.t-debit .grid{grid-template-columns:1fr}
   .topbar .who span{display:none}
   .hint{display:none}
   .panel{min-height:0}
@@ -277,6 +402,11 @@ a{color:inherit}
   .fstep{grid-template-columns:1fr}
   .fstep .fl{text-align:left}
   .fdrop{margin-left:0}
+  .fly{grid-template-columns:1fr}
+  .fly .side{display:flex;overflow-x:auto;padding:8px}
+  .fly .side .flogo{display:none}
+  .fly .kan{grid-template-columns:1fr 1fr}
+  .clin .cbody,.clin .pgrid{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
@@ -301,9 +431,9 @@ a{color:inherit}
 <div id="selector" class="hidden">
   <div class="sel-eyebrow">Portfolio review · 2026</div>
   <h1 class="sel-title">Diana Shawn Barraza</h1>
-  <p class="sel-sub">Staff Product Designer. A decade across fintech and healthcare, most recently at Square. Choose the lens for today's conversation.</p>
+  <p class="sel-sub">Staff Product Designer. A decade across fintech, healthcare, and SaaS, most recently at Square. Choose the lens for today's conversation.</p>
   <div class="sel-cards" id="selCards"></div>
-  <div class="sel-foot">Press 1, 2, or 3 · Arrow keys navigate slides · F fullscreen · Esc returns here</div>
+  <div class="sel-foot">Press 1, 2, 3, or 4 · Arrow keys navigate slides · F fullscreen · Esc returns here</div>
 </div>
 
 <div id="deck">
@@ -325,23 +455,21 @@ a{color:inherit}
 
 <script>
 /* =========================================================
-   IMAGES · relative paths, ship the images/ folder with this file.
-   Missing files render as labeled placeholder boxes.
+   IMAGES · relative paths; ship the images/ folder with this file.
+   Missing files render labeled placeholder boxes.
    ========================================================= */
 const SITE = 'https://barrazaxd.com/';
 const IMG = {
   headshot:   SITE + 'diana_shawn_barraza.png?v=2',
-  monitoring: SITE + 'heal-monitoring-after-patient-monitoring.png?v=3',
-  pcp:        SITE + 'heal-pcp-thumbnail.png?v=1',
-  /* checking prototype screens (in images/) */
-  ckBefore:   'images/checking-spos-before.png',          /* PLACEHOLDER: re-export, the uploaded file was blank */
+  pcp:        SITE + 'heal-pcp-thumbnail.png?v=2',
+  monitoringAfter: SITE + 'heal-monitoring-after-patient-monitoring.png?v=3',
+  ckBefore:   'images/checking-spos-before.png',        /* PLACEHOLDER: re-export (uploads have been blank/transparent) */
   ckHome:     'images/checking-after-home.png',
   ckTracker:  'images/checking-after-card-tracker.png',
   ckCard:     'images/checking-after-card-detail.png',
   ckDeposit:  'images/checking-after-deposit.png',
   ckPay:      'images/checking-after-pay.png',
   ckNumbers:  'images/checking-after-numbers.png',
-  /* bill pay flow screens (in images/) */
   bpB1:'images/billpay-before-1-list.png',
   bpB2:'images/billpay-before-2-vendor-search.png',
   bpB3:'images/billpay-before-3-create-vendor.png',
@@ -351,23 +479,145 @@ const IMG = {
   bpA4:'images/billpay-after-4-details.png',
   bpA5:'images/billpay-after-5-schedule.png',
   bpA6:'images/billpay-after-6-scheduled.png',
-  /* placeholders to add */
-  emailFwd:   'images/billpay-email-forwarding.png',      /* PLACEHOLDER: email forwarding design */
-  copilot:    'images/money-copilot-exploration.png',     /* PLACEHOLDER: AI insights prototype still */
-  aiProto:    'images/ai-insights-prototype.png'          /* PLACEHOLDER: clickable AI vision, return to this */
+  healBefore: 'images/heal-before-schedule.png',        /* PLACEHOLDER: schedule-first iPad app, before state */
+  tk1:'images/tracker-1-printing-wallet.png',
+  tk2:'images/tracker-2-printing-numbers.png',
+  tk3:'images/tracker-3-shipped.png',
+  tk4:'images/tracker-4-delivered.png',
+  tk5:'images/tracker-5-active-entrypoint.png',
+  copilot:    'images/money-copilot-exploration.png',   /* PLACEHOLDER */
+  aiProto:    'images/ai-insights-prototype.png'        /* PLACEHOLDER: clickable AI vision, return to this */
 };
 
-/* Interactive prototype definitions */
+/* =========================================================
+   CODED PROTOTYPE SCREENS (HTML mocks, no images needed)
+   ========================================================= */
+const M = {};
+
+/* --- Email forwarding flow (phone) --- */
+M.emEmail = `
+<div class="mock">
+  <div class="mtop"><span>9:41</span><span>Inbox</span></div>
+  <h1>Inbox</h1>
+  <div class="mail">
+    <div class="from"><div class="av">PG</div><div><b style="font-size:13px">PG&amp;E</b><br><span style="color:#8a8a90;font-size:11px">to me · 9:02 AM</span></div></div>
+    <h3>Your energy statement is ready</h3>
+    <p>Your February statement of $234.33 is due Feb 24. View the attached statement for details.</p>
+    <div class="attach">&#128206; energy-statement.pdf</div>
+  </div>
+  <div class="fwdbar" data-pid="__PID__" data-goto="list">&#10148; Forward to Bill Pay<b>bills@squareup.com</b></div>
+</div>`;
+M.emList = `
+<div class="mock">
+  <div class="mtop"><span>9:41</span><span></span></div>
+  <h1>Bill Pay</h1>
+  <div class="mtabs"><b>All</b><span>Outstanding</span><span>Scheduled</span><span>Paid</span></div>
+  <div class="mrow" data-pid="__PID__" data-goto="details" style="cursor:pointer;border:1.5px solid #1d6ff2">
+    <div class="av pge">PG&amp;E</div>
+    <div class="mi"><b>PG&amp;E / Pacific Gas &amp; Electric</b><span>Due 02/24/25 · from forwarded email</span></div>
+    <div class="mr"><b>$234.33</b><span class="st ready">Ready to schedule</span></div>
+  </div>
+  <div class="mrow"><div class="av">Ar</div><div class="mi"><b>Argent Coffee</b><span>Feb 1, 2025</span></div><div class="mr"><b>$208.03</b><span class="st sched">Processing</span></div></div>
+  <div class="mrow"><div class="av">Bl</div><div class="mi"><b>Blue Wave</b><span>Jan 31, 2025</span></div><div class="mr"><b>$1,010.21</b><span class="st sched">Scheduled</span></div></div>
+  <div class="mtoast"><i>&#10003;</i> Bill received from PG&amp;E. No data entry needed.</div>
+</div>`;
+M.emDetails = `
+<div class="mock">
+  <div class="mtop"><span>9:41</span><span>Bill details</span></div>
+  <h1>Bill details</h1>
+  <span class="prefill">&#10003; Prefilled from your forwarded email</span>
+  <div class="mfield"><span>Biller</span><b>PG&amp;E / Pacific Gas &amp; Electric (Utilities)</b></div>
+  <div class="mfield"><span>Account number</span><b>788872993</b></div>
+  <div class="mfield"><span>Due date</span><b>02/24/2025</b></div>
+  <div class="mfield"><span>Statement balance</span><b>$234.33</b></div>
+  <div class="mbtn" data-pid="__PID__" data-goto="done">Schedule payment</div>
+</div>`;
+M.emDone = `
+<div class="mock">
+  <div class="mtop"><span>9:41</span><span></span></div>
+  <h1>Bill Pay</h1>
+  <div class="mtabs"><b>All</b><span>Outstanding</span><span>Scheduled</span><span>Paid</span></div>
+  <div class="mrow"><div class="av pge">PG&amp;E</div><div class="mi"><b>PG&amp;E / Pacific Gas &amp; Electric</b><span>02/24/25</span></div><div class="mr"><b>$234.33</b><span class="st sched">Scheduled</span></div></div>
+  <div class="mrow"><div class="av">Ar</div><div class="mi"><b>Argent Coffee</b><span>Feb 1, 2025</span></div><div class="mr"><b>$208.03</b><span class="st sched">Processing</span></div></div>
+  <div class="mtoast"><i>&#10003;</i> Your payment to PG&amp;E was scheduled.</div>
+  <div class="mbtn" data-pid="__PID__" data-goto="email" style="background:#fff;color:#111;border:1.5px solid #ddd">&#8634; Replay from the email</div>
+</div>`;
+
+/* --- Heal Today briefing (tablet) --- */
+M.healBrief = `
+<div class="clin">
+  <div class="cbar"><h1>Today · Dr. Rivera</h1><span>Tuesday · 6 monitored patients · 4 visits</span></div>
+  <div class="cbody">
+    <div>
+      <h2>Needs attention</h2>
+      <div class="alert" data-pid="__PID__" data-goto="patient">
+        <div><b>Ruth Alvarez · 72</b><span>Hypertension · BP trending high, 5 consecutive days</span></div>
+        <span class="rchip hi">BP 148/92 &#8593;</span>
+      </div>
+      <div class="alert warn">
+        <div><b>James Okafor · 68</b><span>Type 2 diabetes · glucose threshold crossed overnight</span></div>
+        <span class="rchip md">Glucose 212</span>
+      </div>
+      <div class="alert info">
+        <div><b>Marisol Vega · 75</b><span>CHF · 3 missed weight readings this week</span></div>
+        <span class="rchip md">Missed &#215;3</span>
+      </div>
+    </div>
+    <div>
+      <h2>Today's visits</h2>
+      <div class="visit"><b>10:00</b> · Annual wellness · D. Kim</div>
+      <div class="visit"><b>11:30</b> · Follow-up · R. Alvarez</div>
+      <div class="visit"><b>1:15</b> · New patient · T. Nguyen</div>
+      <div class="visit"><b>3:00</b> · Chronic care · J. Okafor</div>
+    </div>
+  </div>
+</div>`;
+M.healPatient = `
+<div class="clin">
+  <div class="pback" data-pid="__PID__" data-goto="brief">&#8592; Back to Today</div>
+  <div class="pgrid">
+    <div class="card">
+      <h3>Ruth Alvarez · 72 · Hypertension</h3>
+      <div class="bpstat">
+        <div><b>148/92</b><span>Last reading · this morning</span></div>
+        <div><b>143/90</b><span>7-day average</span></div>
+        <div><b>&#8593; 5d</b><span>Sustained trend</span></div>
+      </div>
+      <svg viewBox="0 0 320 90" width="100%" height="90" aria-hidden="true">
+        <line x1="0" y1="34" x2="320" y2="34" stroke="#e6a23c" stroke-dasharray="4 4" stroke-width="1"/>
+        <text x="4" y="30" font-size="9" fill="#b5760f">140 threshold</text>
+        <polyline fill="none" stroke="#c0392b" stroke-width="2.5"
+          points="0,66 40,62 80,64 120,58 160,50 200,44 240,38 280,30 320,24"/>
+      </svg>
+      <div class="cact">
+        <div class="pri">Schedule house call</div>
+        <div class="sec2">Message patient</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Medications</h3>
+      <div class="med"><span>Lisinopril</span><b>10 mg · daily</b></div>
+      <div class="med"><span>Amlodipine</span><b>5 mg · daily</b></div>
+      <div class="med"><span>Atorvastatin</span><b>20 mg · nightly</b></div>
+      <h3 style="margin-top:14px">Device</h3>
+      <div class="med"><span>BP cuff · Omron</span><b>Synced 7:40 AM</b></div>
+    </div>
+  </div>
+</div>`;
+
+/* =========================================================
+   INTERACTIVE PROTOTYPE DEFINITIONS
+   ========================================================= */
 const PROTOS = {
   checkingAfter: {
     mode:'hotspots', start:'home',
     screens:{
       home:{ img:IMG.ckHome, cap:'Banking home · debit card and money movement above the fold. Tap a pulsing dot.',
         hs:[
-          {x:7.5,y:23.2,w:26,h:4.4,to:'deposit',label:'Deposit'},
-          {x:64,y:23.2,w:27,h:4.4,to:'pay',label:'Pay'},
-          {x:5,y:29.3,w:90,h:6,to:'card',label:'Card'},
-          {x:5,y:14.2,w:48,h:3,to:'numbers',label:'Account numbers'}
+          {x:8,y:40,w:26,h:5.2,to:'deposit',label:'Deposit'},
+          {x:64,y:40,w:27,h:5.2,to:'pay',label:'Pay'},
+          {x:5,y:51,w:90,h:8,to:'card',label:'Card'},
+          {x:7,y:24.5,w:45,h:3.5,to:'numbers',label:'Account numbers'}
         ]},
       card:{ img:IMG.ckCard, cap:'Card detail · show numbers, lock, Add to Apple Wallet.',
         hs:[{x:2,y:1.5,w:16,h:4.5,to:'home',label:'Back'}]},
@@ -380,28 +630,42 @@ const PROTOS = {
     },
     chips:[['home','Home'],['card','Card'],['deposit','Deposit'],['pay','Pay'],['numbers','Numbers']]
   },
-  billpayBefore: {
-    mode:'steps',
-    seq:[
-      {img:IMG.bpB1, cap:'Before · Bill Pay list. Every payment starts from a manual add.'},
-      {img:IMG.bpB2, cap:'Before · Search for a vendor, or create one from scratch.'},
-      {img:IMG.bpB3, cap:'Before · Full vendor details required before any payment can move. This step was the funnel\u2019s biggest drop-off.'}
-    ]
+  billpayBefore: { mode:'steps', seq:[
+    {img:IMG.bpB1, cap:'Before · Bill Pay list. Every payment starts from a manual add.'},
+    {img:IMG.bpB2, cap:'Before · Search for a vendor, or create one from scratch.'},
+    {img:IMG.bpB3, cap:'Before · Full vendor details required before any payment can move. The funnel\u2019s biggest drop-off.'}
+  ]},
+  billpayAfter: { mode:'steps', seq:[
+    {img:IMG.bpA1, cap:'After · Bill Pay list with outstanding, scheduled, and paid views.'},
+    {img:IMG.bpA2, cap:'After · Start from intent: scan a bill, pay a vendor, or mail a check.'},
+    {img:IMG.bpA3, cap:'After · Scan the bill in your hand. OCR extracts the details.'},
+    {img:IMG.bpA4, cap:'After · Connected biller, account number, due date, and balance prefilled from the network.'},
+    {img:IMG.bpA5, cap:'After · Schedule against the due date from Square Checking.'},
+    {img:IMG.bpA6, cap:'After · Scheduled. From paper bill to payment in under a minute.'}
+  ]},
+  emailFlow: {
+    mode:'hotspots', start:'email',
+    screens:{
+      email:{ html:M.emEmail, cap:'A bill arrives the way most bills do: by email. Tap the forward bar.' },
+      list:{ html:M.emList, cap:'The bill lands in the existing Bill Pay list, parsed and matched. Zero data entry. Tap the PG&E bill.' },
+      details:{ html:M.emDetails, cap:'Details prefilled from the forwarded email. Tap Schedule payment.' },
+      done:{ html:M.emDone, cap:'Scheduled. The seller never typed a thing.' }
+    },
+    chips:[['email','1 · Email'],['list','2 · Bill Pay list'],['details','3 · Details'],['done','4 · Scheduled']]
   },
-  billpayAfter: {
-    mode:'steps',
-    seq:[
-      {img:IMG.bpA1, cap:'After · Bill Pay list with outstanding, scheduled, and paid views.'},
-      {img:IMG.bpA2, cap:'After · Start from intent: scan a bill, pay a vendor, or mail a check.'},
-      {img:IMG.bpA3, cap:'After · Scan the bill in your hand. OCR extracts the payment details.'},
-      {img:IMG.bpA4, cap:'After · Connected biller, account number, due date, and balance prefilled.'},
-      {img:IMG.bpA5, cap:'After · Schedule against the due date from Square Checking.'},
-      {img:IMG.bpA6, cap:'After · Scheduled. From paper bill to payment in under a minute.'}
-    ]
+  healAfter: {
+    mode:'hotspots', start:'brief',
+    screens:{
+      brief:{ html:M.healBrief, cap:'The Today briefing: which patients need attention, and why. Tap Ruth\u2019s alert.' },
+      patient:{ html:M.healPatient, cap:'Patient detail: trend against threshold, medications, device context. Actions one tap away.' }
+    },
+    chips:[['brief','Today briefing'],['patient','Patient detail']]
   }
 };
 
-const ABOUT_CRED = ['Distinguished Educator · UCLA Extension','Social science research background','Writing & content background'];
+/* =========================================================
+   SHARED CONTENT
+   ========================================================= */
 const LOGOS = ['Square','Block','Flyhomes','Heal','Vetted Petcare','Cisco','American Zoetrope'];
 const BUILDER_LINES = [
   ['p','$ new idea: "actionable banking insights"'],
@@ -412,6 +676,29 @@ const BUILDER_LINES = [
   ['p','$ vercel deploy --prod'],
   ['ok','\u2713 live in production']
 ];
+const TRACKER_STEPS = [
+  {img:'images/tracker-1-printing-wallet.png',  pill:'Processing', cap:'Printing. The virtual card is ready now: Add to Apple Wallet and spend after your first sale.'},
+  {img:'images/tracker-2-printing-numbers.png', pill:'Processing', cap:'Same state, second job: view the virtual card numbers for online spend.'},
+  {img:'images/tracker-3-shipped.png',          pill:'Shipped',    cap:'On the way, with a date. Silence replaced by status.'},
+  {img:'images/tracker-4-delivered.png',        pill:'Delivered',  cap:'Delivered. Activation is one tap, right where the seller already is.'},
+  {img:'images/tracker-5-active-entrypoint.png',pill:'Active',     cap:'Activated. The tracker retires and the card becomes the everyday entry point.'}
+];
+
+function aboutSlides(bio1, bio2){
+  return [
+    { type:'about', section:'Intro', h2:'Quick intro for anyone I haven\u2019t met.', bios:[bio1, bio2] },
+    { type:'builder', section:'Intro',
+      h1:'Not just a designer. <em>A builder.</em>',
+      sub:'A full AI-assisted skill set: I design it, prototype it, ship production code, and launch the app. The loop from idea to something real has never been shorter, and I use that speed to de-risk decisions with data.',
+      points:[
+        {k:'Design', h:'Craft and systems', p:'End-to-end product design, design systems, and product voice from a writing background.'},
+        {k:'Build', h:'Production code', p:'Next.js, Supabase, Stripe. Real auth, real data, real payments, deployed on Vercel.'},
+        {k:'AI-native', h:'Cursor + Claude Code', p:'Working prototypes in days, not quarters. Explorations that produce evidence, not opinions.'},
+        {k:'Ship', h:'Full apps, launched', p:'From rough idea to live product, solo. Every prototype in this deck is running code.'}
+      ]
+    }
+  ];
+}
 
 /* =========================================================
    CASE STUDIES (shared across paths)
@@ -438,14 +725,14 @@ const CASES = {
       after:'checkingAfter',
       note:'Left: scroll the original. Right: a working prototype, tap the pulsing dots or use the chips.'
     },
-    { type:'ship', section:'Checking', caseTag:tag, label:'Action · Debit engagement, by design',
+    { type:'debit', section:'Checking', caseTag:tag, label:'Action · Debit engagement, by design',
       h2:'How debit engagement works when the system talks back.',
-      cards:[
-        {k:'System status', h:'"We\u2019re printing your card"', p:'A visible card tracker replaced silence. Sellers see when the physical card arrives, and that the virtual card is ready now.'},
-        {k:'Spend immediately', h:'Add to Apple Wallet', p:'Wallet provisioning surfaced at the moment of highest motivation, right after enrollment, so a seller can take a sale and spend from it the same day.'},
-        {k:'Above the fold', h:'Card and money movement first', p:'Deposit, Transfer, and Pay promoted to the top of the banking home. The behaviors that predict activation stopped hiding below the fold.'},
-        {k:'Ownership', h:'Account numbers in reach', p:'Account and routing details one tap away, reinforcing that this is a real business bank account, not a feature.'}
-      ]
+      minis:[
+        {k:'Spend immediately', h:'Add to Apple Wallet', p:'Wallet provisioning at the moment of highest motivation, right after enrollment: take a sale, spend from it the same day.'},
+        {k:'Above the fold', h:'Card and money movement first', p:'Deposit, Transfer, and Pay promoted to the top. The behaviors that predict activation stopped hiding.'},
+        {k:'Ownership', h:'Account numbers in reach', p:'Account and routing details one tap away: a real business bank account, not a feature.'}
+      ],
+      trackerNote:'The tracker cycles through every status a seller sees, from order to activation. Silence was the old system status; this is the replacement.'
     },
     { type:'results', section:'Checking', caseTag:tag,
       metrics:[
@@ -465,10 +752,10 @@ const CASES = {
   billpay: (tag) => [
     { type:'data', section:'Bill Pay', caseTag:tag,
       meta:['Role · <b>Design DRI</b>','Timeline · <b>One quarter</b>','Partners · <b>PM · Engineering · Paymentus</b>'],
-      big:'80', unit:'%',
-      biglabel:'of recurring bills were being paid outside Square. Utilities, telecom, insurance, gone.',
-      support:'Sellers came to Bill Pay for one-off invoices while their highest-frequency bill relationships lived elsewhere. Interviews and behavioral data showed the mismatch: the product demanded full vendor details up front, while real sellers pay from a paper bill, an email, or a phone number. And discovery surfaced the insight that would decide our first ship: most bills were already arriving in sellers\u2019 email inboxes.',
-      aside:['Situation, in the data','Payment volume was constrained by how bills entered the product, not by the payment flow itself.']
+      big:'Flat', unit:'',
+      biglabel:'Active users had stalled. Bill Pay had to prove product-market fit.',
+      support:'Square Bill Pay let sellers pay vendors and bills from the Square ecosystem, and growth had gone quiet. So we went looking for why, in two directions at once: a funnel analysis of where sellers dropped out of the product, and discovery research into where their bills actually lived. Discovery answered first, and the answer was blunt: 80% of recurring bills, utilities, telecom, insurance, were being paid outside Square. Understanding HOW sellers receive bills and WHERE they manage them was the key insight: bill paying was a fragmented experience scattered across biller sites, mail piles, and inboxes, and most bills were already arriving by email.',
+      aside:['The stakes','A payments product without recurring payments is a feature, not a business.']
     },
     { type:'funnel', section:'Bill Pay', caseTag:tag, label:'Situation · The funnel',
       h2:'The funnel said it plainly: "Add a vendor" was where sellers gave up.',
@@ -479,42 +766,41 @@ const CASES = {
         {label:'Schedule payment', w:33}
       ],
       dropLabel:'Largest drop-off in the funnel',
-      note:'<b>This is what gave me confidence to attack the cold start.</b> The biggest losses were not in paying, they were in setting up who to pay. Sellers abandoned at the moment the product asked them to reconstruct vendor details they did not have on hand. Fix how bills and vendors enter the product, and the rest of the funnel takes care of itself.'
+      note:'<b>This is what gave me confidence to attack the cold start.</b> The losses were not in paying, they were in setting up who to pay. Sellers abandoned at the moment the product asked them to reconstruct vendor details they did not have on hand. Put the two findings together, 80% of bills living elsewhere, and vendor setup killing the funnel, and the strategy writes itself: change how bills enter the product.'
     },
     { type:'fog', section:'Bill Pay', caseTag:tag, label:'Task · The reframe',
       fogH:'The assumed fix: optimize the vendor form.',
       fogP:'Fewer fields, tighter steps, better validation. But no amount of form polish solves a cold start. Sellers expected a hub for all business bills and got a manual payment tool that made them do data entry before they could pay anyone.',
       refH:'The reframe: bill coverage, entered through seller intent.',
-      refP:'Every channel a bill already travels through is a potential entry point: an email inbox, a paper statement, a biller network. That turned one impossible coverage problem into shippable phases, sequenced by effort and impact. Leading metrics shifted from completion rates to connected bills and sellers paying 2+ bills a month, the retention signal. Payment volume stayed the north star.'
+      refP:'Every channel a bill already travels through is a potential entry point: an email inbox, a paper statement, a biller network. Two phases, sequenced by effort and impact. Leading metrics shifted from completion rates to connected bills and sellers paying 2+ bills a month, the retention signal. Payment volume stayed the north star.'
     },
-    { type:'phases', section:'Bill Pay', caseTag:tag, label:'Action · Sequenced by effort and impact',
-      h2:'Email forwarding shipped first. Then we plugged the gaps.',
+    { type:'phases', section:'Bill Pay', caseTag:tag, label:'Action · Two phases, effort and impact',
+      h2:'Email forwarding shipped first. The network was designed next.',
       phases:[
-        {ph:'Phase 1', h:'Email forwarding', p:'Discovery showed most bills already arrive by email, and ingestion was a low engineering lift. Sellers forward a bill to a dedicated address and it ingests itself. Shipped first, and payment volume lifted almost immediately.', zero:true, badge:'Zero UI · shipped first'},
-        {ph:'Phase 2', h:'OCR bill scanning', p:'For the bills that live on paper: scan or photograph any statement and the details extract themselves. Entry starts from intent: scan a bill, pay a vendor, or mail a check.'},
-        {ph:'Phase 3', h:'Paymentus biller network', p:'With volume climbing, we plugged the remaining coverage gaps. Evaluated API providers with product and engineering, selected Paymentus, and connected a national biller network with prefilled account details.'}
+        {ph:'Phase 1 · Shipped', h:'Email forwarding', p:'Discovery showed most bills already arrive by email, and engineering sized ingestion as a low lift. Sellers forward a bill to a dedicated address and it ingests itself: parsed, matched, ready to schedule. Zero UI, shipped first, and payment volume ticked up within weeks.', zero:true, badge:'Zero UI · shipped first'},
+        {ph:'Phase 2 · Designed', h:'Biller network + intent-first entry', p:'I designed the connected-network experience end to end: intent-first entry (scan a bill, pay a vendor, mail a check), OCR extraction, and Paymentus integration with prefilled details, validated through usability testing. When company funding shifted, the network was deprioritized, and the strategy doubled down on the zero-cost channel already moving the number.'}
       ],
-      insight:{label:'The design judgment', text:'The highest-impact solution shipped first and had no interface at all. Recognizing when not to design one is part of the craft.'}
+      signal:{label:'Early signal after Phase 1', note:'<b>Payment volume ticked up within weeks of the email forwarding launch.</b> The uptick validated the ingestion strategy, and it is what made doubling down on shipped channels the right call when priorities shifted.'},
+      insight:{label:'The design judgment', text:'The highest-impact solution shipped first and had no interface at all. When funding moved, the results made the pivot decision easy.'}
     },
-    { type:'work', section:'Bill Pay', caseTag:tag, label:'The work · Phase 1',
-      h2:'Email forwarding: the bill routes itself.',
-      img: IMG.emailFwd,
-      alt:'Bill Pay email forwarding design showing a forwarded bill ingested and ready to schedule',
-      cap:'Phase 1 · forward a bill to your dedicated Bill Pay address; it arrives parsed, matched, and ready to schedule'
+    { type:'iproto', section:'Bill Pay', caseTag:tag, label:'The work · Phase 1, interactive',
+      h2:'Email forwarding, plugged into the existing design.',
+      proto:'emailFlow', frame:'phone',
+      note:'A coded walkthrough: forward the email, and the bill appears in the Bill Pay list you just saw, parsed and ready. Tap through, or use the chips.'
     },
-    { type:'proto', section:'Bill Pay', caseTag:tag, label:'The work · Phases 2 & 3',
+    { type:'proto', section:'Bill Pay', caseTag:tag, label:'The work · Phase 2, designed & validated',
       h2:'From manual vendor setup to scan-to-scheduled.',
       before:{ mode:'proto', proto:'billpayBefore' },
       after:'billpayAfter',
-      note:'Tap either phone to step through the flow. Left: the manual cold start. Right: intent-first entry with OCR and the connected biller network.'
+      note:'Tap either phone to step through. Left: the manual cold start that killed the funnel. Right: the designed network experience, validated in usability testing and ready when funding returns.'
     },
     { type:'results', section:'Bill Pay', caseTag:tag,
       metrics:[
-        {to:'+80%', lab:'Bill coverage across the phased ingestion channels', hero:true},
-        {to:'+23%', lab:'Payment volume, the north star business metric'},
-        {to:'2+ bills/mo', lab:'Recurring adoption expanded, the retention signal sellers who churn less share'}
+        {to:'+23%', lab:'Payment volume growth after email forwarding shipped, the north star metric', hero:true},
+        {to:'2+ bills/mo', lab:'Recurring adoption expanded, the retention signal sellers who churn less share'},
+        {to:'Validated', lab:'Biller network experience designed end to end and usability-tested, ready when funding returns'}
       ],
-      rigor:'<b>Payment volume follows bill coverage.</b> The funnel\u2019s biggest drop-off, vendor setup, was designed out of the critical path: bills now enter by forwarded email, by camera, or prefilled from the network. The cold start we quantified at the top fell away.'
+      rigor:'<b>Payment volume follows bill ingestion.</b> The funnel\u2019s biggest drop-off, vendor setup, was designed out of the critical path for every bill that arrives by email, with zero UI. Active usage stopped being flat, which was the whole assignment, and the shipped results are what made the pivot away from the defunded network a decision instead of a setback.'
     }
   ],
 
@@ -536,15 +822,20 @@ const CASES = {
       h2:'A standing doctor panel and weekly working prototypes.',
       cards:[
         {k:'Discovery', h:'Clinical co-design', p:'Started with the Head of Medicine, then stood up a weekly physician panel. Together we mapped the ideal patient journey: when doctors recommend monitoring, which conditions to target first, when review and intervention happen.'},
-        {k:'Prototyping', h:'Weekly iteration under a hard clock', p:'One month to a validated MVP. Each week: a working prototype in front of practicing physicians, focused on information architecture and data visualization. Gaps surfaced fast: contact the patient directly, manage monitoring duration, charts with detail on demand.'},
+        {k:'Prototyping', h:'Weekly iteration under a hard clock', p:'One month to a validated MVP. Each week: a working prototype in front of practicing physicians, focused on information architecture and data visualization.'},
         {k:'Constraints', h:'Designed to the regulatory floor', p:'Medicare\u2019s chronic care requirements set documentation, review cadence, and continuity standards. The workflow had to satisfy them by default, not by discipline.'}
       ]
     },
-    { type:'work', section:'Monitoring', caseTag:tag,
-      h2:'From schedule-first tool to monitoring-first morning briefing.',
-      img: IMG.monitoring,
-      alt:'Heal physician experience showing the monitoring-first overview briefing and patient detail with trend charts',
-      cap:'Heal · Overview briefing with inline alerts, patient detail with trend charts, device context, and prescriptions in one place'
+    { type:'work', section:'Monitoring', caseTag:tag, label:'The work · Before',
+      h2:'Before: a schedule-first tool, monitoring buried behind the bell.',
+      img: IMG.healBefore,
+      alt:'Heal physician iPad app before the redesign, centered on appointments and patient lookup',
+      cap:'Before · appointments, lookup, chart review. Threshold alerts lived in the notification tray, competing with every other ping.'
+    },
+    { type:'iproto', section:'Monitoring', caseTag:tag, label:'The work · After, interactive',
+      h2:'After: the monitoring-first morning briefing.',
+      proto:'healAfter', frame:'tablet',
+      note:'An interactive recreation of the shipped design. Tap Ruth\u2019s alert to open patient detail: trend against threshold, medications, device context, actions.'
     },
     { type:'results', section:'Monitoring', caseTag:tag,
       metrics:[
@@ -552,7 +843,7 @@ const CASES = {
         {to:'>$4M/yr', lab:'Recurring net margin, with monitoring paid by Medicare and free for patients'},
         {to:'\u221239%', lab:'Unnecessary prescriptions for monitored patients, because doctors adjusted care on trends, not single readings'}
       ],
-      rigor:'<b>Visibility unlocked preventative care at home for patients who needed it most.</b> Continuing to serve patients with hypertension, diabetes, and other chronic conditions between visits is the mission — acute episodes fell, outcomes improved, and monitoring directly supported Heal\u2019s Medicare approval, the unlock that made ongoing primary care at home economically viable. Measured against the 39% baseline and the 45% goal we set on day one.'
+      rigor:'<b>Visibility unlocked preventative care at home for patients who needed it most.</b> Continuing to serve patients with hypertension, diabetes, and other chronic conditions between visits is the mission: acute episodes fell, outcomes improved, and monitoring directly supported Heal\u2019s Medicare approval, the unlock that made ongoing primary care at home economically viable.'
     }
   ],
 
@@ -566,17 +857,17 @@ const CASES = {
     },
     { type:'fog', section:'Primary care', caseTag:tag, label:'Task · The reframe',
       fogH:'Speed-first booking worked against primary care.',
-      fogP:'Patients could not select a doctor by preference, could not see who they had seen before, and had no way to say I want to see her again. The design had to serve two users at once: new patients choosing someone worth returning to, and returning patients who needed a fast path back, all without slowing down people who just needed care now.',
+      fogP:'Patients could not select a doctor by preference, could not see who they had seen before, and had no way to say I want to see her again. The design had to serve two users at once: new patients choosing someone worth returning to, and returning patients who needed a fast path back.',
       refH:'From find availability to find your doctor.',
       refP:'I reframed booking as matching. A small set of questions, care needs, specialty, doctor gender, language, drives personalized recommendations with compatibility, availability, and real patient reviews. The mental model shifts from who can see me now to who do I want managing my health.'
     },
     { type:'ship', section:'Primary care', caseTag:tag, label:'Action · Progressive disclosure',
       h2:'A four-step flow, plus a one-tap path back.',
       cards:[
-        {k:'Step 1 · Route', h:'Understand care needs', p:'Primary care, ongoing condition, or immediate care, so the experience routes appropriately instead of treating every visit the same.'},
+        {k:'Step 1 · Route', h:'Understand care needs', p:'Primary care, ongoing condition, or immediate care, so the experience routes appropriately.'},
         {k:'Step 2 · Trust', h:'Set preferences', p:'Specialty, doctor gender, language. The inputs that actually drive trust and long-term fit.'},
         {k:'Step 3 · Match', h:'Review matched providers', p:'Personalized recommendations with compatibility and reviews. A match, not a waitlist.'},
-        {k:'Step 4 · Complete', h:'Insurance last', p:'Payment and insurance moved to the end so it feels like completing a booking, not filing paperwork. And after a visit: save your doctor, rebook in one tap.'}
+        {k:'Step 4 · Complete', h:'Insurance last', p:'Payment moved to the end so it feels like completing a booking. After a visit: save your doctor, rebook in one tap.'}
       ]
     },
     { type:'work', section:'Primary care', caseTag:tag,
@@ -607,12 +898,12 @@ const CASES = {
       fogH:'AI on the roadmap because AI is on every roadmap.',
       fogP:'The pressure was to ship something visibly intelligent. But feature-first AI is how products end up with a chatbot bolted to the side. The open question was whether AI insights would actually change seller behavior, and no deck could answer it.',
       refH:'Prototype the future, let the data pick the present.',
-      refP:'I built the Money Copilot as a working exploration: sellers asking real banking questions, cash flow trends, upcoming expenses, and getting actionable answers in real time. A real artifact the team could react to, instrumented thinking behind every interaction.'
+      refP:'I built the Money Copilot as a working exploration: sellers asking real banking questions, cash flow trends, upcoming expenses, and getting actionable answers in real time. A real artifact the team could react to.'
     },
     { type:'ship', section:'Banking insights', caseTag:tag, label:'Action · Built to be judged',
       h2:'A working AI money hub, shipped as an exploration in days.',
       cards:[
-        {k:'Prototype', h:'Money Copilot, running', p:'Real-time Q&A over banking and spending: cash flow trends, upcoming expenses, proactive nudges before balances are impacted. Built in Cursor as a functional prototype, not a click-through.'},
+        {k:'Prototype', h:'Money Copilot, running', p:'Real-time Q&A over banking and spending: cash flow trends, upcoming expenses, proactive nudges. Built in Cursor as a functional prototype, not a click-through.'},
         {k:'Insights', h:'Actionable, not decorative', p:'Every insight paired with a next action: move money, adjust a payment, review a trend. Insight without action is a dashboard, and dashboards decide nothing.'},
         {k:'Evaluation', h:'Judged against engagement data', p:'Held the vision up against what actually predicted long-term engagement. Debit activation and money movement won. The hub informed the north star; the quarter went to activation.'}
       ]
@@ -631,25 +922,45 @@ const CASES = {
       ],
       rigor:'<b>The exploration cost days. The clarity moved a quarter.</b> The vision was adopted into the north star, the feature was deliberately deferred, and the roadmap went to the behaviors that predicted engagement. This is how I use AI in product work: fast enough to explore honestly, disciplined enough to let data decide.'
     }
+  ],
+
+  flyhomes: (tag) => [
+    { type:'data', section:'Agent terminal', caseTag:tag,
+      meta:['Role · <b>Product Designer</b>','Company · <b>Flyhomes · agent tools</b>','Partners · <b>PM · Engineering · Tour Ops</b>'],
+      big:'4', unit:'systems',
+      biglabel:'to triage one tour request: route planning, seller scheduling, specialist assignment, confirmation.',
+      support:'Flyhomes agents helped buyers win homes in a market where speed decided outcomes, and their tooling was working against them. Deals lived in a CRM built for records, not state. Tour requests arrived faster than agents could coordinate them by hand, and the signals that should drive prioritization, financing readiness, listing urgency, behavioral intent, existed in the data but never reached the screen.',
+      aside:['The stakes','Every hour a tour request sat untriaged was an hour a competing offer got closer.']
+    },
+    { type:'fog', section:'Agent terminal', caseTag:tag, label:'Task · The reframe',
+      fogH:'The CRM showed records. Agents needed state.',
+      fogP:'The existing tool answered "what do we know about this deal" when the operating question was "what needs to happen next, and for whom." Tour coordination meant bouncing between route planning, seller calls, specialist calendars, and confirmations, with nothing tracking the whole.',
+      refH:'Design the terminal: deals as a board, tours as a queue, triage as one flow.',
+      refP:'A Kanban home makes deal state visible at a glance. A tour queue separates what needs triage from what is on schedule. And triage itself collapses four systems into one guided flow: optimize the route, schedule with sellers, assign a specialist, confirm. Data signals surface as chips on every card, so prioritization is informed, not guessed.'
+    },
+    { type:'ship', section:'Agent terminal', caseTag:tag, label:'Action · The terminal',
+      h2:'One surface for deal state, tour ops, and data-informed priority.',
+      cards:[
+        {k:'Home', h:'Kanban of deals in progress', p:'Every deal as a card moving through stages, with financing readiness, listing urgency, and buyer intent surfaced as signals.'},
+        {k:'Queue', h:'Tour requests, triaged vs scheduled', p:'A table that separates what needs an agent\u2019s attention now from what is already on rails.'},
+        {k:'Flow', h:'Guided triage in four steps', p:'Optimize route, schedule with sellers, assign a tour specialist, confirm. One flow instead of four systems.'},
+        {k:'Signals', h:'Data on every card', p:'The signals that predict urgency and close probability moved from the warehouse to the interface.'}
+      ]
+    },
+    { type:'flyproto', section:'Agent terminal', caseTag:tag, label:'The work · Interactive',
+      h2:'The agent terminal, working. Triage a tour request yourself.',
+      note:'A coded recreation. Home shows the deal board. Open Tours, click the request that needs triage, and run the flow: optimize the route, schedule with the seller, assign a specialist, confirm. Watch the queue update.'
+    },
+    { type:'results', section:'Agent terminal', caseTag:tag,
+      metrics:[
+        {to:'4 \u2192 1', lab:'Systems per tour triage: route, seller, specialist, and confirmation in one guided flow', hero:true},
+        {to:'\u2193', lab:'Time to triage a tour request'},
+        {to:'\u2191', lab:'Tours starting on schedule'}
+      ],
+      rigor:'<b>The board made state visible; the flow made ops operable.</b> Agents stopped coordinating tours across four tools, untriaged requests stopped aging invisibly, and the data signals that used to live in a warehouse started driving daily prioritization on screen.'
+    }
   ]
 };
-
-/* about slides shared builder */
-function aboutSlides(bio1, bio2){
-  return [
-    { type:'about', section:'Intro', h2:'Quick intro for anyone I haven\u2019t met.', bios:[bio1, bio2] },
-    { type:'builder', section:'Intro',
-      h1:'Not just a designer. <em>A builder.</em>',
-      sub:'A full AI-assisted skill set: I design it, prototype it, ship production code, and launch the app. The loop from idea to something real has never been shorter, and I use that speed to de-risk decisions with data.',
-      points:[
-        {k:'Design', h:'Craft and systems', p:'End-to-end product design, design systems, and product voice from a writing background.'},
-        {k:'Build', h:'Production code', p:'Next.js, Supabase, Stripe. Real auth, real data, real payments, deployed on Vercel.'},
-        {k:'AI-native', h:'Cursor + Claude Code', p:'Working prototypes in days, not quarters. Explorations that produce evidence, not opinions.'},
-        {k:'Ship', h:'Full apps, launched', p:'From rough idea to live product, solo. Two full-stack products currently in build.'}
-      ]
-    }
-  ];
-}
 
 /* =========================================================
    PATHS
@@ -658,99 +969,92 @@ const DECKS = {
   fintech: {
     label: 'Fintech & Payments',
     accent: '#6c9bf5', accentSoft: 'rgba(108,155,245,.13)',
-    card: {
-      title: 'Fintech & Payments',
+    card: { title: 'Fintech & Payments',
       desc: 'Banking activation and payment network growth at Square. Measured lifts, experiment-backed.',
-      cases: ['Square Checking activation', 'Bill Pay biller network']
-    },
+      cases: ['Square Checking activation', 'Bill Pay biller network'] },
     slides: [
-      { type:'intro',
-        eyebrow:'Fintech & payments',
+      { type:'intro', eyebrow:'Fintech & payments',
         h1:'I design money movement that moves metrics.',
         sub:'Two stories from Square Banking. In both, the team had opinions about the fix, the data pointed somewhere else, and following the data is what moved the number.',
-        agenda:[
-          {n:'01', t:'Square Checking activation'},
-          {n:'02', t:'Bill Pay biller network'},
-          {n:'03', t:'How I work now'}
-        ]
-      },
+        agenda:[{n:'01', t:'Square Checking activation'},{n:'02', t:'Bill Pay biller network'},{n:'03', t:'How I work now'}] },
       ...aboutSlides(
         'About a decade in product design, mostly <b>fintech and healthcare</b>. Most recently at <b>Square</b>, part of Block, where I owned end-to-end design across Checking engagement, Cards, and Bill Pay. Before that: real estate at Flyhomes, helping buyers win homes during the pandemic, and healthcare, working provider tooling and patient experiences.',
-        'In every role I\u2019ve been a strong cross-functional partner who helps strategize. My social science education means <b>qual and quant research drive my decisions</b>, and a writing background means product voice is part of my craft.'
-      ),
+        'In every role I\u2019ve been a strong cross-functional partner who helps strategize. My social science education means <b>qual and quant research drive my decisions</b>, and a writing background means product voice is part of my craft.'),
       ...CASES.checking('Case 01 · Square Checking'),
       ...CASES.billpay('Case 02 · Bill Pay network'),
       { type:'close', section:'Close',
         h1:'I design it, prototype it, and ship it in production code.',
         also:'Also in this portfolio: <b>virtual-card-first onboarding</b> that decoupled the debit card from Checking (~38% card adoption lift), and <b>vendor payment acceptance with Plaid</b>. Happy to go deep on any of it.',
-        stack:['Cursor','Claude Code','Next.js','Supabase','Stripe','Vercel','Figma'],
-      }
+        stack:['Cursor','Claude Code','Next.js','Supabase','Stripe','Vercel','Figma'] }
     ]
   },
 
   ai: {
     label: 'Data-Driven & Applied AI',
     accent: '#e2a848', accentSoft: 'rgba(226,168,72,.13)',
-    card: {
-      title: 'Data-Driven & Applied AI',
+    card: { title: 'Data-Driven & Applied AI',
       desc: 'Decision-support design for clinical data, and AI explorations disciplined by engagement data at Square.',
-      cases: ['Clinical decision support at Heal', 'Actionable banking insights at Square']
-    },
+      cases: ['Clinical decision support at Heal', 'Actionable banking insights at Square'] },
     slides: [
-      { type:'intro',
-        eyebrow:'Data-driven & applied AI',
+      { type:'intro', eyebrow:'Data-driven & applied AI',
         h1:'The model surfaces. The design decides.',
         sub:'Two proofs today. Turning continuous clinical data into physician decisions at Heal, and building a working AI banking prototype fast enough that data, not opinion, could pick the roadmap.',
-        agenda:[
-          {n:'01', t:'Clinical decision support · Heal'},
-          {n:'02', t:'Actionable banking insights · Square'},
-          {n:'03', t:'How I work now'}
-        ]
-      },
+        agenda:[{n:'01', t:'Clinical decision support · Heal'},{n:'02', t:'Actionable banking insights · Square'},{n:'03', t:'How I work now'}] },
       ...aboutSlides(
         'About a decade in product design across <b>fintech and healthcare</b>, most recently at <b>Square</b> owning Checking engagement, Cards, and Bill Pay end to end. My education is in the social sciences, so <b>qual and quant research drive my decisions</b>, and a writing background means product voice is part of my craft, which matters more than ever when the product talks back.',
-        'Before Square: Flyhomes in proptech, and healthcare at Heal and Vetted Petcare, working both provider tooling and patient experiences.'
-      ),
+        'Before Square: Flyhomes in proptech, and healthcare at Heal and Vetted Petcare, working both provider tooling and patient experiences.'),
       ...CASES.monitoring('Case 01 · Heal monitoring'),
       ...CASES.copilot('Case 02 · Banking insights'),
       { type:'close', section:'Close',
         h1:'Fast enough to explore honestly. Disciplined enough to let data decide.',
         also:'Also relevant: two <b>full-stack products currently in build</b> with the same AI-assisted workflow (demos on request), and <b>AI prototyping consulting</b> helping teams shorten their idea-to-evidence loop.',
-        stack:['Cursor','Claude Code','v0','Next.js','Supabase','Vercel'],
-      }
+        stack:['Cursor','Claude Code','v0','Next.js','Supabase','Vercel'] }
     ]
   },
 
   health: {
     label: 'Healthcare',
     accent: '#a98cf7', accentSoft: 'rgba(169,140,247,.13)',
-    card: {
-      title: 'Healthcare',
+    card: { title: 'Healthcare',
       desc: 'In-home care at Heal: monitoring that beat its growth goal and won Medicare approval, and the shift to primary care.',
-      cases: ['Preventative patient monitoring', 'From one-time visits to primary care']
-    },
+      cases: ['Preventative patient monitoring', 'From one-time visits to primary care'] },
     slides: [
-      { type:'intro',
-        eyebrow:'Healthcare',
+      { type:'intro', eyebrow:'Healthcare',
         h1:'Design that moved patients from one-time visits to ongoing care.',
         sub:'Two stories from Heal, where doctors make house calls at scale. One about seeing patients between visits, one about turning strangers into primary care relationships. Both were business-model unlocks, not feature work.',
-        agenda:[
-          {n:'01', t:'Preventative patient monitoring'},
-          {n:'02', t:'PCP selection & rebooking'},
-          {n:'03', t:'How I work now'}
-        ]
-      },
+        agenda:[{n:'01', t:'Preventative patient monitoring'},{n:'02', t:'PCP selection & rebooking'},{n:'03', t:'How I work now'}] },
       ...aboutSlides(
         'About a decade in product design, split between <b>healthcare and fintech</b>. In healthcare I\u2019ve worked both sides of the encounter: provider tooling and patient experiences at <b>Heal</b>, plus care logistics at Vetted Petcare. Most recently I was at <b>Square</b>, owning Checking, Cards, and Bill Pay, where I picked up the experiment-driven rigor I now bring to clinical work.',
-        'My social science education means <b>qual and quant research inform every decision</b>, which in clinical products is a safety practice, not a nicety.'
-      ),
+        'My social science education means <b>qual and quant research inform every decision</b>, which in clinical products is a safety practice, not a nicety.'),
       ...CASES.monitoring('Case 01 · Patient monitoring'),
       ...CASES.primarycare('Case 02 · Primary care'),
       { type:'close', section:'Close',
         h1:'Clinical products earn trust in the details.',
         also:'Also in healthcare: <b>senior-focused UX</b> for Medicare populations, <b>Vetted Petcare</b> care logistics, and current <b>AI-assisted prototyping</b> of clinical decision-support concepts in production code.',
-        stack:['Clinical UX','Data visualization','iPad / high density','Cursor','Claude Code','Next.js'],
-      }
+        stack:['Clinical UX','Data visualization','iPad / high density','Cursor','Claude Code','Next.js'] }
+    ]
+  },
+
+  saas: {
+    label: 'SaaS & Complex Tools',
+    accent: '#45c4a0', accentSoft: 'rgba(69,196,160,.13)',
+    card: { title: 'SaaS & Complex Tools',
+      desc: 'Operational software for experts: a clinical monitoring terminal for physicians and an agent terminal for real estate ops.',
+      cases: ['Clinical monitoring terminal · Heal', 'Agent terminal · Flyhomes'] },
+    slides: [
+      { type:'intro', eyebrow:'SaaS & complex tools',
+        h1:'Complex operations, made operable.',
+        sub:'Two terminals for experts under time pressure: a monitoring briefing that tells physicians who needs attention today, and an agent dashboard that turns four-system tour coordination into one guided flow. Both live as interactive prototypes in this deck.',
+        agenda:[{n:'01', t:'Clinical monitoring terminal · Heal'},{n:'02', t:'Agent terminal · Flyhomes'},{n:'03', t:'How I work now'}] },
+      ...aboutSlides(
+        'About a decade in product design, and the through-line is <b>tools for experts doing high-stakes work</b>: physicians on house calls at Heal, agents winning homes at Flyhomes, sellers running businesses at <b>Square</b>, where I owned Checking, Cards, and Bill Pay end to end.',
+        'Complex tools live or die on information density done right, and my social science background means <b>the density is driven by research</b>: what the expert scans for, in what order, under what time pressure.'),
+      ...CASES.monitoring('Case 01 · Clinical terminal'),
+      ...CASES.flyhomes('Case 02 · Agent terminal'),
+      { type:'close', section:'Close',
+        h1:'Tools for experts earn trust one scan at a time.',
+        also:'Also relevant: <b>high-density design systems</b> for clinical and ops surfaces, and current <b>AI-assisted prototyping</b>, every interactive prototype in this deck is code I shipped.',
+        stack:['Complex tools','Data density','Kanban & queues','Cursor','Claude Code','Next.js'] }
     ]
   }
 };
@@ -767,8 +1071,7 @@ const PASSWORD = 'iterate2026';
    ========================================================= */
 const $ = s => document.querySelector(s);
 let current = null, idx = 0, slides = [];
-let protoState = {};   /* live prototype state per slide */
-let builderTimers = [];
+let protoState = {}, builderTimers = [], trackerTimer = null, flyStates = {};
 
 function safeGet(k){ try { return sessionStorage.getItem(k); } catch(e){ return null; } }
 function safeSet(k,v){ try { sessionStorage.setItem(k,v); } catch(e){} }
@@ -788,7 +1091,6 @@ function tryUnlock(){
   }
 }
 $('#gateForm').addEventListener('submit', e => { e.preventDefault(); tryUnlock(); });
-$('#gateForm').querySelector('button').addEventListener('click', e => { e.preventDefault(); tryUnlock(); });
 
 const keys = Object.keys(DECKS);
 $('#selCards').innerHTML = keys.map((k,i) => {
@@ -804,7 +1106,7 @@ document.querySelectorAll('.sel-card').forEach(b =>
   b.addEventListener('click', () => openDeck(b.dataset.deck)));
 
 function openDeck(key){
-  current = key; idx = 0; protoState = {};
+  current = key; idx = 0; protoState = {}; flyStates = {};
   const d = DECKS[key];
   document.documentElement.style.setProperty('--accent', d.accent);
   document.documentElement.style.setProperty('--accent-soft', d.accentSoft);
@@ -821,6 +1123,7 @@ function closeDeck(){
   $('#deck').classList.remove('active');
   $('#selector').classList.remove('hidden');
   current = null;
+  if (trackerTimer) clearInterval(trackerTimer);
 }
 $('#exitBtn').addEventListener('click', closeDeck);
 
@@ -836,7 +1139,6 @@ $('#fsBtn').addEventListener('click', toggleFS);
 function renderSlides(){
   $('#stage').innerHTML = slides.map((s,i)=>
     `<section class="slide" data-i="${i}" role="group" aria-roledescription="slide" aria-label="Slide ${i+1} of ${slides.length}" aria-hidden="true"><div class="slide-inner">${tpl(s,i)}</div></section>`).join('');
-  /* graceful missing-image handling */
   document.querySelectorAll('.stage img[data-fallback]').forEach(img => {
     img.addEventListener('error', () => {
       const box = document.createElement('div');
@@ -846,6 +1148,7 @@ function renderSlides(){
     });
   });
   wireProtos();
+  document.querySelectorAll('[data-fly]').forEach(el => initFly(el));
 }
 
 function eyebrow(s, fallback){
@@ -854,11 +1157,10 @@ function eyebrow(s, fallback){
   return `<div class="eyebrow">${label}${tag}</div>`;
 }
 
-function phoneShot(screen, pid, kind){
-  if (!screen) return `<div class="img-missing" style="margin:14px">Screen missing.</div>`;
-  const hs = (screen.hs||[]).map((h,j)=>
-    `<button class="hs" data-pid="${pid}" data-to="${h.to}" aria-label="${h.label}" style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%"><span class="pulse"></span></button>`).join('');
-  return `<div class="shot"><img src="${screen.img}" alt="" data-fallback>${kind==='hotspots'?hs:''}</div>`;
+function frameHTML(kind, inner){
+  return kind === 'tablet'
+    ? `<div class="tablet"><div class="screen">${inner}</div></div>`
+    : `<div class="phone"><div class="notch"></div><div class="screen">${inner}</div></div>`;
 }
 
 function tpl(s,i){
@@ -910,12 +1212,12 @@ function tpl(s,i){
     case 'funnel': return `
       <div class="t-funnel">
         ${eyebrow(s,'Situation · The funnel')}
-        <h2>${s.h2}</h2>
+        <h2 class="sec">${s.h2}</h2>
         <div class="funnel">
           ${s.steps.map(st=>`
             <div class="fstep${st.drop?' dropzone':''}">
               <div class="fl">${st.label}</div>
-              <div class="fbar"><i style="--w:${st.w}%"></i>${st.v?`<span class="fv">${st.v}</span>`:''}</div>
+              <div class="fbar"><i style="--w:${st.w}%"></i></div>
             </div>
             ${st.drop?`<div class="fdrop">\u25bc ${s.dropLabel}</div>`:''}`).join('')}
         </div>
@@ -932,29 +1234,52 @@ function tpl(s,i){
     case 'ship': return `
       <div class="t-ship">
         ${eyebrow(s,'Action')}
-        <h2>${s.h2}</h2>
+        <h2 class="sec">${s.h2}</h2>
         <div class="ship-grid">${s.cards.map(c=>`<div class="ship-card"><div class="k">${c.k}</div><h4>${c.h}</h4><p>${c.p}</p></div>`).join('')}</div>
+      </div>`;
+    case 'debit': return `
+      <div class="t-debit">
+        ${eyebrow(s,'Action · Debit engagement')}
+        <h2 class="sec">${s.h2}</h2>
+        <div class="grid">
+          <div class="tracker-wrap">
+            <div class="tw-label">System status · the real tracker, every state</div>
+            <div class="tk-stage"><img data-tk-img src="${TRACKER_STEPS[0].img}" alt="Debit card tracker state" data-fallback></div>
+            <div class="tk-prog" data-tk-prog>${TRACKER_STEPS.map(()=>'<i></i>').join('')}</div>
+            <div class="tk-steps">${TRACKER_STEPS.map(st=>`<span>${st.pill}</span>`).join('')}</div>
+            <div class="tk-cap" data-tk-cap>${TRACKER_STEPS[0].cap}</div>
+            <div class="tracker-note">${s.trackerNote}</div>
+          </div>
+          <div class="mini-grid">${s.minis.map(c=>`<div class="mini"><div class="k">${c.k}</div><h4>${c.h}</h4><p>${c.p}</p></div>`).join('')}</div>
+        </div>
       </div>`;
     case 'phases': return `
       <div class="t-phases">
         ${eyebrow(s,'Action · In phases')}
-        <h2>${s.h2}</h2>
+        <h2 class="sec">${s.h2}</h2>
         <div class="phase-row">${s.phases.map(p=>`
           <div class="phase${p.zero?' zero':''}">
             <div class="ph">${p.ph}</div>
             <h4>${p.h}</h4><p>${p.p}</p>
             ${p.badge?`<span class="badge">${p.badge}</span>`:''}
           </div>`).join('')}</div>
+        ${s.signal?`<div class="signal">
+          <svg width="150" height="54" viewBox="0 0 150 54" aria-hidden="true">
+            <polyline fill="none" stroke="var(--dim)" stroke-width="2" points="0,38 30,37 55,38 70,36"/>
+            <polyline fill="none" stroke="var(--accent)" stroke-width="2.5" points="70,36 95,28 120,18 150,8"/>
+            <circle cx="70" cy="36" r="4" fill="var(--accent)"/>
+            <text x="40" y="52" font-size="9" fill="var(--dim)" font-family="monospace">email fwd launch \u2191</text>
+          </svg>
+          <div class="sl"><b>${s.signal.label}</b><br>${s.signal.note}</div>
+        </div>`:''}
         <div class="insight"><span>${s.insight.label}</span>${s.insight.text}</div>
       </div>`;
-    case 'work': {
-      const two = s.imgs ? `<div class="two">${s.imgs.map(im=>`<figure><img src="${im.img}" alt="${im.alt}" data-fallback loading="lazy"><figcaption>${im.cap}</figcaption></figure>`).join('')}</div>` : '';
-      return `
+    case 'work': return `
       <div class="t-work">
         ${eyebrow(s,'The work')}
-        <h2>${s.h2}</h2>
-        ${s.imgs ? two : `<figure><img src="${s.img}" alt="${s.alt}" data-fallback loading="lazy"><figcaption>${s.cap}</figcaption></figure>`}
-      </div>`; }
+        <h2 class="sec">${s.h2}</h2>
+        <figure><img src="${s.img}" alt="${s.alt}" data-fallback loading="lazy"><figcaption>${s.cap}</figcaption></figure>
+      </div>`;
     case 'proto': {
       const pidA = `p${i}a`, pidB = `p${i}b`;
       let beforeHTML;
@@ -968,7 +1293,7 @@ function tpl(s,i){
       return `
       <div class="t-proto">
         ${eyebrow(s,'Action · Before and after')}
-        <h2>${s.h2}</h2>
+        <h2 class="sec">${s.h2}</h2>
         <div class="phones">
           <div class="ph-col"><div class="ph-label">Before</div>${beforeHTML}</div>
           <div class="ph-col"><div class="ph-label after">After · interactive</div>
@@ -980,6 +1305,32 @@ function tpl(s,i){
         </div>
         <div class="proto-note">${s.note}</div>
       </div>`; }
+    case 'iproto': {
+      const pid = `p${i}x`;
+      return `
+      <div class="t-proto">
+        ${eyebrow(s,'The work · Interactive')}
+        <h2 class="sec">${s.h2}</h2>
+        <div class="ph-col wide" style="margin:0 auto">
+          <div class="ph-label after">Interactive prototype</div>
+          ${s.frame==='tablet'
+            ? `<div class="tablet"><div class="screen" data-proto="${s.proto}" data-pid="${pid}"></div></div>`
+            : `<div class="phone"><div class="notch"></div><div class="screen" data-proto="${s.proto}" data-pid="${pid}"></div></div>`}
+          <div class="ph-chips" data-chips="${pid}"></div>
+          <div class="ph-cap" data-cap="${pid}"></div>
+        </div>
+        <div class="proto-note">${s.note}</div>
+      </div>`; }
+    case 'flyproto': return `
+      <div class="t-proto">
+        ${eyebrow(s,'The work · Interactive')}
+        <h2 class="sec">${s.h2}</h2>
+        <div class="browser">
+          <div class="bbar"><i></i><i></i><i></i><span class="url">terminal.flyhomes.com/agent</span></div>
+          <div class="fly" data-fly="${i}"></div>
+        </div>
+        <div class="proto-note">${s.note}</div>
+      </div>`;
     case 'results': return `
       <div class="t-results">
         ${eyebrow(s,'Results · Against the baseline')}
@@ -993,7 +1344,7 @@ function tpl(s,i){
     case 'next': return `
       <div class="t-next">
         ${eyebrow(s,'Next phase · The vision')}
-        <h2>${s.h2}</h2>
+        <h2 class="sec">${s.h2}</h2>
         <div class="nextwrap">
           <div class="story">${s.story}</div>
           <div class="protoslot">
@@ -1022,10 +1373,17 @@ function tpl(s,i){
   }
 }
 
-/* ---------- prototype engine ---------- */
+/* ---------- prototype engine (hardened) ---------- */
+function phoneShot(screen, pid){
+  if (!screen) return `<div class="img-missing" style="margin:14px">Screen missing.</div>`;
+  if (screen.html) return screen.html.split('__PID__').join(pid);
+  const hs = (screen.hs||[]).map(h=>
+    `<button class="hs" data-pid="${pid}" data-to="${h.to}" aria-label="${h.label}" style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%"><span class="pulse"></span></button>`).join('');
+  return `<div class="shot"><img src="${screen.img}" alt="" data-fallback>${hs}</div>`;
+}
+
 function wireProtos(){
   try {
-    /* hotspot prototypes */
     document.querySelectorAll('[data-proto]').forEach(sc => {
       const def = PROTOS[sc.dataset.proto], pid = sc.dataset.pid;
       if (!def || !pid) return;
@@ -1036,20 +1394,29 @@ function wireProtos(){
         chipbar.innerHTML = def.chips.map(([k,l])=>`<button data-pid="${pid}" data-goto="${k}">${l}</button>`).join('');
       }
     });
-    /* step prototypes */
     document.querySelectorAll('[data-steps]').forEach(sc => {
       const def = PROTOS[sc.dataset.steps], pid = sc.dataset.pid;
       if (!def || !pid) return;
       protoState[pid] = 0;
       renderStepScreen(sc, def, pid);
     });
-  } catch(err){ console.warn('wireProtos setup:', err); }
+  } catch(err){ console.warn('wireProtos:', err); }
 
-  /* delegate clicks — bind once, guard everything */
   if (window.__protoBound) return;
   window.__protoBound = true;
   document.addEventListener('click', e => {
     try {
+      const go = e.target.closest && e.target.closest('[data-goto]');
+      if (go){
+        const pid = go.dataset.pid;
+        const sc = pid && document.querySelector(`[data-pid="${pid}"][data-proto]`);
+        const def = sc && PROTOS[sc.dataset.proto];
+        if (def && def.screens[go.dataset.goto]){
+          protoState[pid] = go.dataset.goto;
+          renderProtoScreen(sc, def, pid);
+        }
+        return;
+      }
       const hs = e.target.closest && e.target.closest('.hs');
       if (hs){
         const pid = hs.dataset.pid;
@@ -1057,17 +1424,6 @@ function wireProtos(){
         const def = sc && PROTOS[sc.dataset.proto];
         if (def && def.screens[hs.dataset.to]){
           protoState[pid] = hs.dataset.to;
-          renderProtoScreen(sc, def, pid);
-        }
-        return;
-      }
-      const chip = e.target.closest && e.target.closest('[data-goto]');
-      if (chip){
-        const pid = chip.dataset.pid;
-        const sc = pid && document.querySelector(`[data-pid="${pid}"][data-proto]`);
-        const def = sc && PROTOS[sc.dataset.proto];
-        if (def && def.screens[chip.dataset.goto]){
-          protoState[pid] = chip.dataset.goto;
           renderProtoScreen(sc, def, pid);
         }
         return;
@@ -1081,7 +1437,10 @@ function wireProtos(){
           protoState[pid] = ((protoState[pid]||0)+1) % def.seq.length;
           renderStepScreen(sc, def, pid);
         }
+        return;
       }
+      const fb = e.target.closest && e.target.closest('[data-flyact]');
+      if (fb) handleFly(fb);
     } catch(err){ console.warn('proto click:', err); }
   }, {passive:true});
 }
@@ -1091,14 +1450,14 @@ function renderProtoScreen(sc, def, pid){
   const key = protoState[pid];
   const screen = def.screens[key];
   if (!screen){ sc.innerHTML = `<div class="img-missing" style="margin:14px">Screen "${key}" not defined.</div>`; return; }
-  sc.innerHTML = phoneShot(screen, pid, 'hotspots');
+  sc.innerHTML = phoneShot(screen, pid);
   sc.scrollTop = 0;
   const cap = document.querySelector(`[data-cap="${pid}"]`);
   if (cap) cap.textContent = screen.cap || '';
   const chipbar = document.querySelector(`[data-chips="${pid}"]`);
   if (chipbar) chipbar.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.goto === key));
-  const missing = sc.querySelector('img');
-  if (missing) missing.addEventListener('error', () => {
+  const im = sc.querySelector('img[data-fallback]');
+  if (im) im.addEventListener('error', () => {
     sc.innerHTML = `<div class="img-missing" style="margin:14px">Image placeholder: ${screen.img}<br>Add the file to the images/ folder.</div>`;
   });
 }
@@ -1120,7 +1479,102 @@ function renderStepScreen(sc, def, pid){
   });
 }
 
-/* ---------- builder terminal animation ---------- */
+/* ---------- Flyhomes terminal mini-app ---------- */
+function initFly(el){
+  const id = el.dataset.fly;
+  flyStates[id] = { view:'home', flow:0, confirmed:false };
+  renderFly(el, id);
+}
+function flySignals(){ return `<span class="sig fin">Financing ready</span><span class="sig int">High intent</span>`; }
+function renderFly(el, id){
+  const st = flyStates[id];
+  const nav = v => `
+    <div class="side">
+      <div class="flogo">Flyhomes · Agent Terminal</div>
+      <div class="ni ${v==='home'?'on':''}" data-flyact="nav" data-view="home" data-fid="${id}">&#9638; Home</div>
+      <div class="ni ${v==='tours'?'on':''}" data-flyact="nav" data-view="tours" data-fid="${id}">&#128663; Tours</div>
+      <div class="ni">&#128101; Clients</div>
+      <div class="ni">&#9993; Messages</div>
+    </div>`;
+  let main = '';
+  if (st.view === 'home'){
+    main = `<div class="main"><h1>Deals in progress</h1>
+      <div class="kan">
+        <div class="kcol"><h5>New leads <span>3</span></h5>
+          <div class="kcard"><b>The Nguyens</b><span>Pre-approval started</span><br><span class="sig int">High intent</span></div>
+          <div class="kcard"><b>M. Osei</b><span>First tour requested</span><br><span class="sig fin">Financing ready</span></div>
+          <div class="kcard"><b>Chen family</b><span>Intro call Fri</span></div>
+        </div>
+        <div class="kcol"><h5>Touring <span>2</span></h5>
+          <div class="kcard"><b>D. Whitfield</b><span>3 homes · Sat AM</span><br>${flySignals()}</div>
+          <div class="kcard"><b>Park + Rivera</b><span>2 homes · Sun</span><br><span class="sig urg">Listing urgent</span></div>
+        </div>
+        <div class="kcol"><h5>Offer prep <span>2</span></h5>
+          <div class="kcard"><b>S. Kaplan</b><span>Offer drafting · 1420 Maple</span><br><span class="sig urg">Listing urgent</span><span class="sig fin">Financing ready</span></div>
+          <div class="kcard"><b>The Romeros</b><span>Comps review</span></div>
+        </div>
+        <div class="kcol"><h5>Closing <span>1</span></h5>
+          <div class="kcard"><b>J. + A. Brooks</b><span>Inspection cleared · closes 6/24</span></div>
+        </div>
+      </div></div>`;
+  } else if (st.view === 'tours'){
+    main = `<div class="main"><h1>Tour requests</h1>
+      <table>
+        <tr><th>Request</th><th>Buyer</th><th>Homes</th><th>Status</th></tr>
+        <tr class="click" data-flyact="open" data-fid="${id}"><td><b>Sat morning · Ballard loop</b></td><td>D. Whitfield</td><td>3</td><td><span class="tst ${st.confirmed?'sched':'triage'}">${st.confirmed?'On schedule':'Needs triage'}</span></td></tr>
+        <tr><td>Sun afternoon · Queen Anne</td><td>Park + Rivera</td><td>2</td><td><span class="tst sched">On schedule</span></td></tr>
+        <tr><td>Wed evening · Fremont</td><td>M. Osei</td><td>1</td><td><span class="tst sched">On schedule</span></td></tr>
+      </table></div>`;
+  } else {
+    const f = st.flow;
+    const steps = [
+      {b:'Optimize route', done:'Route optimized · 3 stops · 42 min drive'},
+      {b:'Schedule with sellers', done:'Sellers confirmed · Sat 9:00\u201311:30'},
+      {b:'Assign tour specialist', done:'Assigned · Maya R.'},
+      {b:'Confirm tour', done:'Confirmation sent to buyer + sellers'}
+    ];
+    main = `<div class="main">
+      <span class="back" data-flyact="nav" data-view="tours" data-fid="${id}">&#8592; Back to tour requests</span>
+      ${st.confirmed?'<div class="banner">&#10003; Tour confirmed · Sat 9:00 AM · on schedule</div>':''}
+      <div class="det">
+        <div class="dcard steps">
+          <h3>Triage · Sat morning · Ballard loop</h3>
+          <div class="sub">D. Whitfield · 3 homes · requested 2h ago</div>
+          ${steps.map((sp,j)=>`
+            <div class="stp ${j<f?'done':''}">
+              <div class="num">${j<f?'\u2713':j+1}</div>
+              <div class="si"><b>${sp.b}</b><span>${j<f?sp.done:'Pending'}</span></div>
+              ${j<f?`<span class="donechip">Done</span>`:`<span class="go ${j===f?'':'dis'}" ${j===f?`data-flyact="step" data-fid="${id}"`:''}>${j===f?'Run':'\u2013'}</span>`}
+            </div>`).join('')}
+        </div>
+        <div class="dcard">
+          <h3>Request</h3>
+          <div class="sub">${flySignals()}</div>
+          <div class="home-row"><span>4518 Ballard Ave NW</span><b>$865k</b></div>
+          <div class="home-row"><span>1733 NW 57th St</span><b>$910k</b></div>
+          <div class="home-row"><span>6042 22nd Ave NW</span><b>$838k</b></div>
+          <div class="sub" style="margin-top:10px">Buyer window: Sat 9:00\u201312:00 · pre-approved · agent J. Marsh</div>
+        </div>
+      </div></div>`;
+  }
+  el.innerHTML = nav(st.view) + main;
+}
+function handleFly(btn){
+  const id = btn.dataset.fid;
+  const el = document.querySelector(`[data-fly="${id}"]`);
+  if (!el || !flyStates[id]) return;
+  const st = flyStates[id];
+  const act = btn.dataset.flyact;
+  if (act === 'nav') st.view = btn.dataset.view;
+  else if (act === 'open') st.view = 'detail';
+  else if (act === 'step'){
+    st.flow = Math.min(4, st.flow + 1);
+    if (st.flow === 4) st.confirmed = true;
+  }
+  renderFly(el, id);
+}
+
+/* ---------- animations ---------- */
 function runBuilder(){
   builderTimers.forEach(clearTimeout); builderTimers = [];
   const pre = document.querySelector('.slide.active pre[data-builder]');
@@ -1135,6 +1589,29 @@ function runBuilder(){
       pre.innerHTML = render(j+1) + (done ? '' : '\n<span class="cursor"></span>');
     }, 420 * (j+1)));
   });
+}
+function runTracker(){
+  if (trackerTimer) { clearInterval(trackerTimer); trackerTimer = null; }
+  const wrap = document.querySelector('.slide.active .tracker-wrap');
+  if (!wrap) return;
+  const img = wrap.querySelector('[data-tk-img]'),
+        cap = wrap.querySelector('[data-tk-cap]'),
+        segs = wrap.querySelectorAll('[data-tk-prog] i'),
+        labels = wrap.querySelectorAll('.tk-steps span');
+  let n = 0;
+  const apply = () => {
+    const st = TRACKER_STEPS[n];
+    if (img){
+      img.style.opacity = 0;
+      setTimeout(()=>{ img.src = st.img; img.style.opacity = 1; }, 220);
+    }
+    if (cap) cap.textContent = st.cap;
+    segs.forEach((sg,j)=>sg.classList.toggle('on', j<=n));
+    labels.forEach((lb,j)=>lb.classList.toggle('on', j===n));
+  };
+  if (reduceMotion()){ n = TRACKER_STEPS.length-1; apply(); return; }
+  apply();
+  trackerTimer = setInterval(()=>{ n = (n+1) % TRACKER_STEPS.length; apply(); }, 3200);
 }
 
 /* ---------- nav ---------- */
@@ -1190,14 +1667,18 @@ function show(i){
   $('#counter').textContent = `${String(idx+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
   const activeCount = document.querySelector('.slide.active .count');
   if (activeCount) countUp(activeCount);
-  if (slides[idx] && slides[idx].type === 'builder') runBuilder();
+  if (trackerTimer) { clearInterval(trackerTimer); trackerTimer = null; }
+  if (slides[idx]){
+    if (slides[idx].type === 'builder') runBuilder();
+    if (slides[idx].type === 'debit') runTracker();
+  }
 }
 
 document.addEventListener('keydown', e => {
   if (!$('#gate').classList.contains('hidden')) return;
   if (e.key === 'f' || e.key === 'F') { toggleFS(); return; }
   if (!current){
-    if (['1','2','3'].includes(e.key) && keys[+e.key-1]) openDeck(keys[+e.key-1]);
+    if (['1','2','3','4'].includes(e.key) && keys[+e.key-1]) openDeck(keys[+e.key-1]);
     return;
   }
   if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(idx+1); }
@@ -1207,10 +1688,9 @@ document.addEventListener('keydown', e => {
   else if (e.key === 'Escape' && !document.fullscreenElement) closeDeck();
 });
 
-/* swipe on the stage background only, so phone prototypes stay tappable */
 let tx = null;
 document.addEventListener('touchstart', e => {
-  if (e.target.closest('.phone')) { tx = null; return; }
+  if (e.target.closest && (e.target.closest('.phone') || e.target.closest('.tablet') || e.target.closest('.browser'))) { tx = null; return; }
   tx = e.touches[0].clientX;
 }, {passive:true});
 document.addEventListener('touchend', e => {
@@ -1219,6 +1699,7 @@ document.addEventListener('touchend', e => {
   if (Math.abs(dx) > 60) show(idx + (dx < 0 ? 1 : -1));
   tx = null;
 }, {passive:true});
+
 </script>
 </body>
 </html>
