@@ -44,7 +44,7 @@
   }
 
   const CASE_STUDIES = [
-    { file: 'case-study-checking.html', title: 'Lifting Square Checking activation by centering design around money movement' },
+    { file: 'case-study-checking.html', title: 'Turning a pass-through account into a financial home' },
     { file: 'case-study-biller-network.html', title: 'Increasing Bill Pay coverage by eliminating the cold start' },
     { file: 'case-study-debit-card-activation.html', title: 'Decoupling the debit card from Checking with virtual card-first onboarding' },
     { file: 'case-study-bill-pay-vendors.html', title: 'Getting vendors to trust their first Bill Pay payment' },

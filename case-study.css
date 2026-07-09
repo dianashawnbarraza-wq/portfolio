@@ -606,6 +606,16 @@ body.case-study-body {
   margin: 0 auto;
   border: none;
   border-radius: 0;
+  object-fit: contain;
+}
+
+.cs-hero .cs-impact-hero {
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+}
+
+.cs-impact-hero--banner img {
+  max-width: 920px;
 }
 
 .cs-results-interpretation {
