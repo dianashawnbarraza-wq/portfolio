@@ -935,6 +935,7 @@ body.case-study-body {
   height: auto;
   display: block;
   margin: 0;
+  image-rendering: auto;
 }
 
 /* iPad shell (landscape) */
