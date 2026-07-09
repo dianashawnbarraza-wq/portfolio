@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Portfolio Review · D. Shawn Barraza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0a0b; --surface:#141417; --raised:#1b1b1f; --line:#2a2a30;
+  --text:#f6f6f4; --muted:#b9b9c0; --dim:#8f8f98; --faint:#6b6b74;
+  --accent:#6c9bf5; --accent-soft:rgba(108,155,245,.13);
+  --display:'Space Grotesk',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--ink);color:var(--text);font-family:var(--body);font-size:17px;-webkit-font-smoothing:antialiased;overflow:hidden}
+button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit;font-size:inherit}
+a{color:inherit}
+::selection{background:var(--accent);color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* ---------- gate ---------- */
+#gate{position:fixed;inset:0;background:var(--ink);z-index:100;display:flex;align-items:center;justify-content:center}
+.gate-box{width:min(440px,88vw);text-align:center}
+.gate-box .brand{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:-.02em;margin-bottom:8px}
+.gate-box p{color:var(--muted);font-size:16px;margin-bottom:30px}
+.gate-box form{display:flex;gap:10px}
+.gate-box input{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;color:var(--text);font-family:var(--mono);font-size:16px;outline:none;transition:border-color .2s}
+.gate-box input:focus{border-color:var(--accent)}
+.gate-box button{background:var(--text);color:var(--ink);border-radius:10px;padding:14px 22px;font-weight:600;font-size:16px}
+.gate-box button:hover{opacity:.85}
+.gate-err{color:#f08e8e;font-size:15px;margin-top:14px;min-height:20px;font-family:var(--mono)}
+
+/* ---------- selector ---------- */
+#selector{position:fixed;inset:0;background:var(--ink);z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;opacity:1;transition:opacity .45s ease;overflow-y:auto}
+#selector.hidden,#gate.hidden{opacity:0;pointer-events:none}
+.sel-eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+.sel-title{font-family:var(--display);font-weight:700;font-size:clamp(34px,5vw,56px);letter-spacing:-.03em;text-align:center;line-height:1.08}
+.sel-sub{color:var(--muted);font-size:clamp(16px,1.6vw,19px);margin-top:16px;text-align:center;max-width:36em;line-height:1.6}
+.sel-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:52px;width:min(1100px,94vw)}
+.sel-card{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px 28px 26px;transition:transform .25s,border-color .25s;position:relative;overflow:hidden}
+.sel-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--card-accent);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.sel-card:hover,.sel-card:focus-visible{transform:translateY(-3px);border-color:var(--card-accent)}
+.sel-card:hover::before,.sel-card:focus-visible::before{transform:scaleX(1)}
+.sel-key{font-family:var(--mono);font-size:13px;color:var(--dim);border:1px solid var(--line);border-radius:6px;padding:3px 9px;display:inline-block;margin-bottom:20px}
+.sel-card h3{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
+.sel-card p{color:var(--muted);font-size:15.5px;line-height:1.55}
+.sel-card .cases{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-family:var(--mono);font-size:13px;color:var(--dim);line-height:1.9}
+.sel-card .cases span{color:var(--card-accent)}
+.sel-foot{margin-top:48px;font-family:var(--mono);font-size:13px;color:var(--dim);text-align:center}
+
+/* ---------- deck chrome ---------- */
+#deck{position:fixed;inset:0;display:none;flex-direction:column}
+#deck.active{display:flex}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 32px;border-bottom:1px solid var(--line);flex-shrink:0;z-index:10;background:var(--ink)}
+.topbar .who{font-family:var(--display);font-weight:700;font-size:16px;white-space:nowrap}
+.topbar .who span{color:var(--accent);font-family:var(--mono);font-weight:500;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;margin-left:14px}
+.crumbs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.crumbs::-webkit-scrollbar{display:none}
+.crumb{font-family:var(--mono);font-size:13.5px;letter-spacing:.04em;color:var(--dim);padding:8px 14px;border-radius:7px;white-space:nowrap;transition:color .2s,background .2s}
+.crumb:hover{color:var(--text)}
+.crumb.active{color:var(--accent);background:var(--accent-soft)}
+.topbar .tools{display:flex;gap:8px}
+.topbar .tools button{font-family:var(--mono);font-size:12.5px;color:var(--dim);border:1px solid var(--line);border-radius:7px;padding:7px 12px;white-space:nowrap;transition:color .2s,border-color .2s}
+.topbar .tools button:hover{color:var(--text);border-color:var(--dim)}
+
+.stage{flex:1;position:relative;overflow:hidden}
+.slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:clamp(20px,3.5vw,56px);opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .45s,transform .45s,visibility 0s .45s;overflow-y:auto}
+.slide.active{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .45s,transform .45s,visibility 0s}
+.slide-inner{width:min(1240px,100%);margin:auto}
+
+.bottombar{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;border-top:1px solid var(--line);flex-shrink:0;background:var(--ink)}
+.dots{display:flex;gap:8px}
+.dot{width:7px;height:7px;border-radius:4px;background:var(--line);transition:background .25s,width .25s;padding:0}
+.dot.active{background:var(--accent);width:24px}
+.dot.done{background:var(--faint)}
+.counter{font-family:var(--mono);font-size:13.5px;color:var(--dim)}
+.hint{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
+.hint kbd{border:1px solid var(--line);border-radius:4px;padding:1px 7px;font-family:inherit}
+
+/* ---------- shared ---------- */
+.eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.eyebrow::after{content:'';height:1px;width:44px;background:var(--accent);opacity:.4;order:1}
+.eyebrow .case-tag{color:var(--dim);letter-spacing:.08em;order:2}
+.meta-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:13px;color:var(--dim);margin-bottom:26px}
+.meta-row b{color:var(--muted);font-weight:500}
+.chip{font-family:var(--mono);font-size:13.5px;color:var(--muted);border:1px solid var(--line);border-radius:100px;padding:8px 16px}
+.chip.hot{border-color:var(--accent);color:var(--accent)}
+
+/* intro */
+.t-intro h1{font-family:var(--display);font-weight:700;font-size:clamp(40px,6vw,80px);letter-spacing:-.035em;line-height:1.05;max-width:14em}
+.t-intro .sub{color:var(--muted);font-size:clamp(17px,1.8vw,22px);line-height:1.6;margin-top:28px;max-width:36em}
+.t-intro .agenda{display:flex;gap:14px;margin-top:48px;flex-wrap:wrap}
+.agenda-item{border:1px solid var(--line);border-radius:12px;padding:18px 24px;background:var(--surface)}
+.agenda-item .n{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.1em}
+.agenda-item .t{font-family:var(--display);font-size:18px;font-weight:600;margin-top:6px}
+
+/* about: experience */
+.t-about .grid{display:grid;grid-template-columns:1fr auto;gap:56px;align-items:start}
+.t-about h2{font-family:var(--display);font-size:clamp(28px,3.6vw,46px);font-weight:700;letter-spacing:-.025em;line-height:1.15;margin-bottom:24px}
+.t-about .bio{color:var(--muted);font-size:clamp(16px,1.7vw,20px);line-height:1.7;max-width:34em}
+.t-about .bio + .bio{margin-top:18px}
+.t-about .bio b{color:var(--text);font-weight:600}
+.t-about .headshot{width:clamp(140px,16vw,220px);height:clamp(140px,16vw,220px);border-radius:22px;object-fit:cover;border:1px solid var(--line)}
+.logo-row{display:flex;gap:14px 34px;flex-wrap:wrap;align-items:center;margin-top:38px;padding-top:28px;border-top:1px solid var(--line)}
+.logo-row .lg{font-family:var(--display);font-weight:700;font-size:clamp(18px,2vw,24px);letter-spacing:-.02em;color:var(--faint);transition:color .3s}
+.slide.active .logo-row .lg{animation:logoIn .6s both}
+.logo-row .lg:nth-child(1){animation-delay:.1s}.logo-row .lg:nth-child(2){animation-delay:.2s}
+.logo-row .lg:nth-child(3){animation-delay:.3s}.logo-row .lg:nth-child(4){animation-delay:.4s}
+.logo-row .lg:nth-child(5){animation-delay:.5s}.logo-row .lg:nth-child(6){animation-delay:.6s}
+.logo-row .lg:nth-child(7){animation-delay:.7s}
+.logo-row .lg:hover{color:var(--muted)}
+@keyframes logoIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.logo-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:14px}
+
+/* about: builder */
+.t-builder h1{font-family:var(--display);font-weight:700;font-size:clamp(36px,5.4vw,70px);letter-spacing:-.035em;line-height:1.06;margin-bottom:14px}
+.t-builder h1 em{font-style:normal;color:var(--accent)}
+.t-builder .sub{color:var(--muted);font-size:clamp(16px,1.7vw,20px);line-height:1.65;max-width:36em;margin-bottom:34px}
+.t-builder .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:start}
+.terminal{background:#0d0d10;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 0 60px rgba(0,0,0,.5)}
+.terminal .bar{display:flex;gap:7px;padding:13px 16px;border-bottom:1px solid var(--line)}
+.terminal .bar i{width:11px;height:11px;border-radius:50%;background:var(--line)}
+.terminal .bar i:first-child{background:#e0655f}.terminal .bar i:nth-child(2){background:#e0b45f}.terminal .bar i:nth-child(3){background:#6fbf73}
+.terminal pre{font-family:var(--mono);font-size:clamp(13px,1.4vw,16px);line-height:1.9;padding:20px 22px;color:var(--muted);white-space:pre-wrap;min-height:14.5em}
+.terminal .p{color:var(--accent)}
+.terminal .ok{color:#6fbf73}
+.terminal .cursor{display:inline-block;width:.6em;height:1.1em;background:var(--accent);vertical-align:text-bottom;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.builder-points{display:flex;flex-direction:column;gap:12px}
+.bp{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;opacity:0;transform:translateX(14px)}
+.slide.active .bp{animation:bpIn .5s ease both}
+.bp h4{font-family:var(--display);font-size:18px;font-weight:600;margin-bottom:5px}
+.bp p{color:var(--muted);font-size:15px;line-height:1.55}
+.bp .k{font-family:var(--mono);font-size:11.5px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase}
+@keyframes bpIn{to{opacity:1;transform:translateX(0)}}
+
+/* data */
+.t-data .big{font-family:var(--mono);font-weight:600;font-size:clamp(80px,14vw,188px);letter-spacing:-.05em;line-height:1;display:flex;align-items:baseline;gap:.12em}
+.t-data .big .unit{font-size:.34em;color:var(--accent)}
+.t-data .biglabel{font-family:var(--display);font-size:clamp(22px,2.6vw,32px);font-weight:600;letter-spacing:-.02em;margin-top:22px;max-width:24em;line-height:1.25}
+.t-data .support{color:var(--muted);font-size:clamp(16px,1.6vw,19px);line-height:1.65;margin-top:18px;max-width:42em}
+.t-data .aside{margin-top:34px;display:inline-flex;gap:12px;align-items:baseline;font-family:var(--mono);font-size:14px;color:var(--dim);border:1px solid var(--line);border-radius:10px;padding:13px 18px;max-width:46em;line-height:1.5}
+.t-data .aside b{color:var(--accent);font-weight:600;white-space:nowrap}
+
+/* funnel */
+.t-funnel h2{font-family:var(--display);font-size:clamp(26px,3.4vw,42px);font-weight:700;letter-spacing:-.025em;margin-bottom:34px;max-width:18em;line-height:1.15}
+.funnel{display:flex;flex-direction:column;gap:12px;max-width:820px}
+.fstep{display:grid;grid-template-columns:220px 1fr;gap:18px;align-items:center}
+.fstep .fl{font-family:var(--mono);font-size:14px;color:var(--muted);text-align:right}
+.fstep .fbar{height:52px;border-radius:9px;background:var(--raised);border:1px solid var(--line);position:relative;overflow:hidden}
+.fstep .fbar i{position:absolute;inset:0;background:var(--accent-soft);border-right:3px solid var(--accent);width:var(--w);transition:width 1s ease .2s}
+.slide:not(.active) .fstep .fbar i{width:0 !important}
+.fstep .fv{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:13px;color:var(--dim)}
+.fstep.dropzone .fbar{border-color:#e0655f}
+.fstep.dropzone .fbar i{border-right-color:#e0655f;background:rgba(224,101,95,.12)}
+.fstep.dropzone .fl{color:var(--text);font-weight:500}
+.fdrop{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;color:#e0655f;border:1px solid rgba(224,101,95,.4);border-radius:100px;padding:6px 14px;margin:6px 0 6px 238px}
+.t-funnel .fnote{margin-top:26px;color:var(--muted);font-size:clamp(15px,1.5vw,18px);line-height:1.65;max-width:42em}
+.t-funnel .fnote b{color:var(--text)}
+
+/* fog / reframe */
+.t-fog .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
+.panel{border-radius:16px;padding:34px 32px;min-height:250px;display:flex;flex-direction:column}
+.panel .tag{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.panel h3{font-family:var(--display);font-size:clamp(21px,2.5vw,29px);font-weight:600;letter-spacing:-.02em;line-height:1.25;margin-bottom:16px}
+.panel p{font-size:clamp(15.5px,1.5vw,18px);line-height:1.65}
+.panel.fog{background:var(--surface);border:1px solid var(--line)}
+.panel.fog .tag{color:var(--dim)}
+.panel.fog h3{color:var(--muted)}
+.panel.fog p{color:var(--dim)}
+.panel.reframe{background:var(--accent-soft);border:1px solid var(--accent)}
+.panel.reframe .tag{color:var(--accent)}
+.panel.reframe p{color:var(--muted)}
+
+/* ship / phases / insight */
+.t-ship h2,.t-phases h2,.t-work h2,.t-proto h2,.t-next h2{font-family:var(--display);font-size:clamp(26px,3.4vw,42px);font-weight:700;letter-spacing:-.025em;max-width:18em;margin-bottom:32px;line-height:1.15}
+.ship-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px}
+.ship-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
+.ship-card .k{font-family:var(--mono);font-size:12.5px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase}
+.ship-card h4{font-family:var(--display);font-size:20px;font-weight:600;margin:12px 0 10px}
+.ship-card p{color:var(--muted);font-size:16px;line-height:1.6}
+.phase-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.phase{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
+.phase .ph{font-family:var(--mono);font-size:12.5px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.phase .ph::after{content:'';flex:1;height:1px;background:var(--line)}
+.phase h4{font-family:var(--display);font-size:21px;font-weight:600;margin:14px 0 10px}
+.phase p{color:var(--muted);font-size:16px;line-height:1.6}
+.phase.zero{border-color:var(--accent);background:var(--accent-soft)}
+.phase .badge{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--accent);border-radius:100px;padding:4px 12px;margin-top:14px;font-weight:600}
+.insight{margin-top:24px;border-left:3px solid var(--accent);padding:6px 0 6px 22px;font-family:var(--display);font-size:clamp(18px,2vw,24px);font-weight:600;line-height:1.35;max-width:32em}
+.insight span{color:var(--dim);display:block;font-family:var(--mono);font-size:13px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+
+/* work (image) */
+.t-work figure{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(14px,2vw,28px);text-align:center}
+.t-work img{max-width:100%;max-height:min(56vh,620px);height:auto;border-radius:10px}
+.t-work figcaption{font-family:var(--mono);font-size:13.5px;color:var(--dim);margin-top:16px;text-align:left}
+.t-work .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.img-missing{border:1px dashed var(--line);border-radius:10px;padding:60px 24px;color:var(--dim);font-family:var(--mono);font-size:14px;line-height:1.7}
+
+/* prototype phones */
+.t-proto .phones{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,44px);justify-items:center}
+.ph-col{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;max-width:400px}
+.ph-label{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.ph-label.after{color:var(--accent)}
+.phone{width:min(300px,80vw);aspect-ratio:9/18.5;border-radius:40px;border:9px solid #1d1d21;background:#000;overflow:hidden;position:relative;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+.phone .notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:34%;height:16px;border-radius:100px;background:#000;z-index:5;pointer-events:none}
+.phone .screen{position:absolute;inset:0;overflow-y:auto;background:#fff;scrollbar-width:none}
+.phone .screen::-webkit-scrollbar{display:none}
+.shot{position:relative;line-height:0}
+.shot img{width:100%;display:block}
+.hs{position:absolute;background:transparent;border-radius:10px}
+.hs .pulse{position:absolute;top:50%;left:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--accent);pointer-events:none}
+.hs .pulse::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--accent);animation:pulse 1.6s ease-out infinite}
+@keyframes pulse{0%{transform:scale(.5);opacity:1}100%{transform:scale(1.7);opacity:0}}
+.ph-chips{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.ph-chips button{font-family:var(--mono);font-size:12px;color:var(--dim);border:1px solid var(--line);border-radius:100px;padding:6px 13px;transition:color .2s,border-color .2s}
+.ph-chips button:hover{color:var(--text)}
+.ph-chips button.on{color:var(--accent);border-color:var(--accent)}
+.ph-cap{font-family:var(--mono);font-size:12.5px;color:var(--dim);text-align:center;min-height:2.6em;max-width:32em;line-height:1.5}
+.step-dots{display:flex;gap:6px;justify-content:center}
+.step-dots i{width:6px;height:6px;border-radius:3px;background:var(--line)}
+.step-dots i.on{background:var(--accent);width:18px}
+.tapzone{position:absolute;inset:0;cursor:pointer}
+.t-proto .proto-note{margin-top:22px;font-family:var(--mono);font-size:13px;color:var(--dim);text-align:center}
+
+/* results */
+.t-results .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:10px 0 30px}
+.metric{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:32px 30px;position:relative;overflow:hidden}
+.metric::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px;background:var(--accent)}
+.metric.hero{grid-column:1 / -1;background:var(--accent-soft);border-color:var(--accent);padding:38px 34px}
+.metric .val{font-family:var(--mono);font-weight:600;font-size:clamp(40px,5.5vw,64px);letter-spacing:-.04em;line-height:1}
+.metric.hero .val{font-size:clamp(56px,8vw,96px)}
+.metric .val .from{color:var(--dim)}
+.metric .val .arrow{color:var(--accent);font-size:.55em;vertical-align:middle;margin:0 .14em}
+.metric .lab{font-size:clamp(15px,1.5vw,18px);color:var(--muted);margin-top:14px;line-height:1.5}
+.metric.hero .lab{font-size:clamp(16px,1.7vw,20px);color:var(--text)}
+.t-results .rigor{border-top:1px solid var(--line);padding-top:22px;color:var(--muted);font-size:clamp(16px,1.6vw,19px);line-height:1.65;max-width:46em}
+.t-results .rigor b{color:var(--text);font-weight:600}
+
+/* next phase */
+.t-next .nextwrap{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch}
+.t-next .story{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:34px 32px}
+.t-next .story p{color:var(--muted);font-size:clamp(15.5px,1.6vw,18.5px);line-height:1.7}
+.t-next .story p + p{margin-top:14px}
+.t-next .story b{color:var(--text)}
+.t-next .protoslot{border:1px dashed var(--line);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:34px;text-align:center;min-height:300px}
+.t-next .protoslot .badge{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--accent);border-radius:100px;padding:5px 14px;font-weight:600}
+.t-next .protoslot p{font-family:var(--mono);font-size:13.5px;color:var(--dim);line-height:1.7;max-width:26em}
+
+/* close */
+.t-close .close-grid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+.t-close h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,4.8vw,62px);letter-spacing:-.03em;line-height:1.1;max-width:14em}
+.t-close .also{margin-top:28px;font-size:clamp(16px,1.6vw,19px);color:var(--muted);line-height:1.7;max-width:36em}
+.t-close .also b{color:var(--text);font-weight:600}
+.stack{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.t-close .contact{margin-top:44px;display:flex;gap:28px;flex-wrap:wrap;font-family:var(--mono);font-size:15px}
+.t-close .contact a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+.t-close .contact a:hover{border-color:var(--accent)}
+.t-close .headshot{width:clamp(120px,14vw,190px);height:clamp(120px,14vw,190px);border-radius:20px;object-fit:cover;border:1px solid var(--line)}
+
+.count{font-variant-numeric:tabular-nums}
+
+@media (max-width:880px){
+  .sel-cards{grid-template-columns:1fr;gap:12px}
+  .t-fog .cols,.t-results .metrics,.phase-row,.t-builder .grid,.t-proto .phones,.t-work .two,.t-next .nextwrap{grid-template-columns:1fr}
+  .topbar .who span{display:none}
+  .hint{display:none}
+  .panel{min-height:0}
+  .t-close .close-grid,.t-about .grid{grid-template-columns:1fr}
+  .t-close .headshot{display:none}
+  .t-about .headshot{order:-1}
+  .fstep{grid-template-columns:1fr}
+  .fstep .fl{text-align:left}
+  .fdrop{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gate-box">
+    <div class="brand">D. Shawn Barraza</div>
+    <p>Portfolio review. Enter the password from your invite.</p>
+    <form id="gateForm">
+      <label for="gateInput" style="position:absolute;left:-9999px">Password</label>
+      <input type="password" id="gateInput" placeholder="password" autocomplete="off" autofocus>
+      <button type="submit">Enter</button>
+    </form>
+    <div class="gate-err" id="gateErr" role="alert" aria-live="polite"></div>
+  </div>
+</div>
+
+<div id="selector" class="hidden">
+  <div class="sel-eyebrow">Portfolio review · 2026</div>
+  <h1 class="sel-title">Diana Shawn Barraza</h1>
+  <p class="sel-sub">Staff Product Designer. A decade across fintech and healthcare, most recently at Square. Choose the lens for today's conversation.</p>
+  <div class="sel-cards" id="selCards"></div>
+  <div class="sel-foot">Press 1, 2, or 3 · Arrow keys navigate slides · F fullscreen · Esc returns here</div>
+</div>
+
+<div id="deck">
+  <div class="topbar">
+    <div class="who">DSB<span id="sectorLabel"></span></div>
+    <nav class="crumbs" id="crumbs" aria-label="Presentation sections"></nav>
+    <div class="tools">
+      <button id="fsBtn" aria-label="Toggle fullscreen">F · fullscreen</button>
+      <button id="exitBtn" aria-label="Back to path selection">Esc · paths</button>
+    </div>
+  </div>
+  <main class="stage" id="stage" aria-live="polite"></main>
+  <div class="bottombar">
+    <div class="dots" id="dots" aria-label="Slides"></div>
+    <div class="hint"><kbd>←</kbd> <kbd>→</kbd> navigate</div>
+    <div class="counter" id="counter"></div>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   IMAGES · relative paths, ship the images/ folder with this file.
+   Missing files render as labeled placeholder boxes.
+   ========================================================= */
+const SITE = 'https://barrazaxd.com/';
+const IMG = {
+  headshot:   SITE + 'diana_shawn_barraza.png?v=2',
+  monitoring: SITE + 'heal-monitoring-after-patient-monitoring.png?v=3',
+  pcp:        SITE + 'heal-pcp-thumbnail.png?v=1',
+  /* checking prototype screens (in images/) */
+  ckBefore:   'images/checking-spos-before.png',          /* PLACEHOLDER: re-export, the uploaded file was blank */
+  ckHome:     'images/checking-after-home.png',
+  ckTracker:  'images/checking-after-card-tracker.png',
+  ckCard:     'images/checking-after-card-detail.png',
+  ckDeposit:  'images/checking-after-deposit.png',
+  ckPay:      'images/checking-after-pay.png',
+  ckNumbers:  'images/checking-after-numbers.png',
+  /* bill pay flow screens (in images/) */
+  bpB1:'images/billpay-before-1-list.png',
+  bpB2:'images/billpay-before-2-vendor-search.png',
+  bpB3:'images/billpay-before-3-create-vendor.png',
+  bpA1:'images/billpay-after-1-list.png',
+  bpA2:'images/billpay-after-2-intent.png',
+  bpA3:'images/billpay-after-3-scan.png',
+  bpA4:'images/billpay-after-4-details.png',
+  bpA5:'images/billpay-after-5-schedule.png',
+  bpA6:'images/billpay-after-6-scheduled.png',
+  /* placeholders to add */
+  emailFwd:   'images/billpay-email-forwarding.png',      /* PLACEHOLDER: email forwarding design */
+  copilot:    'images/money-copilot-exploration.png',     /* PLACEHOLDER: AI insights prototype still */
+  aiProto:    'images/ai-insights-prototype.png'          /* PLACEHOLDER: clickable AI vision, return to this */
+};
+
+/* Interactive prototype definitions */
+const PROTOS = {
+  checkingAfter: {
+    mode:'hotspots', start:'home',
+    screens:{
+      home:{ img:IMG.ckHome, cap:'Banking home · debit card and money movement above the fold. Tap a pulsing dot.',
+        hs:[
+          {x:7.5,y:23.2,w:26,h:4.4,to:'deposit',label:'Deposit'},
+          {x:64,y:23.2,w:27,h:4.4,to:'pay',label:'Pay'},
+          {x:5,y:29.3,w:90,h:6,to:'card',label:'Card'},
+          {x:5,y:14.2,w:48,h:3,to:'numbers',label:'Account numbers'}
+        ]},
+      card:{ img:IMG.ckCard, cap:'Card detail · show numbers, lock, Add to Apple Wallet.',
+        hs:[{x:2,y:1.5,w:16,h:4.5,to:'home',label:'Back'}]},
+      deposit:{ img:IMG.ckDeposit, cap:'Deposit sheet · check, cash, or debit card. Tap the dark area to close.',
+        hs:[{x:0,y:0,w:100,h:52,to:'home',label:'Close'}]},
+      pay:{ img:IMG.ckPay, cap:'Pay sheet · write a check, pay a vendor, pay a bill. Tap the dark area to close.',
+        hs:[{x:0,y:0,w:100,h:50,to:'home',label:'Close'}]},
+      numbers:{ img:IMG.ckNumbers, cap:'Account and routing numbers · one tap to copy. Tap the dark area to close.',
+        hs:[{x:0,y:0,w:100,h:62,to:'home',label:'Close'}]}
+    },
+    chips:[['home','Home'],['card','Card'],['deposit','Deposit'],['pay','Pay'],['numbers','Numbers']]
+  },
+  billpayBefore: {
+    mode:'steps',
+    seq:[
+      {img:IMG.bpB1, cap:'Before · Bill Pay list. Every payment starts from a manual add.'},
+      {img:IMG.bpB2, cap:'Before · Search for a vendor, or create one from scratch.'},
+      {img:IMG.bpB3, cap:'Before · Full vendor details required before any payment can move. This step was the funnel\u2019s biggest drop-off.'}
+    ]
+  },
+  billpayAfter: {
+    mode:'steps',
+    seq:[
+      {img:IMG.bpA1, cap:'After · Bill Pay list with outstanding, scheduled, and paid views.'},
+      {img:IMG.bpA2, cap:'After · Start from intent: scan a bill, pay a vendor, or mail a check.'},
+      {img:IMG.bpA3, cap:'After · Scan the bill in your hand. OCR extracts the payment details.'},
+      {img:IMG.bpA4, cap:'After · Connected biller, account number, due date, and balance prefilled.'},
+      {img:IMG.bpA5, cap:'After · Schedule against the due date from Square Checking.'},
+      {img:IMG.bpA6, cap:'After · Scheduled. From paper bill to payment in under a minute.'}
+    ]
+  }
+};
+
+const ABOUT_CRED = ['Distinguished Educator · UCLA Extension','Social science research background','Writing & content background'];
+const LOGOS = ['Square','Block','Flyhomes','Heal','Vetted Petcare','Cisco','American Zoetrope'];
+const BUILDER_LINES = [
+  ['p','$ new idea: "actionable banking insights"'],
+  ['','\u25b8 research \u00b7 jobs to be done \u00b7 journey mapping'],
+  ['','\u25b8 designed in Figma, refined in code'],
+  ['','\u25b8 built with Cursor + Claude Code'],
+  ['','\u25b8 stack: Next.js \u00b7 Supabase \u00b7 Stripe'],
+  ['p','$ vercel deploy --prod'],
+  ['ok','\u2713 live in production']
+];
+
+/* =========================================================
+   CASE STUDIES (shared across paths)
+   ========================================================= */
+const CASES = {
+
+  checking: (tag) => [
+    { type:'data', section:'Checking', caseTag:tag,
+      meta:['Role · <b>Design DRI</b>','Timeline · <b>One quarter (Cycle Initiative)</b>','Partners · <b>PM · Eng · Data Science · Growth</b>'],
+      big:'32', unit:'%',
+      biglabel:'of sellers who elected Checking in Square onboarding actually activated.',
+      support:'Enrollment was working; activation was not. Sellers completed identity verification, then treated Checking as a pass-through account, transferring every payout out to an external bank. The gap was not awareness. It was banking adoption: nobody was using the debit card or the money movement levers that define an active account. And the ask was pointed: fix it on the Square Point of Sale app, where about 80% of first sales take place.',
+      aside:['The ambiguity','Everyone agreed activation was low. Nobody agreed on why.']
+    },
+    { type:'fog', section:'Checking', caseTag:tag, label:'Task · The reframe',
+      fogH:'The room had opinions: make Banking easier to find.',
+      fogP:'The cross-functional instincts were all discoverability plays: a stronger Banking entry point in the sales report email, better placement in the navigation, more surface area. Reasonable ideas. None of them grounded in what activated sellers actually did.',
+      refH:'The data had an answer: sellers who activated engaged the debit card first.',
+      refP:'Funnel analysis showed debit card engagement was the strongest activation signal, and in the existing design the card was buried below the fold, alongside the money movement levers sellers expected. There was no system status telling a seller when their card would arrive or that they could spend immediately. Adding to Apple Wallet became a key metric, because with the virtual card a seller could spend right after taking their first sale.'
+    },
+    { type:'proto', section:'Checking', caseTag:tag, label:'Action · Before and after',
+      h2:'The redesign, in your hands: debit and money movement above the fold.',
+      before:{ mode:'scroll', img:IMG.ckBefore, cap:'Before · Square Point of Sale banking tab. Debit card and money movement buried below the fold. Scroll to explore.' },
+      after:'checkingAfter',
+      note:'Left: scroll the original. Right: a working prototype, tap the pulsing dots or use the chips.'
+    },
+    { type:'ship', section:'Checking', caseTag:tag, label:'Action · Debit engagement, by design',
+      h2:'How debit engagement works when the system talks back.',
+      cards:[
+        {k:'System status', h:'"We\u2019re printing your card"', p:'A visible card tracker replaced silence. Sellers see when the physical card arrives, and that the virtual card is ready now.'},
+        {k:'Spend immediately', h:'Add to Apple Wallet', p:'Wallet provisioning surfaced at the moment of highest motivation, right after enrollment, so a seller can take a sale and spend from it the same day.'},
+        {k:'Above the fold', h:'Card and money movement first', p:'Deposit, Transfer, and Pay promoted to the top of the banking home. The behaviors that predict activation stopped hiding below the fold.'},
+        {k:'Ownership', h:'Account numbers in reach', p:'Account and routing details one tap away, reinforcing that this is a real business bank account, not a feature.'}
+      ]
+    },
+    { type:'results', section:'Checking', caseTag:tag,
+      metrics:[
+        {to:'32% \u2192 40%+', lab:'Activation for onboarding-acquired sellers, the population we set out to move', hero:true},
+        {from:'29%', to:'51%', lab:'First card spend within a month'},
+        {from:'18%', to:'44%', lab:'Apple Pay / Wallet adoption'}
+      ],
+      rigor:'<b>Behavior changed, not just dashboard numbers.</b> Sellers began holding and spending balances inside Square instead of routing payouts out. Every change shipped behind an experiment with a pre-registered metric, measured against the 32% baseline we opened with.'
+    },
+    { type:'next', section:'Checking', caseTag:tag, label:'Next phase · The vision',
+      h2:'With activation fixed, the next phase: actionable insights.',
+      story:'<p>Fixing Checking earned the right to ask a bigger question: what should Square Banking become? As part of north star work, I prototyped a <b>money management hub with AI-powered insights</b>, a Money Copilot where sellers ask real questions about cash flow and upcoming expenses and get answers paired with actions.</p><p>Built as a working prototype in Cursor in days. The vision was adopted into the north star, sequenced deliberately <b>after</b> the foundational behaviors this quarter proved out, because insights only matter to sellers whose money already lives here.</p>',
+      slot:{badge:'Clickable prototype · coming', text:'Placeholder for the AI insights prototype (images/ai-insights-prototype.png or embedded build). Returning to this once the exploration is presentation-ready.'}
+    }
+  ],
+
+  billpay: (tag) => [
+    { type:'data', section:'Bill Pay', caseTag:tag,
+      meta:['Role · <b>Design DRI</b>','Timeline · <b>One quarter</b>','Partners · <b>PM · Engineering · Paymentus</b>'],
+      big:'80', unit:'%',
+      biglabel:'of recurring bills were being paid outside Square. Utilities, telecom, insurance, gone.',
+      support:'Sellers came to Bill Pay for one-off invoices while their highest-frequency bill relationships lived elsewhere. Interviews and behavioral data showed the mismatch: the product demanded full vendor details up front, while real sellers pay from a paper bill, an email, or a phone number. And discovery surfaced the insight that would decide our first ship: most bills were already arriving in sellers\u2019 email inboxes.',
+      aside:['Situation, in the data','Payment volume was constrained by how bills entered the product, not by the payment flow itself.']
+    },
+    { type:'funnel', section:'Bill Pay', caseTag:tag, label:'Situation · The funnel',
+      h2:'The funnel said it plainly: "Add a vendor" was where sellers gave up.',
+      steps:[
+        {label:'Start a bill payment', w:96},
+        {label:'Add a vendor', w:44, drop:true},
+        {label:'Enter payment details', w:38},
+        {label:'Schedule payment', w:33}
+      ],
+      dropLabel:'Largest drop-off in the funnel',
+      note:'<b>This is what gave me confidence to attack the cold start.</b> The biggest losses were not in paying, they were in setting up who to pay. Sellers abandoned at the moment the product asked them to reconstruct vendor details they did not have on hand. Fix how bills and vendors enter the product, and the rest of the funnel takes care of itself.'
+    },
+    { type:'fog', section:'Bill Pay', caseTag:tag, label:'Task · The reframe',
+      fogH:'The assumed fix: optimize the vendor form.',
+      fogP:'Fewer fields, tighter steps, better validation. But no amount of form polish solves a cold start. Sellers expected a hub for all business bills and got a manual payment tool that made them do data entry before they could pay anyone.',
+      refH:'The reframe: bill coverage, entered through seller intent.',
+      refP:'Every channel a bill already travels through is a potential entry point: an email inbox, a paper statement, a biller network. That turned one impossible coverage problem into shippable phases, sequenced by effort and impact. Leading metrics shifted from completion rates to connected bills and sellers paying 2+ bills a month, the retention signal. Payment volume stayed the north star.'
+    },
+    { type:'phases', section:'Bill Pay', caseTag:tag, label:'Action · Sequenced by effort and impact',
+      h2:'Email forwarding shipped first. Then we plugged the gaps.',
+      phases:[
+        {ph:'Phase 1', h:'Email forwarding', p:'Discovery showed most bills already arrive by email, and ingestion was a low engineering lift. Sellers forward a bill to a dedicated address and it ingests itself. Shipped first, and payment volume lifted almost immediately.', zero:true, badge:'Zero UI · shipped first'},
+        {ph:'Phase 2', h:'OCR bill scanning', p:'For the bills that live on paper: scan or photograph any statement and the details extract themselves. Entry starts from intent: scan a bill, pay a vendor, or mail a check.'},
+        {ph:'Phase 3', h:'Paymentus biller network', p:'With volume climbing, we plugged the remaining coverage gaps. Evaluated API providers with product and engineering, selected Paymentus, and connected a national biller network with prefilled account details.'}
+      ],
+      insight:{label:'The design judgment', text:'The highest-impact solution shipped first and had no interface at all. Recognizing when not to design one is part of the craft.'}
+    },
+    { type:'work', section:'Bill Pay', caseTag:tag, label:'The work · Phase 1',
+      h2:'Email forwarding: the bill routes itself.',
+      img: IMG.emailFwd,
+      alt:'Bill Pay email forwarding design showing a forwarded bill ingested and ready to schedule',
+      cap:'Phase 1 · forward a bill to your dedicated Bill Pay address; it arrives parsed, matched, and ready to schedule'
+    },
+    { type:'proto', section:'Bill Pay', caseTag:tag, label:'The work · Phases 2 & 3',
+      h2:'From manual vendor setup to scan-to-scheduled.',
+      before:{ mode:'proto', proto:'billpayBefore' },
+      after:'billpayAfter',
+      note:'Tap either phone to step through the flow. Left: the manual cold start. Right: intent-first entry with OCR and the connected biller network.'
+    },
+    { type:'results', section:'Bill Pay', caseTag:tag,
+      metrics:[
+        {to:'+80%', lab:'Bill coverage across the phased ingestion channels', hero:true},
+        {to:'+23%', lab:'Payment volume, the north star business metric'},
+        {to:'2+ bills/mo', lab:'Recurring adoption expanded, the retention signal sellers who churn less share'}
+      ],
+      rigor:'<b>Payment volume follows bill coverage.</b> The funnel\u2019s biggest drop-off, vendor setup, was designed out of the critical path: bills now enter by forwarded email, by camera, or prefilled from the network. The cold start we quantified at the top fell away.'
+    }
+  ],
+
+  monitoring: (tag) => [
+    { type:'data', section:'Monitoring', caseTag:tag,
+      meta:['Role · <b>Design DRI</b>','Timeline · <b>1 month to validated MVP</b>','Partners · <b>PM · Engineering · Medicine</b>'],
+      big:'39', unit:'%',
+      biglabel:'repeat patient rate for adults living with chronic conditions. Between visits, doctors were blind.',
+      support:'Heal sent doctors to patients\u2019 homes for same-day care. But a doctor saw a patient for an hour, then nothing until the next call. For adults 65+ managing <b>hypertension, type 2 diabetes, COPD, congestive heart failure, and chronic kidney disease</b>, the moments that matter most happen in that gap: readings that drift, medication that stops working, the early signal of an acute episode. Monitoring data existed, buried behind notifications with no way to act on it.',
+      aside:['The target','Raise repeat patient rate from 39% to 45% for chronic-condition patients, and build the clinical foundation Medicare approval required.']
+    },
+    { type:'fog', section:'Monitoring', caseTag:tag, label:'Task · The reframe',
+      fogH:'Monitoring lived behind a notification bell.',
+      fogP:'Threshold alerts competed with every other ping for attention. A missed alert here is not a UX bug, it is a patient outcome. And doctors reviewing data between house calls needed one-glance comprehension, not exploration. The existing app was built around logistics: appointments, lookup, charts.',
+      refH:'An alert is not an interruption to the doctor\u2019s day. It is the doctor\u2019s day.',
+      refP:'That one sentence reorganized the product. Threshold alerts moved out of notifications and onto the surface where doctors start each morning: a briefing that answers the first question every physician asks. Which of today\u2019s patients needs my attention?'
+    },
+    { type:'ship', section:'Monitoring', caseTag:tag, label:'Action · One month, one panel',
+      h2:'A standing doctor panel and weekly working prototypes.',
+      cards:[
+        {k:'Discovery', h:'Clinical co-design', p:'Started with the Head of Medicine, then stood up a weekly physician panel. Together we mapped the ideal patient journey: when doctors recommend monitoring, which conditions to target first, when review and intervention happen.'},
+        {k:'Prototyping', h:'Weekly iteration under a hard clock', p:'One month to a validated MVP. Each week: a working prototype in front of practicing physicians, focused on information architecture and data visualization. Gaps surfaced fast: contact the patient directly, manage monitoring duration, charts with detail on demand.'},
+        {k:'Constraints', h:'Designed to the regulatory floor', p:'Medicare\u2019s chronic care requirements set documentation, review cadence, and continuity standards. The workflow had to satisfy them by default, not by discipline.'}
+      ]
+    },
+    { type:'work', section:'Monitoring', caseTag:tag,
+      h2:'From schedule-first tool to monitoring-first morning briefing.',
+      img: IMG.monitoring,
+      alt:'Heal physician experience showing the monitoring-first overview briefing and patient detail with trend charts',
+      cap:'Heal · Overview briefing with inline alerts, patient detail with trend charts, device context, and prescriptions in one place'
+    },
+    { type:'results', section:'Monitoring', caseTag:tag,
+      metrics:[
+        {from:'39%', to:'47%', lab:'Repeat patient rate for chronic-condition patients, beating the 45% goal', hero:true},
+        {to:'>$4M/yr', lab:'Recurring net margin, with monitoring paid by Medicare and free for patients'},
+        {to:'\u221239%', lab:'Unnecessary prescriptions for monitored patients, because doctors adjusted care on trends, not single readings'}
+      ],
+      rigor:'<b>Visibility unlocked preventative care at home for patients who needed it most.</b> Continuing to serve patients with hypertension, diabetes, and other chronic conditions between visits is the mission — acute episodes fell, outcomes improved, and monitoring directly supported Heal\u2019s Medicare approval, the unlock that made ongoing primary care at home economically viable. Measured against the 39% baseline and the 45% goal we set on day one.'
+    }
+  ],
+
+  primarycare: (tag) => [
+    { type:'data', section:'Primary care', caseTag:tag,
+      meta:['Role · <b>Product Designer</b>','Scope · <b>PCP selection · Rebooking · Booking flow</b>','Partners · <b>PM · Engineering · Support</b>'],
+      big:'25', unit:'%',
+      biglabel:'of patients rebooked with the same physician. Heal had optimized for the wrong thing.',
+      support:'The booking flow was built around availability: find an open doctor, pick a time, done. Fast, frictionless, and it taught patients to treat Heal like a one-time transaction. The second number told the rest: roughly 30% of repeat-visit intent required a support call, patients manually trying to recreate a relationship the product gave them no way to build.',
+      aside:['Situation, in the data','Primary care is a relationship. The product had no concept of one.']
+    },
+    { type:'fog', section:'Primary care', caseTag:tag, label:'Task · The reframe',
+      fogH:'Speed-first booking worked against primary care.',
+      fogP:'Patients could not select a doctor by preference, could not see who they had seen before, and had no way to say I want to see her again. The design had to serve two users at once: new patients choosing someone worth returning to, and returning patients who needed a fast path back, all without slowing down people who just needed care now.',
+      refH:'From find availability to find your doctor.',
+      refP:'I reframed booking as matching. A small set of questions, care needs, specialty, doctor gender, language, drives personalized recommendations with compatibility, availability, and real patient reviews. The mental model shifts from who can see me now to who do I want managing my health.'
+    },
+    { type:'ship', section:'Primary care', caseTag:tag, label:'Action · Progressive disclosure',
+      h2:'A four-step flow, plus a one-tap path back.',
+      cards:[
+        {k:'Step 1 · Route', h:'Understand care needs', p:'Primary care, ongoing condition, or immediate care, so the experience routes appropriately instead of treating every visit the same.'},
+        {k:'Step 2 · Trust', h:'Set preferences', p:'Specialty, doctor gender, language. The inputs that actually drive trust and long-term fit.'},
+        {k:'Step 3 · Match', h:'Review matched providers', p:'Personalized recommendations with compatibility and reviews. A match, not a waitlist.'},
+        {k:'Step 4 · Complete', h:'Insurance last', p:'Payment and insurance moved to the end so it feels like completing a booking, not filing paperwork. And after a visit: save your doctor, rebook in one tap.'}
+      ]
+    },
+    { type:'work', section:'Primary care', caseTag:tag,
+      h2:'Before and after: auto-match to choosing your PCP.',
+      img: IMG.pcp,
+      alt:'Heal booking flow before and after, speed-first auto-match versus relationship-first PCP matching',
+      cap:'Heal · speed-first auto-match (before) vs relationship-first matching with saved doctors and one-tap rebooking (after)'
+    },
+    { type:'results', section:'Primary care', caseTag:tag,
+      metrics:[
+        {to:'+15%', lab:'Repeat visits with the same physician, the continuity metric primary care depends on', hero:true},
+        {to:'+25%', lab:'Preferred provider selection'},
+        {to:'\u221220\u201330%', lab:'Booking-related support contacts, the manual workaround designed out of existence'}
+      ],
+      rigor:'<b>The support queue was the smoking gun.</b> Patients were already trying to build relationships; the product just made them call a human to do it. Designing the relationship into the flow moved continuity, selection, and support volume together.'
+    }
+  ],
+
+  copilot: (tag) => [
+    { type:'data', section:'Banking insights', caseTag:tag,
+      meta:['Role · <b>Design DRI</b>','Context · <b>Square Banking north star</b>','Built in · <b>Cursor, working prototype</b>'],
+      big:'#1', unit:'',
+      biglabel:'predictor of long-term Banking engagement: debit activation and money movement. Not features.',
+      support:'Square Banking needed a north star: what should this product become? Every roadmap conversation wanted AI-powered features. I took a different route: build the AI future as a working prototype fast enough that we could evaluate it against real engagement data instead of debating it in decks.',
+      aside:['The question','Where should Banking bet next, and what does the data say deserves the roadmap?']
+    },
+    { type:'fog', section:'Banking insights', caseTag:tag, label:'Task · The reframe',
+      fogH:'AI on the roadmap because AI is on every roadmap.',
+      fogP:'The pressure was to ship something visibly intelligent. But feature-first AI is how products end up with a chatbot bolted to the side. The open question was whether AI insights would actually change seller behavior, and no deck could answer it.',
+      refH:'Prototype the future, let the data pick the present.',
+      refP:'I built the Money Copilot as a working exploration: sellers asking real banking questions, cash flow trends, upcoming expenses, and getting actionable answers in real time. A real artifact the team could react to, instrumented thinking behind every interaction.'
+    },
+    { type:'ship', section:'Banking insights', caseTag:tag, label:'Action · Built to be judged',
+      h2:'A working AI money hub, shipped as an exploration in days.',
+      cards:[
+        {k:'Prototype', h:'Money Copilot, running', p:'Real-time Q&A over banking and spending: cash flow trends, upcoming expenses, proactive nudges before balances are impacted. Built in Cursor as a functional prototype, not a click-through.'},
+        {k:'Insights', h:'Actionable, not decorative', p:'Every insight paired with a next action: move money, adjust a payment, review a trend. Insight without action is a dashboard, and dashboards decide nothing.'},
+        {k:'Evaluation', h:'Judged against engagement data', p:'Held the vision up against what actually predicted long-term engagement. Debit activation and money movement won. The hub informed the north star; the quarter went to activation.'}
+      ]
+    },
+    { type:'work', section:'Banking insights', caseTag:tag,
+      h2:'The Money Copilot exploration.',
+      img: IMG.copilot,
+      alt:'Money Copilot prototype showing AI-powered banking insights and real-time cash flow questions',
+      cap:'Square Banking north star · Money Copilot working prototype, AI insights paired with actions'
+    },
+    { type:'results', section:'Banking insights', caseTag:tag,
+      metrics:[
+        {to:'Days', lab:'From concept to a working AI prototype the team could evaluate, not a quarter of debate', hero:true},
+        {to:'32% \u2192 40%+', lab:'The activation lift the refocused roadmap delivered for onboarding-acquired sellers'},
+        {from:'29%', to:'51%', lab:'First card spend, the behavior the data said to bet on'}
+      ],
+      rigor:'<b>The exploration cost days. The clarity moved a quarter.</b> The vision was adopted into the north star, the feature was deliberately deferred, and the roadmap went to the behaviors that predicted engagement. This is how I use AI in product work: fast enough to explore honestly, disciplined enough to let data decide.'
+    }
+  ]
+};
+
+/* about slides shared builder */
+function aboutSlides(bio1, bio2){
+  return [
+    { type:'about', section:'Intro', h2:'Quick intro for anyone I haven\u2019t met.', bios:[bio1, bio2] },
+    { type:'builder', section:'Intro',
+      h1:'Not just a designer. <em>A builder.</em>',
+      sub:'A full AI-assisted skill set: I design it, prototype it, ship production code, and launch the app. The loop from idea to something real has never been shorter, and I use that speed to de-risk decisions with data.',
+      points:[
+        {k:'Design', h:'Craft and systems', p:'End-to-end product design, design systems, and product voice from a writing background.'},
+        {k:'Build', h:'Production code', p:'Next.js, Supabase, Stripe. Real auth, real data, real payments, deployed on Vercel.'},
+        {k:'AI-native', h:'Cursor + Claude Code', p:'Working prototypes in days, not quarters. Explorations that produce evidence, not opinions.'},
+        {k:'Ship', h:'Full apps, launched', p:'From rough idea to live product, solo. Two full-stack products currently in build.'}
+      ]
+    }
+  ];
+}
+
+/* =========================================================
+   PATHS
+   ========================================================= */
+const DECKS = {
+  fintech: {
+    label: 'Fintech & Payments',
+    accent: '#6c9bf5', accentSoft: 'rgba(108,155,245,.13)',
+    card: {
+      title: 'Fintech & Payments',
+      desc: 'Banking activation and payment network growth at Square. Measured lifts, experiment-backed.',
+      cases: ['Square Checking activation', 'Bill Pay biller network']
+    },
+    slides: [
+      { type:'intro',
+        eyebrow:'Fintech & payments',
+        h1:'I design money movement that moves metrics.',
+        sub:'Two stories from Square Banking. In both, the team had opinions about the fix, the data pointed somewhere else, and following the data is what moved the number.',
+        agenda:[
+          {n:'01', t:'Square Checking activation'},
+          {n:'02', t:'Bill Pay biller network'},
+          {n:'03', t:'How I work now'}
+        ]
+      },
+      ...aboutSlides(
+        'About a decade in product design, mostly <b>fintech and healthcare</b>. Most recently at <b>Square</b>, part of Block, where I owned end-to-end design across Checking engagement, Cards, and Bill Pay. Before that: real estate at Flyhomes, helping buyers win homes during the pandemic, and healthcare, working provider tooling and patient experiences.',
+        'In every role I\u2019ve been a strong cross-functional partner who helps strategize. My social science education means <b>qual and quant research drive my decisions</b>, and a writing background means product voice is part of my craft.'
+      ),
+      ...CASES.checking('Case 01 · Square Checking'),
+      ...CASES.billpay('Case 02 · Bill Pay network'),
+      { type:'close', section:'Close',
+        h1:'I design it, prototype it, and ship it in production code.',
+        also:'Also in this portfolio: <b>virtual-card-first onboarding</b> that decoupled the debit card from Checking (~38% card adoption lift), and <b>vendor payment acceptance with Plaid</b>. Happy to go deep on any of it.',
+        stack:['Cursor','Claude Code','Next.js','Supabase','Stripe','Vercel','Figma'],
+      }
+    ]
+  },
+
+  ai: {
+    label: 'Data-Driven & Applied AI',
+    accent: '#e2a848', accentSoft: 'rgba(226,168,72,.13)',
+    card: {
+      title: 'Data-Driven & Applied AI',
+      desc: 'Decision-support design for clinical data, and AI explorations disciplined by engagement data at Square.',
+      cases: ['Clinical decision support at Heal', 'Actionable banking insights at Square']
+    },
+    slides: [
+      { type:'intro',
+        eyebrow:'Data-driven & applied AI',
+        h1:'The model surfaces. The design decides.',
+        sub:'Two proofs today. Turning continuous clinical data into physician decisions at Heal, and building a working AI banking prototype fast enough that data, not opinion, could pick the roadmap.',
+        agenda:[
+          {n:'01', t:'Clinical decision support · Heal'},
+          {n:'02', t:'Actionable banking insights · Square'},
+          {n:'03', t:'How I work now'}
+        ]
+      },
+      ...aboutSlides(
+        'About a decade in product design across <b>fintech and healthcare</b>, most recently at <b>Square</b> owning Checking engagement, Cards, and Bill Pay end to end. My education is in the social sciences, so <b>qual and quant research drive my decisions</b>, and a writing background means product voice is part of my craft, which matters more than ever when the product talks back.',
+        'Before Square: Flyhomes in proptech, and healthcare at Heal and Vetted Petcare, working both provider tooling and patient experiences.'
+      ),
+      ...CASES.monitoring('Case 01 · Heal monitoring'),
+      ...CASES.copilot('Case 02 · Banking insights'),
+      { type:'close', section:'Close',
+        h1:'Fast enough to explore honestly. Disciplined enough to let data decide.',
+        also:'Also relevant: two <b>full-stack products currently in build</b> with the same AI-assisted workflow (demos on request), and <b>AI prototyping consulting</b> helping teams shorten their idea-to-evidence loop.',
+        stack:['Cursor','Claude Code','v0','Next.js','Supabase','Vercel'],
+      }
+    ]
+  },
+
+  health: {
+    label: 'Healthcare',
+    accent: '#a98cf7', accentSoft: 'rgba(169,140,247,.13)',
+    card: {
+      title: 'Healthcare',
+      desc: 'In-home care at Heal: monitoring that beat its growth goal and won Medicare approval, and the shift to primary care.',
+      cases: ['Preventative patient monitoring', 'From one-time visits to primary care']
+    },
+    slides: [
+      { type:'intro',
+        eyebrow:'Healthcare',
+        h1:'Design that moved patients from one-time visits to ongoing care.',
+        sub:'Two stories from Heal, where doctors make house calls at scale. One about seeing patients between visits, one about turning strangers into primary care relationships. Both were business-model unlocks, not feature work.',
+        agenda:[
+          {n:'01', t:'Preventative patient monitoring'},
+          {n:'02', t:'PCP selection & rebooking'},
+          {n:'03', t:'How I work now'}
+        ]
+      },
+      ...aboutSlides(
+        'About a decade in product design, split between <b>healthcare and fintech</b>. In healthcare I\u2019ve worked both sides of the encounter: provider tooling and patient experiences at <b>Heal</b>, plus care logistics at Vetted Petcare. Most recently I was at <b>Square</b>, owning Checking, Cards, and Bill Pay, where I picked up the experiment-driven rigor I now bring to clinical work.',
+        'My social science education means <b>qual and quant research inform every decision</b>, which in clinical products is a safety practice, not a nicety.'
+      ),
+      ...CASES.monitoring('Case 01 · Patient monitoring'),
+      ...CASES.primarycare('Case 02 · Primary care'),
+      { type:'close', section:'Close',
+        h1:'Clinical products earn trust in the details.',
+        also:'Also in healthcare: <b>senior-focused UX</b> for Medicare populations, <b>Vetted Petcare</b> care logistics, and current <b>AI-assisted prototyping</b> of clinical decision-support concepts in production code.',
+        stack:['Clinical UX','Data visualization','iPad / high density','Cursor','Claude Code','Next.js'],
+      }
+    ]
+  }
+};
+
+const CONTACT = {
+  email:'dianashawnbarraza@gmail.com',
+  linkedin:'https://www.linkedin.com/in/dianashawnbarraza',
+  site:'barrazaxd.com'
+};
+const PASSWORD = 'iterate2026';
+
+/* =========================================================
+   ENGINE
+   ========================================================= */
+const $ = s => document.querySelector(s);
+let current = null, idx = 0, slides = [];
+let protoState = {};   /* live prototype state per slide */
+let builderTimers = [];
+
+function safeGet(k){ try { return sessionStorage.getItem(k); } catch(e){ return null; } }
+function safeSet(k,v){ try { sessionStorage.setItem(k,v); } catch(e){} }
+const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (safeGet('dsb_unlocked') === '1') { $('#gate').classList.add('hidden'); $('#selector').classList.remove('hidden'); }
+
+function tryUnlock(){
+  const val = $('#gateInput').value.trim().toLowerCase();
+  if (val === PASSWORD) {
+    safeSet('dsb_unlocked','1');
+    $('#gate').classList.add('hidden');
+    $('#selector').classList.remove('hidden');
+  } else {
+    $('#gateErr').textContent = 'That\u2019s not it. Check your invite.';
+    $('#gateInput').select();
+  }
+}
+$('#gateForm').addEventListener('submit', e => { e.preventDefault(); tryUnlock(); });
+$('#gateForm').querySelector('button').addEventListener('click', e => { e.preventDefault(); tryUnlock(); });
+
+const keys = Object.keys(DECKS);
+$('#selCards').innerHTML = keys.map((k,i) => {
+  const d = DECKS[k];
+  return `<button class="sel-card" data-deck="${k}" style="--card-accent:${d.accent}">
+    <span class="sel-key">${i+1}</span>
+    <h3>${d.card.title}</h3>
+    <p>${d.card.desc}</p>
+    <div class="cases">${d.card.cases.map(c=>`<span>\u2192</span> ${c}`).join('<br>')}</div>
+  </button>`;
+}).join('');
+document.querySelectorAll('.sel-card').forEach(b =>
+  b.addEventListener('click', () => openDeck(b.dataset.deck)));
+
+function openDeck(key){
+  current = key; idx = 0; protoState = {};
+  const d = DECKS[key];
+  document.documentElement.style.setProperty('--accent', d.accent);
+  document.documentElement.style.setProperty('--accent-soft', d.accentSoft);
+  $('#sectorLabel').textContent = d.label;
+  slides = d.slides;
+  renderSlides();
+  renderCrumbs();
+  renderDots();
+  $('#selector').classList.add('hidden');
+  $('#deck').classList.add('active');
+  show(0);
+}
+function closeDeck(){
+  $('#deck').classList.remove('active');
+  $('#selector').classList.remove('hidden');
+  current = null;
+}
+$('#exitBtn').addEventListener('click', closeDeck);
+
+function toggleFS(){
+  try {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  } catch(e){}
+}
+$('#fsBtn').addEventListener('click', toggleFS);
+
+/* ---------- rendering ---------- */
+function renderSlides(){
+  $('#stage').innerHTML = slides.map((s,i)=>
+    `<section class="slide" data-i="${i}" role="group" aria-roledescription="slide" aria-label="Slide ${i+1} of ${slides.length}" aria-hidden="true"><div class="slide-inner">${tpl(s,i)}</div></section>`).join('');
+  /* graceful missing-image handling */
+  document.querySelectorAll('.stage img[data-fallback]').forEach(img => {
+    img.addEventListener('error', () => {
+      const box = document.createElement('div');
+      box.className = 'img-missing';
+      box.innerHTML = `Image placeholder: ${img.getAttribute('src')}<br>Drop the file in the images/ folder next to review.html.`;
+      img.replaceWith(box);
+    });
+  });
+  wireProtos();
+}
+
+function eyebrow(s, fallback){
+  const label = s.label || fallback;
+  const tag = s.caseTag ? `<span class="case-tag">${s.caseTag}</span>` : '';
+  return `<div class="eyebrow">${label}${tag}</div>`;
+}
+
+function phoneShot(screen, pid, kind){
+  if (!screen) return `<div class="img-missing" style="margin:14px">Screen missing.</div>`;
+  const hs = (screen.hs||[]).map((h,j)=>
+    `<button class="hs" data-pid="${pid}" data-to="${h.to}" aria-label="${h.label}" style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%"><span class="pulse"></span></button>`).join('');
+  return `<div class="shot"><img src="${screen.img}" alt="" data-fallback>${kind==='hotspots'?hs:''}</div>`;
+}
+
+function tpl(s,i){
+  switch(s.type){
+    case 'intro': return `
+      <div class="t-intro">
+        <div class="eyebrow">${s.eyebrow}</div>
+        <h1>${s.h1}</h1>
+        <p class="sub">${s.sub}</p>
+        <div class="agenda">${s.agenda.map(a=>`<div class="agenda-item"><div class="n">${a.n}</div><div class="t">${a.t}</div></div>`).join('')}</div>
+      </div>`;
+    case 'about': return `
+      <div class="t-about">
+        <div class="eyebrow">About me · The decade</div>
+        <div class="grid">
+          <div>
+            <h2>${s.h2}</h2>
+            ${s.bios.map(b=>`<p class="bio">${b}</p>`).join('')}
+            <div class="logo-row">${LOGOS.map(l=>`<span class="lg">${l}</span>`).join('')}</div>
+            <div class="logo-note">Wordmarks stand in for logos; swap in SVGs anytime.</div>
+          </div>
+          <img class="headshot" src="${IMG.headshot}" alt="Diana Shawn Barraza" data-fallback>
+        </div>
+      </div>`;
+    case 'builder': return `
+      <div class="t-builder">
+        <div class="eyebrow">About me · How I build</div>
+        <h1>${s.h1}</h1>
+        <p class="sub">${s.sub}</p>
+        <div class="grid">
+          <div class="terminal" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <pre data-builder="${i}"></pre>
+          </div>
+          <div class="builder-points">
+            ${s.points.map((p,j)=>`<div class="bp" style="animation-delay:${.5+j*.5}s"><div class="k">${p.k}</div><h4>${p.h}</h4><p>${p.p}</p></div>`).join('')}
+          </div>
+        </div>
+      </div>`;
+    case 'data': return `
+      <div class="t-data">
+        ${eyebrow(s,'Situation · Start with the data')}
+        ${s.meta?`<div class="meta-row">${s.meta.map(m=>`<span>${m}</span>`).join('')}</div>`:''}
+        <div class="big"><span class="count" data-target="${s.big}">${s.big}</span>${s.unit?`<span class="unit">${s.unit}</span>`:''}</div>
+        <h2 class="biglabel">${s.biglabel}</h2>
+        <p class="support">${s.support}</p>
+        <div class="aside"><b>${s.aside[0]}</b><span>${s.aside[1]}</span></div>
+      </div>`;
+    case 'funnel': return `
+      <div class="t-funnel">
+        ${eyebrow(s,'Situation · The funnel')}
+        <h2>${s.h2}</h2>
+        <div class="funnel">
+          ${s.steps.map(st=>`
+            <div class="fstep${st.drop?' dropzone':''}">
+              <div class="fl">${st.label}</div>
+              <div class="fbar"><i style="--w:${st.w}%"></i>${st.v?`<span class="fv">${st.v}</span>`:''}</div>
+            </div>
+            ${st.drop?`<div class="fdrop">\u25bc ${s.dropLabel}</div>`:''}`).join('')}
+        </div>
+        <p class="fnote">${s.note}</p>
+      </div>`;
+    case 'fog': return `
+      <div class="t-fog">
+        ${eyebrow(s,'Task · The reframe')}
+        <div class="cols">
+          <div class="panel fog"><div class="tag">The fog</div><h3>${s.fogH}</h3><p>${s.fogP}</p></div>
+          <div class="panel reframe"><div class="tag">The reframe</div><h3>${s.refH}</h3><p>${s.refP}</p></div>
+        </div>
+      </div>`;
+    case 'ship': return `
+      <div class="t-ship">
+        ${eyebrow(s,'Action')}
+        <h2>${s.h2}</h2>
+        <div class="ship-grid">${s.cards.map(c=>`<div class="ship-card"><div class="k">${c.k}</div><h4>${c.h}</h4><p>${c.p}</p></div>`).join('')}</div>
+      </div>`;
+    case 'phases': return `
+      <div class="t-phases">
+        ${eyebrow(s,'Action · In phases')}
+        <h2>${s.h2}</h2>
+        <div class="phase-row">${s.phases.map(p=>`
+          <div class="phase${p.zero?' zero':''}">
+            <div class="ph">${p.ph}</div>
+            <h4>${p.h}</h4><p>${p.p}</p>
+            ${p.badge?`<span class="badge">${p.badge}</span>`:''}
+          </div>`).join('')}</div>
+        <div class="insight"><span>${s.insight.label}</span>${s.insight.text}</div>
+      </div>`;
+    case 'work': {
+      const two = s.imgs ? `<div class="two">${s.imgs.map(im=>`<figure><img src="${im.img}" alt="${im.alt}" data-fallback loading="lazy"><figcaption>${im.cap}</figcaption></figure>`).join('')}</div>` : '';
+      return `
+      <div class="t-work">
+        ${eyebrow(s,'The work')}
+        <h2>${s.h2}</h2>
+        ${s.imgs ? two : `<figure><img src="${s.img}" alt="${s.alt}" data-fallback loading="lazy"><figcaption>${s.cap}</figcaption></figure>`}
+      </div>`; }
+    case 'proto': {
+      const pidA = `p${i}a`, pidB = `p${i}b`;
+      let beforeHTML;
+      if (s.before.mode === 'scroll') {
+        beforeHTML = `<div class="phone"><div class="notch"></div><div class="screen"><div class="shot"><img src="${s.before.img}" alt="" data-fallback></div></div></div>
+          <div class="ph-cap">${s.before.cap}</div>`;
+      } else {
+        beforeHTML = `<div class="phone"><div class="notch"></div><div class="screen" data-steps="${s.before.proto}" data-pid="${pidB}"></div></div>
+          <div class="step-dots" data-dots="${pidB}"></div><div class="ph-cap" data-cap="${pidB}"></div>`;
+      }
+      return `
+      <div class="t-proto">
+        ${eyebrow(s,'Action · Before and after')}
+        <h2>${s.h2}</h2>
+        <div class="phones">
+          <div class="ph-col"><div class="ph-label">Before</div>${beforeHTML}</div>
+          <div class="ph-col"><div class="ph-label after">After · interactive</div>
+            <div class="phone"><div class="notch"></div><div class="screen" data-proto="${s.after}" data-pid="${pidA}"></div></div>
+            <div class="ph-chips" data-chips="${pidA}"></div>
+            <div class="step-dots" data-dots="${pidA}"></div>
+            <div class="ph-cap" data-cap="${pidA}"></div>
+          </div>
+        </div>
+        <div class="proto-note">${s.note}</div>
+      </div>`; }
+    case 'results': return `
+      <div class="t-results">
+        ${eyebrow(s,'Results · Against the baseline')}
+        <div class="metrics">${s.metrics.map(m=>`
+          <div class="metric${m.hero?' hero':''}">
+            <div class="val">${m.from?`<span class="from">${m.from}</span><span class="arrow">\u2192</span>`:''}${m.to}</div>
+            <div class="lab">${m.lab}</div>
+          </div>`).join('')}</div>
+        <p class="rigor">${s.rigor}</p>
+      </div>`;
+    case 'next': return `
+      <div class="t-next">
+        ${eyebrow(s,'Next phase · The vision')}
+        <h2>${s.h2}</h2>
+        <div class="nextwrap">
+          <div class="story">${s.story}</div>
+          <div class="protoslot">
+            <span class="badge">${s.slot.badge}</span>
+            <p>${s.slot.text}</p>
+          </div>
+        </div>
+      </div>`;
+    case 'close': return `
+      <div class="t-close">
+        ${eyebrow(s,'How I work now')}
+        <div class="close-grid">
+          <div>
+            <h1>${s.h1}</h1>
+            <p class="also">${s.also}</p>
+            <div class="stack">${s.stack.map(t=>`<span class="chip">${t}</span>`).join('')}</div>
+            <div class="contact">
+              <a href="mailto:${CONTACT.email}">${CONTACT.email}</a>
+              <a href="${CONTACT.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://${CONTACT.site}" target="_blank" rel="noopener">${CONTACT.site}</a>
+            </div>
+          </div>
+          <img class="headshot" src="${IMG.headshot}" alt="Diana Shawn Barraza" data-fallback>
+        </div>
+      </div>`;
+  }
+}
+
+/* ---------- prototype engine ---------- */
+function wireProtos(){
+  try {
+    /* hotspot prototypes */
+    document.querySelectorAll('[data-proto]').forEach(sc => {
+      const def = PROTOS[sc.dataset.proto], pid = sc.dataset.pid;
+      if (!def || !pid) return;
+      protoState[pid] = def.start;
+      renderProtoScreen(sc, def, pid);
+      const chipbar = document.querySelector(`[data-chips="${pid}"]`);
+      if (chipbar && def.chips){
+        chipbar.innerHTML = def.chips.map(([k,l])=>`<button data-pid="${pid}" data-goto="${k}">${l}</button>`).join('');
+      }
+    });
+    /* step prototypes */
+    document.querySelectorAll('[data-steps]').forEach(sc => {
+      const def = PROTOS[sc.dataset.steps], pid = sc.dataset.pid;
+      if (!def || !pid) return;
+      protoState[pid] = 0;
+      renderStepScreen(sc, def, pid);
+    });
+  } catch(err){ console.warn('wireProtos setup:', err); }
+
+  /* delegate clicks — bind once, guard everything */
+  if (window.__protoBound) return;
+  window.__protoBound = true;
+  document.addEventListener('click', e => {
+    try {
+      const hs = e.target.closest && e.target.closest('.hs');
+      if (hs){
+        const pid = hs.dataset.pid;
+        const sc = pid && document.querySelector(`[data-pid="${pid}"][data-proto]`);
+        const def = sc && PROTOS[sc.dataset.proto];
+        if (def && def.screens[hs.dataset.to]){
+          protoState[pid] = hs.dataset.to;
+          renderProtoScreen(sc, def, pid);
+        }
+        return;
+      }
+      const chip = e.target.closest && e.target.closest('[data-goto]');
+      if (chip){
+        const pid = chip.dataset.pid;
+        const sc = pid && document.querySelector(`[data-pid="${pid}"][data-proto]`);
+        const def = sc && PROTOS[sc.dataset.proto];
+        if (def && def.screens[chip.dataset.goto]){
+          protoState[pid] = chip.dataset.goto;
+          renderProtoScreen(sc, def, pid);
+        }
+        return;
+      }
+      const tz = e.target.closest && e.target.closest('.tapzone');
+      if (tz){
+        const pid = tz.dataset.pid;
+        const sc = pid && document.querySelector(`[data-pid="${pid}"][data-steps]`);
+        const def = sc && PROTOS[sc.dataset.steps];
+        if (def && def.seq){
+          protoState[pid] = ((protoState[pid]||0)+1) % def.seq.length;
+          renderStepScreen(sc, def, pid);
+        }
+      }
+    } catch(err){ console.warn('proto click:', err); }
+  }, {passive:true});
+}
+
+function renderProtoScreen(sc, def, pid){
+  if (!sc || !def || !def.screens) return;
+  const key = protoState[pid];
+  const screen = def.screens[key];
+  if (!screen){ sc.innerHTML = `<div class="img-missing" style="margin:14px">Screen "${key}" not defined.</div>`; return; }
+  sc.innerHTML = phoneShot(screen, pid, 'hotspots');
+  sc.scrollTop = 0;
+  const cap = document.querySelector(`[data-cap="${pid}"]`);
+  if (cap) cap.textContent = screen.cap || '';
+  const chipbar = document.querySelector(`[data-chips="${pid}"]`);
+  if (chipbar) chipbar.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.goto === key));
+  const missing = sc.querySelector('img');
+  if (missing) missing.addEventListener('error', () => {
+    sc.innerHTML = `<div class="img-missing" style="margin:14px">Image placeholder: ${screen.img}<br>Add the file to the images/ folder.</div>`;
+  });
+}
+
+function renderStepScreen(sc, def, pid){
+  if (!sc || !def || !def.seq) return;
+  const n = protoState[pid] || 0;
+  const step = def.seq[n];
+  if (!step){ sc.innerHTML = `<div class="img-missing" style="margin:14px">Step ${n} not defined.</div>`; return; }
+  sc.innerHTML = `<div class="shot"><img src="${step.img}" alt=""></div><div class="tapzone" data-pid="${pid}" role="button" aria-label="Next screen"></div>`;
+  sc.scrollTop = 0;
+  const cap = document.querySelector(`[data-cap="${pid}"]`);
+  if (cap) cap.textContent = (step.cap || '') + '  ·  tap to continue';
+  const dots = document.querySelector(`[data-dots="${pid}"]`);
+  if (dots) dots.innerHTML = def.seq.map((_,j)=>`<i class="${j===n?'on':''}"></i>`).join('');
+  const im = sc.querySelector('img');
+  if (im) im.addEventListener('error', () => {
+    sc.innerHTML = `<div class="img-missing" style="margin:14px">Image placeholder: ${step.img}</div>`;
+  });
+}
+
+/* ---------- builder terminal animation ---------- */
+function runBuilder(){
+  builderTimers.forEach(clearTimeout); builderTimers = [];
+  const pre = document.querySelector('.slide.active pre[data-builder]');
+  if (!pre) return;
+  const render = upTo => BUILDER_LINES.slice(0, upTo).map(([cls,txt]) =>
+    cls ? `<span class="${cls==='p'?'p':'ok'}">${txt}</span>` : txt).join('\n');
+  if (reduceMotion()){ pre.innerHTML = render(BUILDER_LINES.length); return; }
+  pre.innerHTML = '<span class="cursor"></span>';
+  BUILDER_LINES.forEach((_, j) => {
+    builderTimers.push(setTimeout(() => {
+      const done = j === BUILDER_LINES.length - 1;
+      pre.innerHTML = render(j+1) + (done ? '' : '\n<span class="cursor"></span>');
+    }, 420 * (j+1)));
+  });
+}
+
+/* ---------- nav ---------- */
+function renderCrumbs(){
+  const sections = [];
+  slides.forEach((s,i)=>{
+    const name = (s.type==='intro'||s.type==='about'||s.type==='builder') ? 'Intro' : (s.section || 'Close');
+    if (!sections.length || sections[sections.length-1].name !== name)
+      sections.push({name, first:i, last:i});
+    else sections[sections.length-1].last = i;
+  });
+  $('#crumbs').innerHTML = sections.map(sec =>
+    `<button class="crumb" data-first="${sec.first}" data-last="${sec.last}">${sec.name}</button>`).join('');
+  document.querySelectorAll('.crumb').forEach(c =>
+    c.addEventListener('click',()=>show(+c.dataset.first)));
+}
+function renderDots(){
+  $('#dots').innerHTML = slides.map((_,i)=>`<button class="dot" data-i="${i}" aria-label="Go to slide ${i+1}"></button>`).join('');
+  document.querySelectorAll('.dot').forEach(d =>
+    d.addEventListener('click',()=>show(+d.dataset.i)));
+}
+function countUp(el){
+  const raw = el.dataset.target;
+  const num = parseFloat(raw);
+  if (isNaN(num) || num === 0 || reduceMotion()){ el.textContent = raw; return; }
+  const dur = 900, t0 = performance.now();
+  const suffix = raw.replace(String(num),'');
+  function step(t){
+    const p = Math.min((t-t0)/dur,1);
+    el.textContent = Math.round(num*(1-Math.pow(1-p,3))) + suffix;
+    if (p<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function show(i){
+  idx = Math.max(0, Math.min(slides.length-1, i));
+  document.querySelectorAll('.slide').forEach(s => {
+    const on = +s.dataset.i === idx;
+    s.classList.toggle('active', on);
+    s.setAttribute('aria-hidden', on ? 'false' : 'true');
+  });
+  document.querySelectorAll('.dot').forEach(d => {
+    const di = +d.dataset.i;
+    d.classList.toggle('active', di === idx);
+    d.classList.toggle('done', di < idx);
+    d.setAttribute('aria-current', di === idx ? 'true' : 'false');
+  });
+  document.querySelectorAll('.crumb').forEach(c => {
+    const on = idx >= +c.dataset.first && idx <= +c.dataset.last;
+    c.classList.toggle('active', on);
+    c.setAttribute('aria-current', on ? 'true' : 'false');
+  });
+  $('#counter').textContent = `${String(idx+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
+  const activeCount = document.querySelector('.slide.active .count');
+  if (activeCount) countUp(activeCount);
+  if (slides[idx] && slides[idx].type === 'builder') runBuilder();
+}
+
+document.addEventListener('keydown', e => {
+  if (!$('#gate').classList.contains('hidden')) return;
+  if (e.key === 'f' || e.key === 'F') { toggleFS(); return; }
+  if (!current){
+    if (['1','2','3'].includes(e.key) && keys[+e.key-1]) openDeck(keys[+e.key-1]);
+    return;
+  }
+  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(idx+1); }
+  else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(idx-1); }
+  else if (e.key === 'Home') show(0);
+  else if (e.key === 'End') show(slides.length-1);
+  else if (e.key === 'Escape' && !document.fullscreenElement) closeDeck();
+});
+
+/* swipe on the stage background only, so phone prototypes stay tappable */
+let tx = null;
+document.addEventListener('touchstart', e => {
+  if (e.target.closest('.phone')) { tx = null; return; }
+  tx = e.touches[0].clientX;
+}, {passive:true});
+document.addEventListener('touchend', e => {
+  if (tx === null || !current) return;
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 60) show(idx + (dx < 0 ? 1 : -1));
+  tx = null;
+}, {passive:true});
+</script>
+</body>
+</html>
