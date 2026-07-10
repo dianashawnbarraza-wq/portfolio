@@ -953,6 +953,18 @@ body.case-study-body {
   object-position: top center;
 }
 
+/* Phone frame height follows screenshot content (no fixed viewport crop) */
+.phone-shell__screen--content {
+  height: auto;
+  overflow: hidden;
+}
+
+.phone-shell__screen--content img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* iPad shell (landscape) */
 .ipad-shell {
   position: relative;
