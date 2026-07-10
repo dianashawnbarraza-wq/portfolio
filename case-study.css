@@ -269,7 +269,7 @@ body.case-study-body {
 
 .cs-nested-section {
   margin-top: 2.5rem;
-  padding-top: 0.25rem;
+  padding-top: 1.5rem; /* 24px minimum from divider to heading below */
   border-top: 1px solid var(--cs-border);
 }
 
@@ -1391,8 +1391,12 @@ body.case-study-body {
 .cs-accordion-item summary:hover { background: var(--cs-surface); }
 
 .cs-accordion-body {
-  padding: 0 1.25rem 1.25rem;
+  padding: 1.5rem 1.25rem 1.25rem; /* 24px minimum below divider */
   border-top: 1px solid var(--cs-border);
+}
+
+.cs-accordion-body > :first-child {
+  margin-top: 0;
 }
 
 .cs-accordion-body p {
