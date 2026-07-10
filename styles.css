@@ -1063,9 +1063,69 @@ nav a.active {
   max-width: 280px;
 }
 
-/* Contact Section */
-.contact-section {
-  padding: 40px 0 4rem;
+/* Footer / About */
+.site-footer {
+  width: 100%;
+  background: #000000;
+  color: var(--bg-color);
+  padding: 5rem 0;
+  margin-top: 4rem;
+}
+
+.site-footer__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.site-footer .contact-card {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+
+.site-footer .contact-portrait {
+  border-color: rgba(244, 243, 239, 0.18);
+  background: rgba(244, 243, 239, 0.04);
+}
+
+.site-footer .section-header,
+.site-footer .hero-intro,
+.site-footer .contact-heading,
+.site-footer .contact-text {
+  color: var(--bg-color);
+}
+
+.site-footer .contact-facts {
+  border-color: rgba(244, 243, 239, 0.14);
+}
+
+.site-footer .contact-fact {
+  background: rgba(244, 243, 239, 0.04);
+  border-bottom-color: rgba(244, 243, 239, 0.1);
+}
+
+.site-footer .contact-fact__label {
+  color: rgba(244, 243, 239, 0.55);
+}
+
+.site-footer .contact-fact__value {
+  color: var(--bg-color);
+}
+
+.site-footer .contact-fact--console {
+  background: var(--console-bg);
+}
+
+.site-footer .contact-links a {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
+
+.site-footer .contact-links a:hover {
+  background-color: #ffffff;
+  color: var(--text-main);
+  transform: scale(1.03);
 }
 
 .contact-card {
@@ -1282,48 +1342,6 @@ nav a.active {
   margin-bottom: 0.75rem;
 }
 
-/* Footer */
-footer {
-  padding: 4rem 0;
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  border-top: 1px solid var(--border-color);
-  margin-top: 4rem;
-}
-
-/* Floating Contact Button */
-.floating-contact {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 1000;
-  background: var(--bg-color);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-color);
-  border-radius: 980px;
-  padding: 0.75rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--text-main);
-  font-weight: 500;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
-}
-
-.floating-contact:hover {
-  transform: translateY(-4px) scale(1.02);
-  background: var(--card-bg);
-  border-color: var(--text-muted);
-}
-
-.floating-contact svg {
-  width: 18px;
-  height: 18px;
-}
-
 /* Modal */
 .modal {
   position: fixed;
@@ -1490,6 +1508,10 @@ footer {
 
 /* Responsive */
 @media (max-width: 1024px) {
+  .site-footer__inner {
+    padding: 0 60px;
+  }
+
   .contact-card {
     grid-template-columns: 220px minmax(0, 1fr);
     gap: 2rem;
@@ -1507,6 +1529,15 @@ footer {
 
 @media (max-width: 768px) {
   .container {
+    padding: 0 16px;
+  }
+
+  .site-footer {
+    padding: 3.5rem 0;
+    margin-top: 3rem;
+  }
+
+  .site-footer__inner {
     padding: 0 16px;
   }
 
