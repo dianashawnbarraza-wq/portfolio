@@ -336,6 +336,11 @@ nav a.active {
   max-width: 560px;
 }
 
+.hero-intro-lead {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
 .hero-intro-accent {
   font-weight: 500;
   background: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-blue-glow) 100%);
