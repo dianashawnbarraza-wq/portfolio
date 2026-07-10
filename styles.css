@@ -3,7 +3,9 @@
   --text-main: #000000;
   --text-muted: #6e6e73;
   --link-color: #636366;
-  --accent: #000000;
+  --accent: #2F62F0;
+  --accent-blue: #2F62F0;
+  --accent-blue-glow: #6E9BFF;
   --card-bg: #eae8e1;
   --border-color: rgba(20, 22, 26, 0.12);
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -254,6 +256,10 @@ nav a.active {
   color: var(--text-main);
 }
 
+.hero-name-dot {
+  color: var(--accent-blue);
+}
+
 .hero-availability {
   display: none;
 }
@@ -323,7 +329,7 @@ nav a.active {
 .hero-intro {
   font-size: 1.25rem;
   line-height: 1.5;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.011em;
   color: var(--text-main);
   margin: 0;
@@ -331,8 +337,8 @@ nav a.active {
 }
 
 .hero-intro-accent {
-  font-weight: 600;
-  background: linear-gradient(90deg, #b344ff, #7b2cbf);
+  font-weight: 500;
+  background: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-blue-glow) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -394,7 +400,7 @@ nav a.active {
 }
 
 .hero-gradient {
-  background: linear-gradient(90deg, #ffb6ff, #b344ff);
+  background: linear-gradient(90deg, #6E9BFF, var(--accent-blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -501,7 +507,7 @@ nav a.active {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 500;
-  color: #2f62f0;
+  color: var(--accent-blue);
   letter-spacing: 0.02em;
 }
 
@@ -782,7 +788,7 @@ nav a.active {
   justify-content: center;
   padding: 2rem 1.75rem;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 35%, rgba(179, 68, 255, 0.06), transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 35%, rgba(47, 98, 240, 0.08), transparent 70%),
     linear-gradient(180deg, #f8f8fa 0%, #ececf0 100%);
 }
 
@@ -979,7 +985,7 @@ nav a.active {
 /* AI Card Variant */
 .glass-card.ai-card {
   grid-column: 1 / -1;
-  background: linear-gradient(135deg, #b344ff 0%, #6b15b5 100%);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #1e4fd4 100%);
   display: flex;
   align-items: center;
   justify-content: center;
