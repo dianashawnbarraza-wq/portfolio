@@ -858,8 +858,8 @@ body.case-study-body {
   align-items: start;
 }
 
-.phone-compare__grid--three {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.phone-compare__grid--four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .phone-gallery {
@@ -1536,7 +1536,8 @@ body.case-study-body {
   }
 
   .phone-compare__grid,
-  .phone-compare__grid--three {
+  .phone-compare__grid--three,
+  .phone-compare__grid--four {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
