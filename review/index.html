@@ -182,6 +182,22 @@ h2.sec{font-family:var(--display);font-size:clamp(26px,3.4vw,42px);font-weight:7
 .signal svg{flex-shrink:0}
 .signal .sl{font-family:var(--mono);font-size:13px;color:var(--dim);line-height:1.7}
 .signal .sl b{color:var(--accent);font-weight:600}
+.staged{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 26px 20px}
+.staged-label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
+.staged-bars{display:flex;gap:22px;align-items:flex-end;height:120px}
+.sbar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.sbar-track{width:100%;max-width:64px;height:100%;display:flex;align-items:flex-end;background:var(--raised);border-radius:8px;overflow:hidden}
+.sbar-fill{width:100%;height:0;transition:height 1s ease .2s;border-radius:8px 8px 0 0}
+.slide.active .sbar-fill{height:var(--h)}
+.sbar-fill.tone-base{background:var(--faint)}
+.sbar-fill.tone-mid{background:var(--dim)}
+.sbar-fill.tone-hi{background:var(--accent)}
+.sbar-label{font-family:var(--mono);font-size:11px;color:var(--dim);text-align:center;margin-top:9px;line-height:1.4}
+.staged-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:16px;line-height:1.6}
+.next-piece{margin-top:22px;border:1px dashed var(--line);border-radius:14px;padding:20px 24px;max-width:640px}
+.next-piece .np-tag{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+.next-piece h4{font-family:var(--display);font-size:18px;font-weight:600;margin-bottom:8px}
+.next-piece p{color:var(--muted);font-size:15px;line-height:1.6}
 
 /* debit tracker animation */
 .t-debit .grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
@@ -471,14 +487,15 @@ const IMG = {
   ckPay:      'images/checking-after-pay.png',
   ckNumbers:  'images/checking-after-numbers.png',
   bpB1:'images/billpay-before-1-list.png',
-  bpB2:'images/billpay-before-2-vendor-search.png',
-  bpB3:'images/billpay-before-3-create-vendor.png',
-  bpA1:'images/billpay-after-1-list.png',
-  bpA2:'images/billpay-after-2-intent.png',
-  bpA3:'images/billpay-after-3-scan.png',
-  bpA4:'images/billpay-after-4-details.png',
-  bpA5:'images/billpay-after-5-schedule.png',
-  bpA6:'images/billpay-after-6-scheduled.png',
+  bpB2:'images/billpay-before-2-create-bill.png',
+  bpB3:'images/billpay-before-3-add-vendor.png',
+  bpB4:'images/billpay-before-4-create-vendor.png',
+  ocr1:'images/ocr-1-list.png',
+  ocr2:'images/ocr-2-add-sheet.png',
+  ocr3:'images/ocr-3-scan.png',
+  ocr4:'images/ocr-4-details-autofill.png',
+  ocr5:'images/ocr-5-payment.png',
+  ocr6:'images/ocr-6-scheduled.png',
   healBefore: 'images/heal-before-schedule.png',        /* PLACEHOLDER: schedule-first iPad app, before state */
   tk1:'images/tracker-1-printing-wallet.png',
   tk2:'images/tracker-2-printing-numbers.png',
@@ -632,16 +649,17 @@ const PROTOS = {
   },
   billpayBefore: { mode:'steps', seq:[
     {img:IMG.bpB1, cap:'Before · Bill Pay list. Every payment starts from a manual add.'},
-    {img:IMG.bpB2, cap:'Before · Search for a vendor, or create one from scratch.'},
-    {img:IMG.bpB3, cap:'Before · Full vendor details required before any payment can move. The funnel\u2019s biggest drop-off.'}
+    {img:IMG.bpB2, cap:'Before · A blank form. Nothing is pre-filled, not even the vendor.'},
+    {img:IMG.bpB3, cap:'Before · Search for a vendor, or start from scratch. This is the step 46% of sellers never got past.'},
+    {img:IMG.bpB4, cap:'Before · If the vendor doesn\u2019t exist, build one field by field, before any payment can move.'}
   ]},
-  billpayAfter: { mode:'steps', seq:[
-    {img:IMG.bpA1, cap:'After · Bill Pay list with outstanding, scheduled, and paid views.'},
-    {img:IMG.bpA2, cap:'After · Start from intent: scan a bill, pay a vendor, or mail a check.'},
-    {img:IMG.bpA3, cap:'After · Scan the bill in your hand. OCR extracts the details.'},
-    {img:IMG.bpA4, cap:'After · Connected biller, account number, due date, and balance prefilled from the network.'},
-    {img:IMG.bpA5, cap:'After · Schedule against the due date from Square Checking.'},
-    {img:IMG.bpA6, cap:'After · Scheduled. From paper bill to payment in under a minute.'}
+  ocrFlow: { mode:'steps', seq:[
+    {img:IMG.ocr1, cap:'Stage 1 · The existing Bill Pay list. Tap + to add a bill.'},
+    {img:IMG.ocr2, cap:'Stage 1 · One sheet, two paths: enter manually, the old way, or take a photo.'},
+    {img:IMG.ocr3, cap:'Stage 1 · Photograph any bill or invoice. No template required.'},
+    {img:IMG.ocr4, cap:'Stage 1 · OCR extracts every field AND auto-creates the vendor, "Boston Tea" appears with no manual search. Category is AI-suggested: Supplies, looked up from the vendor automatically.'},
+    {img:IMG.ocr5, cap:'Stage 1 · Schedule the payment. No vendor form, no manual entry.'},
+    {img:IMG.ocr6, cap:'Stage 1 · Scheduled. The vendor now exists for next time, and the category is already applied.'}
   ]},
   emailFlow: {
     mode:'hotspots', start:'email',
@@ -760,47 +778,61 @@ const CASES = {
     { type:'funnel', section:'Bill Pay', caseTag:tag, label:'Situation · The funnel',
       h2:'The funnel said it plainly: "Add a vendor" was where sellers gave up.',
       steps:[
-        {label:'Start a bill payment', w:96},
-        {label:'Add a vendor', w:44, drop:true},
+        {label:'Start a bill payment', w:100},
+        {label:'Add a vendor', w:54, drop:true},
         {label:'Enter payment details', w:38},
-        {label:'Schedule payment', w:33}
+        {label:'Schedule payment', w:32}
       ],
-      dropLabel:'Largest drop-off in the funnel',
-      note:'<b>This is what gave me confidence to attack the cold start.</b> The losses were not in paying, they were in setting up who to pay. Sellers abandoned at the moment the product asked them to reconstruct vendor details they did not have on hand. Put the two findings together, 80% of bills living elsewhere, and vendor setup killing the funnel, and the strategy writes itself: change how bills enter the product.'
+      dropLabel:'46% drop-off · the largest in the funnel, by far',
+      note:'<b>This is what gave me confidence to attack the cold start.</b> Add a vendor lost 46% of sellers in a single step, more than every other step in the funnel combined. The two steps after it also decline, down to 38% and then 32%, but those are ordinary step-over-step drop-off, not a signal, and they were not where I focused. One step was the problem. Fix it, and the rest of the funnel takes care of itself.'
     },
     { type:'fog', section:'Bill Pay', caseTag:tag, label:'Task · The reframe',
       fogH:'The assumed fix: optimize the vendor form.',
       fogP:'Fewer fields, tighter steps, better validation. But no amount of form polish solves a cold start. Sellers expected a hub for all business bills and got a manual payment tool that made them do data entry before they could pay anyone.',
-      refH:'The reframe: bill coverage, entered through seller intent.',
-      refP:'Every channel a bill already travels through is a potential entry point: an email inbox, a paper statement, a biller network. Two phases, sequenced by effort and impact. Leading metrics shifted from completion rates to connected bills and sellers paying 2+ bills a month, the retention signal. Payment volume stayed the north star.'
+      refH:'The reframe: remove the vendor step, don\u2019t improve it.',
+      refP:'Every channel a bill already travels through is a potential entry point: an email inbox, a paper statement, a biller network. Two stages, sequenced by effort and impact, each shipped and measured against the Add-a-vendor conversion rate before committing to the next. Leading metrics shifted from completion rates to connected bills and sellers paying 2+ bills a month, the retention signal. Payment volume stayed the north star.'
     },
-    { type:'phases', section:'Bill Pay', caseTag:tag, label:'Action · Two phases, effort and impact',
-      h2:'Email forwarding shipped first. The network was designed next.',
+    { type:'phases', section:'Bill Pay', caseTag:tag, label:'Action · Two stages, effort and impact',
+      h2:'OCR shipped first, with AI doing double duty. Email forwarding shipped next.',
       phases:[
-        {ph:'Phase 1 · Shipped', h:'Email forwarding', p:'Discovery showed most bills already arrive by email, and engineering sized ingestion as a low lift. Sellers forward a bill to a dedicated address and it ingests itself: parsed, matched, ready to schedule. Zero UI, shipped first, and payment volume ticked up within weeks.', zero:true, badge:'Zero UI · shipped first'},
-        {ph:'Phase 2 · Designed', h:'Biller network + intent-first entry', p:'I designed the connected-network experience end to end: intent-first entry (scan a bill, pay a vendor, mail a check), OCR extraction, and Paymentus integration with prefilled details, validated through usability testing. When company funding shifted, the network was deprioritized, and the strategy doubled down on the zero-cost channel already moving the number.'}
+        {ph:'Baseline', h:'Manual vendor entry', p:'Search for a vendor or build one from scratch, full contact and bank details, before a payment could move. The step that lost 46% of sellers.'},
+        {ph:'Stage 1 · Shipped', h:'OCR + auto vendor + AI category', p:'Scan any bill and OCR extracts the fields, then auto-creates the vendor, no search, no form. And a second AI moment in the same flow: Bill Pay looks up the vendor and applies a suggested category automatically.', zero:true, badge:'Shipped'},
+        {ph:'Stage 2 · Shipped', h:'Email forwarding', p:'Most bills arrive by email. Forward to a dedicated address and the bill ingests itself, parsed, matched, ready to schedule. Zero UI.', zero:true, badge:'Zero UI · shipped'}
       ],
-      signal:{label:'Early signal after Phase 1', note:'<b>Payment volume ticked up within weeks of the email forwarding launch.</b> The uptick validated the ingestion strategy, and it is what made doubling down on shipped channels the right call when priorities shifted.'},
-      insight:{label:'The design judgment', text:'The highest-impact solution shipped first and had no interface at all. When funding moved, the results made the pivot decision easy.'}
+      staged:{
+        label:'Conversion through the Add-a-vendor step, staged by shipment',
+        note:'Each stage removed a reason to abandon at that step, and each shipment moved the conversion rate that had been stuck at 54%.',
+        bars:[
+          {label:'Baseline · manual entry', v:54, tone:'base'},
+          {label:'+ OCR & auto vendor', v:62, tone:'mid'},
+          {label:'+ Email forwarding', v:69, tone:'hi'}
+        ]
+      },
+      nextPiece:{h:'The last piece: the full biller network.', p:'We identified the Paymentus API and scoped the integration, intent-first entry, prefilled vendor and due date from a national network, but the project was paused before build. The two shipped stages had already moved conversion from 54% to 69%, which made doubling down on them the defensible call while the network waits for its turn.'},
+      insight:{label:'The design judgment', text:'Two cheap stages proved the model before the most expensive one needed a resourcing decision. Removing a step beats improving it every time.'}
     },
-    { type:'iproto', section:'Bill Pay', caseTag:tag, label:'The work · Phase 1, interactive',
+    { type:'iproto', section:'Bill Pay', caseTag:tag, label:'The work · Before',
+      h2:'The manual cold start, screen by screen.',
+      proto:'billpayBefore', frame:'phone',
+      note:'Tap through the baseline: list, a blank form, vendor search, then a full vendor build. Four steps before a payment could move.'
+    },
+    { type:'iproto', section:'Bill Pay', caseTag:tag, label:'The work · Stage 1, interactive',
+      h2:'OCR scanning, with the vendor and the category done for you.',
+      proto:'ocrFlow', frame:'phone',
+      note:'Tap through Stage 1: scan a real invoice, and watch the vendor auto-create and the category auto-suggest. No search, no form, no manual tagging.'
+    },
+    { type:'iproto', section:'Bill Pay', caseTag:tag, label:'The work · Stage 2, interactive',
       h2:'Email forwarding, plugged into the existing design.',
       proto:'emailFlow', frame:'phone',
       note:'A coded walkthrough: forward the email, and the bill appears in the Bill Pay list you just saw, parsed and ready. Tap through, or use the chips.'
     },
-    { type:'proto', section:'Bill Pay', caseTag:tag, label:'The work · Phase 2, designed & validated',
-      h2:'From manual vendor setup to scan-to-scheduled.',
-      before:{ mode:'proto', proto:'billpayBefore' },
-      after:'billpayAfter',
-      note:'Tap either phone to step through. Left: the manual cold start that killed the funnel. Right: the designed network experience, validated in usability testing and ready when funding returns.'
-    },
     { type:'results', section:'Bill Pay', caseTag:tag,
       metrics:[
-        {to:'+23%', lab:'Payment volume growth after email forwarding shipped, the north star metric', hero:true},
-        {to:'2+ bills/mo', lab:'Recurring adoption expanded, the retention signal sellers who churn less share'},
-        {to:'Validated', lab:'Biller network experience designed end to end and usability-tested, ready when funding returns'}
+        {from:'54%', to:'69%', lab:'Conversion through the Add-a-vendor step, the funnel\u2019s biggest drop-off, across both shipped stages', hero:true},
+        {to:'+23%', lab:'Payment volume growth, the north star metric'},
+        {to:'Scoped, paused', lab:'Biller network: API identified, integration scoped, project paused before build'}
       ],
-      rigor:'<b>Payment volume follows bill ingestion.</b> The funnel\u2019s biggest drop-off, vendor setup, was designed out of the critical path for every bill that arrives by email, with zero UI. Active usage stopped being flat, which was the whole assignment, and the shipped results are what made the pivot away from the defunded network a decision instead of a setback.'
+      rigor:'<b>Removing the step beat improving it.</b> Add-a-vendor conversion moved from 54% to 62% after OCR and auto-created vendors, then to 69% after email forwarding removed the step entirely for most bills. Payment volume followed. The network stayed on the roadmap; the two shipped stages are what made that an acceptable place to pause.'
     }
   ],
 
@@ -1263,6 +1295,17 @@ function tpl(s,i){
             <h4>${p.h}</h4><p>${p.p}</p>
             ${p.badge?`<span class="badge">${p.badge}</span>`:''}
           </div>`).join('')}</div>
+        ${s.staged?`<div class="staged">
+          <div class="staged-label">${s.staged.label}</div>
+          <div class="staged-bars">
+            ${s.staged.bars.map(b=>`
+              <div class="sbar-col">
+                <div class="sbar-track"><div class="sbar-fill tone-${b.tone}" style="--h:${b.v}%"></div></div>
+                <div class="sbar-label">${b.label}</div>
+              </div>`).join('')}
+          </div>
+          <div class="staged-note">${s.staged.note}</div>
+        </div>`:''}
         ${s.signal?`<div class="signal">
           <svg width="150" height="54" viewBox="0 0 150 54" aria-hidden="true">
             <polyline fill="none" stroke="var(--dim)" stroke-width="2" points="0,38 30,37 55,38 70,36"/>
@@ -1271,6 +1314,11 @@ function tpl(s,i){
             <text x="40" y="52" font-size="9" fill="var(--dim)" font-family="monospace">email fwd launch \u2191</text>
           </svg>
           <div class="sl"><b>${s.signal.label}</b><br>${s.signal.note}</div>
+        </div>`:''}
+        ${s.nextPiece?`<div class="next-piece">
+          <div class="np-tag">The last piece · designed, not shipped</div>
+          <h4>${s.nextPiece.h}</h4>
+          <p>${s.nextPiece.p}</p>
         </div>`:''}
         <div class="insight"><span>${s.insight.label}</span>${s.insight.text}</div>
       </div>`;
@@ -1307,16 +1355,23 @@ function tpl(s,i){
       </div>`; }
     case 'iproto': {
       const pid = `p${i}x`;
+      const def = PROTOS[s.proto];
+      const stepsMode = def && def.mode === 'steps';
+      const screenAttr = stepsMode ? `data-steps="${s.proto}"` : `data-proto="${s.proto}"`;
+      const inner = `<div class="screen" ${screenAttr} data-pid="${pid}"></div>`;
+      const controls = stepsMode
+        ? `<div class="step-dots" data-dots="${pid}"></div>`
+        : `<div class="ph-chips" data-chips="${pid}"></div>`;
       return `
       <div class="t-proto">
         ${eyebrow(s,'The work · Interactive')}
         <h2 class="sec">${s.h2}</h2>
         <div class="ph-col wide" style="margin:0 auto">
-          <div class="ph-label after">Interactive prototype</div>
+          <div class="ph-label after">Interactive prototype${stepsMode ? ' · tap to advance' : ''}</div>
           ${s.frame==='tablet'
-            ? `<div class="tablet"><div class="screen" data-proto="${s.proto}" data-pid="${pid}"></div></div>`
-            : `<div class="phone"><div class="notch"></div><div class="screen" data-proto="${s.proto}" data-pid="${pid}"></div></div>`}
-          <div class="ph-chips" data-chips="${pid}"></div>
+            ? `<div class="tablet">${inner}</div>`
+            : `<div class="phone"><div class="notch"></div>${inner}</div>`}
+          ${controls}
           <div class="ph-cap" data-cap="${pid}"></div>
         </div>
         <div class="proto-note">${s.note}</div>
