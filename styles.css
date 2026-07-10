@@ -1117,15 +1117,19 @@ nav a.active {
   background: var(--console-bg);
 }
 
-.site-footer .contact-links a {
-  background-color: var(--bg-color);
-  color: var(--text-main);
+.site-footer__divider {
+  height: 1px;
+  background: var(--bg-color);
+  opacity: 0.22;
+  margin-top: 3.5rem;
 }
 
-.site-footer .contact-links a:hover {
-  background-color: #ffffff;
-  color: var(--text-main);
-  transform: scale(1.03);
+.site-footer__copyright {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(244, 243, 239, 0.58);
+  letter-spacing: -0.01em;
 }
 
 .contact-card {
@@ -1167,7 +1171,7 @@ nav a.active {
 }
 
 .contact-text {
-  margin-bottom: 2.5rem;
+  margin-bottom: 0;
   max-width: none;
 }
 
