@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Study · Removing a step instead of improving it</title>
+  <title>Case Study · Tackling the Cold Start in Bill Pay</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="favicon.png?v=2" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
@@ -77,7 +77,7 @@
 
         <section class="cs-hero" id="hero">
           <p class="cs-eyebrow">Square · Bill Pay · Biller Network</p>
-          <h1>Removing a step instead of improving it</h1>
+          <h1>Tackling the Cold Start in Bill Pay</h1>
 
           <div class="cs-meta-grid">
             <div class="cs-meta-item">
@@ -98,7 +98,7 @@
             </div>
           </div>
 
-          <div class="cs-metrics-row cs-metrics-row--4">
+          <div class="cs-metrics-row">
             <div class="metric-card">
               <p class="metric-card__value">54% → 69%</p>
               <p class="metric-card__label">Add-a-vendor conversion</p>
@@ -110,10 +110,6 @@
             <div class="metric-card">
               <p class="metric-card__value">Zero UI</p>
               <p class="metric-card__label">Email ingestion</p>
-            </div>
-            <div class="metric-card">
-              <p class="metric-card__value">Scoped, paused</p>
-              <p class="metric-card__label">Biller network</p>
             </div>
           </div>
 
@@ -289,14 +285,35 @@
             <p>Discovery showed most bills already arrive by email. Sellers forward a bill to a dedicated address and it ingests itself: parsed, matched, ready to schedule. This stage pushed conversion to 69%.</p>
 
             <div class="phone-compare phone-gallery">
-              <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label">Forward from email</figcaption>
-                <div class="phone-shell phone-shell--after">
-                  <div class="phone-shell__screen" tabindex="0" aria-label="Email forwarding modal, scrollable preview">
-                    <img src="billpay-email-forwarding.png?v=1" alt="Bill Pay email forwarding address for ingesting bills from inbox" width="750" height="1624" loading="lazy" decoding="async">
+              <div class="phone-compare__header">
+                <p class="phone-compare__hint">Scroll inside each device to view the full screen.</p>
+              </div>
+              <div class="phone-compare__grid phone-compare__grid--three">
+                <figure class="phone-compare__item">
+                  <figcaption class="phone-compare__label">1 · Pay bills list</figcaption>
+                  <div class="phone-shell phone-shell--after">
+                    <div class="phone-shell__screen" tabindex="0" aria-label="Pay bills list with draft bill, scrollable preview">
+                      <img src="billpay-email-forwarding-list.png?v=1" alt="Pay bills list showing a forwarded bill ingested as a draft" width="750" height="1624" loading="lazy" decoding="async">
+                    </div>
                   </div>
-                </div>
-              </figure>
+                </figure>
+                <figure class="phone-compare__item">
+                  <figcaption class="phone-compare__label">2 · Add a bill</figcaption>
+                  <div class="phone-shell phone-shell--after">
+                    <div class="phone-shell__screen" tabindex="0" aria-label="Add a bill sheet with forward from email option, scrollable preview">
+                      <img src="billpay-email-forwarding-add-bill.png?v=1" alt="Add a bill sheet with enter manually, take a photo, and forward from email options" width="750" height="1624" loading="lazy" decoding="async">
+                    </div>
+                  </div>
+                </figure>
+                <figure class="phone-compare__item">
+                  <figcaption class="phone-compare__label">3 · Forward from email</figcaption>
+                  <div class="phone-shell phone-shell--after">
+                    <div class="phone-shell__screen" tabindex="0" aria-label="Forward from email modal, scrollable preview">
+                      <img src="billpay-email-forwarding-modal.png?v=1" alt="Forward from email modal with dedicated Bill Pay forwarding address" width="750" height="1624" loading="lazy" decoding="async">
+                    </div>
+                  </div>
+                </figure>
+              </div>
             </div>
           </div>
 
