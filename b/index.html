@@ -150,6 +150,29 @@
   @keyframes riseIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
 
+  .work-card--soon {
+    cursor: default;
+    opacity: 0.92;
+  }
+
+  .work-card--soon:hover {
+    transform: none;
+  }
+
+  .work-card--soon:hover h3 {
+    color: inherit;
+  }
+
+  .work-soon-label {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted-2);
+  }
+
   @media (max-width: 960px) {
     .hero { grid-template-columns: 1fr; gap: 40px; padding: 44px 28px; }
     .hero h1 { font-size: 56px; }
@@ -226,7 +249,7 @@
     <div class="section-head">
       <div class="title">
         <h2 class="display">Featured work</h2>
-        <span class="count">/04</span>
+        <span class="count">/08</span>
       </div>
       <div class="filters" aria-hidden="true">
         <span class="chip active">All</span>
@@ -279,6 +302,51 @@
             <div class="work-cat">Square · Bill Pay · Payment acceptance · Plaid</div>
             <h3 class="display">Getting vendors to trust their first Bill Pay payment</h3>
             <p>Introduced a secure bank connection flow so vendors could accept Square Bill Pay payments with less friction and more confidence.</p>
+          </div>
+        </div>
+      </a>
+      <a class="work-card" href="../case-study-flyhomes-tour-booking.html">
+        <div class="work-thumb"><img src="../flyhomes-internal.png" alt="Flyhomes internal tour management tool"></div>
+        <div class="work-body">
+          <div class="work-index">05<span class="idx-rule"></span></div>
+          <div>
+            <div class="work-cat">Internal Tools · Real Estate · Management</div>
+            <h3 class="display">Cutting tour confirmation from hours to minutes</h3>
+            <p>Redesigned internal tour management to cut confirmation time from hours to minutes and help buyers compete during the 2020–2021 housing boom.</p>
+          </div>
+        </div>
+      </a>
+      <div class="work-card work-card--soon" aria-label="Case study coming soon">
+        <div class="work-thumb"><img src="../flyhomes-search.png" alt="Flyhomes Search Mobile App Design"></div>
+        <div class="work-body">
+          <div class="work-index">06<span class="idx-rule"></span></div>
+          <div>
+            <div class="work-cat">Real Estate · Buyer Experience · Search</div>
+            <h3 class="display">Helping buyers shortlist homes faster on mobile</h3>
+            <p>Mobile search experience helping buyers discover and evaluate homes faster.</p>
+            <span class="work-soon-label">Case study coming soon</span>
+          </div>
+        </div>
+      </div>
+      <a class="work-card" href="../case-study-heal-primary-care.html?v=2">
+        <div class="work-thumb"><img src="../heal-pcp-thumbnail.png?v=1" alt="Heal primary care before and after"></div>
+        <div class="work-body">
+          <div class="work-index">07<span class="idx-rule"></span></div>
+          <div>
+            <div class="work-cat">Healthcare · Primary Care · Patient Experience · Medicare</div>
+            <h3 class="display">From one-time visits to ongoing primary care</h3>
+            <p>Redesigned doctor selection from urgent-care booking into a PCP matching experience—building trust, meeting Medicare requirements, and increasing repeat visits.</p>
+          </div>
+        </div>
+      </a>
+      <a class="work-card" href="../case-study-heal-health-monitoring.html">
+        <div class="work-thumb"><img src="../heal-monitoring-after-patient-monitoring.png?v=3" alt="Heal physician monitoring with blood pressure trend chart"></div>
+        <div class="work-body">
+          <div class="work-index">08<span class="idx-rule"></span></div>
+          <div>
+            <div class="work-cat">Healthcare · Data Visualization · Health Monitoring · CES Innovation Winner</div>
+            <h3 class="display">Preventative care with data-driven patient health monitoring</h3>
+            <p>Gave Heal doctors visibility into chronic care at home—key to Medicare approval, repeat visits, and preventative in-home primary care.</p>
           </div>
         </div>
       </a>
