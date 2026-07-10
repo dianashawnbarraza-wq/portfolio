@@ -965,6 +965,12 @@ body.case-study-body {
   display: block;
 }
 
+/* Before baseline: match frames 2–4 to the list screen height */
+.phone-compare--before-baseline .phone-compare__item:not(:first-child) .phone-shell__screen--content {
+  max-height: calc(265px * 1502 / 750);
+  overflow: hidden;
+}
+
 /* iPad shell (landscape) */
 .ipad-shell {
   position: relative;
