@@ -9,8 +9,9 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="case-study.css?v=40">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ui-system.css?v=1">
+  <link rel="stylesheet" href="case-study.css?v=41">
 </head>
 <body class="case-study-body" data-auth-key="cs-auth-checking-adoption">
 
@@ -38,7 +39,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           Back to portfolio
         </a>
-        <span class="cs-topbar-label">Case study · Square Banking</span>
+        <span class="cs-topbar-label body-sm">Case study · Square Banking</span>
       </div>
     </header>
 
@@ -78,7 +79,7 @@
       <main class="cs-main">
 
         <section class="cs-hero" id="hero">
-          <p class="cs-eyebrow">Square · Banking · Cycle Initiative (one quarter)</p>
+          <p class="cs-eyebrow eyebrow">Square · Banking · Cycle Initiative (one quarter)</p>
           <h1>Turning a pass-through account into a financial home</h1>
 
           <div class="cs-meta-grid">
@@ -103,11 +104,11 @@
           <div class="cs-metrics-row">
             <div class="metric-card">
               <p class="metric-card__value">32% → 40%+</p>
-              <p class="metric-card__label">Onboarding activation</p>
+              <p class="metric-card__label body-sm">Onboarding activation</p>
             </div>
             <div class="metric-card">
               <p class="metric-card__value">29% → 48%</p>
-              <p class="metric-card__label">First card spend</p>
+              <p class="metric-card__label body-sm">First card spend</p>
             </div>
           </div>
 
@@ -118,7 +119,7 @@
 
         <section class="cs-section" id="situation">
           <h2>Situation</h2>
-          <p class="cs-lead">Only 32% of sellers who elected Checking in Square onboarding activated.</p>
+          <p class="cs-lead body-lg">Only 32% of sellers who elected Checking in Square onboarding activated.</p>
           <p>Square scaled Checking enrollment through seller onboarding, and enrollment worked. Activation did not. Sellers completed identity verification, then treated Checking as a pass-through account, transferring every payout out to an external bank.</p>
           <p>This was an ambiguous problem, because the gap was not awareness. Sellers knew Checking existed. The gap was banking adoption: nobody was using the debit card or the money movement levers that make an account real. The big open question was why.</p>
           <p>The ask was pointed: fix it on the Square Point of Sale app, where about 80% of first sales take place.</p>
@@ -126,13 +127,13 @@
 
         <section class="cs-section" id="task">
           <h2>Task</h2>
-          <p class="cs-lead">Separate the opinions from the evidence.</p>
+          <p class="cs-lead body-lg">Separate the opinions from the evidence.</p>
           <p>The cross-functional team had reasonable instincts, all of them discoverability plays: add a stronger Banking entry point to the Square Daily Sales report email, give Banking better placement in the navigation, create more surface area. My responsibility was to find out what activated sellers actually did, and design against that.</p>
         </section>
 
         <section class="cs-section" id="action">
           <h2>Action</h2>
-          <p class="cs-lead">The data had an answer: sellers who activated engaged the debit card first.</p>
+          <p class="cs-lead body-lg">The data had an answer: sellers who activated engaged the debit card first.</p>
           <p>Funnel analysis with Data Science showed debit card engagement was the strongest activation signal we had. Then we looked at the design and found the mismatch:</p>
           <ul>
             <li>The debit card was buried below the fold</li>
@@ -144,7 +145,7 @@
 
         <section class="cs-section" id="design">
           <h2>Design</h2>
-          <p class="cs-lead">Debit and money movement above the fold, with a system that talks back.</p>
+          <p class="cs-lead body-lg">Debit and money movement above the fold, with a system that talks back.</p>
 
           <div class="phone-compare">
             <div class="phone-compare__header">
@@ -153,7 +154,7 @@
             </div>
             <div class="phone-compare__grid">
               <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label">Before</figcaption>
+                <figcaption class="phone-compare__label body-sm">Before</figcaption>
                 <div class="phone-shell phone-shell--before">
                   <div class="phone-shell__screen" tabindex="0" aria-label="Before redesign, scrollable preview">
                     <img src="checking-before.png?v=3" alt="Square Point of Sale banking tab before redesign, with debit card and money movement buried below the fold" width="750" height="3004" loading="lazy" decoding="async">
@@ -161,7 +162,7 @@
                 </div>
               </figure>
               <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label">After</figcaption>
+                <figcaption class="phone-compare__label body-sm">After</figcaption>
                 <div class="phone-shell phone-shell--after">
                   <div class="phone-shell__screen" tabindex="0" aria-label="After redesign, scrollable preview">
                     <img src="checking-after.png?v=3" alt="Square Point of Sale banking tab after redesign, with debit card, money movement, and card tracker above the fold" width="751" height="2896" loading="lazy" decoding="async">
@@ -181,20 +182,20 @@
 
         <section class="cs-section" id="results">
           <h2>Results</h2>
-          <p class="cs-lead">Behavior changed, not just dashboard numbers.</p>
+          <p class="cs-lead body-lg">Behavior changed, not just dashboard numbers.</p>
           <p>Onboarding-acquired seller activation went from 32% to over 40%. First card spend within a month rose from 29% to 51%. Apple Pay / Wallet adoption climbed from 18% to 44%.</p>
           <p>Underneath the metrics: sellers began holding and spending balances inside Square instead of routing payouts out. Every change shipped behind an experiment with a pre-registered metric, measured against the 32% baseline.</p>
         </section>
 
         <section class="cs-section" id="next-phase">
           <h2>Next phase</h2>
-          <p class="cs-lead">With activation fixed: actionable insights.</p>
+          <p class="cs-lead body-lg">With activation fixed: actionable insights.</p>
           <p>Fixing Checking earned the right to ask a bigger question: what should Square Banking become? Checking AI explorations were also being considered in the Cash Flow team's vision work sessions, where they helped inform a larger Banking vision. As part of that north star work I prototyped a money management hub with AI-powered insights, sequenced deliberately after the foundational behaviors this quarter proved out, because insights only matter to sellers whose money already lives here.</p>
 
           <div class="phone-compare phone-gallery">
             <div class="phone-compare__grid phone-compare__grid--three">
               <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label">Banking hub · Proactive spend insights in context</figcaption>
+                <figcaption class="phone-compare__label body-sm">Banking hub · Proactive spend insights in context</figcaption>
                 <div class="phone-shell phone-shell--after">
                   <div class="phone-shell__screen" tabindex="0" aria-label="Banking hub with AI insights, scrollable preview">
                     <img src="checking-ai-insights-overview.png?v=4" alt="Square Banking home with AI-powered spending insights surfaced in recent activity and category charts" width="530" height="2329" loading="lazy" decoding="async">
@@ -202,7 +203,7 @@
                 </div>
               </figure>
               <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label">Spend insight · Payroll may not clear</figcaption>
+                <figcaption class="phone-compare__label body-sm">Spend insight · Payroll may not clear</figcaption>
                 <div class="phone-shell phone-shell--after">
                   <div class="phone-shell__screen phone-shell__screen--fit" aria-label="Payroll spend insight modal preview">
                     <img src="checking-ai-insight-payroll.png?v=3" alt="AI spend insight modal warning that a scheduled payroll payment may exceed available balance" width="530" height="1160" loading="lazy" decoding="async">
@@ -210,7 +211,7 @@
                 </div>
               </figure>
               <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label">Spend insight · Duplicate charge detected</figcaption>
+                <figcaption class="phone-compare__label body-sm">Spend insight · Duplicate charge detected</figcaption>
                 <div class="phone-shell phone-shell--after">
                   <div class="phone-shell__screen phone-shell__screen--fit" aria-label="Duplicate charge spend insight modal preview">
                     <img src="checking-ai-insight-duplicate.png?v=3" alt="AI spend insight modal flagging duplicate Adobe charges" width="530" height="1160" loading="lazy" decoding="async">
@@ -225,7 +226,7 @@
 
         <section class="cs-section" id="reflection">
           <h2>Reflection</h2>
-          <p class="cs-lead">Activation was a visibility problem wearing an awareness costume.</p>
+          <p class="cs-lead body-lg">Activation was a visibility problem wearing an awareness costume.</p>
           <p>The room wanted to make Banking easier to find. The data showed activated sellers were already finding it; what they engaged with first was the debit card, and the design was hiding it. Trusting the funnel over the opinions is what moved the number.</p>
         </section>
 
