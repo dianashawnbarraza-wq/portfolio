@@ -122,7 +122,7 @@ a:hover {
   display: inline-block;
   width: 3px;
   height: 0.95em;
-  background-color: var(--text-main);
+  background-color: var(--color-accent);
   margin-left: 3px;
   vertical-align: baseline;
   animation: blink 1s step-end infinite;
@@ -155,14 +155,14 @@ nav a:hover {
 
 nav a.active {
   opacity: 1;
-  background-color: var(--text-main);
-  color: var(--bg-color);
+  background-color: color-mix(in srgb, var(--color-accent) 10%, var(--color-card));
+  color: var(--color-accent);
   font-weight: 500;
 }
 
 .btn-request {
-  background-color: var(--text-main);
-  color: var(--bg-color);
+  background-color: var(--color-accent);
+  color: #fff;
   padding: 0.4rem 1rem;
   border-radius: 980px; /* Pill shape */
   font-size: 0.85rem;
@@ -171,10 +171,10 @@ nav a.active {
 }
 
 .btn-request:hover {
-  background-color: var(--text-main);
-  color: var(--bg-color);
+  background-color: var(--color-accent);
+  color: #fff;
   transform: scale(1.02);
-  opacity: 0.9;
+  opacity: 0.88;
 }
 
 /* Hamburger Menu */
@@ -289,8 +289,8 @@ nav a.active {
   gap: 0.35rem;
   padding: 0.8125rem 1.375rem;
   border-radius: 999px;
-  background: var(--text-main);
-  color: var(--bg-color);
+  background: var(--color-accent);
+  color: #fff;
   font-size: 0.9375rem;
   font-weight: 500;
   text-decoration: none;
@@ -298,8 +298,8 @@ nav a.active {
 }
 
 .hero-cta-btn:hover {
-  color: var(--bg-color);
-  opacity: 0.85;
+  color: #fff;
+  opacity: 0.88;
 }
 
 .hero-status {
@@ -558,10 +558,11 @@ nav a.active {
   color: var(--text-main);
 }
 
-.work-filter-pill.is-active {
-  background: var(--text-main);
-  border-color: var(--text-main);
-  color: var(--bg-color);
+.work-filter-pill.is-active,
+.work-filter-pill.chip-accent {
+  background: color-mix(in srgb, var(--color-accent) 8%, var(--color-card));
+  border-color: var(--color-accent);
+  color: var(--color-accent);
   font-weight: 500;
 }
 
@@ -595,9 +596,9 @@ nav a.active {
 }
 
 .show-more-btn:hover {
-  color: var(--text-main);
-  border-color: var(--text-muted);
-  background: var(--card-bg);
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 8%, var(--color-card));
 }
 
 .portfolio-more-wrap {
@@ -1270,8 +1271,8 @@ nav a.active {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: var(--text-main);
-  color: var(--bg-color);
+  background-color: var(--color-accent);
+  color: #fff;
   padding: 1rem 2.5rem;
   border-radius: 980px;
   font-weight: 600;
@@ -1280,8 +1281,9 @@ nav a.active {
 }
 
 .contact-links a:hover {
-  background-color: var(--text-muted);
-  color: white;
+  background-color: var(--color-accent);
+  color: #fff;
+  opacity: 0.88;
   transform: scale(1.03);
 }
 
@@ -1486,7 +1488,7 @@ nav a.active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #000000;
+  background-color: var(--color-accent);
   color: #ffffff;
   padding: 1rem 2.5rem;
   border-radius: 980px;
@@ -1496,7 +1498,8 @@ nav a.active {
 }
 
 .modal-actions .btn-primary:hover {
-  background-color: #333333;
+  background-color: var(--color-accent);
+  opacity: 0.88;
   transform: scale(1.03);
 }
 
@@ -1504,8 +1507,9 @@ nav a.active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--text-main);
-  color: var(--bg-color);
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
   padding: 1rem 2.5rem;
   border-radius: 980px;
   font-weight: 600;
@@ -1514,8 +1518,8 @@ nav a.active {
 }
 
 .modal-actions .btn-secondary:hover {
-  background-color: var(--accent);
-  color: white;
+  background-color: color-mix(in srgb, var(--color-accent) 8%, var(--color-card));
+  color: var(--color-accent);
   transform: scale(1.03);
 }
 
