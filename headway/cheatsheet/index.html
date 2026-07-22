@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Headway Interview · Shawn's Cheat Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --surface: #f4f4f2;
+  --raised: #eaeae7;
+  --line: #e2e2de;
+  --text: #111110;
+  --muted: #5c5c58;
+  --dim: #8a8a86;
+  --faint: #c4c4bf;
+  --cobalt: #1D2ED9;
+  --cobalt-bg: rgba(29,46,217,.07);
+  --cobalt-border: rgba(29,46,217,.18);
+  --orange: #B4530A;
+  --orange-bg: rgba(180,83,10,.07);
+  --green: #1a7a4a;
+  --green-bg: rgba(26,122,74,.08);
+  --display: 'Space Grotesk', sans-serif;
+  --body: 'Inter', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  background: var(--text);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 100;
+}
+.sidebar-header {
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.sidebar-header .date {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 6px;
+}
+.sidebar-header .title {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+}
+.sidebar-header .sub {
+  font-size: 12px;
+  color: rgba(255,255,255,.5);
+  margin-top: 4px;
+}
+.sidebar-section {
+  padding: 16px 12px 4px;
+}
+.sidebar-section-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  padding: 0 8px;
+  margin-bottom: 4px;
+}
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+  transition: background .15s, color .15s;
+  line-height: 1.3;
+  cursor: pointer;
+}
+.sidebar-link:hover { background: rgba(255,255,255,.08); color: #fff; }
+.sidebar-link.active { background: var(--cobalt); color: #fff; }
+.sidebar-link .pill {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 9px;
+  background: rgba(255,255,255,.12);
+  border-radius: 999px;
+  padding: 2px 6px;
+  letter-spacing: .06em;
+  flex-shrink: 0;
+}
+.sidebar-link.active .pill { background: rgba(255,255,255,.25); }
+.sidebar-numbers {
+  margin: auto 0 0;
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.sidebar-numbers .nums-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  margin-bottom: 10px;
+}
+.num-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.num-row:last-child { border-bottom: none; }
+.num-row .nk { font-size: 11px; color: rgba(255,255,255,.5); }
+.num-row .nv { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--cobalt); filter: brightness(1.8); }
+
+/* MAIN */
+.main {
+  margin-left: 240px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* TOPBAR */
+.topbar {
+  position: sticky;
+  top: 0;
+  background: rgba(244,244,242,.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  z-index: 50;
+  height: 48px;
+  overflow-x: auto;
+}
+.tab-btn {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  padding: 0 18px;
+  height: 48px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--cobalt); border-bottom-color: var(--cobalt); font-weight: 600; }
+
+/* PANELS */
+.panel { display: none; padding: 40px 40px 80px; max-width: 860px; }
+.panel.active { display: block; }
+
+/* SECTION HEADERS */
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.section-title {
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+.section-sub {
+  color: var(--muted);
+  font-size: 14.5px;
+  margin-bottom: 32px;
+}
+
+/* Q CARDS */
+.q-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.q-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  cursor: pointer;
+  user-select: none;
+  transition: background .15s;
+}
+.q-header:hover { background: var(--surface); }
+.q-badge {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--cobalt-bg);
+  border: 1px solid var(--cobalt-border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--cobalt);
+  flex-shrink: 0;
+}
+.q-title {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  flex: 1;
+  line-height: 1.35;
+}
+.q-principle {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  background: var(--raised);
+  border-radius: 999px;
+  padding: 4px 10px;
+  flex-shrink: 0;
+}
+.q-chevron {
+  font-size: 12px;
+  color: var(--faint);
+  transition: transform .25s;
+  flex-shrink: 0;
+}
+.q-card.open .q-chevron { transform: rotate(180deg); }
+.q-body { display: none; border-top: 1px solid var(--line); }
+.q-card.open .q-body { display: block; }
+.q-body-inner { padding: 24px 22px; }
+
+/* ANSWER SCRIPT */
+.answer-script {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 20px 22px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 20px;
+  white-space: pre-line;
+  border-left: 3px solid var(--cobalt);
+}
+.answer-script b { color: var(--cobalt); }
+
+/* KEY BEATS */
+.beats { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.beat {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--green-bg);
+  border: 1px solid rgba(26,122,74,.15);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+}
+.beat-icon { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+.beat-text { color: var(--text); line-height: 1.5; }
+.beat-text b { color: var(--green); }
+
+/* LAND THESE */
+.land-box {
+  background: var(--cobalt-bg);
+  border: 1px solid var(--cobalt-border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 10px;
+}
+.land-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.land-item {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.5;
+}
+.land-item::before { content: '"'; color: var(--cobalt); }
+.land-item::after { content: '"'; color: var(--cobalt); }
+
+/* GROUNDING BOX */
+.ground-box {
+  background: var(--orange-bg);
+  border: 1px solid rgba(180,83,10,.15);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.6;
+}
+.ground-box .gl {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* APP CRITIQUE PANEL */
+.step-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+  align-items: flex-start;
+}
+.step-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--cobalt);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.step-content { flex: 1; }
+.step-title {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.step-time {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--cobalt);
+  letter-spacing: .08em;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.step-body {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.step-body b { color: var(--text); }
+.step-script {
+  background: var(--surface);
+  border-left: 3px solid var(--cobalt);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  font-style: italic;
+  color: var(--text);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+.divider {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 32px 0;
+}
+.wb-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 12px 16px;
+  margin-bottom: 10px;
+  align-items: baseline;
+}
+.wb-time {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--cobalt);
+  text-align: right;
+  padding-top: 1px;
+}
+.wb-action {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.55;
+}
+.wb-action b { color: var(--cobalt); }
+.wb-action .hint {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--dim);
+  display: block;
+  margin-top: 3px;
+}
+.figjam-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+.fj-key {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.fj-kbd {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  background: var(--text);
+  color: #fff;
+  border-radius: 6px;
+  padding: 3px 8px;
+  flex-shrink: 0;
+}
+.fj-desc { font-size: 12.5px; color: var(--muted); }
+.rescue-box {
+  background: #fff;
+  border: 2px solid var(--orange);
+  border-radius: 14px;
+  padding: 20px 22px;
+}
+.rescue-title {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--orange);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rescue-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+.rescue-item:last-child { margin-bottom: 0; }
+.rescue-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.b2b2c-box {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 22px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 2;
+  color: var(--muted);
+}
+.b2b2c-box b { color: var(--cobalt); }
+.b2b2c-box .arrow { color: var(--faint); margin: 0 8px; }
+
+/* APP BETS */
+.bet-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+}
+.bet-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.bet-name {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 700;
+}
+.bet-tier {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-weight: 600;
+}
+.bet-tier.t1 { background: var(--cobalt-bg); color: var(--cobalt); border: 1px solid var(--cobalt-border); }
+.bet-tier.t2 { background: var(--raised); color: var(--dim); border: 1px solid var(--line); }
+.bet-body { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+.bet-angle {
+  margin-top: 10px;
+  background: var(--cobalt-bg);
+  border-radius: 8px;
+  padding: 10px 13px;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--text);
+  border-left: 2px solid var(--cobalt);
+}
+.bet-angle b { font-style: normal; color: var(--cobalt); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; display: block; margin-bottom: 3px; }
+
+/* JOURNEY MAP */
+.journey-scroll {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 4px 4px 16px;
+  margin-bottom: 8px;
+  scroll-snap-type: x proximity;
+}
+.jcard {
+  flex: 0 0 210px;
+  scroll-snap-align: start;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+.jcard::after {
+  content: '→';
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--faint);
+  font-size: 16px;
+  z-index: 2;
+}
+.jcard:last-child::after { display: none; }
+.jcard .jstage {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  font-weight: 700;
+}
+.jcard .jtitle {
+  font-family: var(--display);
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.jcard .jquestion {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.5;
+}
+.jcard .jrow {
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+.jcard .jicon { flex-shrink: 0; margin-top: 1px; font-size: 12px; }
+.jcard .jemotion { background: var(--orange-bg); border-radius: 8px; padding: 6px 9px; color: var(--text); }
+.jcard .jpain { background: var(--cobalt-bg); border-radius: 8px; padding: 6px 9px; color: var(--text); }
+.jcard.hero { border: 2px solid var(--cobalt); background: var(--cobalt-bg); }
+.jcard.hero .jrow.jemotion, .jcard.hero .jpain { background: rgba(255,255,255,.6); }
+</style>
+</head>
+<body>
+
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <div class="date">Wed · July 22, 2026</div>
+    <div class="title">Headway Interview</div>
+    <div class="sub">Shawn's Cheat Sheet</div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">12:30 PM · Culture Fit</div>
+    <a class="sidebar-link active" onclick="setTab('intro')">Intro + Why Headway</a>
+    <a class="sidebar-link" onclick="setTab('owner')">Owner · End-to-End</a>
+    <a class="sidebar-link" onclick="setTab('bff')">BFF · Biller Pause</a>
+    <a class="sidebar-link" onclick="setTab('sbwh')">SBWH · Card Decoupling</a>
+    <a class="sidebar-link" onclick="setTab('fuel')">FUEL · Hard Feedback</a>
+    <a class="sidebar-link" onclick="setTab('rel')">Relationship · Above + Beyond</a>
+    <a class="sidebar-link" onclick="setTab('principles')">All 5 Principles</a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">2:00 PM · App Critique</div>
+    <a class="sidebar-link" onclick="setTab('critique')">Critique Framework</a>
+    <a class="sidebar-link" onclick="setTab('whiteboard')">Whiteboard Framework</a>
+    <a class="sidebar-link" onclick="setTab('bets')">App Bets</a>
+    <a class="sidebar-link" onclick="setTab('sketches')">Solution Sketches</a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Ground Yourself</div>
+    <a class="sidebar-link" onclick="setTab('ground')">🧘 Grounding Card</a>
+  </div>
+
+  <div class="sidebar-numbers">
+    <div class="nums-label">Your numbers</div>
+    <div class="num-row"><span class="nk">Checking activation</span><span class="nv">32→59%</span></div>
+    <div class="num-row"><span class="nk">First card spend</span><span class="nv">29→51%</span></div>
+    <div class="num-row"><span class="nk">Vendor acceptance</span><span class="nv">52→70%</span></div>
+    <div class="num-row"><span class="nk">Add-vendor step</span><span class="nv">54→62→69%</span></div>
+    <div class="num-row"><span class="nk">Card decoupling</span><span class="nv">+23% · +38%</span></div>
+    <div class="num-row"><span class="nk">Flyhomes tours</span><span class="nv">5hr→30m</span></div>
+    <div class="num-row"><span class="nk">Heal repeat rate</span><span class="nv">39%</span></div>
+  </div>
+</nav>
+
+<div class="main">
+  <div class="topbar">
+    <button class="tab-btn active" onclick="setTab('intro')">Intro</button>
+    <button class="tab-btn" onclick="setTab('owner')">Owner</button>
+    <button class="tab-btn" onclick="setTab('bff')">BFF</button>
+    <button class="tab-btn" onclick="setTab('sbwh')">SBWH</button>
+    <button class="tab-btn" onclick="setTab('fuel')">FUEL</button>
+    <button class="tab-btn" onclick="setTab('rel')">Relationship</button>
+    <button class="tab-btn" onclick="setTab('principles')">All Principles</button>
+    <button class="tab-btn" onclick="setTab('critique')">App Critique</button>
+    <button class="tab-btn" onclick="setTab('whiteboard')">Whiteboard</button>
+    <button class="tab-btn" onclick="setTab('bets')">App Bets</button>
+    <button class="tab-btn" onclick="setTab('sketches')">Sketches</button>
+    <button class="tab-btn" onclick="setTab('ground')">🧘 Ground</button>
+  </div>
+
+  <!-- INTRO -->
+  <div class="panel active" id="panel-intro">
+    <div class="section-label">Question 1 · Headway Owner</div>
+    <div class="section-title">Tell us about yourself and why Headway.</div>
+    <div class="section-sub">This is your opener. Own it. A claim, a number, a specific Headway connection.</div>
+
+    <div class="answer-script">"I'm Shawn Barraza, a product designer with a decade of making complex systems feel simple.
+
+Most recently at Square as a Staff designer — I owned Checking engagement, Cards, and Bill Pay end to end. The work I'm most proud of is an activation redesign that took overall Checking activation from <b>32 to 59 percent</b>, every lift behind a pre-registered experiment.
+
+Before Square I was the sole designer at Heal, an in-home healthcare company, where I owned both the patient and physician experiences. I shipped the first Apple HealthKit integration for doctors making house calls — real device readings between visits, threshold alerts, weekly trends. That work won a CES Innovation Award and was a key proof point for Medicare certification. We saw a <b>39 percent reduction in unnecessary prescriptions</b> because doctors were making better clinical decisions.
+
+I want to return to healthcare because <b>I believe in easy access to healthcare, and I want to spend my career building the products that enable that</b>. What draws me to Headway specifically is the B2B2C structure — a patient arrives through an EAP or employer referral, and every step of that handoff is a design problem. That's the exact shape of work I've done. And I want to do it where the outcome is someone getting mental healthcare they couldn't access before."</div>
+
+    <div class="land-box">
+      <div class="land-label">Land these</div>
+      <div class="land-item">32 to 59 percent — say it slowly</div>
+      <div class="land-item" style="margin-top:8px">I believe in easy access to healthcare, and I want to spend my career building the products that enable that.</div>
+      <div class="land-item" style="margin-top:8px">EAP to patient handoff — specific to Headway, not generic healthcare</div>
+    </div>
+
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">Open with a <b>claim</b>, not a category. Not "I'm a product designer" — "I make complex systems feel simple."</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">Land a number <b>early</b>. 32 to 59 before you explain the project.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text"><b>Belief + specific hook</b>. The mission statement is the throughline; the EAP-to-patient handoff is what makes it Headway-specific.</div></div>
+    </div>
+  </div>
+
+  <!-- OWNER -->
+  <div class="panel" id="panel-owner">
+    <div class="section-label">Question · Headway Owner</div>
+    <div class="section-title">Tell me about owning an outcome from start to finish.</div>
+    <div class="section-sub">Square Checking activation. This is your clearest end-to-end story — the one where the number is unambiguous and the ownership was total.</div>
+
+    <div class="answer-script">"When I joined the Checking team, the number I inherited was <b>32 percent activation</b> — and no shared definition of what activation actually meant. That gap was the first thing I had to close.
+
+I spent three weeks with data science defining activation behaviorally: early debit card engagement, money movement in and out, and balance held over time. Once we had a shared definition, the funnel analysis became possible — and it showed that the team's discoverability hypothesis barely registered. Early card engagement was the dominant signal by a wide margin.
+
+That reframe redirected the quarter. I owned the case from the funnel analysis through the sequenced redesign: a welcome moment that installed the right mental model, a card tracker that replaced silence with system status, money movement above the fold, account numbers surfaced out of Settings, and Apple Wallet at peak motivation — every change shipped behind a pre-registered experiment against the 32 percent baseline.
+
+Overall activation moved from <b>32 to 59 percent</b>. First card spend within a month moved from <b>29 to 51 percent</b>. And the AI insights vision — payroll may not clear, subscription costs increased — that I built in Cursor in days was adopted into the Banking north star, deliberately sequenced after foundations because insights only matter to sellers whose money already lives there.
+
+The ownership wasn't just the design. It was the definition of the problem, the case for reframing, the experiment framework, the sequencing call on when the next phase would earn the right to ship."</div>
+
+    <div class="mrow" style="margin:20px 0;grid-template-columns:repeat(3,1fr);gap:12px">
+      <div class="mcard rv" style="padding:16px 18px;background:var(--cobalt);border-color:var(--cobalt)"><div class="delta" style="font-size:28px;color:#fff"><span>32%</span><span class="arr" style="color:rgba(255,255,255,.5)">→</span><span>59%</span></div><div class="lab" style="font-size:12px;color:rgba(255,255,255,.85)">Overall activation</div></div>
+      <div class="mcard rv" style="padding:16px 18px"><div class="delta" style="font-size:28px"><span>29%</span><span class="arr">→</span><span>51%</span></div><div class="lab" style="font-size:12px">First card spend</div></div>
+      <div class="mcard rv" style="padding:16px 18px"><div class="delta" style="font-size:28px"><span>+27pp</span></div><div class="lab" style="font-size:12px">Compounded across staged experiments</div></div>
+    </div>
+
+    <div class="land-box">
+      <div class="land-label">Lines to land</div>
+      <div class="land-item">The number I inherited was 32 percent. The bigger problem was that no one had defined what activation meant.</div>
+      <div class="land-item" style="margin-top:8px">The ownership wasn't just the design — it was the definition of the problem, the case for reframing, the experiment framework, and the sequencing call.</div>
+    </div>
+
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">Lead with the <b>definitional problem</b>, not the design. That's what makes this an ownership story, not an execution story.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">The list of shipped moves (welcome, tracker, wallet) shows you <b>owned execution as well as strategy</b>. Don't skip it.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">The AI insights adoption into north star is a <b>bonus beat</b>. Use it if time allows. Cut it if you're running long.</div></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-label" style="color:var(--cobalt)">Related · March toward the mission, dive in where needed</div>
+    <div class="section-title" style="font-size:20px;margin-bottom:8px">"Tell me about a time you stepped in where you were needed."</div>
+    <div class="section-sub">A common Headway Owner probe. Two versions — one from Square, one from Heal. The Heal version is stronger because the mission stakes are higher.</div>
+
+    <div class="answer-script"><b>Primary (Heal):</b> "At Heal — an in-home healthcare company — we had a mission-critical launch: Bluetooth-enabled remote monitoring for patients with chronic conditions like hypertension and diabetes. The point was to <b>close care gaps</b> between visits — so a doctor didn't just see one blood pressure reading during a house call, they saw the trend across the two weeks in between.
+
+I was the only designer, and this couldn't wait. I owned the entire monitoring surface end to end: every data visualization the doctor would need to understand a reading in context. Threshold lines against clinical guidance, weekly trend arrows, the moment a metric crossed into concern, medication adherence overlaid on symptom logs — every reading in service of a decision.
+
+The stakes were clinical. A doctor scanning a chronic-illness patient's readings on the way to their door had eight minutes to spot what mattered. The visualization design had to earn that time.
+
+That work won a <b>CES Innovation Award</b>, was a key proof point for <b>Medicare certification</b>, and contributed to a <b>39 percent reduction in unnecessary prescriptions</b> because doctors were making better-informed clinical calls. When the mission needed someone to move, I moved."
+
+<b>Secondary (Square Cards):</b> "When a designer left the Cards team at Square, there was an immediate need. The final step of Checking sign-up — ordering a physical debit card — was where <b>over 40 percent of sellers were dropping</b>. And that step was blocking Checking account issuance entirely.
+
+I stepped in, ran discovery, and made the case that the physical-card requirement was the wrong ask — sellers hadn't deposited a dollar yet. We decoupled physical from virtual: open Checking, add the virtual card to Apple Wallet, start spending the same day, order physical when ready. Activation lifted 23 percent. Virtual card adoption lifted 38 percent.
+
+I'll go where the impact is, not where the org chart puts me."</div>
+
+    <div class="land-box">
+      <div class="land-label">Lines to land</div>
+      <div class="land-item">The visualization design had to earn the eight minutes a doctor spent on it.</div>
+      <div class="land-item" style="margin-top:8px">When the mission needed someone to move, I moved.</div>
+      <div class="land-item" style="margin-top:8px">I'll go where the impact is, not where the org chart puts me.</div>
+    </div>
+
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">Lead with <b>Heal</b> if the interviewer signals mission-alignment questions. Lead with <b>Cards</b> if they signal cross-team or execution-under-pressure questions.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">The <b>"eight minutes"</b> detail on the Heal story is the memorable image. It's what makes this a clinical stakes story, not a design story.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">Don't just say "I stepped in" — name what was at risk. On Cards: activation was blocked entirely. On Heal: care gaps between visits.</div></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-label" style="color:var(--cobalt)">Related · Close the loop</div>
+    <div class="section-title" style="font-size:20px;margin-bottom:8px">"Tell me how you close the loop with stakeholders."</div>
+    <div class="section-sub">This is a Headway-Owner sub-question. It's about proactive sharing, not reactive updates.</div>
+
+    <div class="answer-script">"When I joined the Cards team, there weren't design rituals in place — no consistent check-ins with engineers, no cadence for pulling in cross-functional opinions early. Feedback happened late, and it happened one-off. So I built the rituals.
+
+I instituted <b>weekly design review meetings</b> where I bring current prototypes and open questions to my squad. Between meetings, I use <b>Cursor to build working prototypes</b> — not Figma flows, real interactive prototypes — and I record short <b>videos</b> walking through them, then share async with PMs, engineers, and researchers.
+
+The result is timely feedback from people on their own time. Engineers can react without a meeting. Researchers can flag a question early. My PM can see where I'm heading before I've spent a week polishing the wrong thing.
+
+Proactive updates with a working prototype attached is how I close the loop. It's how I make sure my partners never have to chase me — and how I catch bad ideas before they become expensive to change."</div>
+
+    <div class="land-box">
+      <div class="land-label">Lines to land</div>
+      <div class="land-item">Proactive updates with a working prototype attached is how I close the loop.</div>
+      <div class="land-item" style="margin-top:8px">I catch bad ideas before they become expensive to change.</div>
+    </div>
+
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">Lead with the <b>gap you noticed</b> — no rituals, no cadence. That's what makes this an Owner story, not just a process story.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text"><b>Cursor prototypes + videos</b> is unusual and specific. Land those two words distinctly — they signal AI-native work.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">Emphasize <b>"before they need to ask"</b> if that comes up — that's Headway's language.</div></div>
+    </div>
+  </div>
+
+  <!-- BFF -->
+  <div class="panel" id="panel-bff">
+    <div class="section-label">Question 2 · BFF — Better, Faster, Fewer</div>
+    <div class="section-title">Tell me about a time you prioritized ruthlessly.</div>
+    <div class="section-sub">Two strong stories. Flyhomes is the sharpest — the numbers are dramatic and the ruthlessness is visible. Biller pause is your backup when they want a "when did you decide not to build" answer.</div>
+
+    <div class="section-label" style="margin-top:32px;color:var(--cobalt)">Primary · Flyhomes tour booking</div>
+    <div class="answer-script">"During the 2020 housing boom at Flyhomes, home buyers needed to win fast. In a market where houses were closing over asking with cash offers in 48 hours, every hour of pre-offer friction cost a buyer a real chance at a home. And the trickiest part of the pre-offer stage was <b>touring</b>.
+
+The workflow was manual: a buyer wanted to see a house, the tour coordinator emailed a partner listing agent, waited for a response, negotiated a time, confirmed it back. Tour confirmation was averaging <b>five hours</b>. In a 48-hour market, five hours can be the difference between seeing the house and losing it.
+
+I owned the internal tools that tour coordinators used. I sat with them, mapped their journey, and identified the specific job the design had to do: <b>compress the confirmation loop from a manual back-and-forth to an automated booking</b>. I ruled out anything that didn't touch that job.
+
+I designed a coordinator workflow that used API calls into partner scheduling systems to book tours directly — no email back-and-forth, no waiting. Confirmation dropped from <b>five hours to thirty minutes</b>. Buyers were touring more homes with less overhead. <b>Homes toured before an offer dropped from 40 to 18</b> — because our buyers were more confident, faster. And tour support calls dropped <b>44 percent</b> — the workflow was self-serve enough that coordinators didn't need help.
+
+That was ruthless prioritization: I didn't build a better inbox, I built the thing that killed the inbox for that use case. Understanding the job to be done let me cut everything that wasn't compression."</div>
+
+    <div class="mrow" style="margin:20px 0;grid-template-columns:repeat(3,1fr);gap:12px">
+      <div class="mcard rv" style="padding:16px 18px;background:var(--cobalt);border-color:var(--cobalt)"><div class="delta" style="font-size:24px;color:#fff"><span>5hr</span><span class="arr" style="color:rgba(255,255,255,.5)">→</span><span>30m</span></div><div class="lab" style="font-size:12px;color:rgba(255,255,255,.85)">Tour confirmation time</div></div>
+      <div class="mcard rv" style="padding:16px 18px"><div class="delta" style="font-size:24px"><span>40</span><span class="arr">→</span><span>18</span></div><div class="lab" style="font-size:12px">Homes toured before offer</div></div>
+      <div class="mcard rv" style="padding:16px 18px"><div class="delta" style="font-size:24px"><span>↓44%</span></div><div class="lab" style="font-size:12px">Tour support calls</div></div>
+    </div>
+
+    <div class="land-box">
+      <div class="land-label">Lines to land</div>
+      <div class="land-item">I didn't build a better inbox — I built the thing that killed the inbox for that use case.</div>
+      <div class="land-item" style="margin-top:8px">Understanding the job to be done let me cut everything that wasn't compression.</div>
+    </div>
+
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">The <b>market context</b> is the setup. 48-hour closings mean five hours cost buyers homes. Land that stakes point clearly.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">"5 hours to 30 minutes" is your headline number. Say it slowly. It's the most dramatic ratio in your whole portfolio.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">The <b>40-to-18 homes toured</b> stat is subtle but powerful — buyers were more confident, so they needed fewer tours. That's a behavior change, not just an efficiency gain.</div></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-label" style="margin-top:8px;color:var(--cobalt)">Secondary · The biller directory pause</div>
+    <div class="section-sub" style="margin-bottom:16px">Use this if they ask specifically about deciding <i>not</i> to build something, or if BFF probing continues.</div>
+
+    <div class="answer-script">"On Bill Pay at Square, I designed a three-stage capture ladder that lifted add-vendor conversion from 54 to 62 percent after OCR, and again from 62 to 69 percent after zero-UI email forwarding. Same funnel, same metric, every time.
+
+There was a fourth phase we'd fully scoped: connect Bill Pay to a national biller directory through the <b>Paymentus API</b>. Scan a utility bill, it would resolve to a recognized biller with the account number and statement balance pulled directly. The OCR foundation would prefill everything, and AI would auto-categorize spend from biller and payment history.
+
+I made the case to <b>pause it</b>. Not because it wasn't valuable — it was. But two lower-effort phases had already validated the strategy and moved payment volume, and the biller network required significantly higher engineering investment.
+
+The framing I gave the team: <b>validate cheap first, then ask the business to fund the expensive phase with evidence in hand</b>. The scoped designs sit ready. The moment the data says go, we go. This wasn't a loss — it was sequencing."</div>
+
+    <div class="mrow" style="margin:20px 0;grid-template-columns:repeat(3,1fr);gap:12px">
+      <div class="mcard rv" style="padding:16px 18px"><div class="delta" style="font-size:28px"><span>54%</span><span class="arr">→</span><span>62%</span></div><div class="lab" style="font-size:12px">After OCR shipped</div></div>
+      <div class="mcard rv" style="padding:16px 18px"><div class="delta" style="font-size:28px"><span>62%</span><span class="arr">→</span><span>69%</span></div><div class="lab" style="font-size:12px">After email forwarding</div></div>
+      <div class="mcard rv" style="padding:16px 18px"><div class="delta" style="font-size:28px"><span>+15pp</span></div><div class="lab" style="font-size:12px">Total add-vendor lift</div></div>
+    </div>
+
+    <div class="land-box">
+      <div class="land-label">Lines to land</div>
+      <div class="land-item">Validate cheap first, then ask the business to fund the expensive phase with evidence in hand.</div>
+      <div class="land-item" style="margin-top:8px">This wasn't a loss — it was sequencing.</div>
+    </div>
+  </div>
+
+  <!-- SBWH -->
+  <div class="panel" id="panel-sbwh">
+    <div class="section-label">Question 3 · SBWH — Strong Beliefs, Weakly Held</div>
+    <div class="section-title">Tell me about a time you changed your mind.</div>
+    <div class="section-sub">Card decoupling. Belief → new information → fast update → number.</div>
+
+    <div class="answer-script">"When I joined the Cards team, one of my first projects was the end of the Banking sign-up flow. Sellers were dropping off after identity verification — they didn't want to order a physical card and were exiting before completing sign-up.
+
+My first instinct was strong: sellers should not be able to skip card ordering. The card was the product. I believed requiring it would drive commitment.
+
+Then I sat down with engineering to understand the technical model. Card ordering wasn't required to open a Checking account at all. The account and the card were completely decoupable. A seller could open Checking and immediately access a virtual card — add it to Apple Wallet, start spending the same day, order the physical card later when ready.
+
+That conversation changed my position completely. I had been designing around a constraint that wasn't real. And once I updated, I realized the decoupled experience was actually more respectful — they hadn't deposited a dollar yet. Forcing a physical card at that moment was the wrong ask.
+
+We shipped the decoupled experience. Activation lifted <b>23 percent</b>. Virtual card adoption increased <b>38 percent</b>.
+
+I had a strong belief going in. Better information changed it. I try to update fast when that happens."</div>
+
+    <div class="land-box">
+      <div class="land-label">Lines to land</div>
+      <div class="land-item">I had been designing around a constraint that wasn't real.</div>
+      <div class="land-item" style="margin-top:8px">I had a strong belief going in. Better information changed it. I try to update fast.</div>
+    </div>
+
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">Name the belief <b>explicitly first</b>. Don't be vague about what you believed.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">The update source matters: <b>engineering conversation</b>, not just intuition. Be specific.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">Close with <b>both numbers</b>: 23% activation lift + 38% virtual card adoption.</div></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-label" style="margin-top:8px;color:var(--cobalt)">Secondary · Vendor acceptance / Plaid</div>
+    <div class="section-sub" style="margin-bottom:16px">A second SBWH story if they probe deeper. This one's especially useful because it pairs with your FUEL answer — same instinct, different project, both about how "I thought I was creating a moment for personalization" was actually a pause in the flow.</div>
+
+    <div class="answer-script">"On Bill Pay vendor acceptance — which sat at <b>52 percent</b> — my initial belief was that vendors were thrown off by the payment notification email. Square is traditionally a company that takes money, not sends it, so receiving a Square email asking to accept a payment felt off-brand and confusing. My instinct was to let Bill Pay users <b>customize the notification email</b>, giving the vendor more context and trust in the payment.
+
+I ran a funnel analysis to size the opportunity — and it changed my mind. Email click-through wasn't the problem. Vendors were opening the email and clicking through. The drop was <b>after that</b>, at the moment they had to enter their bank account details. Trust wasn't a copy problem. It was a data-entry problem.
+
+I partnered with engineering to plan a <b>Plaid integration</b> so vendors could verify their bank instantly instead of typing in raw account and routing numbers. Payment acceptance climbed from <b>52 percent to roughly 70 percent</b>, and manual bank entry dropped to near zero.
+
+I had been designing around what I thought would build trust. The data pointed me at what was actually blocking it."</div>
+
+    <div class="mrow" style="margin:20px 0;grid-template-columns:repeat(2,1fr);gap:12px">
+      <div class="mcard rv" style="padding:16px 18px;background:var(--cobalt);border-color:var(--cobalt)"><div class="delta" style="font-size:28px;color:#fff"><span>52%</span><span class="arr" style="color:rgba(255,255,255,.5)">→</span><span>~70%</span></div><div class="lab" style="font-size:12px;color:rgba(255,255,255,.85)">Vendor payment acceptance</div></div>
+      <div class="mcard rv" style="padding:16px 18px"><div class="delta" style="font-size:28px"><span>↓</span></div><div class="lab" style="font-size:12px">Manual bank entry — near zero after Plaid</div></div>
+    </div>
+
+    <div class="land-box">
+      <div class="land-label">Line to land</div>
+      <div class="land-item">I had been designing around what I thought would build trust. The data pointed me at what was actually blocking it.</div>
+    </div>
+
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">The <b>"Square is traditionally a company that takes money"</b> framing is smart — it makes the belief make sense before you reveal it was wrong.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">Pairs beautifully with your <b>FUEL copy story</b> — same instinct (adding words / customization to build trust), different project. Both times the fix was reducing friction, not adding warmth.</div></div>
+    </div>
+  </div>
+
+  <!-- FUEL -->
+  <div class="panel" id="panel-fuel">
+    <div class="section-label">Question 4 · FUEL — Feedback Uplifts Every Level</div>
+    <div class="section-title">Tell me about feedback that was hard to hear.</div>
+    <div class="section-sub">Two stories. Copy feedback is your primary — personal, craft-focused, honest. Overview vision is your secondary — about sharing feedback early and moving forward together.</div>
+
+    <div class="section-label" style="margin-top:32px;color:var(--cobalt)">Primary · The copy feedback</div>
+    <div class="answer-script">"A PM told me I was relying too much on instructional copy — educational modals, secondary explanations, timing notes about how money movement worked. Their read was that I was compensating for product gaps with words instead of fixing the gaps.
+
+That was hard to hear because I genuinely believed I was being helpful. I thought thoroughness was respect for the seller. The more I explained, the better they'd understand.
+
+But when I looked at session data, sellers weren't reading the copy. They were skipping past it or abandoning the flow entirely. The words weren't helping them move forward — they were slowing them down.
+
+What made this land even harder was that it wasn't a one-off — I had the same instinct on <b>vendor acceptance</b> in Bill Pay. I thought giving Bill Pay users the ability to customize the notification email would build trust with vendors. What that would have actually done was create <b>a moment of pause in the flow</b> when what the vendor needed was a better way to <i>accept</i> the payment on their end. Both times, I was designing for warmth when the user needed friction removed.
+
+I made a deliberate shift. I started asking: what would this screen communicate if it had no copy at all? If the answer is nothing, the design isn't done. The product has to do the heavy lifting. Words are what you add when the design isn't clear enough yet.
+
+If a seller needs a paragraph to understand a feature, <b>the feature needs to be redesigned — not re-explained</b>."</div>
+
+    <div class="land-box">
+      <div class="land-label">Lines to land</div>
+      <div class="land-item">Both times, I was designing for warmth when the user needed friction removed.</div>
+      <div class="land-item" style="margin-top:8px">If a seller needs a paragraph to understand a feature, the feature needs to be redesigned — not re-explained.</div>
+    </div>
+
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text"><b>Name the sting first.</b> "That was hard to hear because I genuinely believed I was being helpful." Don't jump to the resolution.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">The <b>vendor acceptance callback</b> is what makes this a mature answer. Same instinct, twice, in different contexts — that's a pattern you learned to recognize.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">The closing line is a <b>design philosophy</b>. Say it clearly, then stop. Let it land.</div></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-label" style="margin-top:8px;color:var(--cobalt)">Secondary · Share feedback early, move forward together</div>
+    <div class="section-sub" style="margin-bottom:16px">Use this if the question is framed around "share ideas early" or "collaborate with engineering." It's about not getting caught in the details before validating.</div>
+
+    <div class="answer-script">"When I joined Checking, I had a big vision: an <b>overview experience for Banking</b> that could be the future home for all banking products and cash flow insights. I sketched it out, mocked it up, got attached.
+
+Then I shared it with engineering — and the feedback was direct. Our current banking products weren't scoped to handle a unified overview. The data plumbing wasn't there. The architecture would need real work. In the six-week window we had, it wasn't buildable.
+
+That was hard to hear because I'd fallen for my own idea. I was already imagining how it would ship. But the eng lead was right — and importantly, <b>they were right early</b>, before I'd spent two weeks polishing something that couldn't ship.
+
+I zoomed out. What we actually needed to drive was <b>checking debit card activation and spend from receiving sales</b>. Those behaviors were the near-term battle. I redesigned within the existing navigation structure, kept the overview vision in my back pocket as a north star, and shipped the changes that would move the numbers we could actually move.
+
+The lesson: <b>share big ideas early, before you've fallen in love with them</b>. Engineering feedback on constraints isn't a rejection of the vision — it's a chance to redirect energy toward what will actually ship. I like that I zoomed out and imagined a new way of approaching Banking. But the reality was we needed to test and learn on the behaviors that mattered right then."</div>
+
+    <div class="land-box">
+      <div class="land-label">Lines to land</div>
+      <div class="land-item">Share big ideas early, before you've fallen in love with them.</div>
+      <div class="land-item" style="margin-top:8px">Engineering feedback on constraints isn't a rejection of the vision — it's a chance to redirect energy toward what will actually ship.</div>
+    </div>
+
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">Name that you were <b>attached</b> to the idea. That's what makes the feedback hard, not just the constraint.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">"They were right early" is the whole point — you shared before polishing, so the redirect was cheap.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">Close by naming what you shipped instead. This isn't a "vision killed" story — it's a "vision deferred, focus sharpened" story.</div></div>
+    </div>
+  </div>
+
+  <!-- RELATIONSHIP -->
+  <div class="panel" id="panel-rel">
+    <div class="section-label">Question 5 · Relationship-Obsessed</div>
+    <div class="section-title">Tell me about going above and beyond for a user.</div>
+    <div class="section-sub">Payment ETA + the seller who teared up. Your most human story.</div>
+
+    <div class="answer-script">"Sellers were calling support to ask if their check had arrived. They'd mailed a payment to a landlord or a supplier and had complete silence after hitting send — no confirmation, no ETA, nothing. For a small business owner managing cash flow carefully, that silence was genuinely stressful.
+
+It wasn't on the roadmap. I took it to HackWeek. Found one engineer who was as bothered by it as I was, and we built payment status visibility — delivery ETA for mailed checks, transmission timing for electronic payments. A small surface, but a real one.
+
+A few months later I was in a research session with a seller and she teared up talking about it. She said knowing when payments would clear changed how she managed her business week. She stopped worrying. She could plan.
+
+That's the moment I come back to when someone asks why I design what I design.
+
+None of our competitors offered that visibility at that level. We built it because a seller needed it, not because a roadmap told us to."</div>
+
+    <div class="land-box">
+      <div class="land-label">Line to land</div>
+      <div class="land-item">That's the moment I come back to when someone asks why I design what I design.</div>
+    </div>
+
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">The seller tearing up is the most memorable moment in your whole session. <b>Don't rush past it.</b></div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text"><b>HackWeek = Headway Owner</b> too. You didn't wait for the roadmap. You found an engineer and built it.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">If Deckk comes up, one sentence only: "Same instinct — I built the thing I wanted to exist." Then stop.</div></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-label" style="margin-top:8px;color:var(--cobalt)">Secondary · Heal patient primary care redesign</div>
+    <div class="section-sub" style="margin-bottom:16px">Use this for mission-obsessed / patient-centered relationship questions. This is the story where the mission itself was the through-line — perfectly Headway-shaped.</div>
+
+    <div class="answer-script">"Heal's mission was to bring primary care into the home — closing care gaps, improving preventive measures, and reducing white coat syndrome for patients with chronic illnesses. That mission was <b>deeply important to me</b>. I wanted patients to have real access to healthcare on their own terms.
+
+But the app didn't actually support primary care. It was built like Uber for doctors: enter an address, pick a patient, list symptoms, choose a time — get matched with whichever doctor was available. That's episodic care, not primary care. And the biggest driver of support calls was patients trying to follow up with <b>a specific doctor they'd seen before</b> — because they wanted a relationship, and the app made that impossible.
+
+I advocated for a redesign that repositioned the app around primary care. Patients could <b>select the doctor they'd previously seen</b> and rebook quickly. The provider view showed real bios, specialties, and photos so patients could make an informed choice on new visits too. The booking flow honored the fact that healthcare is a relationship, not a transaction.
+
+Support calls about follow-ups dropped. Repeat patient rate hit <b>39 percent</b>. And Heal earned Apple App of the Day for the patient experience.
+
+The mission mattered enough that I couldn't design around it. Primary care means continuity of care — and the design had to earn that word."</div>
+
+    <div class="land-box">
+      <div class="land-label">Lines to land</div>
+      <div class="land-item">The mission mattered enough that I couldn't design around it.</div>
+      <div class="land-item" style="margin-top:8px">Healthcare is a relationship, not a transaction — and the design had to earn that word.</div>
+    </div>
+
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">This is your <b>strongest mission-alignment story</b>. Use it when they ask why healthcare, or why Headway, or how you get obsessed with a user's world.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">The <b>"Uber for doctors" reframe</b> is memorable. It tells the interviewer that you diagnose the model, not just the UI.</div></div>
+      <div class="beat"><div class="beat-icon">✓</div><div class="beat-text">Support calls were the signal. Metric-anchored empathy is stronger than empathy alone.</div></div>
+    </div>
+  </div>
+
+  <!-- ALL PRINCIPLES -->
+  <div class="panel" id="panel-principles">
+    <div class="section-label">Reference · All 5 Principles</div>
+    <div class="section-title">The full map.</div>
+    <div class="section-sub">One card per principle. Story + number + line to land.</div>
+
+    <div class="q-card" id="pc1">
+      <div class="q-header" onclick="toggleCard('pc1')">
+        <div class="q-badge">1</div>
+        <div class="q-title">Headway Owner · Go where needed. Close the loop.</div>
+        <div class="q-principle">Owner</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="beats">
+          <div class="beat"><div class="beat-icon">📖</div><div class="beat-text"><b>Story:</b> Fortnightly partner note at Square — ended two quarters of collision. Built it as a system, not a one-off.</div></div>
+          <div class="beat"><div class="beat-icon">📖</div><div class="beat-text"><b>Story:</b> Submitted the onboarding bug fix as a PR myself. Bug shipped next day.</div></div>
+          <div class="beat"><div class="beat-icon">🔢</div><div class="beat-text"><b>Number:</b> Two quarters of cross-team collision ended.</div></div>
+        </div>
+        <div class="land-box"><div class="land-label">Line</div><div class="land-item">I built the fix as a system, not a one-off, because closing the loop once isn't enough.</div></div>
+      </div></div>
+    </div>
+
+    <div class="q-card" id="pc2">
+      <div class="q-header" onclick="toggleCard('pc2')">
+        <div class="q-badge">2</div>
+        <div class="q-title">BFF · Better, Faster, Fewer. Vital few over worthwhile many.</div>
+        <div class="q-principle">BFF</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="beats">
+          <div class="beat"><div class="beat-icon">📖</div><div class="beat-text"><b>Story:</b> Biller directory pause — foundations first. Beautiful front door to a broken house.</div></div>
+          <div class="beat"><div class="beat-icon">📖</div><div class="beat-text"><b>Story:</b> Papercuts vs revamp on Checking — one focused bet on card-first activation.</div></div>
+          <div class="beat"><div class="beat-icon">🔢</div><div class="beat-text"><b>Numbers:</b> 54→69% bill capture. 32→59% activation.</div></div>
+        </div>
+        <div class="land-box"><div class="land-label">Line</div><div class="land-item">Knowing when not to build a worthwhile thing is the harder prioritization skill.</div></div>
+      </div></div>
+    </div>
+
+    <div class="q-card" id="pc3">
+      <div class="q-header" onclick="toggleCard('pc3')">
+        <div class="q-badge">3</div>
+        <div class="q-title">SBWH · Strong beliefs, weakly held. Update fast.</div>
+        <div class="q-principle">SBWH</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="beats">
+          <div class="beat"><div class="beat-icon">📖</div><div class="beat-text"><b>Story:</b> Card decoupling — believed card ordering was required. Engineering conversation changed it.</div></div>
+          <div class="beat"><div class="beat-icon">📖</div><div class="beat-text"><b>Story:</b> Discoverability yield — shared the room's hypothesis. Funnel data changed my mind fast.</div></div>
+          <div class="beat"><div class="beat-icon">🔢</div><div class="beat-text"><b>Numbers:</b> 23% activation lift + 38% virtual card adoption. 32→59% after discoverability reframe.</div></div>
+        </div>
+        <div class="land-box"><div class="land-label">Line</div><div class="land-item">I had been designing around a constraint that wasn't real.</div></div>
+      </div></div>
+    </div>
+
+    <div class="q-card" id="pc4">
+      <div class="q-header" onclick="toggleCard('pc4')">
+        <div class="q-badge">4</div>
+        <div class="q-title">Relationship-Obsessed · Customers first. Go the extra distance.</div>
+        <div class="q-principle">Relationship</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="beats">
+          <div class="beat"><div class="beat-icon">📖</div><div class="beat-text"><b>Story:</b> Payment ETA + the seller who teared up. HackWeek, one engineer, built what was needed.</div></div>
+          <div class="beat"><div class="beat-icon">📖</div><div class="beat-text"><b>Story:</b> Bill Pay vendor acceptance — designed for the counterparty who never chose the product.</div></div>
+          <div class="beat"><div class="beat-icon">🔢</div><div class="beat-text"><b>Numbers:</b> 52→73% vendor acceptance.</div></div>
+        </div>
+        <div class="land-box"><div class="land-label">Line</div><div class="land-item">That's the moment I come back to when someone asks why I design what I design.</div></div>
+      </div></div>
+    </div>
+
+    <div class="q-card" id="pc5">
+      <div class="q-header" onclick="toggleCard('pc5')">
+        <div class="q-badge">5</div>
+        <div class="q-title">FUEL · Feedback uplifts every level. Short-term honest, long-term kind.</div>
+        <div class="q-principle">FUEL</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="beats">
+          <div class="beat"><div class="beat-icon">📖</div><div class="beat-text"><b>Story (receiving):</b> PM told me I over-relied on copy. Session data proved it. Rebuilt my approach to design.</div></div>
+          <div class="beat"><div class="beat-icon">📖</div><div class="beat-text"><b>Story (giving):</b> Papercuts pushback — brought funnel data and said plainly we were about to build the wrong thing.</div></div>
+        </div>
+        <div class="land-box"><div class="land-label">Line</div><div class="land-item">If a seller needs a paragraph to understand a feature, the feature needs to be redesigned — not re-explained.</div></div>
+      </div></div>
+    </div>
+
+    <div class="q-card" id="pc6">
+      <div class="q-header" onclick="toggleCard('pc6')">
+        <div class="q-badge">6</div>
+        <div class="q-title">The invisible 6th · Deliberately unwritten.</div>
+        <div class="q-principle">Invisible</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="land-box"><div class="land-label">If they ask</div><div class="land-item">From the outside, it feels like something about moving uncomfortably fast — or a deep bias toward action. But I'd rather discover it from the inside than speculate from the outside.</div></div>
+      </div></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-label" style="margin-top:8px">Senior scope · Read this before every answer</div>
+    <div class="section-title" style="font-size:22px;margin-bottom:12px">Every story should show senior-scope work.</div>
+    <div class="section-sub" style="margin-bottom:20px">Their guide says stories should show cross-functional influence, navigating ambiguity, or leading work end-to-end — not executing tasks. Calibrate before you tell any story.</div>
+
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">🎯</div><div class="beat-text"><b>Did I lead cross-functional partners?</b> Name the PM, engineering lead, data scientist, or research partner you moved with you.</div></div>
+      <div class="beat"><div class="beat-icon">🌫</div><div class="beat-text"><b>Was there real ambiguity?</b> If everyone knew what to do and you just did it, pick a different story. Ambiguity is the senior test.</div></div>
+      <div class="beat"><div class="beat-icon">🔄</div><div class="beat-text"><b>Did I own it end-to-end?</b> From framing the problem to shipping to measuring — or did I inherit it and hand it off?</div></div>
+      <div class="beat"><div class="beat-icon">📊</div><div class="beat-text"><b>Did it move a business number?</b> Every story ends with a metric. If it doesn't, sharpen it or drop it.</div></div>
+      <div class="beat"><div class="beat-icon">⚖️</div><div class="beat-text"><b>Did I make a hard call?</b> Trading off, pausing, redirecting — junior stories execute; senior stories decide.</div></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-title" style="font-size:22px;margin-bottom:12px">Additional questions to be ready for</div>
+    <div class="section-sub" style="margin-bottom:20px">These are questions Maris or Serena may ask beyond the core five. Have a story loaded for each.</div>
+
+    <div class="q-card" id="add1">
+      <div class="q-header" onclick="toggleCard('add1')">
+        <div class="q-badge">?</div>
+        <div class="q-title">Tell me about a time you navigated significant ambiguity.</div>
+        <div class="q-principle">Owner + BFF</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="beats">
+          <div class="beat"><div class="beat-icon">📖</div><div class="beat-text"><b>Story:</b> Checking activation. 32% number existed but no definition of what "activated" even meant. I spent three weeks defining it behaviorally with data science before designing anything.</div></div>
+          <div class="beat"><div class="beat-icon">🔢</div><div class="beat-text"><b>Number:</b> 32→59% activation after the reframe.</div></div>
+        </div>
+        <div class="answer-script" style="margin-top:14px">"When I joined Checking the ask was 'move the activation number.' But nobody had defined activation. Was it opening the account? First deposit? First card spend? I could have started designing on any interpretation, but I chose to spend three weeks with data science defining activation as a set of specific behaviors before touching design. Once we agreed — early card engagement, money movement, balance held — the roadmap became obvious. Ambiguity is a design problem. If you don't solve it upfront you spend the whole quarter litigating solutions to problems no one has agreed on."</div>
+        <div class="land-box" style="margin-top:14px"><div class="land-label">Line</div><div class="land-item">Ambiguity is a design problem. If you don't solve it upfront you spend the quarter litigating solutions to problems no one has agreed on.</div></div>
+      </div></div>
+    </div>
+
+    <div class="q-card" id="add2">
+      <div class="q-header" onclick="toggleCard('add2')">
+        <div class="q-badge">?</div>
+        <div class="q-title">Tell me about leading work end-to-end from discovery to launch.</div>
+        <div class="q-principle">Owner</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="beats">
+          <div class="beat"><div class="beat-icon">📖</div><div class="beat-text"><b>Story:</b> Bill Pay end-to-end — inherited a flat product, ran discovery with sellers, partnered with data science, designed the three-stage ladder, shipped behind experiments, measured, then made the biller directory call.</div></div>
+          <div class="beat"><div class="beat-icon">🔢</div><div class="beat-text"><b>Number:</b> 54→69% completion, 52→73% vendor acceptance.</div></div>
+        </div>
+        <div class="answer-script" style="margin-top:14px">"Bill Pay was mine end to end. I inherited a beta product with flat growth. I ran the seller discovery, partnered with data science on the funnel, designed the three-stage capture ladder ending in zero UI, shipped every stage behind an experiment against a stated baseline, and made the call to pause the biller directory when the data said foundations first. From framing the problem to measuring impact to sequencing what came next — I owned all of it."</div>
+      </div></div>
+    </div>
+
+    <div class="q-card" id="add3">
+      <div class="q-header" onclick="toggleCard('add3')">
+        <div class="q-badge">?</div>
+        <div class="q-title">Tell me about influencing without authority — cross-functional leadership.</div>
+        <div class="q-principle">Owner + Relationship</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="beats">
+          <div class="beat"><div class="beat-icon">📖</div><div class="beat-text"><b>Story:</b> Papercuts to revamp. Team wanted ten small fixes. I brought funnel data + qual insights and moved a PM, an eng lead, and a research partner onto a bigger bet.</div></div>
+          <div class="beat"><div class="beat-icon">🔢</div><div class="beat-text"><b>Number:</b> 32→59% activation.</div></div>
+        </div>
+        <div class="answer-script" style="margin-top:14px">"On Checking, the room wanted papercuts — ten small discoverability fixes. I believed we were about to build the wrong thing. I couldn't just say so. I brought the funnel data, ran fresh qual with sellers to fill the gaps, and presented the case to my PM, eng lead, and research partner as a package. The move wasn't 'trust me' — it was 'here's the evidence, here's what it says, and here's what I'd bet on.' They chose the revamp because the evidence chose the revamp. That's how I influence: I bring the case with the data, and I make it easy to say yes."</div>
+        <div class="land-box" style="margin-top:14px"><div class="land-label">Line</div><div class="land-item">I influence by bringing the case with the data and making it easy to say yes.</div></div>
+      </div></div>
+    </div>
+
+    <div class="q-card" id="add4">
+      <div class="q-header" onclick="toggleCard('add4')">
+        <div class="q-badge">?</div>
+        <div class="q-title">What's a weakness you're actively working on?</div>
+        <div class="q-principle">FUEL · Self-awareness</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="answer-script">"Depth over breadth. When I own a surface, I go deep — and I've had to build systems so adjacent teams aren't surprised by what I'm shipping. The fortnightly partner note I started at Square was me forcing myself to zoom out on a schedule, because my natural gravity is inward on the problem. It's a real trade-off. Depth gets you 32-to-59; breadth is what keeps four adjacent teams aligned so it actually ships. I'm getting better at both, but I'll never pretend the pull toward depth doesn't exist."</div>
+        <div class="land-box" style="margin-top:14px"><div class="land-label">Line</div><div class="land-item">Depth gets you 32-to-59; breadth is what keeps four adjacent teams aligned so it actually ships.</div></div>
+      </div></div>
+    </div>
+
+    <div class="q-card" id="add5">
+      <div class="q-header" onclick="toggleCard('add5')">
+        <div class="q-badge">?</div>
+        <div class="q-title">Tell me about a time you disagreed with a manager or senior stakeholder.</div>
+        <div class="q-principle">SBWH + FUEL</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="answer-script">"On Cards, we shipped a wallet-stack pattern that engineering had to flatten into a list row because of a data-model constraint. I disagreed with shipping the flattened version. My lead said we needed to ship what was buildable now and iterate. So I did two things: I shipped what was buildable, on time, without fighting it. And separately, I built the intent version as a working prototype in Cursor over a weekend. That prototype ended up adopted into the Banking north star. I lost the near-term battle and kept the long-term argument alive by making it real."</div>
+        <div class="land-box" style="margin-top:14px"><div class="land-label">Line</div><div class="land-item">I lost the near-term battle and kept the long-term argument alive by making it real.</div></div>
+      </div></div>
+    </div>
+
+    <div class="q-card" id="add6">
+      <div class="q-header" onclick="toggleCard('add6')">
+        <div class="q-badge">?</div>
+        <div class="q-title">Tell me about a project that didn't succeed. What did you learn?</div>
+        <div class="q-principle">SBWH · Reflection</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="answer-script">"Early in Bill Pay, I over-invested in an onboarding education flow — modals, tooltips, callouts — because I believed sellers needed to understand the whole system before they'd trust it. Completion barely moved. What actually moved the number was cutting the education entirely and letting the product speak for itself. I learned that trust isn't built by explaining more, it's built by removing friction. That lesson is what led to the zero-UI email forwarding pattern later. The failure taught me the principle."</div>
+        <div class="land-box" style="margin-top:14px"><div class="land-label">Line</div><div class="land-item">Trust isn't built by explaining more — it's built by removing friction.</div></div>
+      </div></div>
+    </div>
+
+    <div class="q-card" id="add7">
+      <div class="q-header" onclick="toggleCard('add7')">
+        <div class="q-badge">?</div>
+        <div class="q-title">Where do you want to grow in your next role?</div>
+        <div class="q-principle">Owner · Growth mindset</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="answer-script">"Two things. One: I want to design at a company where the mission carries weight I can feel every day. I've done fintech and marketplaces, and the stakes at Headway are different in a way that matters to me. Two: I want to keep pushing on AI-native design — building prototypes in code, running validation on real behavior instead of Figma clicks. My Deckk work has been the sandbox; I want to bring that muscle into a product where it changes real outcomes for real users."</div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- CRITIQUE -->
+  <div class="panel" id="panel-critique">
+    <div class="section-label">App Critique · 20 minutes · Cathleen Jia</div>
+    <div class="section-title">Ground → Scope → Walk → Prioritize → Hand back.</div>
+    <div class="section-sub">Start with the user, not with the intro. Cathleen has already been briefed on you — go straight to the product.</div>
+
+    <div class="rescue-box" style="border-color:var(--cobalt);background:var(--cobalt-bg);margin-bottom:24px">
+      <div class="rescue-title" style="color:var(--cobalt)">⚠️ Don't do this at the start</div>
+      <div class="rescue-item"><div class="rescue-dot" style="background:var(--cobalt)"></div><div><b>Don't reintroduce yourself.</b> Cathleen has your resume. Culture panel already heard your bio. Bio at the start signals nerves.</div></div>
+      <div class="rescue-item"><div class="rescue-dot" style="background:var(--cobalt)"></div><div><b>Don't ask for a brief.</b> The prompt IS the site. If you must clarify, keep it to one sentence: "Any particular user or flow you'd like me to focus on, or should I pick the critical path?"</div></div>
+      <div class="rescue-item"><div class="rescue-dot" style="background:var(--cobalt)"></div><div><b>Do land on the product immediately.</b> Ground in the user first. That's the senior move.</div></div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Ground in the user</div>
+        <div class="step-time">2 min · Rubric-critical: this is the top scored dimension</div>
+        <div class="step-body">Name the user, their job to be done, their pain points, and the business model. Every observation you make later will tie back to this. <b>Don't just describe who the user is — describe what they're feeling when they arrive.</b></div>
+        <div class="step-script">"Let me ground us in the user first. This product serves [primary user: e.g., a hungry office worker at 12:30 on a Tuesday]. Their job is [get lunch fast, within budget, quality high enough to not regret]. Their pain points are [decision fatigue across too many options, fee surprise at checkout, uncertainty about wait time]. The business model is a three-sided marketplace — restaurant, driver, customer — which means the platform is constantly balancing three interests that aren't fully aligned. That tension shows up in the UI, and I'll flag it as we go."</div>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Invite collaboration + declare your path</div>
+        <div class="step-time">1 min · This is scored too — treat her as a collaborator</div>
+        <div class="step-body">Cathleen's rubric explicitly rewards designers who engage the interviewer. Ask her a low-cost question and announce your walking path.</div>
+        <div class="step-script">"Before I walk, does that framing match how you'd frame the user, or would you sharpen it? [Listen.] Great. I'm going to walk the critical path — homepage discovery through restaurant selection to cart. If you want me to detour anywhere or zoom in on a specific surface, just call it out."</div>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Walk with narrative structure</div>
+        <div class="step-time">12 min · Narrative logic beats a list of gripes</div>
+        <div class="step-body">Don't jump around. Move through the flow with clear transitions: <b>"the first thing I notice… which sets up… which is where the friction really appears…"</b> For each moment: what you observe → why it matters to the user's job → why the business likely made this call → what you'd test.</div>
+        <div class="step-script">"What I see here is [observation]. For a user trying to [job], this either helps them or costs them [X]. This decision probably exists because [revenue reason / operational constraint / tradeoff]. If I owned this, I'd test [specific change] and watch [metric] against baseline [Y]."</div>
+        <div style="margin-top:10px" class="beats">
+          <div class="beat"><div class="beat-icon">🤝</div><div class="beat-text"><b>Invite her in mid-walk:</b> "I'm curious how you'd rank these — is [X] the friction you'd focus on or does [Y] read as bigger?"</div></div>
+          <div class="beat"><div class="beat-icon">✨</div><div class="beat-text"><b>Name what's working, not just what isn't.</b> "What I want to name that's working — the [X] pattern is doing a lot of quiet lifting." Critics who only tear down look junior.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Prioritize with rationale</div>
+        <div class="step-time">3 min · Two opportunities, ranked, with tests + metrics</div>
+        <div class="step-body">Close with two changes in priority order. Say why one is bigger. Every recommendation gets a test and a metric — this is your signature move.</div>
+        <div class="step-script">"If I could change two things in priority order: one, [biggest change] — because it sits on the critical path and would move [outcome metric]. I'd test [A] against baseline [Y]. Two, [second change] — it's smaller in impact but higher confidence. I'd test [C] and measure [D]."</div>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Hand back the mic</div>
+        <div class="step-time">2 min · Partnership, not performance</div>
+        <div class="step-body">Turn it back explicitly. Ask what she wants to explore further.</div>
+        <div class="step-script">"That's my read on the critical path. What's a flow or moment you'd want me to go deeper on? Or is there something you saw differently?"</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-title" style="font-size:20px;margin-bottom:8px">The four scored dimensions — mapped</div>
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">💚</div><div class="beat-text"><b>Customer Obsession →</b> Ground every observation in the user's job. Never just "this button is small" — always "for a user trying to [X], this means [Y]."</div></div>
+      <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>Communication & Reasoning →</b> Narrative arc with transitions. "The first thing I notice… which sets up… which is where the friction really appears…"</div></div>
+      <div class="beat"><div class="beat-icon">💡</div><div class="beat-text"><b>Product Thinking →</b> Charitable business reads. "This likely exists because [revenue / constraint / tradeoff], and here's the user tension it creates."</div></div>
+      <div class="beat"><div class="beat-icon">🤝</div><div class="beat-text"><b>Collaboration (whiteboard) →</b> Invite input every 3–4 min. "How would you frame this?" "Which of these do you find more compelling?"</div></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-title" style="font-size:20px;margin-bottom:8px">Phrases that signal seniority</div>
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">💬</div><div class="beat-text">"This likely exists because..." — reading the product decision, not just the UI.</div></div>
+      <div class="beat"><div class="beat-icon">💬</div><div class="beat-text">"The tension here is between what the user wants and what the business needs..."</div></div>
+      <div class="beat"><div class="beat-icon">💬</div><div class="beat-text">"I'd pre-register the metric before touching this — so we know if the change worked."</div></div>
+      <div class="beat"><div class="beat-icon">💬</div><div class="beat-text">"What's working here, and it's worth naming..."</div></div>
+      <div class="beat"><div class="beat-icon">💬</div><div class="beat-text">"How would you rank these? I'm curious if you'd sequence them the same way."</div></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="rescue-box">
+      <div class="rescue-title">🧯 If you get flustered mid-critique</div>
+      <div class="rescue-item"><div class="rescue-dot"></div><div>Stop. Say: <i>"Let me zoom out for a second."</i> Take one breath.</div></div>
+      <div class="rescue-item"><div class="rescue-dot"></div><div>Then: <i>"The user on this page is trying to [job]. Does this design help them do that?"</i></div></div>
+      <div class="rescue-item"><div class="rescue-dot"></div><div>Answer your own question. You're back on track.</div></div>
+    </div>
+  </div>
+
+  <!-- WHITEBOARD -->
+  <div class="panel" id="panel-whiteboard">
+    <div class="section-label">Whiteboard · 35 minutes · Cathleen Jia</div>
+    <div class="section-title">Minute-by-minute clock.</div>
+    <div class="section-sub">Manage time out loud. Get something visual on the board early. Label everything you draw.</div>
+
+    <div class="wb-row">
+      <div class="wb-time">0–3</div>
+      <div class="wb-action"><b>Frame the problem.</b> Restate the prompt, ask about user, business goal, success metric. Decide fast — if they say "you decide," pick in 30 seconds and say why.<span class="hint">"Who's the primary user? What's the business goal? How do we measure success?"</span></div>
+    </div>
+    <div class="wb-row">
+      <div class="wb-time">3–9</div>
+      <div class="wb-action"><b>Map the user journey.</b> 5–6 boxes left to right. Label every step. Circle where the pain concentrates. Say it out loud. This is a scored rubric item — do it visibly and first.<span class="hint">"The drop happens here. This is where I want to focus."</span></div>
+    </div>
+    <div class="wb-row">
+      <div class="wb-time">9–13</div>
+      <div class="wb-action"><b>Prioritize.</b> "There are five real problems here. I'm going to focus on the vital one, not the worthwhile many." Name which 1–2 steps you'll attack and explain why.<span class="hint">BFF in action: vital few over worthwhile many.</span></div>
+    </div>
+    <div class="wb-row">
+      <div class="wb-time">13–25</div>
+      <div class="wb-action"><b>Ideate + SKETCH.</b> Offer 3 directions in one sentence each: safe / ambitious / unexpected. Ask which intrigues them. Then converge and DRAW. Labeled boxes and arrows beat a blank FigJam.<span class="hint">"Before I go deeper, which direction pulls you?" Then build it together.</span></div>
+    </div>
+    <div class="wb-row">
+      <div class="wb-time">25–31</div>
+      <div class="wb-action"><b>Pressure-test.</b> Edge cases, failure modes, scaling issues. Then state your metric: "The number I'd pre-register before shipping: [X] against baseline [Y]."</div>
+    </div>
+    <div class="wb-row">
+      <div class="wb-time">31–35</div>
+      <div class="wb-action"><b>Recap.</b> 60 seconds: user, problem, solution, metric, what I'd do with real research time. Then: "Questions?"</div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-title" style="font-size:20px;margin-bottom:8px">UI wireframe best practices</div>
+    <div class="section-sub" style="margin-bottom:20px">Their brief explicitly asks for a visualization — wireframe, flow, or interaction concept. You will need to draw something. Here's how to make it look intentional in FigJam under pressure.</div>
+
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">📐</div><div class="beat-text"><b>Draw one screen well, not five screens poorly.</b> A single annotated wireframe with labeled regions beats a whole flow of empty boxes.</div></div>
+      <div class="beat"><div class="beat-icon">📱</div><div class="beat-text"><b>Frame your canvas first.</b> Draw a phone rectangle (roughly 375×812 proportions) or a browser window. It orients everyone.</div></div>
+      <div class="beat"><div class="beat-icon">🏷</div><div class="beat-text"><b>Label everything as you draw.</b> Header, primary action, list row, empty state. Names carry the meaning; the boxes are scaffolding.</div></div>
+      <div class="beat"><div class="beat-icon">🧭</div><div class="beat-text"><b>Show hierarchy with size, not detail.</b> Bigger boxes = more important. Don't try to draw pixel-perfect chrome — you're proving a concept.</div></div>
+      <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>Annotate decisions in text next to the screen.</b> "Why this here" beats "how it looks." Sticky notes with rationale > pretty wireframes.</div></div>
+      <div class="beat"><div class="beat-icon">↔️</div><div class="beat-text"><b>Use arrows for state changes and flows.</b> "User taps this → sees that." A three-frame flow with arrows tells a story.</div></div>
+      <div class="beat"><div class="beat-icon">🎯</div><div class="beat-text"><b>Prioritize the "hero moment."</b> Pick the ONE screen or interaction that carries your idea. Draw that first. Everything else supports it.</div></div>
+      <div class="beat"><div class="beat-icon">🗣</div><div class="beat-text"><b>Narrate every stroke.</b> "I'm putting the primary action here because…" Silent sketching is invisible thinking, and this is a scored rubric item.</div></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-title" style="font-size:20px;margin-bottom:16px">FigJam keyboard shortcuts</div>
+    <div class="figjam-grid">
+      <div class="fj-key"><div class="fj-kbd">F</div><div class="fj-desc">Sticky note</div></div>
+      <div class="fj-key"><div class="fj-kbd">R</div><div class="fj-desc">Rectangle / frame</div></div>
+      <div class="fj-key"><div class="fj-kbd">L</div><div class="fj-desc">Connector / arrow</div></div>
+      <div class="fj-key"><div class="fj-kbd">T</div><div class="fj-desc">Text label</div></div>
+      <div class="fj-key"><div class="fj-kbd">Shift</div><div class="fj-desc">Straight line constraint</div></div>
+      <div class="fj-key"><div class="fj-kbd">Dbl-click</div><div class="fj-desc">Add text to a shape</div></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="rescue-box">
+      <div class="rescue-title">🧯 If you blank on the sketch</div>
+      <div class="rescue-item"><div class="rescue-dot"></div><div>Draw a phone frame. Put a rectangle inside it. Label it. You're sketching.</div></div>
+      <div class="rescue-item"><div class="rescue-dot"></div><div>Say: <i>"Let me get something rough down and we can react to it."</i></div></div>
+      <div class="rescue-item"><div class="rescue-dot"></div><div>A labeled box is better than a blank canvas. Keep going.</div></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-title" style="font-size:20px;margin-bottom:8px">Clock management lines</div>
+    <div class="beats">
+      <div class="beat"><div class="beat-icon">⏱</div><div class="beat-text">"We're at the halfway point — let me converge so we have time to sketch something."</div></div>
+      <div class="beat"><div class="beat-icon">⏱</div><div class="beat-text">"I want to make sure we get something visual down before we wrap."</div></div>
+      <div class="beat"><div class="beat-icon">⏱</div><div class="beat-text">"Five minutes left — quick recap and then I'm all yours for questions."</div></div>
+    </div>
+  </div>
+
+  <!-- BETS -->
+  <div class="panel" id="panel-bets">
+    <div class="section-label">App Bets · Ranked by likelihood</div>
+    <div class="section-title">B2B2C marketplaces. Three-sided. Handoff moments.</div>
+    <div class="section-sub">The role is B2B2C. They'll pick an app that mirrors that structure.</div>
+
+    <div class="b2b2c-box" style="margin-bottom:24px">
+      <b>The B2B2C lens to apply to any app</b>
+      <div>[Business / referral source] <span class="arrow">→</span> [Platform] <span class="arrow">→</span> [Consumer]</div>
+      <div>DoorDash: <b>Restaurant</b> <span class="arrow">→</span> DoorDash <span class="arrow">→</span> Customer</div>
+      <div>Airbnb: <b>Host</b> <span class="arrow">→</span> Airbnb <span class="arrow">→</span> Guest</div>
+      <div>Headway: <b>EAP / Employer</b> <span class="arrow">→</span> Headway <span class="arrow">→</span> Patient</div>
+    </div>
+
+    <div class="ground-box" style="margin-bottom:24px;background:var(--cobalt-bg);border-color:var(--cobalt-border)">
+      <div class="gl" style="color:var(--cobalt)">The AI framing interviewers love · say a version of this</div>
+      "The biggest issue isn't that there are too many listings — it's that users don't know <b>how to choose</b>. I'd focus AI on reducing decision fatigue: helping users understand their options, explaining tradeoffs, and building confidence in the final choice. The goal isn't to remove agency — it's to make the decision easier and faster." That framing shows you treat AI as a tool for user outcomes and business metrics, not a feature bolted on.
+    </div>
+
+    <div class="b2b2c-box" style="margin-bottom:16px;font-family:var(--body);font-size:14px;line-height:1.5">
+      <b>The decision-support shift · the spine of any critique</b><br>
+      <span style="color:var(--text)">Search <span class="arrow">→</span> Compare <span class="arrow">→</span> <b style="color:var(--cobalt)">Decide</b> <span class="arrow">→</span> Transact <span class="arrow">→</span> Follow-up</span><br>
+      <span style="font-size:12.5px">Traditional marketplaces dump options and make the user filter. AI narrows and <i>explains why</i>. The senior move is aiming AI at the <b style="color:var(--cobalt)">Decide</b> step — the confidence gap — not the search box.</span>
+    </div>
+
+    <div style="overflow-x:auto;margin-bottom:28px">
+      <table style="width:100%;border-collapse:collapse;font-size:12.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden">
+        <thead>
+          <tr style="background:var(--text);color:#fff;text-align:left">
+            <th style="padding:10px 12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600">Marketplace</th>
+            <th style="padding:10px 12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600">Core flow</th>
+            <th style="padding:10px 12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600">Decision fatigue moment</th>
+            <th style="padding:10px 12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600">AI solution to reach for</th>
+            <th style="padding:10px 12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600">Metric to test</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top:1px solid var(--line)">
+            <td style="padding:10px 12px;font-weight:700;color:var(--cobalt)">DoorDash</td>
+            <td style="padding:10px 12px;color:var(--muted)">Open → cuisine → restaurant → menu → item → checkout</td>
+            <td style="padding:10px 12px;color:var(--muted)">"200 restaurants, then 150 menu items — what do I actually order?"</td>
+            <td style="padding:10px 12px;color:var(--text)"><b>Meal concierge:</b> "spicy comfort under $25" → 3 restaurants + best dish from each. Normalize deals into one savings number.</td>
+            <td style="padding:10px 12px;color:var(--muted)">Time-to-first-tap · order completion · decision time</td>
+          </tr>
+          <tr style="border-top:1px solid var(--line);background:var(--surface)">
+            <td style="padding:10px 12px;font-weight:700;color:var(--cobalt)">Airbnb</td>
+            <td style="padding:10px 12px;color:var(--muted)">Search city → dates → filters → map → listing → reserve</td>
+            <td style="padding:10px 12px;color:var(--muted)">"500 places and every listing looks good."</td>
+            <td style="padding:10px 12px;color:var(--text)"><b>Travel-style match:</b> "walk to coffee + nightlife" → 3 homes, explained. Tradeoff cards: better neighborhood vs quieter vs bigger kitchen.</td>
+            <td style="padding:10px 12px;color:var(--muted)">Search-to-book rate · listings viewed before booking</td>
+          </tr>
+          <tr style="border-top:1px solid var(--line)">
+            <td style="padding:10px 12px;font-weight:700;color:var(--cobalt)">Ticketmaster</td>
+            <td style="padding:10px 12px;color:var(--muted)">Find event → section → seats → checkout</td>
+            <td style="padding:10px 12px;color:var(--muted)">"Thousands of seats, no clue what's worth paying for."</td>
+            <td style="padding:10px 12px;color:var(--text)"><b>Priority-based highlights:</b> ask what matters (view / sound / budget / exit) → best value, best under $150. Explain: "this seat loses stage visibility for $20."</td>
+            <td style="padding:10px 12px;color:var(--muted)">Seat-select completion · time-to-purchase · fee abandonment</td>
+          </tr>
+          <tr style="border-top:1px solid var(--line);background:var(--surface)">
+            <td style="padding:10px 12px;font-weight:700;color:var(--cobalt)">Etsy</td>
+            <td style="padding:10px 12px;color:var(--muted)">Search → browse → compare → buy</td>
+            <td style="padding:10px 12px;color:var(--muted)">"200 nearly identical mugs."</td>
+            <td style="padding:10px 12px;color:var(--text)"><b>Listing summarizer:</b> "most buyers pick these because… these ship fastest… these use premium materials." <i>Lead as a seller too.</i></td>
+            <td style="padding:10px 12px;color:var(--muted)">Search-to-purchase · listings compared · return rate</td>
+          </tr>
+          <tr style="border-top:1px solid var(--line)">
+            <td style="padding:10px 12px;font-weight:700;color:var(--cobalt)">Uber</td>
+            <td style="padding:10px 12px;color:var(--muted)">Pickup → destination → ride type → book</td>
+            <td style="padding:10px 12px;color:var(--muted)">"Comfort? XL? Black? Shared? Which one?"</td>
+            <td style="padding:10px 12px;color:var(--text)"><b>Context-aware suggest:</b> "Comfort — you're carrying luggage and it's only 2 min longer." Reads weather, bags, airport, kids.</td>
+            <td style="padding:10px 12px;color:var(--muted)">Ride-type selection time · upsell acceptance</td>
+          </tr>
+          <tr style="border-top:1px solid var(--line);background:var(--surface)">
+            <td style="padding:10px 12px;font-weight:700;color:var(--cobalt)">Amazon</td>
+            <td style="padding:10px 12px;color:var(--muted)">Search → results → product → reviews → buy</td>
+            <td style="padding:10px 12px;color:var(--muted)">"Millions of products, 800 reviews each."</td>
+            <td style="padding:10px 12px;color:var(--text)"><b>Review + compare synth:</b> pros/cons from 800 reviews in 4 lines. "Buy A if… buy B if…" instead of a spec table.</td>
+            <td style="padding:10px 12px;color:var(--muted)">Add-to-cart rate · time-on-product · return rate</td>
+          </tr>
+          <tr style="border-top:1px solid var(--line)">
+            <td style="padding:10px 12px;font-weight:700;color:var(--cobalt)">Zillow</td>
+            <td style="padding:10px 12px;color:var(--muted)">Search → map → home → contact agent</td>
+            <td style="padding:10px 12px;color:var(--muted)">"Neighborhood, commute, schools, safety, noise — impossible."</td>
+            <td style="padding:10px 12px;color:var(--text)"><b>Fit summary:</b> "best if you're a young professional who wants walkable restaurants and remote work." Synthesize the signals a buyer can't weigh alone.</td>
+            <td style="padding:10px 12px;color:var(--muted)">Listing-to-contact rate · saved homes · tour requests</td>
+          </tr>
+          <tr style="border-top:2px solid var(--cobalt);background:var(--cobalt-bg)">
+            <td style="padding:10px 12px;font-weight:700;color:var(--cobalt)">Headway<br><span style="font-size:10px;font-weight:400;color:var(--dim)">the real subject</span></td>
+            <td style="padding:10px 12px;color:var(--muted)">Referral → search therapists → filter → read → compare → book</td>
+            <td style="padding:10px 12px;color:var(--muted)">"127 therapists, all strangers, and this one really matters."</td>
+            <td style="padding:10px 12px;color:var(--text)"><b>Conversational intake:</b> understand goals → 3 confident therapist recommendations → explain <i>why each fits</i> → book. User never sees 127.</td>
+            <td style="padding:10px 12px;color:var(--muted)">Referral-to-first-session · match confidence · first-session show rate · retention</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="b2b2c-box" style="margin-bottom:28px;font-family:var(--body);font-size:13px;line-height:1.6">
+      <b>The 5-stage decision map · use this in the whiteboard</b>
+      <div style="margin-top:8px;display:grid;gap:6px">
+        <div><b style="color:var(--cobalt)">Discover</b> — "Where do I start?" · too many options · <span style="color:var(--muted)">AI: conversational search</span></div>
+        <div><b style="color:var(--cobalt)">Evaluate</b> — "Which is best?" · endless comparison · <span style="color:var(--muted)">AI: personalized recs with explanations</span></div>
+        <div><b style="color:var(--cobalt)">Decide</b> — "Am I right?" · low confidence · <span style="color:var(--muted)">AI: tradeoff summaries + confidence signals</span></div>
+        <div><b style="color:var(--cobalt)">Purchase</b> — "What's next?" · long forms, unclear pricing · <span style="color:var(--muted)">AI: autofill, pricing clarity</span></div>
+        <div><b style="color:var(--cobalt)">Post</b> — "Did I choose well?" · no reassurance · <span style="color:var(--muted)">AI: next-step guidance, reminders</span></div>
+      </div>
+    </div>
+
+    <div class="section-title" style="font-size:22px;margin-bottom:6px">The universal journey map</div>
+    <div class="section-sub" style="margin-bottom:4px">Applies to any marketplace they hand you. Draw a version of this fast in FigJam — emotion on top, pain point below. The Decide stage (card 4) is where AI does its best work and where the confidence gap lives.</div>
+
+    <div class="journey-scroll">
+      <div class="jcard">
+        <div class="jstage">1 · Arrive</div>
+        <div class="jtitle">Open the app</div>
+        <div class="jquestion">"Where do I even start?"</div>
+        <div class="jrow jemotion"><span class="jicon">😐</span><span><b>Emotion:</b> Neutral, slightly hopeful, low commitment</span></div>
+        <div class="jrow jpain"><span class="jicon">⚠️</span><span><b>Pain:</b> No context yet — the app doesn't know why they're here today</span></div>
+      </div>
+      <div class="jcard">
+        <div class="jstage">2 · Discover</div>
+        <div class="jtitle">See the options</div>
+        <div class="jquestion">"How many of these are there?"</div>
+        <div class="jrow jemotion"><span class="jicon">😳</span><span><b>Emotion:</b> Mild overwhelm — the number of choices registers immediately</span></div>
+        <div class="jrow jpain"><span class="jicon">⚠️</span><span><b>Pain:</b> Flat list, everything looks similar, no sense of what's actually good</span></div>
+      </div>
+      <div class="jcard">
+        <div class="jstage">3 · Evaluate</div>
+        <div class="jtitle">Compare a few</div>
+        <div class="jquestion">"Which of these is actually best?"</div>
+        <div class="jrow jemotion"><span class="jicon">😤</span><span><b>Emotion:</b> Mounting fatigue — bouncing between tabs/cards to compare manually</span></div>
+        <div class="jrow jpain"><span class="jicon">⚠️</span><span><b>Pain:</b> Comparable data isn't normalized (price vs. quality vs. speed, apples to oranges)</span></div>
+      </div>
+      <div class="jcard hero">
+        <div class="jstage">4 · Decide ⭐</div>
+        <div class="jtitle">Commit to one</div>
+        <div class="jquestion">"Am I making the right choice?"</div>
+        <div class="jrow jemotion"><span class="jicon">😰</span><span><b>Emotion:</b> Anxiety spike — this is the highest-stakes emotional moment in the journey</span></div>
+        <div class="jrow jpain"><span class="jicon">⚠️</span><span><b>Pain:</b> Low confidence, no one is explaining <i>why</i> this option fits — the single biggest AI opportunity</span></div>
+      </div>
+      <div class="jcard">
+        <div class="jstage">5 · Transact</div>
+        <div class="jtitle">Complete the booking</div>
+        <div class="jquestion">"What happens next?"</div>
+        <div class="jrow jemotion"><span class="jicon">😬</span><span><b>Emotion:</b> Relief mixed with second-guessing — did the price change, was the fee always there?</span></div>
+        <div class="jrow jpain"><span class="jicon">⚠️</span><span><b>Pain:</b> Long forms, surprise fees revealed late, unclear confirmation</span></div>
+      </div>
+      <div class="jcard">
+        <div class="jstage">6 · Follow-up</div>
+        <div class="jtitle">Live with the choice</div>
+        <div class="jquestion">"Did I choose well?"</div>
+        <div class="jrow jemotion"><span class="jicon">🙂</span><span><b>Emotion:</b> Hope for validation — wants the choice reinforced or corrected fast</span></div>
+        <div class="jrow jpain"><span class="jicon">⚠️</span><span><b>Pain:</b> Silence after commitment. No reassurance, no next step, no easy path if it goes wrong</span></div>
+      </div>
+    </div>
+
+    <div class="b2b2c-box" style="margin-bottom:28px;font-family:var(--body);font-size:13px;line-height:1.6">
+      <b>How to use this in the room</b>
+      <div style="margin-top:8px">Draw all 6 stages fast in FigJam, left to right — even just boxes with a one-word emotion above and a pain point below each. Circle stage 4, <b style="color:var(--cobalt)">Decide</b>. Say out loud: "This is where the anxiety peaks and where nobody is explaining anything to the user. That's where I'd put design and AI effort first." That single move — mapping fast, then pointing at the emotional peak — hits Customer Obsession and Product Thinking in one gesture.</div>
+    </div>
+
+    <div class="section-title" style="font-size:20px;margin-bottom:16px">The detailed bets</div>
+
+    <div class="bet-card">
+      <div class="bet-header">
+        <div class="bet-name">DoorDash</div>
+        <div class="bet-tier t1">Most likely</div>
+      </div>
+      <div class="bet-body">Three-sided marketplace. Consumer, restaurant, driver. Fee transparency, urgency mechanics, trust signals at each step. Structurally identical to Headway's patient journey. Rich business model tension: restaurant interest, driver interest, customer interest — not fully aligned, and you can see it in the UI.</div>
+      <div class="bet-angle"><b>Your angle</b>"The total price a customer sees at item selection is meaningfully different from what they pay at checkout. That gap is a design failure with a revenue justification. I can walk through exactly where it breaks and what I'd test."</div>
+    </div>
+
+    <div class="bet-card">
+      <div class="bet-header">
+        <div class="bet-name">Airbnb</div>
+        <div class="bet-tier t1">High probability</div>
+      </div>
+      <div class="bet-body">Two-sided marketplace, trust is the entire product. Search-to-booking flow is 15+ steps, full of anxiety management moments. Host credibility signals, price anchoring, availability urgency. Classic crit subject — they may avoid it for that reason.</div>
+      <div class="bet-angle"><b>Your angle</b>"Airbnb's search results page is doing five jobs at once: pricing, availability, quality signaling, urgency, and social proof. When a page does five jobs it usually does all of them poorly. Let me walk through what I'd prioritize."</div>
+    </div>
+
+    <div class="bet-card">
+      <div class="bet-header">
+        <div class="bet-name">Eventbrite / Ticketmaster</div>
+        <div class="bet-tier t1">Medium-high</div>
+      </div>
+      <div class="bet-body">Event discovery with a B2B2C shape: organizer → platform → attendee. Fee transparency is notorious. Urgency mechanics are aggressive and often cross into dark pattern territory.</div>
+      <div class="bet-angle"><b>Your angle</b>"Ticketmaster's fee reveal at checkout is a studied dark pattern — the user has committed emotionally before seeing the real price. I'd talk through what ethical urgency looks like and whether transparency actually hurts conversion, or if that's just an assumption."</div>
+    </div>
+
+    <div class="bet-card">
+      <div class="bet-header">
+        <div class="bet-name">Etsy</div>
+        <div class="bet-tier t1">Your wildcard advantage</div>
+      </div>
+      <div class="bet-body">You run two Etsy shops. Nobody else in the pipeline can critique as both buyer and seller. Lead with it: "I have a perspective here from both sides of the marketplace."</div>
+      <div class="bet-angle"><b>Your angle</b>"As a seller, the fee structure directly impacts my pricing decisions and profit margins. As a buyer, the search relevance often serves promoted listings over the best match. I can walk both sides."</div>
+    </div>
+
+    <div class="bet-card">
+      <div class="bet-header">
+        <div class="bet-name">Zocdoc or One Medical</div>
+        <div class="bet-tier t2">Healthcare wildcard</div>
+      </div>
+      <div class="bet-body">Healthcare-adjacent but consumer product. Tests domain fluency without the emotional weight of mental health. If they go here, lean into your Heal experience immediately.</div>
+      <div class="bet-angle"><b>Your angle</b>"I've designed inside healthcare before, so let me apply that lens. At Heal I was on the provider side of this exact problem — doctors need to surface trustworthy quickly, patients need to commit to someone they've never met."</div>
+    </div>
+  </div>
+
+  <!-- SKETCHES -->
+  <div class="panel" id="panel-sketches">
+    <div class="section-label">Solution Sketches · DoorDash new-to-city prompt</div>
+    <div class="section-title">Three directions, ranged safe → ambitious.</div>
+    <div class="section-sub">In FigJam tomorrow, you'd sketch these as boxes and arrows. These are cleaner mockups for reference — the shape and logic are what to memorize, not the pixels.</div>
+
+    <div class="b2b2c-box" style="margin-bottom:24px;font-family:var(--body);font-size:13.5px;line-height:1.6">
+      <b>How to use these in the whiteboard</b>
+      <div style="margin-top:8px">Offer all three in one breath: "I'm seeing three directions — a safe one, a stronger one, and a more ambitious one. Let me name them, then I'd love your read on which one to sketch." That move — 3 options, then handing the choice back — is a scored collaboration signal <i>and</i> a BFF prioritization move at the same time.</div>
+    </div>
+
+    <!-- OPTION A -->
+    <div class="q-card" style="margin-bottom:22px">
+      <div class="q-header" style="cursor:default">
+        <div class="q-badge">A</div>
+        <div class="q-title">The Preference Prompt · Safe bet, ships fast</div>
+        <div class="q-principle">Discover fix</div>
+      </div>
+      <div class="q-body" style="display:block;border-top:1px solid var(--line)">
+        <div class="q-body-inner">
+          <div style="display:grid;grid-template-columns:1fr 260px;gap:24px;align-items:start">
+            <div>
+              <p style="font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:14px">Shown once to new-to-city users after they drop their pin. Three quick taps: cuisine mood, budget, dine-in vs fast. Surfaces 3 matched restaurants with a one-line "why this fits." Compresses Discover → Evaluate → Decide by roughly half.</p>
+              <div class="land-box" style="margin-bottom:12px"><div class="land-label">Targets</div><div class="land-item" style="font-size:13px;font-family:var(--body);font-weight:600">Discover-stage fatigue</div></div>
+              <div class="ground-box" style="margin-bottom:0"><div class="gl">Metric</div>Time-to-restaurant-selection for new-to-city users, against today's baseline. Secondary: first-session order completion rate.</div>
+              <p style="font-size:12.5px;color:var(--dim);margin-top:14px;font-style:italic">Weakness: front-loaded. Doesn't touch the in-menu anxiety you diagnosed at Decide. Fine as a starter, not the full answer.</p>
+            </div>
+            <div>
+              <svg viewBox="0 0 240 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;border:1px solid var(--line);border-radius:20px;background:#fff;display:block">
+                <!-- status bar -->
+                <rect x="0" y="0" width="240" height="30" fill="#fff"/>
+                <text x="15" y="20" font-family="Inter" font-size="10" font-weight="600" fill="#111">9:41</text>
+                <rect x="200" y="10" width="24" height="10" rx="2" fill="#111"/>
+                <!-- header -->
+                <text x="15" y="60" font-family="Space Grotesk" font-size="16" font-weight="700" fill="#111">Welcome to Culver City</text>
+                <text x="15" y="78" font-family="Inter" font-size="11" fill="#5c5c58">Let's find your spot in 3 taps.</text>
+                <!-- Q1 -->
+                <text x="15" y="108" font-family="Inter" font-size="10" font-weight="700" fill="#1D2ED9" letter-spacing="1">1 · MOOD</text>
+                <rect x="15" y="115" width="66" height="30" rx="15" fill="#1D2ED9"/>
+                <text x="48" y="135" font-family="Inter" font-size="11" font-weight="600" fill="#fff" text-anchor="middle">Noodles</text>
+                <rect x="85" y="115" width="52" height="30" rx="15" fill="#f4f4f2" stroke="#e2e2de"/>
+                <text x="111" y="135" font-family="Inter" font-size="11" fill="#5c5c58" text-anchor="middle">Pizza</text>
+                <rect x="141" y="115" width="52" height="30" rx="15" fill="#f4f4f2" stroke="#e2e2de"/>
+                <text x="167" y="135" font-family="Inter" font-size="11" fill="#5c5c58" text-anchor="middle">Sushi</text>
+                <rect x="197" y="115" width="28" height="30" rx="15" fill="#f4f4f2" stroke="#e2e2de"/>
+                <text x="211" y="135" font-family="Inter" font-size="11" fill="#5c5c58" text-anchor="middle">+</text>
+                <!-- Q2 -->
+                <text x="15" y="170" font-family="Inter" font-size="10" font-weight="700" fill="#1D2ED9" letter-spacing="1">2 · BUDGET</text>
+                <rect x="15" y="177" width="34" height="30" rx="15" fill="#f4f4f2" stroke="#e2e2de"/>
+                <text x="32" y="197" font-family="Inter" font-size="11" fill="#5c5c58" text-anchor="middle">$</text>
+                <rect x="53" y="177" width="40" height="30" rx="15" fill="#1D2ED9"/>
+                <text x="73" y="197" font-family="Inter" font-size="11" font-weight="600" fill="#fff" text-anchor="middle">$$</text>
+                <rect x="97" y="177" width="46" height="30" rx="15" fill="#f4f4f2" stroke="#e2e2de"/>
+                <text x="120" y="197" font-family="Inter" font-size="11" fill="#5c5c58" text-anchor="middle">$$$</text>
+                <!-- Q3 -->
+                <text x="15" y="232" font-family="Inter" font-size="10" font-weight="700" fill="#1D2ED9" letter-spacing="1">3 · TIME</text>
+                <rect x="15" y="239" width="80" height="30" rx="15" fill="#1D2ED9"/>
+                <text x="55" y="259" font-family="Inter" font-size="11" font-weight="600" fill="#fff" text-anchor="middle">Fast (&lt;30m)</text>
+                <rect x="99" y="239" width="80" height="30" rx="15" fill="#f4f4f2" stroke="#e2e2de"/>
+                <text x="139" y="259" font-family="Inter" font-size="11" fill="#5c5c58" text-anchor="middle">Sit-down</text>
+                <!-- results -->
+                <line x1="15" y1="295" x2="225" y2="295" stroke="#e2e2de"/>
+                <text x="15" y="315" font-family="Space Grotesk" font-size="13" font-weight="700" fill="#111">Your 3 picks</text>
+                <!-- card 1 -->
+                <rect x="15" y="326" width="210" height="46" rx="10" fill="#f4f4f2"/>
+                <text x="24" y="345" font-family="Inter" font-size="11" font-weight="700" fill="#111">Kokoro Ramen · 4.7★</text>
+                <text x="24" y="360" font-family="Inter" font-size="10" fill="#5c5c58">Fastest match · 22 min</text>
+                <!-- card 2 -->
+                <rect x="15" y="378" width="210" height="46" rx="10" fill="#f4f4f2"/>
+                <text x="24" y="397" font-family="Inter" font-size="11" font-weight="700" fill="#111">Silverlake Ramen · 4.6★</text>
+                <text x="24" y="412" font-family="Inter" font-size="10" fill="#5c5c58">Most ordered nearby · 28 min</text>
+                <!-- card 3 -->
+                <rect x="15" y="430" width="210" height="40" rx="10" fill="#fff" stroke="#e2e2de"/>
+                <text x="24" y="454" font-family="Inter" font-size="10" fill="#8a8a86">See more →</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION B -->
+    <div class="q-card" style="margin-bottom:22px;border:2px solid var(--cobalt)">
+      <div class="q-header" style="cursor:default;background:var(--cobalt-bg)">
+        <div class="q-badge" style="background:var(--cobalt);color:#fff;border-color:var(--cobalt)">B</div>
+        <div class="q-title">The Confidence Layer · The one that actually solves Decide</div>
+        <div class="q-principle" style="background:var(--cobalt);color:#fff">Your pick</div>
+      </div>
+      <div class="q-body" style="display:block;border-top:1px solid var(--line)">
+        <div class="q-body-inner">
+          <div style="display:grid;grid-template-columns:1fr 260px;gap:24px;align-items:start">
+            <div>
+              <p style="font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:14px">A lightweight "why this is a good pick" signal that follows the user from restaurant card <b>all the way into the menu</b> at the item level. Not a quiz — synthesized proof from real order data. "Most ordered by first-timers in this neighborhood." "9 of 10 people who ordered ramen here also got the gyoza."</p>
+              <div class="land-box" style="margin-bottom:12px"><div class="land-label">Targets</div><div class="land-item" style="font-size:13px;font-family:var(--body);font-weight:600">Decide-stage anxiety · the peak you circled</div></div>
+              <div class="ground-box" style="margin-bottom:0"><div class="gl">Metric</div>Restaurant menu-open → order-placed conversion, against baseline. Secondary: time-in-menu as a proxy for hesitation. This is the number you'd pre-register before shipping.</div>
+              <p style="font-size:12.5px;color:var(--dim);margin-top:14px;font-style:italic">Why this is the pick: it reaches the exact moment you diagnosed as the anxiety peak, not just the upstream problem. It's your BFF move — one focused bet on the highest-impact stage.</p>
+            </div>
+            <div>
+              <svg viewBox="0 0 240 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;border:1px solid var(--line);border-radius:20px;background:#fff;display:block">
+                <!-- status bar -->
+                <rect x="0" y="0" width="240" height="30" fill="#fff"/>
+                <text x="15" y="20" font-family="Inter" font-size="10" font-weight="600" fill="#111">9:41</text>
+                <rect x="200" y="10" width="24" height="10" rx="2" fill="#111"/>
+                <!-- restaurant header -->
+                <text x="15" y="55" font-family="Space Grotesk" font-size="15" font-weight="700" fill="#111">Kokoro Ramen</text>
+                <text x="15" y="70" font-family="Inter" font-size="10" fill="#5c5c58">4.7★ · 20-30 min · $$</text>
+                <!-- confidence badge -->
+                <rect x="15" y="82" width="210" height="34" rx="8" fill="#1D2ED9" fill-opacity="0.08" stroke="#1D2ED9" stroke-opacity="0.3"/>
+                <circle cx="27" cy="99" r="6" fill="#1D2ED9"/>
+                <text x="27" y="103" font-family="Inter" font-size="8" font-weight="700" fill="#fff" text-anchor="middle">✓</text>
+                <text x="40" y="99" font-family="Inter" font-size="10" font-weight="700" fill="#1D2ED9">Good pick for first-timers</text>
+                <text x="40" y="111" font-family="Inter" font-size="9" fill="#5c5c58">Most ordered by folks new to Culver City</text>
+                <!-- section header -->
+                <text x="15" y="140" font-family="Inter" font-size="10" font-weight="700" fill="#5c5c58" letter-spacing="1">MENU</text>
+                <!-- item 1 with confidence -->
+                <rect x="15" y="150" width="210" height="72" rx="10" fill="#fff" stroke="#e2e2de"/>
+                <text x="24" y="170" font-family="Inter" font-size="12" font-weight="700" fill="#111">Tonkotsu Ramen</text>
+                <text x="24" y="184" font-family="Inter" font-size="10" fill="#5c5c58">Rich pork broth · $16</text>
+                <rect x="24" y="192" width="130" height="20" rx="10" fill="#1D2ED9" fill-opacity="0.1"/>
+                <text x="30" y="205" font-family="Inter" font-size="9" font-weight="600" fill="#1D2ED9">✨ 9 of 10 order this here</text>
+                <!-- item 2 -->
+                <rect x="15" y="230" width="210" height="60" rx="10" fill="#fff" stroke="#e2e2de"/>
+                <text x="24" y="250" font-family="Inter" font-size="12" font-weight="700" fill="#111">Spicy Miso Ramen</text>
+                <text x="24" y="264" font-family="Inter" font-size="10" fill="#5c5c58">House miso, chili oil · $17</text>
+                <text x="24" y="280" font-family="Inter" font-size="9" fill="#8a8a86">Popular</text>
+                <!-- pair suggestion -->
+                <rect x="15" y="304" width="210" height="46" rx="10" fill="#f4f4f2"/>
+                <text x="24" y="323" font-family="Inter" font-size="10" font-weight="700" fill="#111">Often paired</text>
+                <text x="24" y="338" font-family="Inter" font-size="9" fill="#5c5c58">Add Gyoza (+$8) · 87% do</text>
+                <!-- item 3 -->
+                <rect x="15" y="358" width="210" height="60" rx="10" fill="#fff" stroke="#e2e2de"/>
+                <text x="24" y="378" font-family="Inter" font-size="12" font-weight="700" fill="#111">Vegetable Ramen</text>
+                <text x="24" y="392" font-family="Inter" font-size="10" fill="#5c5c58">Mushroom dashi · $15</text>
+                <!-- cart button -->
+                <rect x="15" y="432" width="210" height="36" rx="18" fill="#111"/>
+                <text x="120" y="454" font-family="Inter" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">Add to order · $16</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION C -->
+    <div class="q-card" style="margin-bottom:22px">
+      <div class="q-header" style="cursor:default">
+        <div class="q-badge">C</div>
+        <div class="q-title">The Concierge · Most ambitious, AI-native</div>
+        <div class="q-principle">Future bet</div>
+      </div>
+      <div class="q-body" style="display:block;border-top:1px solid var(--line)">
+        <div class="q-body-inner">
+          <div style="display:grid;grid-template-columns:1fr 260px;gap:24px;align-items:start">
+            <div>
+              <p style="font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:14px">A single conversational entry point: "What are you in the mood for?" Free text or chips. Returns 3 restaurants with one dish highlighted from each and a plain-language reason. Collapses Discover → Evaluate → Decide into one interaction. User never sees a wall of 200 restaurants.</p>
+              <div class="land-box" style="margin-bottom:12px"><div class="land-label">Targets</div><div class="land-item" style="font-size:13px;font-family:var(--body);font-weight:600">The whole journey, redesigned around AI</div></div>
+              <div class="ground-box" style="margin-bottom:0"><div class="gl">Metric</div>First-session order completion for new-to-city users. Plus qualitative: does the recommendation feel trustworthy? Would need usability testing before rollout — that's part of the sequencing pitch.</div>
+              <p style="font-size:12.5px;color:var(--dim);margin-top:14px;font-style:italic">The pitch: "Not where I'd start, but where I'd want this to evolve toward. I'd validate the confidence-signal pattern in B before betting the whole quarter on this."</p>
+            </div>
+            <div>
+              <svg viewBox="0 0 240 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;border:1px solid var(--line);border-radius:20px;background:#fff;display:block">
+                <!-- status bar -->
+                <rect x="0" y="0" width="240" height="30" fill="#fff"/>
+                <text x="15" y="20" font-family="Inter" font-size="10" font-weight="600" fill="#111">9:41</text>
+                <rect x="200" y="10" width="24" height="10" rx="2" fill="#111"/>
+                <!-- header -->
+                <text x="15" y="58" font-family="Space Grotesk" font-size="16" font-weight="700" fill="#111">Hey, what are you</text>
+                <text x="15" y="76" font-family="Space Grotesk" font-size="16" font-weight="700" fill="#111">craving?</text>
+                <!-- chat bubble user -->
+                <rect x="55" y="94" width="170" height="34" rx="12" fill="#1D2ED9"/>
+                <text x="65" y="108" font-family="Inter" font-size="10" fill="#fff">Something warm, spicy,</text>
+                <text x="65" y="121" font-family="Inter" font-size="10" fill="#fff">fast, under $25.</text>
+                <!-- chat bubble AI -->
+                <rect x="15" y="140" width="180" height="42" rx="12" fill="#f4f4f2"/>
+                <text x="25" y="156" font-family="Inter" font-size="10" fill="#111">Got it. Here are 3 spots</text>
+                <text x="25" y="169" font-family="Inter" font-size="10" fill="#111">near you that match all</text>
+                <text x="25" y="177" font-family="Inter" font-size="10" fill="#111">three:</text>
+                <!-- rec 1 (highlighted) -->
+                <rect x="15" y="194" width="210" height="70" rx="10" fill="#1D2ED9" fill-opacity="0.08" stroke="#1D2ED9" stroke-opacity="0.3"/>
+                <text x="24" y="213" font-family="Inter" font-size="11" font-weight="700" fill="#111">Kokoro Ramen</text>
+                <text x="24" y="226" font-family="Inter" font-size="9" fill="#5c5c58">Spicy Miso · $17 · 22 min</text>
+                <text x="24" y="245" font-family="Inter" font-size="9" font-style="italic" fill="#1D2ED9">✨ Closest match — warm, spicy,</text>
+                <text x="24" y="257" font-family="Inter" font-size="9" font-style="italic" fill="#1D2ED9">and their fastest weeknight order</text>
+                <!-- rec 2 -->
+                <rect x="15" y="270" width="210" height="58" rx="10" fill="#fff" stroke="#e2e2de"/>
+                <text x="24" y="289" font-family="Inter" font-size="11" font-weight="700" fill="#111">Nom Wah Kitchen</text>
+                <text x="24" y="302" font-family="Inter" font-size="9" fill="#5c5c58">Dan Dan Noodles · $14 · 28 min</text>
+                <text x="24" y="318" font-family="Inter" font-size="9" fill="#8a8a86">Spicier · slightly slower</text>
+                <!-- rec 3 -->
+                <rect x="15" y="334" width="210" height="58" rx="10" fill="#fff" stroke="#e2e2de"/>
+                <text x="24" y="353" font-family="Inter" font-size="11" font-weight="700" fill="#111">Chosun Galbee</text>
+                <text x="24" y="366" font-family="Inter" font-size="9" fill="#5c5c58">Kimchi Jjigae · $18 · 30 min</text>
+                <text x="24" y="382" font-family="Inter" font-size="9" fill="#8a8a86">Sit-down · warmer vibe</text>
+                <!-- ask a follow up -->
+                <rect x="15" y="404" width="210" height="30" rx="15" fill="#f4f4f2" stroke="#e2e2de"/>
+                <text x="24" y="422" font-family="Inter" font-size="9" fill="#8a8a86">Ask for something different →</text>
+                <!-- browse escape -->
+                <text x="120" y="454" font-family="Inter" font-size="10" fill="#5c5c58" text-anchor="middle">or browse all restaurants</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-title" style="font-size:20px;margin-bottom:8px">If Cathleen asks "which would you pick?"</div>
+    <div class="answer-script">"If I had to pick one, <b>B</b> — the confidence layer. It's the only one of the three that actually reaches into the moment I flagged as the peak of the anxiety, not just the upstream restaurant-selection problem. A is safer to ship but only solves half of what I diagnosed. C is where I'd want this to evolve — genuinely AI-native — but I wouldn't bet the whole quarter on it without validating the smaller confidence-signal pattern first. Sequence B first, learn from it, then C follows naturally."</div>
+
+    <div class="land-box" style="margin-top:16px">
+      <div class="land-label">Line to land</div>
+      <div class="land-item">The safe answer solves the upstream problem. The strong answer solves the peak. The ambitious answer replaces the whole journey — but I'd sequence, not skip.</div>
+    </div>
+  </div>
+
+  <!-- GROUNDING -->
+  <div class="panel" id="panel-ground">
+    <div class="section-label">Grounding Card · Read this if you need it</div>
+    <div class="section-title">You are ready.</div>
+    <div class="section-sub">This card is for the moment before you join the call, or if you feel yourself speeding up.</div>
+
+    <div class="rescue-box" style="margin-bottom:20px">
+      <div class="rescue-title">☁️ If you blank on an answer</div>
+      <div class="rescue-item"><div class="rescue-dot"></div><div><b>"Let me find the right story for that."</b> Then breathe. The story is there.</div></div>
+      <div class="rescue-item"><div class="rescue-dot"></div><div><b>"I want to answer that honestly — give me a second."</b> Senior move, not a weakness.</div></div>
+      <div class="rescue-item"><div class="rescue-dot"></div><div>One breath. Shoulders down. The pause is working for you, not against you.</div></div>
+    </div>
+
+    <div class="ground-box" style="margin-bottom:16px">
+      <div class="gl">Before you speak</div>
+      Breathe once. The number deserves a pause after it. They are not grading speed — they are grading clarity.
+    </div>
+
+    <div class="ground-box" style="margin-bottom:16px">
+      <div class="gl">If you're going too fast</div>
+      Slow down at the turn of the story. "I questioned whether the form should exist at all" — that sentence deserves a beat of silence after it. So does every metric you land.
+    </div>
+
+    <div class="ground-box" style="margin-bottom:16px">
+      <div class="gl">If critique goes sideways</div>
+      Stop. Say "let me zoom out." Ask: "The user here is trying to [job]. Does this design help them?" Answer your own question. You are back.
+    </div>
+
+    <div class="ground-box" style="margin-bottom:32px">
+      <div class="gl">The thing to remember</div>
+      You have shipped real work at real scale. 32 to 59. 52 to 73. CES Innovation Award. You are not hoping they believe you're good. You have the evidence.
+    </div>
+
+    <div class="land-box">
+      <div class="land-label">The five numbers — have these cold</div>
+      <div class="land-item" style="margin-bottom:6px">32 → 59% · Checking activation overall</div>
+      <div class="land-item" style="margin-bottom:6px">29 → 51% · First card spend within a month</div>
+      <div class="land-item" style="margin-bottom:6px">52 → 73% · Vendor acceptance</div>
+      <div class="land-item" style="margin-bottom:6px">54 → 69% · Bill capture completion</div>
+      <div class="land-item">23% lift · 38% virtual card adoption · Decoupling</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function setTab(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    if (b.getAttribute('onclick') === `setTab('${id}')`) b.classList.add('active');
+  });
+  document.querySelectorAll('.sidebar-link').forEach(l => {
+    if (l.getAttribute('onclick') === `setTab('${id}')`) l.classList.add('active');
+  });
+  window.scrollTo(0, 0);
+}
+function toggleCard(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+</script>
+</body>
+</html>
