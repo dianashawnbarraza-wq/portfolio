@@ -639,6 +639,7 @@ body {
 
   <div class="sidebar-section">
     <div class="sidebar-section-label">Ground Yourself</div>
+    <a class="sidebar-link" onclick="setTab('questions')">Questions to Ask</a>
     <a class="sidebar-link" onclick="setTab('ground')">🧘 Grounding Card</a>
   </div>
 
@@ -667,6 +668,7 @@ body {
     <button class="tab-btn" onclick="setTab('whiteboard')">Whiteboard</button>
     <button class="tab-btn" onclick="setTab('bets')">App Bets</button>
     <button class="tab-btn" onclick="setTab('sketches')">Sketches</button>
+    <button class="tab-btn" onclick="setTab('questions')">Questions</button>
     <button class="tab-btn" onclick="setTab('ground')">🧘 Ground</button>
   </div>
 
@@ -1847,6 +1849,132 @@ The mission mattered enough that I couldn't design around it. Primary care means
     <div class="land-box" style="margin-top:16px">
       <div class="land-label">Line to land</div>
       <div class="land-item">The safe answer solves the upstream problem. The strong answer solves the peak. The ambitious answer replaces the whole journey — but I'd sequence, not skip.</div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS TO ASK -->
+  <div class="panel" id="panel-questions">
+    <div class="section-label">Questions for the interviewers · Pick 2-3 per session</div>
+    <div class="section-title">Real questions for the actual people in the room.</div>
+    <div class="section-sub">Grouped by interviewer. Warm openers land better than clever ones — invite them to share something real, and follow up on what they say.</div>
+
+    <div class="b2b2c-box" style="margin-bottom:24px;font-family:var(--body);font-size:13.5px;line-height:1.6">
+      <b>Two universal rules</b>
+      <div style="margin-top:8px">Listen twice as hard as you asked. People remember whether they felt heard, not whether you asked a clever question. Follow up their answer with something specific — "the way you framed X reminds me of…" — that's where rapport actually gets built.</div>
+    </div>
+
+    <!-- MARIS -->
+    <div class="q-card" id="qm">
+      <div class="q-header" onclick="toggleCard('qm')">
+        <div class="q-badge" style="background:var(--cobalt);color:#fff;border-color:var(--cobalt)">M</div>
+        <div class="q-title">Maris Bodell · Creative Director</div>
+        <div class="q-principle">Craft · Brand · Voice</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="ground-box" style="margin-bottom:16px;background:var(--cobalt-bg);border-color:var(--cobalt-border)">
+          <div class="gl" style="color:var(--cobalt)">Who Maris is</div>
+          Creative Director at Headway. Came from Tinder (VP Creative), Trade Republic, Condé Nast, Time Inc. Leads brand, GTM design, and copy. She's a <b>brand and craft leader</b>, not a product designer. Her lens is voice, storytelling, how design shows up externally.
+        </div>
+
+        <div class="beats">
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"You've talked publicly about craft being central to how you hire. When you look at product designers here specifically — not brand designers — what does craft look like in practice? Where do you see it and where does it slip?"</b><br><span style="color:var(--dim);font-size:12px">Meets her language. Signals you think about product design through a craft lens.</span></div></div>
+
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"You came from Tinder, Trade Republic, Condé Nast — brands where voice matters enormously. Mental healthcare is a very different emotional register. How has the Headway brand voice evolved as the company has grown, and what's the tension you're navigating right now between accessible and clinical?"</b><br><span style="color:var(--dim);font-size:12px">Specific to her career. Real product question dressed as a brand question.</span></div></div>
+
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"I saw the team is evolving design practice in the age of AI. I use Cursor and Claude Code every day for prototyping. What's actually working for you all beyond the demos — where has AI genuinely changed the creative craft, and where has it hit a wall?"</b><br><span style="color:var(--dim);font-size:12px">Meets her where she's been publicly. Opens a door for your own AI practice.</span></div></div>
+
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"How closely does the creative team partner with product design on things like new patient onboarding, EAP handoff moments, or first-session messaging? Where does the seam between brand and product actually live at Headway?"</b><br><span style="color:var(--dim);font-size:12px">Directly relevant to New Channels. Reveals org dynamics.</span></div></div>
+
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"What's a creative decision you made here that you're proud of — and one that in hindsight you'd approach differently?"</b><br><span style="color:var(--dim);font-size:12px">Save for last if the room is warm.</span></div></div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- SERENA -->
+    <div class="q-card" id="qs">
+      <div class="q-header" onclick="toggleCard('qs')">
+        <div class="q-badge" style="background:var(--cobalt);color:#fff;border-color:var(--cobalt)">S</div>
+        <div class="q-title">Serena Fang · UX Research Lead, Patient Growth</div>
+        <div class="q-principle">Research · Patient insight · Growth</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="ground-box" style="margin-bottom:16px;background:var(--cobalt-bg);border-color:var(--cobalt-border)">
+          <div class="gl" style="color:var(--cobalt)">Who Serena is</div>
+          UX Research Lead for <b>Patient Growth</b> — literally the pillar closest to New Channels. Came from Etsy (Adaptive Inventory), Spotify (mixed-methods personas), Peloton, Nielsen. She'll bring a research and patient-empathy lens. She cares about the acquisition-to-first-session moment. Ask her first if you can only pick one.
+        </div>
+
+        <div class="beats">
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"You lead research for Patient Growth. What's the insight about new patients coming into Headway that surprised you most? The thing that wasn't obvious from the outside?"</b><br><span style="color:var(--dim);font-size:12px">Best possible opener. She lives in this data. Invites her to share something real.</span></div></div>
+
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"You've done mixed-methods persona work at Spotify. As Headway grows the ways patients arrive — EAP, employer referral, payer directory — how are you thinking about whether those are one patient with different arrival paths, or genuinely different personas requiring different experiences?"</b><br><span style="color:var(--dim);font-size:12px">The core research question underneath New Channels. She'll love this.</span></div></div>
+
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"What does the researcher–designer partnership look like in Patient Growth right now? Where do you all disagree in the healthiest way, and how do you resolve it?"</b><br><span style="color:var(--dim);font-size:12px">Reveals working dynamics you'd inherit. "Healthy disagreement" signals SBWH thinking.</span></div></div>
+
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"When I was thinking about how patients decide on a therapist, decision fatigue was my instinct from the outside. Is that the actual finding, or does the real data show something more interesting underneath it?"</b><br><span style="color:var(--dim);font-size:12px">Ties your critique prep to her expertise. Either answer is useful for you.</span></div></div>
+
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"What's a research finding you brought to a product team that they initially resisted — and how did it eventually land?"</b><br><span style="color:var(--dim);font-size:12px">Peer-to-peer. Tells you whether research has actual weight here.</span></div></div>
+
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"For someone joining Patient Growth as a designer, what should I be listening for that would tell you a month in that I actually get it?"</b><br><span style="color:var(--dim);font-size:12px">Save for last if warm. Forward-looking, warm, memorable.</span></div></div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- BOTH -->
+    <div class="q-card" id="qb">
+      <div class="q-header" onclick="toggleCard('qb')">
+        <div class="q-badge">M+S</div>
+        <div class="q-title">For either / both · If you have to zoom out</div>
+        <div class="q-principle">Universal</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="beats">
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"What's your story to Headway? What drew you here and what's kept you?"</b><br><span style="color:var(--dim);font-size:12px">Warm opener. Everyone likes talking about their own path.</span></div></div>
+
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"Which of the principles is hardest for the team to live consistently — and what does the failure mode look like when it slips?"</b><br><span style="color:var(--dim);font-size:12px">Not asking them to defend the culture — asking where it strains. Their answer tells you a lot.</span></div></div>
+
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"You've both been here through a period of growth. What's changed about the team's cadence in the last twelve months — and what will need to change in the next twelve?"</b><br><span style="color:var(--dim);font-size:12px">Strategic close. Reveals whether they see the future clearly.</span></div></div>
+        </div>
+      </div></div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- CATHLEEN -->
+    <div class="q-card" id="qc">
+      <div class="q-header" onclick="toggleCard('qc')">
+        <div class="q-badge" style="background:var(--cobalt);color:#fff;border-color:var(--cobalt)">C</div>
+        <div class="q-title">Cathleen Jia · Product Designer · Session 2</div>
+        <div class="q-principle">Craft peer · Design partnership</div>
+        <div class="q-chevron">▼</div>
+      </div>
+      <div class="q-body"><div class="q-body-inner">
+        <div class="ground-box" style="margin-bottom:16px;background:var(--cobalt-bg);border-color:var(--cobalt-border)">
+          <div class="gl" style="color:var(--cobalt)">Reality check</div>
+          You only have <b>5 minutes at the end</b>. Realistically that's 2 questions max, maybe 1 if you ran long on the whiteboard. Pick <b>designer-to-designer</b> questions. Nothing generic. If time runs out entirely, ask one thing sincerely as you're wrapping — it counts.
+        </div>
+
+        <div class="beats">
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"When the team disagrees on the direction, how is it resolved?"</b><br><span style="color:var(--dim);font-size:12px">Reveals who actually holds the decision — and how conflict becomes clarity.</span></div></div>
+
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"Where do designers have the most influence in shaping product direction?"</b><br><span style="color:var(--dim);font-size:12px">Tells you whether design shapes the roadmap or mostly executes it.</span></div></div>
+
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"What does great collaboration look like between design, product, and engineering?"</b><br><span style="color:var(--dim);font-size:12px">Peer-to-peer. Lets her describe the working model you'd inherit.</span></div></div>
+
+          <div class="beat"><div class="beat-icon">💬</div><div class="beat-text"><b>"What does feedback actually look like? What opportunities for feedback exist, either within the design team or your squad? How has that helped shape product?"</b><br><span style="color:var(--dim);font-size:12px">FUEL in practice — process + impact, not the poster version.</span></div></div>
+        </div>
+      </div></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="rescue-box">
+      <div class="rescue-title">🧯 If time runs out entirely</div>
+      <div class="rescue-item"><div class="rescue-dot"></div><div>Ask one thing sincerely as you're wrapping. It counts.</div></div>
+      <div class="rescue-item"><div class="rescue-dot"></div><div>Or say: <i>"I have questions but I know we're at time. Would email be okay?"</i> That's a respectful, grown-up move.</div></div>
+      <div class="rescue-item"><div class="rescue-dot"></div><div>Never fake-ask something you don't care about just to fill space. Silence is fine.</div></div>
     </div>
   </div>
 
