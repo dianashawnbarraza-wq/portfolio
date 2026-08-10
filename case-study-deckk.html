@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study · Deckk — Rebuilding the Link-in-Bio as an AI-Native Product</title>
+  <meta name="description" content="Deckk case study: rebuilding the link-in-bio as an AI-native product with flyer extraction, hierarchy ranking, and Kiln City as a live demo deck.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://barrazaxd.com/case-study-deckk.html">
+  <link rel="icon" href="favicon.png?v=2" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ui-system.css?v=2">
+  <link rel="stylesheet" href="case-study.css?v=46">
+</head>
+<body class="case-study-body" data-cs-open="true">
+
+  <div id="cs-content">
+
+    <header class="cs-topbar">
+      <div class="cs-topbar-inner">
+        <a href="index.html" class="cs-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back to portfolio
+        </a>
+        <span class="cs-topbar-label body-sm">Case study · Deckk · Open</span>
+      </div>
+    </header>
+
+    <button class="cs-mobile-nav-btn" id="cs-mobile-nav-btn" type="button">Sections</button>
+
+    <nav class="cs-mobile-nav" id="cs-mobile-nav" aria-label="Case study sections">
+      <button class="cs-mobile-nav-close" id="cs-mobile-nav-close" type="button" aria-label="Close">&times;</button>
+      <ul>
+        <li><a href="#hero">Overview</a></li>
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#product">Product</a></li>
+        <li><a href="#status">Status</a></li>
+        <li><a href="#next">What’s next</a></li>
+        <li><a href="#why">Portfolio fit</a></li>
+      </ul>
+    </nav>
+
+    <div class="cs-shell">
+
+      <aside class="cs-sidebar">
+        <nav aria-label="Case study navigation">
+          <ul class="cs-nav">
+            <li><a href="#hero" class="active">Overview</a></li>
+            <li><a href="#problem">Problem</a></li>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#product">Product</a></li>
+            <li><a href="#status">Status</a></li>
+            <li><a href="#next">What’s next</a></li>
+            <li><a href="#why">Portfolio fit</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="cs-main">
+
+        <section class="cs-hero" id="hero">
+          <p class="cs-eyebrow eyebrow">Proof of concept · Solo-built, end to end</p>
+          <h1>Deckk — Rebuilding the Link-in-Bio as an AI-Native Product</h1>
+
+          <div class="cs-meta-grid">
+            <div class="cs-meta-item">
+              <label>Role</label>
+              <span>Founder, designer, builder</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Stage</label>
+              <span>Proof of concept, in validation</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Stack</label>
+              <span>Next.js · Supabase · Vercel · Anthropic API · Stripe (planned)</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Timeline</label>
+              <span>2026, ongoing</span>
+            </div>
+          </div>
+
+          <p class="cs-hero-summary body-lg">A market-sized category with a tired pattern: flat link lists that never tell you what matters now, and a posting flow slow enough that pages go stale. Deckk replaces both with hierarchy that understands time and a capture-to-card flow that meets creators where they already work—in a photo.</p>
+
+          <figure class="cs-impact-hero cs-impact-hero--banner">
+            <img src="deckk-case-hero.png?v=1" alt="Deckk case study hero showing the Kiln City public deck preview">
+          </figure>
+        </section>
+
+        <section class="cs-section" id="problem">
+          <h2>The business problem</h2>
+          <p>The link-in-bio category is no longer a niche. Linktree alone has surpassed 50 million users, and Linktree users are estimated to be driving upwards of $6 billion a year in commerce through their pages. The creator and small-business economy behind that number is enormous: over 200 million people worldwide now create and sell online, and the average person maintains 8.6 social accounts, up from 4.8 just six years ago. Every one of those accounts needs a hub.</p>
+          <p>But the category’s growth has outpaced its design. Linktree’s own data shows the strain: since 2022, its users have posted more than 100 million links pointing to 7.5 million different destinations on a single page format that has not fundamentally changed since 2016 — a flat, undifferentiated list. The product that solved “too many links” never solved “which link matters right now,” and it never solved how a business owner with no time is supposed to keep updating it.</p>
+          <p>That gap has a direct cost. A class that doesn’t fill. A pop-up with light foot traffic. A new product that never gets seen because it’s link number eleven. For a solo maker or a small business, this isn’t a UX inconvenience, it’s lost revenue on work they already did.</p>
+
+          <h3 class="cs-subheading">Two structural causes</h3>
+          <div class="process-steps">
+            <div class="process-step">
+              <span class="process-step__num">1</span>
+              <div class="process-step__content">
+                <h4>No hierarchy</h4>
+                <p>Every link carries equal visual weight regardless of urgency or relevance, so time-sensitive, high-value content (an event this week, a new product) is as easy to miss as a shop link from three years ago.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">2</span>
+              <div class="process-step__content">
+                <h4>High posting friction</h4>
+                <p>Adding new content requires manual form entry, typically on a phone, by someone who does not have marketing or web ops as their day job. Pages go stale because updating them is a chore.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section" id="approach">
+          <h2>The approach</h2>
+          <p class="cs-lead body-lg">Deckk’s core bet is that the fix isn’t a better link list. It’s a page that behaves like it knows what today is, and a posting flow fast enough that a business owner actually uses it.</p>
+
+          <h3 class="cs-subheading">Where AI sits, and why</h3>
+          <p>AI is placed at the single point of highest friction in the existing workflow — manual data entry — not layered on as an add-on feature. A creator photographs a flyer or product they were making anyway for Instagram. Deckk extracts the title, date, location, price, and call to action from that image, and returns each field with a confidence score. Low-confidence fields are flagged for a quick check. Nothing publishes without the creator’s review.</p>
+          <p>This is a deliberate product decision, not a default: AI should shorten the distance between something someone already knows and the moment it goes live, and it should never remove a person from the decision to publish. That’s the design principle the confidence-scoring and mandatory review step encode.</p>
+
+          <h3 class="cs-subheading">Hierarchy, independent of AI</h3>
+          <p>A hierarchy engine ranks content automatically. One pinned slot holds the creator’s stated priority. Events rise as their date approaches and step aside once it passes. New items surface briefly, then settle. The page stays current without the creator managing it.</p>
+        </section>
+
+        <section class="cs-section" id="product">
+          <h2>Product · Kiln City as the reference deck</h2>
+          <p class="cs-lead body-lg">To show both sides of the system, I use Kiln City — a ceramics shop and studio — as the working example: Studio turns a flyer into structured fields, and the public deck shows how typed cards rank and display.</p>
+
+          <h3 class="cs-subheading">Studio · easy parsing with confidence</h3>
+          <p>Upload a flyer. Extraction returns a draft card (title, when, where, price, CTA) with per-field confidence. Low scores ask for a human pass; high scores stay out of the way.</p>
+
+          <div class="deckk-split" aria-label="Flyer to Studio extraction">
+            <figure class="deckk-panel">
+              <figcaption class="deckk-panel__label body-sm">Source · flyer photo</figcaption>
+              <div class="deckk-flyer">
+                <img src="deckk-flyer-mock.png?v=1" alt="Open Studio mug night flyer for Kiln City">
+              </div>
+            </figure>
+            <div class="deckk-flow-arrow" aria-hidden="true">→</div>
+            <figure class="deckk-panel">
+              <figcaption class="deckk-panel__label body-sm">Studio · review before publish</figcaption>
+              <div class="deckk-studio" role="img" aria-label="Studio draft modal with confidence-scored fields">
+                <div class="deckk-studio__bar">
+                  <span class="deckk-studio__spark">Extracted</span>
+                  <span class="deckk-studio__meta">Review &amp; publish</span>
+                </div>
+                <div class="deckk-studio__body">
+                  <div class="deckk-studio__type">Event</div>
+                  <label class="deckk-field">
+                    <span class="deckk-field__k">Title <em>92%</em></span>
+                    <span class="deckk-field__v">Open Studio · mug night</span>
+                  </label>
+                  <label class="deckk-field">
+                    <span class="deckk-field__k">When <em>88%</em></span>
+                    <span class="deckk-field__v">Sat · 5–8pm</span>
+                  </label>
+                  <label class="deckk-field deckk-field--low">
+                    <span class="deckk-field__k">Location <em>61% · needs a look</em></span>
+                    <span class="deckk-field__v">Kiln City Studio · 1824 E 7th St, LA</span>
+                  </label>
+                  <label class="deckk-field">
+                    <span class="deckk-field__k">Price <em>95%</em></span>
+                    <span class="deckk-field__v">Free entry</span>
+                  </label>
+                  <label class="deckk-field">
+                    <span class="deckk-field__k">CTA <em>90%</em></span>
+                    <span class="deckk-field__v">RSVP</span>
+                  </label>
+                  <div class="deckk-studio__publish">Publish to deck</div>
+                </div>
+              </div>
+            </figure>
+          </div>
+
+          <h3 class="cs-subheading">Public deck · content with type and priority</h3>
+          <p>On deckk.me/kilncity the same content is no longer a flat list. Pinned work leads. Events know their dates. Shop items and social links settle into the shelf. Hierarchy does the curating.</p>
+
+          <div class="phone-compare phone-gallery">
+            <div class="phone-compare__header">
+              <h3 class="phone-compare__title">Kiln City · public deck</h3>
+              <p class="phone-compare__hint">How hierarchy and typed cards show up for a visitor.</p>
+            </div>
+            <div class="phone-compare__grid phone-compare__grid--two">
+              <figure class="phone-compare__item">
+                <figcaption class="phone-compare__label body-sm">Home · ranked surface</figcaption>
+                <div class="phone-shell phone-shell--after">
+                  <div class="phone-shell__screen phone-shell__screen--content" tabindex="0" aria-label="Kiln City public home, scrollable">
+                    <div class="deckk-public">
+                      <div class="deckk-public__identity">
+                        <img class="deckk-public__avatar" src="deckk-kilncity-avatar.png" alt="" width="64" height="64">
+                        <div class="deckk-public__name">Kiln City</div>
+                        <div class="deckk-public__bio">mud, glaze, and main-character mugs. handmade in LA — pickup at open studio nights.</div>
+                        <div class="deckk-public__loc">Los Angeles</div>
+                      </div>
+                      <div class="deckk-public__section">Up next</div>
+                      <article class="deckk-card deckk-card--pinned">
+                        <span class="deckk-card__badge">Pinned · Event</span>
+                        <h4>Open Studio · mug night</h4>
+                        <p>sip, shop seconds, watch the kiln cool. free entry.</p>
+                        <div class="deckk-card__meta">Kiln City Studio · RSVP</div>
+                      </article>
+                      <article class="deckk-card">
+                        <span class="deckk-card__badge">Event</span>
+                        <h4>Wheel throwing 101</h4>
+                        <p>2-hour beginner class · clay + firing included.</p>
+                        <div class="deckk-card__meta">$85 · Tickets</div>
+                      </article>
+                      <div class="deckk-public__section">Shop</div>
+                      <div class="deckk-public__grid">
+                        <article class="deckk-card deckk-card--item">
+                          <h4>Speckled latte mug</h4>
+                          <div class="deckk-card__meta">$48</div>
+                        </article>
+                        <article class="deckk-card deckk-card--item">
+                          <h4>Wavy catch-all dish</h4>
+                          <div class="deckk-card__meta">$36</div>
+                        </article>
+                      </div>
+                      <div class="deckk-public__section">Links</div>
+                      <article class="deckk-card deckk-card--link">
+                        <h4>Instagram</h4>
+                        <div class="deckk-card__meta">@kilncity</div>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+              <figure class="phone-compare__item">
+                <figcaption class="phone-compare__label body-sm">What hierarchy does</figcaption>
+                <div class="phone-shell phone-shell--after">
+                  <div class="phone-shell__screen phone-shell__screen--content" tabindex="0" aria-label="Hierarchy explanation cards">
+                    <div class="deckk-public deckk-public--rules">
+                      <article class="deckk-card">
+                        <span class="deckk-card__badge">Pin</span>
+                        <h4>Creator priority</h4>
+                        <p>One slot holds the stated hero — open studio night stays first until unpinned.</p>
+                      </article>
+                      <article class="deckk-card">
+                        <span class="deckk-card__badge">Time</span>
+                        <h4>Events know the date</h4>
+                        <p>As a class approaches it rises; after the day passes it steps out of the way.</p>
+                      </article>
+                      <article class="deckk-card">
+                        <span class="deckk-card__badge">New</span>
+                        <h4>Fresh, then settle</h4>
+                        <p>New mugs and links get a brief surface boost, then rejoin the shelf.</p>
+                      </article>
+                      <article class="deckk-card">
+                        <span class="deckk-card__badge">Type</span>
+                        <h4>Cards, not rows</h4>
+                        <p>Events, items, and links render differently so visitors scan by job, not by dump order.</p>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section" id="status">
+          <h2>Current status: proof of concept</h2>
+          <p>Deckk is built and functioning, not a concept file. The hierarchy engine, the quick-post dashboard, the public page, and a first working version of the flyer-to-card extraction pipeline are live in a production Next.js and Supabase app on Vercel, with extraction running on the Anthropic API.</p>
+          <p><strong>What that proves right now:</strong> the architecture works, the extraction pipeline reliably returns structured, confidence-scored data from an unstructured image, and the end-to-end flow from photo to published card functions.</p>
+          <p><strong>What it does not yet prove:</strong> real-world adoption and outcome data. That’s the deliberate next phase, not a gap I’m glossing over. The validation plan:</p>
+          <ul>
+            <li><strong>Moderated usability testing</strong> — task-based comparison of finding a dated event on a Deckk page versus a matched Linktree page, and of posting a new event from a flyer on both.</li>
+            <li><strong>Extraction accuracy tracking</strong> — logging the edit distance between what the model proposes and what the creator actually publishes, per field, to quantify real accuracy rather than estimate it.</li>
+            <li><strong>My own usage as the first data source</strong> — I run two Etsy shops and post pop-ups to Instagram; my own pages become the first live test bed before I open it more broadly.</li>
+          </ul>
+        </section>
+
+        <section class="cs-section" id="next">
+          <h2>What’s next</h2>
+          <p><strong>Phase 1:</strong> Stripe Connect, so a product or event ticket sells directly on the card a visitor is already looking at, instead of routing them off-page and losing them in the hop.</p>
+          <p><strong>Phase 2:</strong> An opt-in discovery layer so individual Deckk pages become findable by craft and neighborhood.</p>
+        </section>
+
+        <section class="cs-section" id="why">
+          <h2>Why this belongs in a portfolio</h2>
+          <p>This project shows product judgment applied without a brief: a market-sized problem, a mechanism-level answer for where and why AI belongs in the workflow, and production code to back it, at a stage I can speak to honestly rather than overstate.</p>
+          <p class="body-sm cs-sources">Sources: Linktree user and revenue figures via TechCrunch (2024) and Linktree’s own reporting; creator economy figures via Contrary Research and industry aggregates, 2026.</p>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="case-study.js?v=19"></script>
+</body>
+</html>

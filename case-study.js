@@ -8,6 +8,7 @@
   const form = document.getElementById('cs-gate-form');
   const errorEl = document.getElementById('cs-gate-error');
   const passwordInput = document.getElementById('cs-password');
+  const isOpenStudy = document.body.dataset.csOpen === 'true' || !gate;
 
   function initPasswordToggle() {
     if (!passwordInput || passwordInput.closest('.cs-gate-password')) return;
@@ -58,8 +59,8 @@
         .filter((key) => key.startsWith('cs-auth-') && key !== STORAGE_KEY)
         .forEach((key) => sessionStorage.removeItem(key));
     } catch (_) {}
-    gate.classList.add('hidden');
-    content.hidden = false;
+    if (gate) gate.classList.add('hidden');
+    if (content) content.hidden = false;
     initPage();
   }
 
@@ -76,23 +77,29 @@
     return false;
   }
 
-  if (isUnlocked()) {
-    gate.classList.add('hidden');
-    content.hidden = false;
+  if (isOpenStudy) {
+    if (gate) gate.classList.add('hidden');
+    if (content) content.hidden = false;
+    initPage();
+  } else if (isUnlocked()) {
+    if (gate) gate.classList.add('hidden');
+    if (content) content.hidden = false;
     initPage();
   }
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (passwordInput.value === PASSWORD) {
-      errorEl.textContent = '';
-      unlock();
-    } else {
-      errorEl.textContent = 'Incorrect password. Please try again.';
-      passwordInput.value = '';
-      passwordInput.focus();
-    }
-  });
+  if (form && passwordInput) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (passwordInput.value === PASSWORD) {
+        if (errorEl) errorEl.textContent = '';
+        unlock();
+      } else {
+        if (errorEl) errorEl.textContent = 'Incorrect password. Please try again.';
+        passwordInput.value = '';
+        passwordInput.focus();
+      }
+    });
+  }
 
   function initPage() {
     initStickyNav();
@@ -109,6 +116,7 @@
     { file: 'case-study-biller-network.html', title: "Tackling Square Bill Pay's growth plateau post-launch" },
     { file: 'case-study-debit-card-activation.html', title: 'Decoupling the debit card from Checking with virtual card-first onboarding' },
     { file: 'case-study-bill-pay-vendors.html', title: 'Getting vendors to trust their first Bill Pay payment' },
+    { file: 'case-study-deckk.html', title: 'Deckk — Rebuilding the Link-in-Bio as an AI-Native Product' },
     { file: 'case-study-flyhomes-tour-booking.html', title: 'Automating tour scheduling so buyers could move faster' },
     { file: 'case-study-heal-primary-care.html', title: 'From one-time visits to ongoing primary care' },
     { file: 'case-study-heal-health-monitoring.html', title: 'Preventative care with data-driven patient health monitoring' },
