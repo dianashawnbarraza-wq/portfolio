@@ -1,6 +1,7 @@
 (function () {
   const PASSWORD = 'iterate2026';
-  const STORAGE_KEY = document.body.dataset.authKey || 'cs-auth-checking-adoption';
+  // One shared unlock so a recruiter enters the password once for all case studies.
+  const STORAGE_KEY = 'cs-auth-portfolio';
 
   const gate = document.getElementById('cs-gate');
   const content = document.getElementById('cs-content');
@@ -10,12 +11,31 @@
 
   function unlock() {
     sessionStorage.setItem(STORAGE_KEY, '1');
+    // Clear legacy per-case keys so old sessions don't leave stale state around.
+    try {
+      Object.keys(sessionStorage)
+        .filter((key) => key.startsWith('cs-auth-') && key !== STORAGE_KEY)
+        .forEach((key) => sessionStorage.removeItem(key));
+    } catch (_) {}
     gate.classList.add('hidden');
     content.hidden = false;
     initPage();
   }
 
-  if (sessionStorage.getItem(STORAGE_KEY)) {
+  function isUnlocked() {
+    if (sessionStorage.getItem(STORAGE_KEY)) return true;
+    // Migrate older per-case unlocks into the shared portfolio unlock.
+    try {
+      const legacy = Object.keys(sessionStorage).some((key) => key.startsWith('cs-auth-') && key !== STORAGE_KEY && sessionStorage.getItem(key));
+      if (legacy) {
+        sessionStorage.setItem(STORAGE_KEY, '1');
+        return true;
+      }
+    } catch (_) {}
+    return false;
+  }
+
+  if (isUnlocked()) {
     gate.classList.add('hidden');
     content.hidden = false;
     initPage();
