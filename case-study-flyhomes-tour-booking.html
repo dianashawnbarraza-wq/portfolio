@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Study · Cutting tour confirmation from hours to minutes</title>
+  <title>Case Study · Automating tour scheduling so buyers could move faster</title>
+  <meta name="description" content="I transformed tour scheduling from a manual coordination process into a human-in-the-loop system that automated routine decisions and helped buyers get into homes faster.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="favicon.png?v=2" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
@@ -11,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="ui-system.css?v=1">
-  <link rel="stylesheet" href="case-study.css?v=41">
+  <link rel="stylesheet" href="case-study.css?v=42">
 </head>
 <body class="case-study-body" data-auth-key="cs-auth-flyhomes-tour-booking">
 
@@ -39,7 +40,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           Back to portfolio
         </a>
-        <span class="cs-topbar-label body-sm">Case study · Flyhomes</span>
+        <span class="cs-topbar-label body-sm">Case study · Flyhomes Tours</span>
       </div>
     </header>
 
@@ -51,10 +52,12 @@
         <li><a href="#hero">Overview</a></li>
         <li><a href="#impact">Impact</a></li>
         <li><a href="#situation">Situation</a></li>
-        <li><a href="#task">Task</a></li>
-        <li><a href="#action">Action</a></li>
-        <li><a href="#design">Design</a></li>
+        <li><a href="#discovery">Discovery</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#solution">Solution</a></li>
+        <li><a href="#exceptions">Exceptions</a></li>
         <li><a href="#results-expanded">Results</a></li>
+        <li><a href="#reflection">Reflection</a></li>
       </ul>
     </nav>
 
@@ -66,10 +69,12 @@
             <li><a href="#hero" class="active">Overview</a></li>
             <li><a href="#impact">Impact</a></li>
             <li><a href="#situation">Situation</a></li>
-            <li><a href="#task">Task</a></li>
-            <li><a href="#action">Action</a></li>
-            <li><a href="#design">Design</a></li>
+            <li><a href="#discovery">Discovery</a></li>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#solution">Solution</a></li>
+            <li><a href="#exceptions">Exceptions</a></li>
             <li><a href="#results-expanded">Results</a></li>
+            <li><a href="#reflection">Reflection</a></li>
           </ul>
         </nav>
       </aside>
@@ -77,48 +82,52 @@
       <main class="cs-main">
 
         <section class="cs-hero" id="hero">
-          <p class="cs-eyebrow eyebrow">Flyhomes · Buyer Experience · Internal Tools</p>
-          <h1>Cutting tour confirmation from hours to minutes</h1>
-          <p class="cs-hero-summary body-lg">During the 2020–2021 housing boom, Flyhomes buyers needed to move fast. I led design for an internal tour management tool that automated coordination, cut confirmation time from hours to minutes, and helped buyers tour fewer homes before winning an offer.</p>
+          <p class="cs-eyebrow eyebrow">Flyhomes · Tours · Internal Tools</p>
+          <h1>Automating tour scheduling so buyers could move faster</h1>
+          <p class="cs-hero-summary body-lg">I transformed tour scheduling from a manual coordination process into a human-in-the-loop system that automated routine decisions and helped buyers get into homes faster.</p>
 
           <div class="cs-meta-grid">
             <div class="cs-meta-item">
               <label>Role</label>
-              <span>Design DRI · Buyer Experience</span>
-            </div>
-            <div class="cs-meta-item">
-              <label>Timeline</label>
-              <span>1 month</span>
-            </div>
-            <div class="cs-meta-item">
-              <label>Team</label>
-              <span>Buyer Experience</span>
+              <span>Product Designer</span>
             </div>
             <div class="cs-meta-item">
               <label>Partners</label>
-              <span>PM · Engineering · Operations</span>
+              <span>Operations · Engineering · Tour Specialists</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Focus</label>
+              <span>Automation · Scheduling · Decision support</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Domain</label>
+              <span>Internal tools · Real estate</span>
             </div>
           </div>
 
           <div class="cs-metrics-row">
             <div class="metric-card">
-              <p class="metric-card__value">5 hr → 30 min</p>
+              <p class="metric-card__value">42% → 64%</p>
+              <p class="metric-card__label body-sm">Accepted offer rate</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">5 hr → 20 min</p>
               <p class="metric-card__label body-sm">Tour confirmation time</p>
             </div>
             <div class="metric-card">
-              <p class="metric-card__value">40 → 18</p>
-              <p class="metric-card__label body-sm">Homes toured before offer</p>
+              <p class="metric-card__value">↓ ~50%</p>
+              <p class="metric-card__label body-sm">Support calls</p>
             </div>
             <div class="metric-card">
-              <p class="metric-card__value">↓ 44%</p>
-              <p class="metric-card__label body-sm">Tour support calls</p>
+              <p class="metric-card__value">59 → 34 days</p>
+              <p class="metric-card__label body-sm">Pre-offer stage</p>
             </div>
           </div>
         </section>
 
         <section class="cs-section cs-section--impact" id="impact">
           <figure class="cs-impact-hero">
-            <img src="flyhomes-tour-detail-after.png?v=1" alt="Redesigned Flyhomes Terminal tour detail experience">
+            <img src="flyhomes-tour-table-after.png?v=2" alt="Flyhomes Terminal Tours queue with unscheduled and offer deadline prioritization">
           </figure>
           <h2>Impact</h2>
 
@@ -133,138 +142,282 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>Tour request to confirmation</td>
-                  <td>~5 hours</td>
-                  <td><strong>Under 30 minutes</strong></td>
+                  <td>Accepted offer rate</td>
+                  <td>42%</td>
+                  <td><strong>64%</strong></td>
                 </tr>
                 <tr>
-                  <td>Homes toured before accepted offer</td>
-                  <td>40 homes</td>
-                  <td><strong>18 homes</strong></td>
+                  <td>Tour confirmation time</td>
+                  <td>5 hours</td>
+                  <td><strong>20 minutes</strong></td>
                 </tr>
                 <tr>
-                  <td>Tour-related support calls</td>
+                  <td>Support calls</td>
                   <td>Baseline</td>
-                  <td><strong>44% reduction</strong></td>
+                  <td><strong>~50% reduction</strong></td>
                 </tr>
                 <tr>
-                  <td>Operational scalability</td>
-                  <td>Manual coordination</td>
-                  <td><strong>Automated routing and scheduling</strong></td>
+                  <td>Purchase-ready customers in pre-offer stage</td>
+                  <td>59 days</td>
+                  <td><strong>34 days</strong></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <p class="cs-results-interpretation">Thoughtful internal tooling directly improved customer outcomes. By reducing operational friction, we helped Flyhomes buyers move faster and compete more effectively during one of the most competitive housing markets in history.</p>
+          <p class="cs-results-interpretation">Faster scheduling helped remove a critical bottleneck in the home-buying journey. Once tours confirmed in minutes instead of hours, buyers spent less time stalled before making an offer, support load dropped, and accepted offer rate rose with it.</p>
         </section>
 
         <section class="cs-section" id="situation">
           <h2>Situation</h2>
-          <p class="cs-lead body-lg">During the 2020–2021 housing market boom, Flyhomes customers were competing in an extremely fast-moving real estate environment. Homes were often receiving multiple offers within days, meaning speed and access were critical to helping buyers succeed.</p>
-          <p>At the time, Flyhomes relied on a manual tour coordination process involving tour booking agents and on-the-ground tour specialists. This created operational bottlenecks that directly impacted customers:</p>
+          <p class="cs-lead body-lg">Flyhomes helps homebuyers buy their next home before selling their first.</p>
+          <p>Technology made that possible: buyers used the app to search for homes and request tours, while Terminal, our internal tool, managed those requests.</p>
+          <p>Following the pandemic, the real estate market moved fast, and customers were getting stalled in the touring stage.</p>
+          <p>The data pointed to a bottleneck:</p>
           <ul>
-            <li>Buyers waited hours for tour confirmations</li>
-            <li>Internal teams spent significant time manually coordinating schedules</li>
-            <li>Inefficient routing created delays and unnecessary operational costs</li>
-            <li>Customers were losing opportunities in a market where timing could determine whether they won a home</li>
+            <li><strong>59 days</strong> — purchase-ready customers were sitting in the pre-offer stage</li>
+            <li><strong>5 hours</strong> — average time for Operations to confirm a tour request</li>
+            <li><strong>68%</strong> — of support calls related to tour confirmation</li>
           </ul>
-          <p>From a customer perspective, the stakes were high. Flyhomes buyers were touring an average of <strong>40 homes before successfully getting an offer accepted</strong>, and we needed to dramatically reduce the amount of time and effort required to help them find and win their home.</p>
+          <p>Tours were where buyers evaluated homes and made purchasing decisions. We needed to get buyers into homes faster.</p>
         </section>
 
-        <section class="cs-section" id="task">
-          <h2>Task</h2>
-          <p class="cs-lead body-lg">Lead the design strategy and experience for automating the tour booking workflow for Flyhomes’ internal teams.</p>
-          <p>The goal was to create a scalable internal tool that:</p>
-          <ul>
-            <li>Reduced time from tour request to confirmation</li>
-            <li>Improved operational efficiency for booking teams</li>
-            <li>Helped buyers move faster in a competitive market</li>
-            <li>Reduced the number of homes customers needed to tour before finding success</li>
-          </ul>
-        </section>
-
-        <section class="cs-section" id="action">
-          <h2>Action</h2>
-          <p class="cs-lead body-lg">From workflow mapping to API integration and a ground-up redesign.</p>
-          <p>I started by mapping the existing tour coordination workflow using a Jobs-to-Be-Done framework to understand how booking teams managed requests, where decisions were being made, and where automation could remove friction.</p>
+        <section class="cs-section" id="discovery">
+          <h2>Discovery</h2>
+          <p class="cs-lead body-lg">I expected a workflow problem. I found a decision-making problem.</p>
+          <p>I interviewed 5 Operations Agents and mapped the jobs, decisions, and dependencies involved in confirming tours.</p>
+          <p>Rather than asking what features they wanted, I walked through the actual workflow:</p>
+          <p><em>“Show me what happens when a customer requests multiple homes.”</em></p>
 
           <figure class="cs-figure cs-figure--flow">
-            <button type="button" class="cs-flow-expand" aria-label="Expand Jobs-to-Be-Done discovery flow">
-              <img src="flyhomes-tour-jtbd-flow.png?v=1" alt="Jobs-to-Be-Done flow mapping manual tour coordination steps and opportunities for automation in Terminal" width="1024" height="488" loading="lazy" decoding="async">
+            <button type="button" class="cs-flow-expand" aria-label="Expand discovery flow mapping tour coordination jobs and decisions">
+              <img src="flyhomes-tour-jtbd-flow.png?v=2" alt="Thirteen-step tour coordination flow showing Terminal steps versus external tools like Maps, Gmail, and Calendar" width="1024" height="488" loading="lazy" decoding="async">
               <span class="cs-flow-expand__hint">Click to enlarge</span>
             </button>
-            <figcaption>Discovery · Jobs-to-Be-Done flow showing manual coordination gaps outside Terminal</figcaption>
+            <figcaption>Discovery · Manual tour coordination across Terminal and external tools</figcaption>
           </figure>
 
-          <p>The flow highlighted where Terminal already supported tour booking management and where booking agents still relied on manual steps—routing tours in Google Maps, emailing seller agents, checking calendars, and confirming with customers. Those pink steps became the clearest opportunities for automation.</p>
+          <p>Four themes emerged:</p>
+          <ul>
+            <li><strong>Route planning was manual.</strong> Agents added homes one at a time and estimated the best driving order.</li>
+            <li><strong>Availability was back-and-forth.</strong> Confirming a showing meant finding the listing agent in MLS and coordinating availability.</li>
+            <li><strong>Agent scheduling was fragmented.</strong> Tour agent availability lived across Google Calendars, creating a wall of possible schedules.</li>
+            <li><strong>The queue lacked prioritization.</strong> Homes with approaching offer deadlines looked identical to routine requests.</li>
+          </ul>
 
-          <p>Through this synthesis, I identified key workflow gaps:</p>
-          <ul>
-            <li>Manual assignment of tour specialists</li>
-            <li>Lack of visibility into tour request status</li>
-            <li>Inefficient scheduling coordination with seller agents</li>
-            <li>Limited tools for managing high-volume requests</li>
-          </ul>
-          <p>To address these gaps, I partnered with my product squad to evaluate API solutions and integrate external providers:</p>
-          <ul>
-            <li><strong>Skedulo</strong> — automated tour routing and agent assignment</li>
-            <li><strong>ShowingTime</strong> — enabled access to seller agent availability and scheduling</li>
-          </ul>
-          <p>With new API capabilities in place, I redesigned the internal tour management experience from the ground up. Throughout the process, I ran rapid feedback sessions with internal users to validate designs, identify workflow gaps, and iterate quickly.</p>
+          <h3 class="cs-subheading">The key insight</h3>
+          <p class="cs-lead body-lg">Tour scheduling wasn't a data-entry problem. It was a coordination and decision-making problem.</p>
         </section>
 
-        <section class="cs-section" id="design">
-          <h2>Design</h2>
-          <p class="cs-lead body-lg">A tour table and detail experience focused on speed, prioritization, and operational clarity.</p>
+        <section class="cs-section" id="approach">
+          <h2>Approach</h2>
 
-          <h3 class="cs-subheading">Before · Tour detail experience</h3>
-          <p>The existing tour detail experience had several usability issues:</p>
+          <h3 class="cs-subheading">How might we</h3>
+          <p class="cs-lead body-lg">How might we transform tour scheduling from a manual coordination process into an intelligent workflow?</p>
+
+          <h3 class="cs-subheading">Exploring automation</h3>
+          <p>I brought the problem to Engineering early, not as a proposed solution, but as a way to explore what automation could make possible.</p>
+          <p>I shared an early Scheduler concept that combined:</p>
           <ul>
-            <li>Limited hierarchy made critical information difficult to find</li>
-            <li>Inconsistent components created cognitive load</li>
-            <li>Excessive use of color reduced clarity in a B2B workflow</li>
-            <li>Repetitive information patterns slowed scanning</li>
-            <li>Accessibility issues impacted usability</li>
+            <li>Home availability</li>
+            <li>Tour agent schedules</li>
+            <li>Routing</li>
           </ul>
-          <p>Booking agents managed each request across dense forms, manual Slack links, and a separate map view—with little visibility into where a tour stood in the coordination process.</p>
+          <p>This visual became a conversation starter for exploring what we could automate and what infrastructure already existed.</p>
 
-          <figure class="cs-figure cs-figure--wide">
-            <img src="flyhomes-tour-before.png?v=1" alt="Flyhomes Terminal tour detail before redesign showing dense forms and manual coordination fields" width="1024" height="592" loading="lazy" decoding="async">
-            <figcaption>Before · Manual coordination, unclear hierarchy, and fragmented information</figcaption>
-          </figure>
-
-          <h3 class="cs-subheading">After · Redesigned tour management</h3>
-          <p>Key improvements included:</p>
+          <h3 class="cs-subheading">Build vs. buy</h3>
+          <p>Given the timeline and availability of established industry APIs, we chose to integrate rather than build scheduling infrastructure ourselves.</p>
           <ul>
-            <li>Redesigned navigation to create more space for high-volume tour management</li>
-            <li>Updated table columns based on feedback from booking managers and end users</li>
-            <li>Improved information hierarchy for faster decision-making</li>
-            <li>Added batch reassignment workflows to support operational changes like team outages or turnover</li>
-            <li>Improved accessibility across the experience</li>
+            <li><strong>ShowingTime</strong> — seller availability and MLS showing coordination</li>
+            <li><strong>Skedulo</strong> — tour agent availability and scheduling</li>
+          </ul>
+          <p>This shifted the design problem.</p>
+          <p>The question was no longer: how do we automate scheduling?</p>
+          <p>It became: how do we make automation trustworthy, and where should humans remain in control?</p>
+
+          <h3 class="cs-subheading">Designing the human + automation model</h3>
+          <p>I started with a highly automated vision and shared early concepts with Operations to pressure-test the workflow.</p>
+          <p>They immediately surfaced edge cases:</p>
+          <ul>
+            <li><em>“What if I need a specific tour agent?”</em></li>
+            <li><em>“What if a customer drops one home from a four-home tour?”</em></li>
+            <li><em>“How do I know which requests are actually urgent?”</em></li>
+          </ul>
+          <p>These conversations helped define the boundary between automation and human judgment.</p>
+
+          <div class="before-after-grid">
+            <div class="before-after-column">
+              <h4>Let the system handle</h4>
+              <ul>
+                <li>Availability checks</li>
+                <li>Agent matching</li>
+                <li>Route optimization</li>
+                <li>Conflict detection</li>
+                <li>Schedule generation</li>
+              </ul>
+            </div>
+            <div class="before-after-column">
+              <h4>Keep Operations in control of</h4>
+              <ul>
+                <li>Agent preferences</li>
+                <li>Priority</li>
+                <li>Schedule changes</li>
+                <li>Exceptions</li>
+                <li>Final confirmation</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="cs-lead body-lg" style="margin-top:1.5rem">Automate the routine. Give humans control over the exceptions.</p>
+        </section>
+
+        <section class="cs-section" id="solution">
+          <h2>The solution</h2>
+          <p class="cs-lead body-lg">From schedule builder to exception manager.</p>
+          <p>I unified Tours into a single scheduling workspace, replacing fragmented tools with automated routing, agent assignment, and conflict management.</p>
+          <p>The system could:</p>
+          <ul>
+            <li>Check home availability</li>
+            <li>Match available tour specialists</li>
+            <li>Optimize routes</li>
+            <li>Surface conflicts</li>
+            <li>Recalculate schedules</li>
+            <li>Present recommendations for review</li>
           </ul>
 
+          <h3 class="cs-subheading">The biggest workflow shift</h3>
+          <div class="before-after-grid">
+            <div class="before-after-column">
+              <h4>Before</h4>
+              <p>Coordinator builds every schedule manually.</p>
+            </div>
+            <div class="before-after-column">
+              <h4>After</h4>
+              <p>System generates the schedule. Coordinator reviews exceptions.</p>
+            </div>
+          </div>
+
+          <h3 class="cs-subheading">Before · Coordinators were the scheduling engine</h3>
+          <p>A coordinator would:</p>
+          <ul>
+            <li>Pick up a tour from the queue</li>
+            <li>Open a map and estimate the route</li>
+            <li>Open MLS and find the listing agent</li>
+            <li>Email to coordinate availability</li>
+            <li>Check Google Calendar</li>
+            <li>Record notes</li>
+            <li>Repeat for every home</li>
+            <li>Update the status once confirmed</li>
+          </ul>
+          <p>Every tour required manual coordination.</p>
+
           <figure class="cs-figure cs-figure--wide">
-            <img src="flyhomes-tour-table-after.png?v=1" alt="Redesigned Flyhomes Terminal upcoming tour requests table with clearer status and assignment columns" width="1024" height="730" loading="lazy" decoding="async">
-            <figcaption>After · Tour table with clearer status, assignment, and prioritization</figcaption>
+            <img src="flyhomes-tour-before.png?v=2" alt="Flyhomes Terminal tour detail before redesign with homes open for manual date, time, and agent entry" width="1024" height="592" loading="lazy" decoding="async">
+            <figcaption>Before · Manual entry for every home, no prioritization, and coordination still living outside Terminal</figcaption>
+          </figure>
+
+          <h3 class="cs-subheading">After · Automation does the coordination</h3>
+          <p>I incorporated Operations feedback directly into the Tours queue.</p>
+          <p>Instead of a flat list, coordinators could quickly identify:</p>
+          <ul>
+            <li>Unscheduled</li>
+            <li>Priority</li>
+            <li>Offer Approaching</li>
+          </ul>
+          <p>From a tour request, they could adjust scheduling preferences before running automation.</p>
+          <p><strong>One click, and scheduling automation runs.</strong></p>
+          <p>The system checks availability, matches a tour specialist, finds compatible times, optimizes the route, and surfaces options for review. The coordinator remains in control before anything is confirmed.</p>
+
+          <p class="cs-prototype">
+            <a class="cs-external-link" href="https://flyhomes-tours.vercel.app/" target="_blank" rel="noopener noreferrer">Open interactive prototype →</a>
+          </p>
+
+          <figure class="cs-figure cs-figure--wide">
+            <img src="flyhomes-tour-table-after.png?v=2" alt="Flyhomes Terminal Tours queue with Unscheduled, Offer deadline approaching, and prioritization tags" width="1024" height="730" loading="lazy" decoding="async">
+            <figcaption>After · Queue with clearer status, assignment, and offer-deadline prioritization</figcaption>
           </figure>
 
           <figure class="cs-figure cs-figure--wide">
-            <img src="flyhomes-tour-detail-after.png?v=1" alt="Redesigned Flyhomes Terminal tour detail with step-based workflow, route optimization, and property list" width="1024" height="729" loading="lazy" decoding="async">
-            <figcaption>After · Tour detail with step-based workflow, route optimization, and activity timeline</figcaption>
+            <img src="flyhomes-tour-detail-after.png?v=2" alt="Flyhomes Terminal tour request ready to schedule with automated Schedule homes action" width="1024" height="729" loading="lazy" decoding="async">
+            <figcaption>After · Tour detail with Ready to schedule and one-click automation launch</figcaption>
           </figure>
+
+          <figure class="cs-figure cs-figure--wide">
+            <img src="flyhomes-tour-scheduler-after.png?v=1" alt="Flyhomes Terminal scheduling modal running availability, specialist matching, and route optimization" width="1024" height="729" loading="lazy" decoding="async">
+            <figcaption>After · Scheduler automation: find windows, match specialist, optimize route, prepare for review</figcaption>
+          </figure>
+
+          <figure class="cs-figure cs-figure--wide">
+            <img src="flyhomes-tour-recommended.png?v=1" alt="Scheduled Flyhomes tour with recommended home matches for the buyer" width="1024" height="729" loading="lazy" decoding="async">
+            <figcaption>After · Tour scheduled, with recommended matches supporting the next shortlisting step</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section" id="exceptions">
+          <h2>Designing for the exceptions</h2>
+          <p class="cs-lead body-lg">Automation only works when it knows what to do when things go wrong.</p>
+
+          <h3 class="cs-subheading">Cascading cancellation</h3>
+          <p>A cancelled showing could disrupt the rest of an agent's route.</p>
+          <p><strong>System:</strong> shows the ripple effect and recommends the least disruptive adjustment.</p>
+
+          <h3 class="cs-subheading">Conflicting priorities</h3>
+          <p>The shortest route isn't always the best customer experience.</p>
+          <p><strong>System:</strong> makes tradeoffs between travel time, buyer convenience, and schedule stability visible.</p>
+
+          <h3 class="cs-subheading">No availability</h3>
+          <p>A home or agent may have no compatible time.</p>
+          <p><strong>System:</strong> surfaces the next available options instead of creating a dead end.</p>
+
+          <p>The goal wasn't to eliminate human intervention. It was to make intervention faster and more informed.</p>
+
+          <h3 class="cs-subheading">A faster way to iterate</h3>
+          <p>I used lightweight prototypes and quick feedback sessions to pressure-test edge cases before investing in polished designs.</p>
+          <p>Today, I'd use AI to accelerate synthesis:</p>
+          <p><em>Interview notes → AI clustering → emerging themes → human validation</em></p>
+          <p>AI can help identify patterns in hours rather than days, but I'd validate those patterns against the original conversations and behavioral data.</p>
+          <p>For interaction-heavy workflows, I'd also prototype early, share a short walkthrough, and use feedback to quickly identify what needs to change.</p>
         </section>
 
         <section class="cs-section" id="results-expanded">
           <h2>Results</h2>
-          <p class="cs-lead body-lg">The redesigned experience significantly improved the speed and efficiency of the tour booking process.</p>
+          <p class="cs-lead body-lg">Automation reduced coordination time, support load, and time spent stalled before an offer.</p>
+
+          <div class="cs-metrics-row">
+            <div class="metric-card">
+              <p class="metric-card__value">42% → 64%</p>
+              <p class="metric-card__label body-sm">Accepted offer rate</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">5 hr → 20 min</p>
+              <p class="metric-card__label body-sm">Tour confirmation time</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">↓ ~50%</p>
+              <p class="metric-card__label body-sm">Support calls</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">59 → 34 days</p>
+              <p class="metric-card__label body-sm">Pre-offer stage</p>
+            </div>
+          </div>
+
           <ul>
-            <li>Reduced time from tour request received to confirmation from <strong>~5 hours to under 30 minutes</strong></li>
-            <li>Exceeded our original goal by reducing the average number of homes toured before an accepted offer from <strong>40 homes to 18 homes</strong></li>
-            <li>Reduced tour-related support calls by <strong>44%</strong></li>
-            <li>Created a scalable foundation for automating critical operational workflows</li>
+            <li>Accepted offer rate rose from <strong>42% to 64%</strong>.</li>
+            <li>Tour confirmation time fell from <strong>5 hours to 20 minutes</strong> as automation reduced time spent coordinating availability.</li>
+            <li>Support calls dropped by about <strong>50%</strong> as fewer customers needed to ask whether their tours were confirmed.</li>
+            <li>Purchase-ready customers spent less time stalled before making an offer: <strong>59 days to 34 days</strong> in the pre-offer stage.</li>
           </ul>
-          <p>This project demonstrated how thoughtful internal tooling could directly impact customer outcomes. By reducing operational friction, we helped Flyhomes buyers move faster and compete more effectively during one of the most competitive housing markets in history.</p>
+          <p>Faster scheduling helped remove a critical bottleneck in the home-buying journey.</p>
+        </section>
+
+        <section class="cs-section" id="reflection">
+          <h2>Reflection</h2>
+          <p class="cs-lead body-lg">Automation didn't eliminate the operational problem. It changed it.</p>
+          <p>The scheduler removed the manual coordination bottleneck, but the system still needed to accommodate the judgment and exceptions that made Operations effective.</p>
+          <p>More importantly, once scheduling became faster, we could see the next constraint: shortlisting homes.</p>
+          <p>Automation doesn't just make a workflow faster. It reveals where the next constraint is.</p>
+          <p>That became the next opportunity: helping buyers narrow down the right homes faster so they could move from search to tour to offer with less friction.</p>
         </section>
 
       </main>

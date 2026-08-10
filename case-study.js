@@ -48,7 +48,7 @@
     { file: 'case-study-biller-network.html', title: 'Tackling the Cold Start in Bill Pay' },
     { file: 'case-study-debit-card-activation.html', title: 'Decoupling the debit card from Checking with virtual card-first onboarding' },
     { file: 'case-study-bill-pay-vendors.html', title: 'Getting vendors to trust their first Bill Pay payment' },
-    { file: 'case-study-flyhomes-tour-booking.html', title: 'Cutting tour confirmation from hours to minutes' },
+    { file: 'case-study-flyhomes-tour-booking.html', title: 'Automating tour scheduling so buyers could move faster' },
     { file: 'case-study-heal-primary-care.html', title: 'From one-time visits to ongoing primary care' },
     { file: 'case-study-heal-health-monitoring.html', title: 'Preventative care with data-driven patient health monitoring' },
   ];
