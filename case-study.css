@@ -464,6 +464,30 @@ body.case-study-body {
   border: 0;
 }
 
+.cs-prototype-block {
+  margin: 1.75rem 0 2.25rem;
+}
+
+.cs-prototype-block__label {
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cs-subtle, #86868b);
+  margin: 0 0 0.75rem;
+}
+
+.cs-prototype-block__actions {
+  margin-top: 0.85rem;
+}
+
+.cs-prototype__embed--tall {
+  max-width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: 560px;
+}
+
 .results-table-wrap {
   overflow-x: auto;
   margin: 1rem 0;
