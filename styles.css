@@ -234,23 +234,23 @@ nav a.active {
 
 /* Hero */
 .hero {
-  padding: 0.65rem 0 3.5rem;
+  /* ≥40px beyond previous tight top (was 0.65rem) + breathing room */
+  padding: 3.5rem 0 3.5rem;
   max-width: 1400px;
   margin: 0 auto;
 }
 
 .hero-layout {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem 0.75rem;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+  column-gap: clamp(2.5rem, 5.5vw, 4.75rem);
+  align-items: center;
+  overflow: visible;
 }
 
 .hero-content {
-  flex: 1;
   min-width: 0;
-  max-width: 40rem;
+  max-width: none;
   text-align: left;
 }
 
@@ -421,69 +421,65 @@ nav a.active {
   display: none;
 }
 
-/* iPhone Mockup */
+/* iPhone Mockup — sized to the right column, full device visible */
 .hero-mockup-container {
-  flex-shrink: 0;
   position: relative;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  margin: 0;
+  padding: 0.5rem 0 0.75rem;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  perspective: 1400px;
-  /* Align with mid-body copy (below stacked name) */
-  margin-top: 3.25rem;
-  margin-left: -0.5rem;
-  margin-right: 0;
-  width: min(48%, 460px);
-  min-width: 300px;
-  /* Cap height so phone does not spill past logo strip */
-  height: clamp(460px, 54vh, 560px);
-  overflow: hidden;
+  align-items: center;
+  perspective: 1200px;
+  overflow: visible;
 }
 
 .iphone-mockup {
   position: relative;
-  width: 640px;
-  height: 1300px;
+  /* Proportionate to left column: fill most of the right grid track */
+  width: clamp(230px, 26vw, 300px);
+  aspect-ratio: 9 / 19.2;
+  height: auto;
   background-color: #000;
-  border-radius: 100px;
+  border-radius: 15.5% / 7.2%;
   box-shadow:
-    0 0 0 22px #1d1d1f,
-    -36px 48px 80px rgba(0, 0, 0, 0.22),
-    inset 0 0 0 3px rgba(255, 255, 255, 0.18);
+    0 0 0 10px #1d1d1f,
+    -28px 36px 64px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.16);
   transform-style: preserve-3d;
-  transform: rotateX(52deg) rotateZ(-32deg) scale(0.42);
+  transform: rotateX(48deg) rotateZ(-30deg);
+  transform-origin: 50% 45%;
   transition: transform 0.5s ease;
-  margin: -250px 0 -360px -55px;
-  will-change: transform;
+  margin: 0 auto;
+  flex-shrink: 0;
 }
 
 .iphone-mockup:hover {
-  transform: rotateX(48deg) rotateZ(-28deg) scale(0.44);
+  transform: rotateX(44deg) rotateZ(-26deg) scale(1.03);
 }
 
 .dynamic-island {
   position: absolute;
-  top: 30px;
+  top: 2.4%;
   left: 50%;
   transform: translateX(-50%);
-  width: 200px;
-  height: 60px;
+  width: 34%;
+  height: 4.6%;
   background-color: #000;
-  border-radius: 40px;
+  border-radius: 999px;
   z-index: 10;
 }
 
 .iphone-screen {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  border-radius: 100px;
+  border-radius: inherit;
   overflow: hidden;
-  background: #000;
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
-  mask-image: radial-gradient(white, black);
+  background: #0a0a0a;
 }
 
 .iphone-screen img {
@@ -491,11 +487,10 @@ nav a.active {
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  image-rendering: auto;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  transform: translateZ(0) scale(1.001);
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes hero-char-load {
@@ -584,6 +579,18 @@ nav a.active {
     transform: none !important;
     pointer-events: auto !important;
     transition: none !important;
+  }
+}
+
+
+@media (max-width: 980px) and (min-width: 769px) {
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.85fr);
+    column-gap: 2rem;
+  }
+
+  .iphone-mockup {
+    width: clamp(200px, 30vw, 250px);
   }
 }
 
@@ -1720,13 +1727,14 @@ nav a.active {
   }
   
   .hero {
-    padding-top: 0.35rem;
+    padding-top: 2.75rem;
   }
 
   .hero-layout {
+    display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 0.75rem;
+    gap: 1.5rem;
     overflow: visible;
   }
 
@@ -1751,11 +1759,13 @@ nav a.active {
 
   .hero-mockup-container {
     width: 100%;
-    min-width: 0;
-    height: auto;
-    margin: 0.35rem -1rem 0;
-    overflow: visible;
-    justify-content: center;
+    margin: 0.25rem auto 0;
+    padding: 0;
+    max-width: 360px;
+  }
+
+  .iphone-mockup {
+    display: none;
   }
 
   .desktop-only {
