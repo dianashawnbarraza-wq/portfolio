@@ -421,14 +421,19 @@ nav a.active {
   display: none;
 }
 
-/* iPhone mockup — flat shell (no 3D resample blur), true phone AR for the screen art */
+/* legacy helper kept if needed elsewhere */
+.desktop-only {
+  display: block;
+}
+
+/* iPhone mockup — upright dark Tap to Pay → Banking story */
 .hero-mockup-container {
   position: relative;
   width: 100%;
   min-width: 0;
   height: auto;
   margin: 0;
-  padding: 0.75rem 0 1rem;
+  padding: 0.5rem 0 0.75rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -437,58 +442,512 @@ nav a.active {
 
 .iphone-mockup {
   position: relative;
-  width: clamp(250px, 28vw, 320px);
+  width: clamp(240px, 27vw, 300px);
   aspect-ratio: 9 / 19.5;
   height: auto;
   background-color: #000;
-  border-radius: clamp(28px, 12%, 42px);
+  border-radius: clamp(28px, 12%, 40px);
   box-shadow:
-    0 0 0 11px #1d1d1f,
-    0 0 0 12px #2c2c2e,
-    -14px 24px 40px rgba(0, 0, 0, 0.16),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
-  /* Subtle planar tilt only — avoids browser 3D bilinear blur on UI */
-  transform: rotate(-8deg);
-  transform-origin: 50% 50%;
-  transition: transform 0.4s ease;
+    0 0 0 10px #1a1a1c,
+    0 0 0 11px #2a2a2c,
+    0 28px 48px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   margin: 0 auto;
   flex-shrink: 0;
+  transform: none;
 }
 
 .iphone-mockup:hover {
-  transform: rotate(-4deg) scale(1.02);
+  transform: none;
 }
 
 .dynamic-island {
   position: absolute;
-  top: 1.65%;
+  top: 1.55%;
   left: 50%;
   transform: translateX(-50%);
-  width: 32%;
-  height: 3.4%;
+  width: 30%;
+  height: 3.1%;
   background-color: #000;
   border-radius: 999px;
-  z-index: 10;
+  z-index: 20;
   pointer-events: none;
 }
 
-.iphone-screen {
+.iphone-home-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 1.4%;
+  transform: translateX(-50%);
+  width: 36%;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.iphone-screen,
+.hero-phone-stage {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border-radius: inherit;
   overflow: hidden;
-  background: #f5f5f5;
+  background: #0a0a0a;
 }
 
-.iphone-screen img {
-  display: block;
+.phone-scene {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.45s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.45s;
+  transform: translateY(10px);
+  color: #f5f5f5;
+  font-family: var(--font-sans);
+}
+
+.phone-scene.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s;
+  transform: translateY(0);
+}
+
+/* —— Tap to Pay —— */
+.phone-scene--ttp {
+  align-items: center;
+  justify-content: flex-start;
+  padding: 14% 10% 12%;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 100%, rgba(29, 46, 217, 0.22), transparent 65%),
+    #0a0a0a;
+  text-align: center;
+}
+
+.ttp-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  margin-bottom: 1.35rem;
+}
+
+.ttp-brand {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.ttp-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.ttp-amount {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.1em;
+  line-height: 1;
+  margin-bottom: 0.65rem;
+}
+
+.ttp-amount__currency {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-top: 0.35em;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.ttp-amount__value {
+  font-size: clamp(2.6rem, 9vw, 3.15rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+.ttp-caption {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 1.6rem;
+}
+
+.phone-scene--ttp.is-processing .ttp-caption {
+  color: #8ea0ff;
+}
+
+.ttp-wave {
+  position: relative;
+  width: 7.5rem;
+  height: 7.5rem;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 1.25rem;
+}
+
+.ttp-wave__ring {
+  position: absolute;
+  inset: 18%;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  animation: ttp-ring 2.4s ease-out infinite;
+}
+
+.ttp-wave__ring:nth-child(2) {
+  inset: 8%;
+  animation-delay: 0.4s;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.ttp-wave__ring:nth-child(3) {
+  inset: 0;
+  animation-delay: 0.8s;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.phone-scene--ttp.is-processing .ttp-wave__ring {
+  animation-duration: 1.1s;
+  border-color: rgba(142, 160, 255, 0.35);
+}
+
+.ttp-wave__core {
+  position: relative;
+  z-index: 1;
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.ttp-wave__core svg {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.ttp-hint {
+  max-width: 14em;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.42);
+  margin: 0 auto;
+}
+
+@keyframes ttp-ring {
+  0% {
+    transform: scale(0.72);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+}
+
+/* —— Approved —— */
+.phone-scene--approved {
+  align-items: center;
+  justify-content: center;
+  padding: 12% 10%;
+  text-align: center;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 40%, rgba(34, 197, 94, 0.16), transparent 60%),
+    #0a0a0a;
+}
+
+.ttp-check {
+  width: 4.25rem;
+  height: 4.25rem;
+  color: #34d399;
+  margin-bottom: 1.1rem;
+}
+
+.ttp-check svg {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  image-rendering: auto;
+}
+
+.phone-scene--approved.is-active .ttp-check {
+  animation: ttp-pop 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ttp-approved-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 0.35rem;
+}
+
+.ttp-approved-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 0.65rem;
+}
+
+.ttp-approved-sub {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes ttp-pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* —— Banking dark —— */
+.phone-scene--banking {
+  background: #111113;
+  padding: 8.5% 0 0;
+  justify-content: flex-start;
+}
+
+.bank-top {
+  padding: 0 5.5% 0.55rem;
+}
+
+.bank-time {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 0.85rem;
+  padding-left: 0.15rem;
+}
+
+.bank-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+}
+
+.bank-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin: 0;
+}
+
+.bank-gear {
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, transparent 28%, rgba(255, 255, 255, 0.22) 29% 42%, transparent 43%),
+    rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.18);
+}
+
+.bank-tabs {
+  display: flex;
+  gap: 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.45rem;
+  margin-bottom: 0.65rem;
+}
+
+.bank-tabs .is-active {
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 1px 0 0 #fff;
+  padding-bottom: 0.45rem;
+  margin-bottom: -0.45rem;
+}
+
+.bank-card {
+  margin: 0 4.5% 0.55rem;
+  background: #1c1c1e;
+  border-radius: 0.9rem;
+  padding: 0.85rem 0.9rem;
+}
+
+.bank-account {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.25rem;
+}
+
+.bank-balance {
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.bank-balance.is-bump {
+  animation: bank-balance-bump 0.7s ease;
+}
+
+.bank-meta {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0.3rem 0 0.75rem;
+}
+
+.bank-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.4rem;
+}
+
+.bank-actions span {
+  text-align: center;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.55rem 0.25rem;
+  border-radius: 999px;
+  background: #f5f5f5;
+  color: #0a0a0a;
+}
+
+.bank-activity-head {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.65rem;
+}
+
+.bank-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.4rem 0;
+}
+
+.bank-row + .bank-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.bank-row__icon {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: rgba(52, 211, 153, 0.15);
+  color: #34d399;
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.bank-row__icon--card {
+  background: rgba(255, 255, 255, 0.08);
+  color: transparent;
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.22);
+}
+
+.bank-row__title {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.bank-row__sub {
+  display: block;
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.42);
+  margin-top: 0.1rem;
+}
+
+.bank-row__amt {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #34d399;
+}
+
+.bank-row__amt--out {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.bank-row--new {
+  animation: bank-row-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes bank-balance-bump {
+  0% { color: #34d399; transform: scale(1); }
+  40% { transform: scale(1.04); color: #6ee7b7; }
+  100% { color: #fff; transform: scale(1); }
+}
+
+@keyframes bank-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bank-tabbar {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.15rem;
+  padding: 0.55rem 0.35rem 1.7rem;
+  background: #161618;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+  font-size: 0.55rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.bank-tabbar .is-active {
+  color: #6d85ff;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ttp-wave__ring,
+  .phone-scene--approved.is-active .ttp-check,
+  .bank-balance.is-bump,
+  .bank-row--new {
+    animation: none !important;
+  }
+
+  .phone-scene {
+    transition: none;
+    transform: none;
+  }
 }
 
 @keyframes hero-char-load {
@@ -1758,25 +2217,16 @@ nav a.active {
   .hero-mockup-container {
     width: 100%;
     margin: 0.25rem auto 0;
-    padding: 0;
-    max-width: 360px;
+    padding: 0.5rem 0 0.25rem;
+    max-width: 320px;
   }
 
   .iphone-mockup {
-    display: none;
-  }
-
-  .desktop-only {
-    display: none !important;
+    width: min(260px, 72vw);
   }
 
   .mobile-only-hero-img {
-    display: block;
-    width: 108%;
-    max-width: 640px;
-    height: auto;
-    margin: 0 -4%;
-    filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.14));
+    display: none;
   }
 
   .about-content h1 {
