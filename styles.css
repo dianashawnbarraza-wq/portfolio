@@ -234,22 +234,22 @@ nav a.active {
 
 /* Hero */
 .hero {
-  padding: 2.5rem 0 1.5rem;
+  padding: 2.5rem 0 3.5rem;
   max-width: 1400px;
   margin: 0 auto;
 }
 
 .hero-layout {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 1.5rem 2rem;
+  gap: 1.5rem 1.25rem;
 }
 
 .hero-content {
   flex: 1;
   min-width: 0;
-  max-width: 34rem;
+  max-width: 38rem;
   text-align: left;
 }
 
@@ -377,7 +377,7 @@ nav a.active {
   line-height: 1.35;
   letter-spacing: -0.02em;
   color: var(--text-main);
-  max-width: 28rem;
+  max-width: none;
 }
 
 .hero-lead strong {
@@ -392,7 +392,7 @@ nav a.active {
   line-height: 1.55;
   letter-spacing: -0.011em;
   color: var(--text-main);
-  max-width: 30rem;
+  max-width: none;
 }
 
 .hero-work-link {
@@ -424,12 +424,14 @@ nav a.active {
 .hero-mockup-container {
   flex-shrink: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   perspective: 1200px;
-  padding-bottom: 0;
+  padding-bottom: 0.25rem;
   margin-top: 0;
-  min-width: 340px;
+  margin-left: -1.25rem;
+  min-width: 280px;
+  width: min(42%, 420px);
 }
 
 .iphone-mockup {
@@ -443,13 +445,14 @@ nav a.active {
     -40px 60px 100px rgba(0, 0, 0, 0.25),
     inset 0 0 0 4px rgba(255, 255, 255, 0.2);
   transform-style: preserve-3d;
-  transform: rotateX(55deg) rotateZ(-35deg) scale(0.38);
+  /* ~15% smaller than prior scale(0.38); sit lower and slightly left */
+  transform: rotateX(55deg) rotateZ(-35deg) scale(0.323);
   transition: transform 0.5s ease;
-  margin: -390px 0 -390px -40px;
+  margin: -250px -10px -250px -90px;
 }
 
 .iphone-mockup:hover {
-  transform: rotateX(50deg) rotateZ(-30deg) scale(0.4);
+  transform: rotateX(50deg) rotateZ(-30deg) scale(0.34);
 }
 
 .dynamic-island {
@@ -574,49 +577,23 @@ nav a.active {
   }
 }
 
-.hero-logo-marquee {
-  margin-top: 2.75rem;
-  overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-}
-
-.hero-logo-marquee__track {
+.hero-logo-strip {
   display: flex;
-  width: max-content;
-  animation: hero-logo-marquee 32s linear infinite;
-}
-
-.hero-logo-marquee__group {
-  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 3.5rem;
-  padding-right: 3.5rem;
+  gap: 2.25rem 2.75rem;
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
 }
 
-.hero-logo-marquee__logo {
+.hero-logo-strip__logo {
   display: block;
   width: auto;
   height: 28px;
   max-width: 120px;
   object-fit: contain;
-  opacity: 0.45;
+  opacity: 0.5;
   filter: grayscale(1);
-}
-
-@keyframes hero-logo-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-logo-marquee__track {
-    animation: none;
-  }
 }
 
 .hero-sectors {
