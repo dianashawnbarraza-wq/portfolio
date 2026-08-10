@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Study · Tackling the Cold Start in Bill Pay</title>
+  <title>Case Study · Turning a post-launch plateau into product growth</title>
+  <meta name="description" content="I turned a post-launch Bill Pay plateau into product growth by removing vendor setup, first with OCR and then email forwarding, measured against the same activation funnel.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="favicon.png?v=2" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
@@ -11,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="ui-system.css?v=1">
-  <link rel="stylesheet" href="case-study.css?v=41">
+  <link rel="stylesheet" href="case-study.css?v=42">
 </head>
 <body class="case-study-body" data-auth-key="cs-auth-biller-network">
 
@@ -49,11 +50,15 @@
       <button class="cs-mobile-nav-close" id="cs-mobile-nav-close" type="button" aria-label="Close">&times;</button>
       <ul>
         <li><a href="#hero">Overview</a></li>
-        <li><a href="#situation">Situation</a></li>
-        <li><a href="#task">Task</a></li>
-        <li><a href="#action">Action</a></li>
-        <li><a href="#design">Design</a></li>
-        <li><a href="#results">Results</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#plateau">The plateau</a></li>
+        <li><a href="#funnel">Funnel</a></li>
+        <li><a href="#insight">Insight</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#v2">V2 · OCR</a></li>
+        <li><a href="#v3">V3 · Email</a></li>
+        <li><a href="#exceptions">Exceptions</a></li>
+        <li><a href="#results-expanded">Results</a></li>
         <li><a href="#reflection">Reflection</a></li>
       </ul>
     </nav>
@@ -64,11 +69,15 @@
         <nav aria-label="Case study navigation">
           <ul class="cs-nav">
             <li><a href="#hero" class="active">Overview</a></li>
-            <li><a href="#situation">Situation</a></li>
-            <li><a href="#task">Task</a></li>
-            <li><a href="#action">Action</a></li>
-            <li><a href="#design">Design</a></li>
-            <li><a href="#results">Results</a></li>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#plateau">The plateau</a></li>
+            <li><a href="#funnel">Funnel</a></li>
+            <li><a href="#insight">Insight</a></li>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#v2">V2 · OCR</a></li>
+            <li><a href="#v3">V3 · Email</a></li>
+            <li><a href="#exceptions">Exceptions</a></li>
+            <li><a href="#results-expanded">Results</a></li>
             <li><a href="#reflection">Reflection</a></li>
           </ul>
         </nav>
@@ -77,257 +86,271 @@
       <main class="cs-main">
 
         <section class="cs-hero" id="hero">
-          <p class="cs-eyebrow eyebrow">Square · Bill Pay · Biller Network</p>
-          <h1>Tackling the Cold Start in Bill Pay</h1>
+          <p class="cs-eyebrow eyebrow">Square Bill Pay</p>
+          <h1>Turning a post-launch plateau into product growth</h1>
+          <p class="cs-hero-summary body-lg">I turned a post-launch Bill Pay plateau into product growth by removing vendor setup, first with OCR and then email forwarding, measured against the same activation funnel each release.</p>
 
           <div class="cs-meta-grid">
             <div class="cs-meta-item">
-              <label>Role</label>
-              <span>Design DRI</span>
-            </div>
-            <div class="cs-meta-item">
               <label>Scope</label>
-              <span>Strategy · Research · Bill Pay · Biller Network</span>
+              <span>Zero-to-one → iteration</span>
             </div>
             <div class="cs-meta-item">
               <label>Timeline</label>
-              <span>One quarter</span>
+              <span>4-week sprint</span>
             </div>
             <div class="cs-meta-item">
-              <label>Partners</label>
-              <span>PM · Engineering · Paymentus</span>
+              <label>Domain</label>
+              <span>B2B fintech</span>
+            </div>
+            <div class="cs-meta-item">
+              <label>Product</label>
+              <span>Square Bill Pay</span>
             </div>
           </div>
 
           <div class="cs-metrics-row">
             <div class="metric-card">
-              <p class="metric-card__value">46% → 69%</p>
-              <p class="metric-card__label body-sm">Add-a-vendor conversion</p>
+              <p class="metric-card__value">2K → 4K → 6.5K</p>
+              <p class="metric-card__label body-sm">Monthly active users</p>
             </div>
             <div class="metric-card">
-              <p class="metric-card__value">+23%</p>
-              <p class="metric-card__label body-sm">Payment volume</p>
+              <p class="metric-card__value">24% → 42% → 59%</p>
+              <p class="metric-card__label body-sm">Conversion</p>
             </div>
             <div class="metric-card">
-              <p class="metric-card__value">Zero UI</p>
-              <p class="metric-card__label body-sm">Email ingestion</p>
+              <p class="metric-card__value">54% → 39% → 30%</p>
+              <p class="metric-card__label body-sm">Vendor drop-off</p>
             </div>
           </div>
+        </section>
 
-          <figure class="cs-impact-hero cs-impact-hero--banner">
-            <img src="billpay-cold-start-hero.png?v=1" alt="Bill Pay cold start flow: add a bill options, OCR scan of a paper invoice, and auto-filled bill details">
+        <section class="cs-section cs-section--impact" id="impact">
+          <figure class="cs-impact-hero">
+            <img src="billpay-cold-start-hero.png?v=1" alt="Bill Pay add bill options, OCR scan of an invoice, and auto-filled bill details">
           </figure>
-        </section>
+          <h2>Impact</h2>
 
-        <section class="cs-section" id="situation">
-          <h2>Situation</h2>
-          <p class="cs-lead body-lg">Active users had stalled. Bill Pay had to prove product-market fit.</p>
-          <p>Square Bill Pay let sellers pay vendors and bills from the Square ecosystem, and growth had gone quiet. I went looking for why in two directions at once: a funnel analysis of where sellers dropped out of the product, and discovery research into where their bills actually lived.</p>
-          <p>Discovery answered first, and the answer was blunt: 80% of recurring bills, utilities, telecom, insurance, were being paid outside Square. The key insight underneath that number was understanding how sellers receive bills and where they manage them. Bill paying was a fragmented experience, scattered across biller websites, mail piles, and inboxes, and most bills were already arriving by email.</p>
-        </section>
-
-        <section class="cs-section" id="task">
-          <h2>Task</h2>
-          <p class="cs-lead body-lg">Find where the funnel actually broke, then remove that step rather than improve it.</p>
-        </section>
-
-        <section class="cs-section" id="action">
-          <h2>Action</h2>
-          <p class="cs-lead body-lg">The funnel said it plainly: "Add a vendor" lost 46% of sellers in a single step.</p>
-
-          <div class="results-table-wrap">
+          <div class="results-table-wrap results-table-wrap--prominent">
             <table class="results-table">
               <thead>
                 <tr>
-                  <th>Step</th>
-                  <th>Completion</th>
-                  <th>Notes</th>
+                  <th>Metric</th>
+                  <th>Baseline</th>
+                  <th>V2 · OCR</th>
+                  <th>V3 · Email</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Start a bill payment</td>
-                  <td>100%</td>
-                  <td>Baseline</td>
+                  <td>Monthly active users</td>
+                  <td>2K</td>
+                  <td>4K</td>
+                  <td><strong>6.5K</strong></td>
                 </tr>
                 <tr>
-                  <td>Add a vendor</td>
-                  <td><strong>54%</strong></td>
-                  <td><strong>46% drop-off — flagged</strong></td>
+                  <td>Conversion</td>
+                  <td>24%</td>
+                  <td>42%</td>
+                  <td><strong>59%</strong></td>
                 </tr>
                 <tr>
-                  <td>Enter payment details</td>
-                  <td>38%</td>
-                  <td>Ordinary step-over-step falloff</td>
-                </tr>
-                <tr>
-                  <td>Schedule payment</td>
-                  <td>32%</td>
-                  <td>Ordinary step-over-step falloff</td>
+                  <td>Add a Vendor drop-off</td>
+                  <td>54%</td>
+                  <td>39%</td>
+                  <td><strong>30%</strong></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <p>Add a vendor lost more sellers than every other step in the funnel combined. The two steps after it decline too, down to 38% and 32%, but that's ordinary step-over-step falloff, not a signal, and it wasn't where I spent design attention. One step was the problem: sellers abandoned at the exact moment the product asked them to reconstruct vendor details they didn't have on hand.</p>
-          <p>The reframe: <strong>don't improve the vendor step, remove it.</strong> Two stages, sequenced by effort and impact, each shipped and measured against the Add-a-vendor conversion rate before committing to the next. Leading metrics shifted from completion rates to that conversion number and to sellers paying 2+ bills a month, the retention signal. Payment volume stayed the north star.</p>
+          <p class="cs-results-interpretation">Each release built on the last against the same funnel: baseline, OCR, then email forwarding. Growth came from progressively removing the same core friction, not one large redesign.</p>
         </section>
 
-        <section class="cs-section" id="design">
-          <h2>Design</h2>
-          <p class="cs-lead body-lg">Baseline 54%. OCR shipped first and did double duty. Email forwarding shipped next.</p>
-
-          <h3 class="cs-subheading">Baseline · Manual entry</h3>
-          <p>List → blank bill form → vendor search → full vendor build. Four steps before a payment could move.</p>
-
-          <div class="phone-compare phone-gallery phone-compare--before-baseline">
-            <div class="phone-compare__grid phone-compare__grid--four">
-              <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label body-sm">1 · Bill Pay list</figcaption>
-                <div class="phone-shell phone-shell--after">
-                  <div class="phone-shell__screen phone-shell__screen--content" aria-label="Before Bill Pay list preview">
-                    <img src="billpay-before-1-list.png?v=1" alt="Bill Pay list where every payment starts from a manual add" width="750" height="1624" loading="lazy" decoding="async">
-                  </div>
-                </div>
-              </figure>
-              <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label body-sm">2 · Blank bill form</figcaption>
-                <div class="phone-shell phone-shell--after">
-                  <div class="phone-shell__screen phone-shell__screen--content" aria-label="Before blank bill form preview">
-                    <img src="billpay-before-2-create-bill.png?v=1" alt="Blank bill form with nothing pre-filled, not even the vendor" width="750" height="1624" loading="lazy" decoding="async">
-                  </div>
-                </div>
-              </figure>
-              <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label body-sm">3 · Vendor search</figcaption>
-                <div class="phone-shell phone-shell--after">
-                  <div class="phone-shell__screen phone-shell__screen--content" aria-label="Before vendor search preview">
-                    <img src="billpay-before-3-add-vendor.png?v=1" alt="Vendor search step where 46% of sellers dropped off" width="750" height="1624" loading="lazy" decoding="async">
-                  </div>
-                </div>
-              </figure>
-              <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label body-sm">4 · Create vendor</figcaption>
-                <div class="phone-shell phone-shell--after">
-                  <div class="phone-shell__screen phone-shell__screen--content" aria-label="Before create vendor form preview">
-                    <img src="billpay-before-4-create-vendor.png?v=1" alt="Create vendor form requiring full vendor details before any payment could move" width="750" height="1624" loading="lazy" decoding="async">
-                  </div>
-                </div>
-              </figure>
-            </div>
-          </div>
-
-          <div class="cs-nested-section">
-            <h3 class="cs-nested-section__title">Stage 1 · Shipped · OCR + auto-created vendor + AI category</h3>
-            <p>Scan any bill and OCR extracts the fields: biller, amount, due date. But it goes further: the vendor auto-creates from the scan, no search, no form. And a second AI moment lands in the same flow: Bill Pay looks up the vendor and applies a suggested category automatically. Two quiet AI assists inside a flow sellers already trusted, not a chatbot bolted to the side. This stage alone moved Add-a-vendor conversion from 54% to 62%.</p>
-
-            <div class="phone-compare phone-gallery phone-compare--fit">
-              <div class="phone-compare__grid phone-compare__grid--three">
-                <figure class="phone-compare__item">
-                  <figcaption class="phone-compare__label body-sm">1 · Bill Pay list</figcaption>
-                  <div class="phone-shell phone-shell--after">
-                    <div class="phone-shell__screen phone-shell__screen--content" aria-label="OCR flow Bill Pay list preview">
-                      <img src="ocr-1-list.png?v=1" alt="Bill Pay list with add bill entry point" width="750" height="1624" loading="lazy" decoding="async">
-                    </div>
-                  </div>
-                </figure>
-                <figure class="phone-compare__item">
-                  <figcaption class="phone-compare__label body-sm">2 · Add bill sheet</figcaption>
-                  <div class="phone-shell phone-shell--after">
-                    <div class="phone-shell__screen phone-shell__screen--content" aria-label="Add bill sheet with manual or photo options preview">
-                      <img src="ocr-2-add-sheet.png?v=1" alt="Add bill sheet offering manual entry or take a photo" width="750" height="1624" loading="lazy" decoding="async">
-                    </div>
-                  </div>
-                </figure>
-                <figure class="phone-compare__item">
-                  <figcaption class="phone-compare__label body-sm">3 · Scan bill</figcaption>
-                  <div class="phone-shell phone-shell--after">
-                    <div class="phone-shell__screen phone-shell__screen--content" aria-label="Bill scan with OCR preview">
-                      <img src="ocr-3-scan.png?v=1" alt="Photograph any bill or invoice for OCR extraction" width="750" height="1624" loading="lazy" decoding="async">
-                    </div>
-                  </div>
-                </figure>
-                <figure class="phone-compare__item">
-                  <figcaption class="phone-compare__label body-sm">4 · Auto-filled details</figcaption>
-                  <div class="phone-shell phone-shell--after">
-                    <div class="phone-shell__screen phone-shell__screen--content" aria-label="Auto-filled bill details preview">
-                      <img src="ocr-4-details-autofill.png?v=1" alt="OCR extracts fields, auto-creates vendor, and suggests category" width="750" height="1624" loading="lazy" decoding="async">
-                    </div>
-                  </div>
-                </figure>
-                <figure class="phone-compare__item">
-                  <figcaption class="phone-compare__label body-sm">5 · Schedule payment</figcaption>
-                  <div class="phone-shell phone-shell--after">
-                    <div class="phone-shell__screen phone-shell__screen--content" aria-label="Schedule payment preview">
-                      <img src="ocr-5-payment.png?v=1" alt="Schedule payment without manual vendor entry" width="750" height="1624" loading="lazy" decoding="async">
-                    </div>
-                  </div>
-                </figure>
-                <figure class="phone-compare__item">
-                  <figcaption class="phone-compare__label body-sm">6 · Scheduled</figcaption>
-                  <div class="phone-shell phone-shell--after">
-                    <div class="phone-shell__screen phone-shell__screen--content" aria-label="Scheduled bill in list preview">
-                      <img src="ocr-6-scheduled.png?v=1" alt="Bill scheduled with vendor and category already applied" width="750" height="1624" loading="lazy" decoding="async">
-                    </div>
-                  </div>
-                </figure>
-              </div>
-            </div>
-          </div>
-
-          <div class="cs-nested-section">
-            <h3 class="cs-nested-section__title">Stage 2 · Shipped · Email forwarding (zero UI)</h3>
-            <p>Discovery showed most bills already arrive by email. Sellers forward a bill to a dedicated address and it ingests itself: parsed, matched, ready to schedule. This stage pushed conversion to 69%.</p>
-
-            <div class="phone-compare phone-gallery phone-compare--fit">
-              <div class="phone-compare__grid phone-compare__grid--three">
-                <figure class="phone-compare__item">
-                  <figcaption class="phone-compare__label body-sm">1 · Pay bills list</figcaption>
-                  <div class="phone-shell phone-shell--after">
-                    <div class="phone-shell__screen phone-shell__screen--content" aria-label="Pay bills list with draft bill preview">
-                      <img src="billpay-email-forwarding-list.png?v=1" alt="Pay bills list showing a forwarded bill ingested as a draft" width="750" height="1624" loading="lazy" decoding="async">
-                    </div>
-                  </div>
-                </figure>
-                <figure class="phone-compare__item">
-                  <figcaption class="phone-compare__label body-sm">2 · Add a bill</figcaption>
-                  <div class="phone-shell phone-shell--after">
-                    <div class="phone-shell__screen phone-shell__screen--content" aria-label="Add a bill sheet with forward from email option preview">
-                      <img src="billpay-email-forwarding-add-bill.png?v=1" alt="Add a bill sheet with enter manually, take a photo, and forward from email options" width="750" height="1624" loading="lazy" decoding="async">
-                    </div>
-                  </div>
-                </figure>
-                <figure class="phone-compare__item">
-                  <figcaption class="phone-compare__label body-sm">3 · Forward from email</figcaption>
-                  <div class="phone-shell phone-shell--after">
-                    <div class="phone-shell__screen phone-shell__screen--content" aria-label="Forward from email modal preview">
-                      <img src="billpay-email-forwarding-modal.png?v=1" alt="Forward from email modal with dedicated Bill Pay forwarding address" width="750" height="1624" loading="lazy" decoding="async">
-                    </div>
-                  </div>
-                </figure>
-              </div>
-            </div>
-          </div>
-
-          <div class="cs-nested-section">
-            <h3 class="cs-nested-section__title">The last piece · Scoped, paused</h3>
-            <p>I identified the Paymentus API and scoped the biller-network integration: intent-first entry, prefilled vendor and due date from a national network. The project was paused before build when it lost funding priority. The two shipped stages had already moved conversion from 54% to 69%, which made doubling down on them the defensible call while the network waits its turn.</p>
-          </div>
-
-          <p class="cs-results-interpretation"><strong>The design judgment:</strong> two high impact, lower effort stages proved the model before the most expensive one needed a resourcing decision. Removing a step beats improving it, every time.</p>
-          <p>We did not take away the seller's ability to manually add vendors; we removed that step only for sellers whose intent to pay matched how they actually received bills. That aligned with real workflows for receiving bills—via email or a paper invoice.</p>
+        <section class="cs-section" id="plateau">
+          <h2>01 · We launched. Then growth stalled.</h2>
+          <p class="cs-lead body-lg">Bill Pay was Square's answer to the other side of invoices: helping sellers organize and pay their business bills using Square Checking or any card.</p>
+          <p>I worked with my team to launch the product, but early adoption quickly plateaued.</p>
+          <p>We were seeing:</p>
+          <ul>
+            <li><strong>2K</strong> monthly active users</li>
+            <li><strong>24%</strong> conversion</li>
+            <li><strong>54%</strong> drop-off at Add a Vendor</li>
+          </ul>
+          <p>I had four weeks to understand what was holding the product back and identify an opportunity to improve conversion.</p>
+          <p>My question wasn't “what should we redesign?”</p>
+          <p>It was: where is the experience breaking down, and why?</p>
         </section>
 
-        <section class="cs-section" id="results">
-          <h2>Results</h2>
-          <p class="cs-lead body-lg">Removing the step beat improving it.</p>
-          <p>Add-a-vendor conversion moved from 54% to 62% after OCR and auto-created vendors shipped, then to 69% after email forwarding removed the step entirely for most bills. Payment volume grew approximately 23%, the north star metric. The biller network remains scoped and paused, on the roadmap for when it's resourced.</p>
+        <section class="cs-section" id="funnel">
+          <h2>02 · The funnel told me where to look</h2>
+          <p class="cs-lead body-lg">I mapped the activation funnel and found one clear outlier: Add a Vendor.</p>
+          <p>More than half of sellers dropped off during vendor creation.</p>
+          <p>Meanwhile, the rest of the payment journey, entering payment details, confirmation, and scheduling, was performing as expected.</p>
+          <p>Session replay helped me understand the behavior, but it didn't explain the hesitation.</p>
+          <p>So I went to sellers.</p>
+        </section>
+
+        <section class="cs-section" id="insight">
+          <h2>03 · The problem wasn't the form. It was the work.</h2>
+          <p class="cs-lead body-lg">When I talked to sellers, a pattern emerged.</p>
+          <p>Bills were already arriving in their inboxes. To pay one through Bill Pay, they had to:</p>
+          <p><strong>Find the bill → open Bill Pay → create the vendor → enter the information → continue paying</strong></p>
+          <p>For sellers, vendor creation felt like administrative overhead.</p>
+          <p>They didn't want a better way to create vendors.</p>
+          <p>They wanted to skip creating vendors altogether.</p>
+          <p>That reframed the opportunity for me:</p>
+          <p class="cs-lead body-lg">How might we remove vendor setup from the payment experience rather than optimize it?</p>
+          <p>This became the design principle for the next iteration.</p>
+
+          <p class="cs-gallery-note">Before · Manual vendor creation</p>
+          <div class="image-gallery image-gallery--four">
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-before-1-list.png?v=1" alt="Bill Pay list where every payment starts from a manual add" width="750" height="1624" loading="lazy" decoding="async">
+              <figcaption>1. List · Manual add to start</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-before-2-create-bill.png?v=1" alt="Blank bill form with nothing pre-filled" width="750" height="1624" loading="lazy" decoding="async">
+              <figcaption>2. Blank bill form</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-before-3-add-vendor.png?v=1" alt="Vendor search step where most sellers dropped off" width="750" height="1624" loading="lazy" decoding="async">
+              <figcaption>3. Add a Vendor cliff</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-before-4-create-vendor.png?v=1" alt="Create vendor form requiring full vendor details before payment" width="750" height="1624" loading="lazy" decoding="async">
+              <figcaption>4. Full vendor setup form</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="cs-section" id="approach">
+          <h2>04 · I explored how far we could automate the setup</h2>
+          <p class="cs-lead body-lg">I explored several approaches to removing vendor setup.</p>
+          <p>One idea was letting sellers search for a biller and connect it to Bill Pay. It reduced some effort, but still required sellers to leave the context where their bills already lived.</p>
+          <p>The stronger opportunity was to bring the bill into Bill Pay and let Square do the setup.</p>
+          <p>I proposed a two-phase approach:</p>
+          <ul>
+            <li><strong>01 · OCR</strong> — Automate vendor creation from bills sellers already have.</li>
+            <li><strong>02 · Email forwarding</strong> — Extend that automation to bills arriving directly in their inbox.</li>
+          </ul>
+          <p>This gave us a way to validate the behavior incrementally instead of making one large feature bet.</p>
+        </section>
+
+        <section class="cs-section" id="v2">
+          <h2>05 · V2: Make the bill do the work</h2>
+          <div class="before-after-grid">
+            <div class="before-after-column">
+              <h4>Before</h4>
+              <p>Sellers manually entered vendor information.</p>
+            </div>
+            <div class="before-after-column">
+              <h4>After</h4>
+              <p>Sellers scanned their bill and Square extracted the information.</p>
+            </div>
+          </div>
+          <p>The experience:</p>
+          <p><strong>Scan → Read → Pre-fill → Create vendor → Review</strong></p>
+          <p>OCR extracted the vendor and bill details and automatically created the vendor record.</p>
+          <p>But I didn't want automation to become a black box.</p>
+          <p>When the system couldn't confidently read something, I designed an exception path that surfaced the missing information and asked the seller to provide only what was needed.</p>
+          <p class="cs-lead body-lg">Automate aggressively. Ask for help only when necessary.</p>
+
+          <p class="cs-gallery-note">V2 · OCR flow</p>
+          <div class="image-gallery image-gallery--three">
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="ocr-2-add-sheet.png?v=1" alt="Add bill sheet offering manual entry or take a photo" width="750" height="1624" loading="lazy" decoding="async">
+              <figcaption>Add a bill · Take a photo</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="ocr-3-scan.png?v=1" alt="Photograph any bill or invoice for OCR extraction" width="750" height="1624" loading="lazy" decoding="async">
+              <figcaption>Scan · Read the bill</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="ocr-4-details-autofill.png?v=1" alt="OCR extracts fields, auto-creates vendor, and suggests category" width="750" height="1624" loading="lazy" decoding="async">
+              <figcaption>Pre-fill · Vendor created from the bill</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="cs-section" id="v3">
+          <h2>06 · V3: Meet sellers where their bills already are</h2>
+          <p class="cs-lead body-lg">OCR solved the problem for physical bills. But many sellers received their bills through email.</p>
+          <p>So I extended the same mental model into their inbox.</p>
+          <h3 class="cs-subheading">Email forwarding</h3>
+          <p>Sellers could forward a bill to a dedicated Square email address.</p>
+          <p><strong>Receive → Forward → Extract → Review → Schedule</strong></p>
+          <p>The bill appeared directly in the Bill Pay queue as a draft payment.</p>
+          <p>From there, sellers could review the extracted information and schedule the payment.</p>
+          <p>I intentionally kept the UI lightweight. The goal wasn't to create another complicated workflow. It was to remove workflow altogether wherever we could.</p>
+
+          <p class="cs-gallery-note">V3 · Email forwarding</p>
+          <div class="image-gallery image-gallery--three">
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-email-forwarding-add-bill.png?v=1" alt="Add a bill sheet with enter manually, take a photo, and forward from email options" width="750" height="1624" loading="lazy" decoding="async">
+              <figcaption>Add a bill · Forward from email</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-email-forwarding-modal.png?v=1" alt="Forward from email modal with dedicated Bill Pay forwarding address" width="750" height="1624" loading="lazy" decoding="async">
+              <figcaption>Dedicated Square forwarding address</figcaption>
+            </figure>
+            <figure class="cs-figure cs-figure--gallery">
+              <img src="billpay-email-forwarding-list.png?v=1" alt="Pay bills list showing a forwarded bill ingested as a draft" width="750" height="1624" loading="lazy" decoding="async">
+              <figcaption>Draft payment ready for review</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="cs-section" id="exceptions">
+          <h2>07 · Designing for when automation fails</h2>
+          <p class="cs-lead body-lg">Automation only works if sellers trust it.</p>
+          <p>So I designed the experience around the failure cases, not just the happy path.</p>
+          <h3 class="cs-subheading">What happens if...</h3>
+          <ul>
+            <li><strong>The bill format isn't compatible?</strong> Notify the seller so nothing silently fails.</li>
+            <li><strong>The OCR can't read a required field?</strong> Ask only for the missing information.</li>
+            <li><strong>The seller forwards to the wrong address?</strong> Provide clear feedback so they know what happened.</li>
+            <li><strong>The bill can't be processed?</strong> Keep the seller informed rather than leaving the payment in an ambiguous state.</li>
+          </ul>
+          <p class="cs-lead body-lg">Make automation feel effortless, but never make it feel invisible.</p>
+        </section>
+
+        <section class="cs-section" id="results-expanded">
+          <h2>08 · Each iteration moved the same funnel</h2>
+          <p class="cs-lead body-lg">Rather than waiting for one large redesign to ship, we measured each iteration against the same activation funnel.</p>
+          <p><strong>Baseline → V2 → V3</strong></p>
+
+          <div class="cs-metrics-row">
+            <div class="metric-card">
+              <p class="metric-card__value">2K → 4K → 6.5K</p>
+              <p class="metric-card__label body-sm">Monthly active users</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">24% → 42% → 59%</p>
+              <p class="metric-card__label body-sm">Conversion</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">54% → 39% → 30%</p>
+              <p class="metric-card__label body-sm">Add a Vendor drop-off</p>
+            </div>
+          </div>
+
+          <p>Each release built on what we learned:</p>
+          <p><strong>Baseline → OCR → Email forwarding</strong></p>
+          <p>The result wasn't one big feature that magically fixed Bill Pay.</p>
+          <p>It was a series of focused, measurable interventions that progressively removed friction from the same core problem.</p>
         </section>
 
         <section class="cs-section" id="reflection">
-          <h2>Reflection</h2>
-          <p class="cs-lead body-lg">The shipped results made pausing the network a decision, not a setback.</p>
-          <p>The constraint was never the payment flow. It was one step, Add a vendor, that lost 46% of sellers outright. Leading with the cheapest, highest-leverage fixes first, OCR with AI-assisted vendor creation, then a zero-UI ingestion channel, meant conversion moved twice before the most expensive piece needed a funding call. That sequencing is what made the pause defensible instead of a stall.</p>
+          <h2>09 · The bigger lesson</h2>
+          <p class="cs-lead body-lg">This project reinforced something I now look for in every product: don't just optimize the workflow. Question the workflow.</p>
+          <p>Our initial instinct could have been to make vendor creation faster, clearer, or easier.</p>
+          <p>But the research showed that the bigger opportunity was to eliminate the work entirely.</p>
+          <p>That led us from:</p>
+          <p><em>“How do we make vendor creation better?”</em></p>
+          <p>to:</p>
+          <p><em>“How do we make vendor creation unnecessary?”</em></p>
+          <p>That shift helped turn a post-launch plateau into measurable product growth, and gave us a repeatable way to continue improving the product after launch.</p>
         </section>
 
       </main>
