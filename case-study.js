@@ -91,7 +91,7 @@
 
   const CASE_STUDIES = [
     { file: 'case-study-checking.html', title: 'Turning Square Checking from a pass-through account into a financial home' },
-    { file: 'case-study-biller-network.html', title: 'Tackling Square Bill Pay's growth plateau post-launch' },
+    { file: 'case-study-biller-network.html', title: "Tackling Square Bill Pay's growth plateau post-launch" },
     { file: 'case-study-debit-card-activation.html', title: 'Decoupling the debit card from Checking with virtual card-first onboarding' },
     { file: 'case-study-bill-pay-vendors.html', title: 'Getting vendors to trust their first Bill Pay payment' },
     { file: 'case-study-flyhomes-tour-booking.html', title: 'Automating tour scheduling so buyers could move faster' },
