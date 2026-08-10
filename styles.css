@@ -232,10 +232,6 @@ nav a.active {
   display: none;
 }
 
-.mobile-only-hero-img {
-  display: none;
-}
-
 /* Hero */
 .hero {
   padding: 2.5rem 0 1.5rem;
@@ -609,71 +605,6 @@ nav a.active {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
-}
-
-/* iPhone Mockup */
-.hero-mockup-container {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  perspective: 1200px;
-  padding-bottom: 0;
-  margin-top: 0;
-  min-width: 380px;
-}
-
-.iphone-mockup {
-  position: relative;
-  width: 640px;
-  height: 1300px;
-  background-color: #000;
-  border-radius: 100px;
-  box-shadow:
-    0 0 0 24px #1d1d1f,
-    -40px 60px 100px rgba(0, 0, 0, 0.25),
-    inset 0 0 0 4px rgba(255, 255, 255, 0.2);
-  transform-style: preserve-3d;
-  transform: rotateX(55deg) rotateZ(-35deg) scale(0.38);
-  transition: transform 0.5s ease;
-  margin: -390px 0 -390px -40px;
-}
-
-.iphone-mockup:hover {
-  transform: rotateX(50deg) rotateZ(-30deg) scale(0.4);
-}
-
-.dynamic-island {
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 60px;
-  background-color: #000;
-  border-radius: 40px;
-  z-index: 10;
-}
-
-.iphone-screen {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 100px;
-  overflow: hidden;
-  mask-image: radial-gradient(white, black);
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
-}
-
-.iphone-screen img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  image-rendering: high-quality;
-  transform: translateZ(0);
 }
 
 /* Work Section */
@@ -1805,15 +1736,6 @@ nav a.active {
 
   .desktop-only {
     display: none !important;
-  }
-
-  .mobile-only-hero-img {
-    display: block;
-    width: 115%;
-    max-width: 600px;
-    height: auto;
-    margin: 0 -7.5%;
-    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
   }
 
   .about-content h1 {
