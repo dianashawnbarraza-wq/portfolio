@@ -1,11 +1,11 @@
 :root {
-  --color-bg: #FFFFFF;
-  --color-bg-2: #F5F5F5;
-  --color-card: #FFFFFF;
+  --color-bg: #F3EEE2;
+  --color-bg-2: #ECE6D2;
+  --color-card: #FBF8F0;
   --color-ink: #191F1B;
-  --color-muted: #6B6B6B;
-  --color-faint: #A3A3A3;
-  --color-line: #E8E8E8;
+  --color-muted: #6C685B;
+  --color-faint: #A5A091;
+  --color-line: #DDD6C4;
   --color-accent: #1D2ED9;
   --color-error: #B4530A;
   --font-display: "Instrument Sans", sans-serif;
@@ -186,7 +186,7 @@ body.case-study-body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(243, 238, 226, 0.9);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--cs-border);
 }
