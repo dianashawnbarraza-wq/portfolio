@@ -2016,3 +2016,130 @@ body.case-study-body {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* —— Deckk: Linktree failure example —— */
+.deckk-example {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin: 1.75rem 0 0.5rem;
+}
+
+.deckk-example__device {
+  margin: 0;
+}
+
+.deckk-example__device .phone-shell {
+  max-width: 280px;
+  margin: 0;
+}
+
+.deckk-example__copy {
+  min-width: 0;
+  padding-top: 1.75rem;
+}
+
+.deckk-example__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-weight: 600;
+  color: var(--color-accent, #1d2ed9);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.deckk-example__link:hover {
+  border-bottom-color: currentColor;
+  opacity: 0.88;
+}
+
+.deckk-example__credit {
+  margin-top: 1rem;
+  color: var(--color-muted, #6c685b);
+}
+
+.deckk-lt {
+  background: #0d0d0d;
+  color: #f5f5f5;
+  min-height: 100%;
+  padding: 1.25rem 1rem 1.5rem;
+  text-align: center;
+  font-family: var(--font-sans, "Instrument Sans", sans-serif);
+}
+
+.deckk-lt__avatar {
+  width: 4.25rem;
+  height: 4.25rem;
+  margin: 0.25rem auto 0.65rem;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #3a3a3a, #1a1a1a);
+  border: 2px solid rgba(255,255,255,0.12);
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.75);
+}
+
+.deckk-lt__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.deckk-lt__loc {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.45);
+  margin: 0.3rem 0 1rem;
+}
+
+.deckk-lt__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+  text-align: left;
+}
+
+.deckk-lt__list li {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 980px;
+  padding: 0.7rem 0.95rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: rgba(255,255,255,0.92);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.deckk-lt__note {
+  margin: 0.85rem 0 0;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+@media (max-width: 900px) {
+  .deckk-example {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .deckk-example__device .phone-shell {
+    margin: 0 auto;
+  }
+
+  .deckk-example__copy {
+    padding-top: 0;
+  }
+}
