@@ -1727,3 +1727,292 @@ body.case-study-body {
     font-size: 2rem;
   }
 }
+
+
+/* —— Deckk case study mocks —— */
+.cs-sources {
+  margin-top: 1.5rem;
+  color: var(--color-muted, #6c685b);
+}
+
+.deckk-split {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.25rem;
+  align-items: stretch;
+  margin: 1.75rem 0 2.5rem;
+}
+
+.deckk-flow-arrow {
+  align-self: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-accent, #1d2ed9);
+}
+
+.deckk-panel {
+  margin: 0;
+  min-width: 0;
+}
+
+.deckk-panel__label {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--color-muted, #6c685b);
+  font-weight: 500;
+}
+
+.deckk-flyer {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(25, 31, 27, 0.12);
+  background: #ffb03a;
+  aspect-ratio: 1;
+}
+
+.deckk-flyer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.deckk-studio {
+  border-radius: 1rem;
+  border: 1px solid rgba(25, 31, 27, 0.12);
+  background: #faf6ee;
+  overflow: hidden;
+  min-height: 100%;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.deckk-studio__bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(25, 31, 27, 0.08);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.deckk-studio__spark {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7c3aed;
+}
+
+.deckk-studio__meta {
+  font-size: 0.75rem;
+  color: rgba(27, 24, 19, 0.55);
+}
+
+.deckk-studio__body {
+  padding: 1rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.deckk-studio__type {
+  display: inline-flex;
+  width: fit-content;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.55rem;
+  border-radius: 0.4rem;
+  background: #1b1813;
+  color: #faf6ee;
+  margin-bottom: 0.15rem;
+}
+
+.deckk-field {
+  display: block;
+  border: 1.5px solid rgba(27, 24, 19, 0.12);
+  border-radius: 0.65rem;
+  padding: 0.55rem 0.7rem;
+  background: #fff;
+}
+
+.deckk-field--low {
+  border-color: rgba(212, 160, 23, 0.7);
+  background: rgba(212, 160, 23, 0.12);
+}
+
+.deckk-field__k {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(27, 24, 19, 0.4);
+  margin-bottom: 0.2rem;
+}
+
+.deckk-field--low .deckk-field__k {
+  color: #b07310;
+}
+
+.deckk-field__k em {
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  opacity: 0.9;
+}
+
+.deckk-field__v {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1b1813;
+}
+
+.deckk-studio__publish {
+  margin-top: 0.35rem;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem;
+  border-radius: 0.65rem;
+  background: #1b1813;
+  color: #faf6ee;
+}
+
+.deckk-public {
+  background: #ede5d5;
+  color: #1b1813;
+  min-height: 100%;
+  padding: 1.1rem 0.9rem 2rem;
+  font-family: var(--font-sans, "Instrument Sans", sans-serif);
+}
+
+.deckk-public__identity {
+  text-align: center;
+  margin-bottom: 1.1rem;
+}
+
+.deckk-public__avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(27, 24, 19, 0.12);
+  margin-bottom: 0.55rem;
+}
+
+.deckk-public__name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.deckk-public__bio {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: rgba(27, 24, 19, 0.62);
+  margin: 0.35rem auto 0.25rem;
+  max-width: 18em;
+}
+
+.deckk-public__loc {
+  font-size: 0.68rem;
+  color: rgba(27, 24, 19, 0.4);
+}
+
+.deckk-public__section {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(27, 24, 19, 0.45);
+  margin: 1rem 0 0.5rem;
+}
+
+.deckk-public__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.deckk-card {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(27, 24, 19, 0.1);
+  border-radius: 0.85rem;
+  padding: 0.75rem 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.deckk-card--pinned {
+  box-shadow: 0 0 0 1.5px rgba(124, 58, 237, 0.35);
+}
+
+.deckk-card--item {
+  margin-bottom: 0;
+  min-height: 5.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.deckk-card--link {
+  padding: 0.65rem 0.8rem;
+}
+
+.deckk-card__badge {
+  display: inline-block;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7c3aed;
+  margin-bottom: 0.35rem;
+}
+
+.deckk-card h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.25rem;
+  line-height: 1.25;
+}
+
+.deckk-card p {
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: rgba(27, 24, 19, 0.58);
+  margin: 0 0 0.4rem;
+}
+
+.deckk-card__meta {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(27, 24, 19, 0.72);
+}
+
+.deckk-public--rules .deckk-card {
+  margin-bottom: 0.65rem;
+}
+
+.phone-compare__grid--two {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 900px) {
+  .deckk-split {
+    grid-template-columns: 1fr;
+  }
+
+  .deckk-flow-arrow {
+    transform: rotate(90deg);
+    justify-self: center;
+  }
+
+  .phone-compare__grid--two {
+    grid-template-columns: 1fr;
+  }
+}
