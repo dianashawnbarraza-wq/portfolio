@@ -17,18 +17,33 @@
     passwordInput.parentNode.insertBefore(wrap, passwordInput);
     wrap.appendChild(passwordInput);
 
+    const eyeOpen =
+      '<svg class="cs-gate-toggle__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/>' +
+      '<circle cx="12" cy="12" r="3"/>' +
+      '</svg>';
+    const eyeOff =
+      '<svg class="cs-gate-toggle__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M3 3l18 18"/>' +
+      '<path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"/>' +
+      '<path d="M9.9 5.1A10.4 10.4 0 0 1 12 5c6.5 0 10 7 10 7a17.3 17.3 0 0 1-3.2 3.9"/>' +
+      '<path d="M6.1 6.1C3.9 7.6 2.5 9.7 2 12c0 0 3.5 7 10 7 1.4 0 2.6-.3 3.7-.7"/>' +
+      '</svg>';
+
     const toggle = document.createElement('button');
     toggle.type = 'button';
     toggle.className = 'cs-gate-toggle';
     toggle.setAttribute('aria-label', 'Show password');
-    toggle.textContent = 'Show';
+    toggle.setAttribute('aria-pressed', 'false');
+    toggle.innerHTML = eyeOpen;
     wrap.appendChild(toggle);
 
     toggle.addEventListener('click', () => {
       const showing = passwordInput.type === 'text';
       passwordInput.type = showing ? 'password' : 'text';
-      toggle.textContent = showing ? 'Show' : 'Hide';
+      toggle.innerHTML = showing ? eyeOpen : eyeOff;
       toggle.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+      toggle.setAttribute('aria-pressed', showing ? 'false' : 'true');
       passwordInput.focus();
     });
   }

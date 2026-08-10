@@ -117,7 +117,7 @@ body.case-study-body {
 }
 
 .cs-gate-password input {
-  padding-right: 4.25rem;
+  padding-right: 2.75rem;
 }
 
 .cs-gate-form input:focus,
@@ -128,23 +128,35 @@ body.case-study-body {
 .cs-gate-toggle {
   position: absolute;
   top: 50%;
-  right: 0.55rem;
+  right: 0.4rem;
   transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
   border: none;
   background: transparent;
   color: var(--cs-muted);
-  font: inherit;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  padding: 0.35rem 0.45rem;
+  padding: 0;
   border-radius: 6px;
   cursor: pointer;
-  line-height: 1;
+  line-height: 0;
 }
 
 .cs-gate-toggle:hover {
   color: var(--cs-text);
   background: transparent;
+}
+
+.cs-gate-toggle:focus-visible {
+  outline: 2px solid var(--cs-text);
+  outline-offset: 1px;
+}
+
+.cs-gate-toggle__icon {
+  display: block;
+  pointer-events: none;
 }
 
 .cs-gate-form button[type="submit"] {
