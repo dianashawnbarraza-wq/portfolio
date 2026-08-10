@@ -421,43 +421,43 @@ nav a.active {
   display: none;
 }
 
-/* iPhone Mockup — sized to the right column, full device visible */
+/* iPhone Mockup — mild tilt so UI stays sharp (heavy 3D = soft resampling) */
 .hero-mockup-container {
   position: relative;
   width: 100%;
   min-width: 0;
   height: auto;
   margin: 0;
-  padding: 0.5rem 0 0.75rem;
+  padding: 0.75rem 0 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 1200px;
   overflow: visible;
 }
 
 .iphone-mockup {
   position: relative;
-  /* Proportionate to left column: fill most of the right grid track */
-  width: clamp(230px, 26vw, 300px);
+  width: clamp(250px, 28vw, 320px);
   aspect-ratio: 9 / 19.2;
   height: auto;
   background-color: #000;
   border-radius: 15.5% / 7.2%;
   box-shadow:
-    0 0 0 10px #1d1d1f,
-    -28px 36px 64px rgba(0, 0, 0, 0.2),
-    inset 0 0 0 2px rgba(255, 255, 255, 0.16);
-  transform-style: preserve-3d;
-  transform: rotateX(48deg) rotateZ(-30deg);
-  transform-origin: 50% 45%;
-  transition: transform 0.5s ease;
+    0 0 0 11px #1d1d1f,
+    -18px 28px 48px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.14);
+  /* Soft perspective only — avoid high rotateX/Z which blur raster UI */
+  transform: perspective(1600px) rotateY(-18deg) rotateX(4deg);
+  transform-origin: 50% 50%;
+  transition: transform 0.45s ease;
   margin: 0 auto;
   flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .iphone-mockup:hover {
-  transform: rotateX(44deg) rotateZ(-26deg) scale(1.03);
+  transform: perspective(1600px) rotateY(-12deg) rotateX(2deg) scale(1.02);
 }
 
 .dynamic-island {
@@ -470,6 +470,7 @@ nav a.active {
   background-color: #000;
   border-radius: 999px;
   z-index: 10;
+  pointer-events: none;
 }
 
 .iphone-screen {
@@ -480,9 +481,12 @@ nav a.active {
   border-radius: inherit;
   overflow: hidden;
   background: #0a0a0a;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .iphone-screen img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -490,7 +494,8 @@ nav a.active {
   image-rendering: auto;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  transform: translate3d(0, 0, 0);
+  /* Keep screen layer in its own composited plane */
+  transform: translateZ(0);
 }
 
 @keyframes hero-char-load {
@@ -590,7 +595,7 @@ nav a.active {
   }
 
   .iphone-mockup {
-    width: clamp(200px, 30vw, 250px);
+    width: clamp(220px, 32vw, 270px);
   }
 }
 
