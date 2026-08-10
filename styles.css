@@ -405,16 +405,15 @@ nav a.active {
   font-size: 1.05rem;
   font-weight: 500;
   letter-spacing: -0.01em;
-  color: var(--text-main);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.28em;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
 }
 
 .hero-work-link:hover {
   color: var(--accent-blue);
-  text-decoration-color: var(--accent-blue);
+  text-decoration: none;
+  opacity: 0.8;
 }
 
 .mobile-only-hero-img {
