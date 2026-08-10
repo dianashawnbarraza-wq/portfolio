@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="Diana Barraza / Shawn Barraza — Staff Product Designer with 10+ years in fintech and healthcare, previously at Square. Banking, payments, and platform work with AI-native workflows.">
   <meta name="twitter:image" content="https://barrazaxd.com/diana_shawn_barraza.png?v=2">
   <link rel="stylesheet" href="ui-system.css?v=2">
-  <link rel="stylesheet" href="styles.css?v=90">
+  <link rel="stylesheet" href="styles.css?v=91">
   <link rel="icon" href="favicon.png?v=2" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -149,27 +149,27 @@
 
     <main>
       <section class="hero" id="hero" data-hero>
-        <div class="hero-stage">
-          <h1 class="hero-name" data-hero-name>
-            <span class="hero-name__text">Diana Shawn Barraza</span><span class="hero-name-dot" aria-hidden="true">.</span>
-          </h1>
-          <div class="hero-load-bar" data-hero-bar aria-hidden="true"></div>
-
-          <div class="hero-lockup hero-reveal" data-hero-reveal>
-            <div class="hero-actions">
-              <a class="hero-action" href="mailto:hello@barrazaxd.com">Get in touch <span aria-hidden="true">↗</span></a>
-              <a class="hero-action" href="#featured-works">See my work <span aria-hidden="true">↗</span></a>
-              <span class="hero-status" aria-label="Open to opportunities">
-                <span class="hero-status-dot" aria-hidden="true"></span>
-                Open to opportunities
-              </span>
+        <div class="hero-layout">
+          <div class="hero-content">
+            <h1 class="hero-name" data-hero-name aria-label="Diana Shawn Barraza">
+              <span class="hero-name__line"><span class="hero-name__text" data-hero-line>Diana Shawn</span></span>
+              <span class="hero-name__line"><span class="hero-name__text" data-hero-line>Barraza</span><span class="hero-name-dot" aria-hidden="true">.</span></span>
+            </h1>
+            <div class="hero-load-bar" data-hero-bar aria-hidden="true"></div>
+            <div class="hero-reveal" data-hero-reveal>
+              <p class="hero-lead"><strong>A B2B and B2C product designer who knows how to move fast.</strong></p>
+              <p class="hero-intro">10+ years designing complex fintech, banking, and healthcare products. I bring the right discovery, process, and tools to the problem and use AI intentionally to accelerate exploration, prototyping, and product decisions. Previously at Square.</p>
+              <a class="hero-work-link" href="#featured-works">See my work <span aria-hidden="true">↓</span></a>
             </div>
-            <div class="hero-bio">
-              <p class="hero-bio__text">
-                <span class="hero-bio__lead">A B2B and B2C product designer who knows how to move fast.</span>
-                10+ years designing complex fintech, banking, and healthcare products. I bring the right discovery, process, and tools to the problem and use AI intentionally to accelerate exploration, prototyping, and product decisions. Previously at Square.
-              </p>
+          </div>
+          <div class="hero-mockup-container">
+            <div class="iphone-mockup desktop-only">
+              <div class="dynamic-island"></div>
+              <div class="iphone-screen">
+                <img src="square-banking.png" alt="Square Banking product design work by Diana Barraza, also known as Shawn Barraza, former Square product designer">
+              </div>
             </div>
+            <img src="iphone-mobile-hero.png" alt="Square Banking mobile product design by Diana Barraza / Shawn Barraza" class="mobile-only-hero-img">
           </div>
         </div>
 
@@ -484,9 +484,8 @@
       const nameEl = document.querySelector('[data-hero-name]');
       if (!hero || !nameEl) return;
 
-      const textEl = nameEl.querySelector('.hero-name__text');
+      const lineEls = [...nameEl.querySelectorAll('[data-hero-line]')];
       const dotEl = nameEl.querySelector('.hero-name-dot');
-      const fullName = (textEl ? textEl.textContent : nameEl.textContent).replace(/\.$/, '').trim();
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       hero.classList.add('is-js');
@@ -501,47 +500,42 @@
         return;
       }
 
-      const frag = document.createDocumentFragment();
       const chars = [];
-      [...fullName].forEach((ch) => {
-        const span = document.createElement('span');
-        span.className = 'hero-name__char' + (ch === ' ' ? ' is-space' : '');
-        span.textContent = ch === ' ' ? '\u00a0' : ch;
-        frag.appendChild(span);
-        chars.push(span);
+      lineEls.forEach((lineEl) => {
+        const text = lineEl.textContent.trim();
+        lineEl.textContent = '';
+        [...text].forEach((ch) => {
+          const span = document.createElement('span');
+          span.className = 'hero-name__char' + (ch === ' ' ? ' is-space' : '');
+          span.textContent = ch === ' ' ? '\u00a0' : ch;
+          lineEl.appendChild(span);
+          chars.push(span);
+        });
       });
-
-      if (textEl) {
-        textEl.textContent = '';
-        textEl.appendChild(frag);
-      } else {
-        nameEl.textContent = '';
-        nameEl.appendChild(frag);
-        if (dotEl) nameEl.appendChild(dotEl);
-      }
 
       const cursor = document.createElement('span');
       cursor.className = 'hero-name__cursor';
       cursor.setAttribute('aria-hidden', 'true');
-      nameEl.appendChild(cursor);
+      const lastLine = nameEl.querySelectorAll('.hero-name__line');
+      (lastLine[lastLine.length - 1] || nameEl).appendChild(cursor);
 
-      const step = 38;
-      const charDuration = 550;
+      const step = 36;
+      const charDuration = 520;
       chars.forEach((span, i) => {
-        span.style.animationDelay = `${120 + i * step}ms`;
+        span.style.animationDelay = `${100 + i * step}ms`;
       });
       if (dotEl) {
-        dotEl.style.animationDelay = `${120 + chars.length * step + 80}ms`;
+        dotEl.style.animationDelay = `${100 + chars.length * step + 60}ms`;
       }
 
       hero.classList.add('is-animating');
 
-      const totalMs = 120 + chars.length * step + charDuration + 280;
+      const totalMs = 100 + chars.length * step + charDuration + 240;
       window.setTimeout(() => {
         hero.classList.add('is-name-done');
         window.setTimeout(() => {
           hero.classList.add('is-ready');
-        }, 180);
+        }, 160);
       }, totalMs);
     })();
 
