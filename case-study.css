@@ -531,8 +531,10 @@ body.case-study-body {
 
 .cs-prototype__embed--tall {
   max-width: 100%;
-  aspect-ratio: 4 / 3;
-  min-height: 560px;
+  width: 100%;
+  aspect-ratio: auto;
+  height: clamp(520px, 72vh, 820px);
+  min-height: 520px;
 }
 
 .results-table-wrap {
