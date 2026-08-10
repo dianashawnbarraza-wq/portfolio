@@ -97,7 +97,13 @@ body.case-study-body {
   gap: 12px;
 }
 
-.cs-gate-form input {
+.cs-gate-password {
+  position: relative;
+  width: 100%;
+}
+
+.cs-gate-form input,
+.cs-gate-password input {
   width: 100%;
   padding: 0.85rem 1rem;
   border: 1px solid var(--cs-border);
@@ -106,13 +112,42 @@ body.case-study-body {
   font-size: 0.95rem;
   outline: none;
   transition: border-color 0.2s ease;
+  background: #fff;
+  color: var(--cs-text);
 }
 
-.cs-gate-form input:focus {
+.cs-gate-password input {
+  padding-right: 4.25rem;
+}
+
+.cs-gate-form input:focus,
+.cs-gate-password input:focus {
   border-color: var(--cs-text);
 }
 
-.cs-gate-form button {
+.cs-gate-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.55rem;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: var(--cs-muted);
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.35rem 0.45rem;
+  border-radius: 6px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.cs-gate-toggle:hover {
+  color: var(--cs-text);
+  background: transparent;
+}
+
+.cs-gate-form button[type="submit"] {
   padding: 0.85rem 1rem;
   background: var(--cs-text);
   color: var(--color-card);
@@ -125,7 +160,7 @@ body.case-study-body {
   transition: opacity 0.2s ease;
 }
 
-.cs-gate-form button:hover { opacity: 0.88; }
+.cs-gate-form button[type="submit"]:hover { opacity: 0.88; }
 
 .cs-gate-error {
   color: var(--color-error);

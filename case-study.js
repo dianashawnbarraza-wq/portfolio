@@ -9,6 +9,32 @@
   const errorEl = document.getElementById('cs-gate-error');
   const passwordInput = document.getElementById('cs-password');
 
+  function initPasswordToggle() {
+    if (!passwordInput || passwordInput.closest('.cs-gate-password')) return;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'cs-gate-password';
+    passwordInput.parentNode.insertBefore(wrap, passwordInput);
+    wrap.appendChild(passwordInput);
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'cs-gate-toggle';
+    toggle.setAttribute('aria-label', 'Show password');
+    toggle.textContent = 'Show';
+    wrap.appendChild(toggle);
+
+    toggle.addEventListener('click', () => {
+      const showing = passwordInput.type === 'text';
+      passwordInput.type = showing ? 'password' : 'text';
+      toggle.textContent = showing ? 'Show' : 'Hide';
+      toggle.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+      passwordInput.focus();
+    });
+  }
+
+  initPasswordToggle();
+
   function unlock() {
     sessionStorage.setItem(STORAGE_KEY, '1');
     // Clear legacy per-case keys so old sessions don't leave stale state around.
