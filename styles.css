@@ -439,23 +439,6 @@ nav a.active {
   color: var(--accent-blue);
 }
 
-/* legacy unused hero pieces kept minimal */
-.hero-availability,
-.hero-status-badge,
-.hero-cta,
-.hero-cta-row,
-.hero-cta-btn,
-.hero-lead,
-.hero-intro,
-.hero-intro-lead,
-.hero-intro-accent,
-.hero-role,
-.hero-layout,
-.hero-content,
-.hero-mockup-container {
-  /* no-op placeholders removed from markup */
-}
-
 @keyframes hero-char-load {
   0% {
     opacity: 0;
