@@ -724,223 +724,28 @@ nav a.active {
   }
 }
 
-/* —— Banking dark —— */
+/* —— Banking: original light product design screenshot —— */
 .phone-scene--banking {
-  background: #111113;
-  padding: 8.5% 0 0;
-  justify-content: flex-start;
+  background: #f2f2f2;
+  padding: 0;
 }
 
-.bank-top {
-  padding: 0 5.5% 0.55rem;
-}
-
-.bank-time {
-  font-size: 0.62rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.55);
-  margin-bottom: 0.85rem;
-  padding-left: 0.15rem;
-}
-
-.bank-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.7rem;
-}
-
-.bank-title {
-  font-size: 1.45rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: #fff;
-  margin: 0;
-}
-
-.bank-gear {
-  width: 1.55rem;
-  height: 1.55rem;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at center, transparent 28%, rgba(255, 255, 255, 0.22) 29% 42%, transparent 43%),
-    rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.18);
-}
-
-.bank-tabs {
-  display: flex;
-  gap: 0.85rem;
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: 0.45rem;
-  margin-bottom: 0.65rem;
-}
-
-.bank-tabs .is-active {
-  color: #fff;
-  font-weight: 600;
-  box-shadow: 0 1px 0 0 #fff;
-  padding-bottom: 0.45rem;
-  margin-bottom: -0.45rem;
-}
-
-.bank-card {
-  margin: 0 4.5% 0.55rem;
-  background: #1c1c1e;
-  border-radius: 0.9rem;
-  padding: 0.85rem 0.9rem;
-}
-
-.bank-account {
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 0.25rem;
-}
-
-.bank-balance {
-  font-size: 1.85rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: #fff;
-  line-height: 1.1;
-}
-
-.bank-balance.is-bump {
-  animation: bank-balance-bump 0.7s ease;
-}
-
-.bank-meta {
-  font-size: 0.68rem;
-  color: rgba(255, 255, 255, 0.45);
-  margin: 0.3rem 0 0.75rem;
-}
-
-.bank-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 0.4rem;
-}
-
-.bank-actions span {
-  text-align: center;
-  font-size: 0.68rem;
-  font-weight: 600;
-  padding: 0.55rem 0.25rem;
-  border-radius: 999px;
-  background: #f5f5f5;
-  color: #0a0a0a;
-}
-
-.bank-activity-head {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 0.65rem;
-}
-
-.bank-row {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 0.55rem;
-  align-items: center;
-  padding: 0.4rem 0;
-}
-
-.bank-row + .bank-row {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.bank-row__icon {
-  width: 1.7rem;
-  height: 1.7rem;
-  border-radius: 50%;
-  background: rgba(52, 211, 153, 0.15);
-  color: #34d399;
-  display: grid;
-  place-items: center;
-  font-size: 0.72rem;
-  font-weight: 700;
-}
-
-.bank-row__icon--card {
-  background: rgba(255, 255, 255, 0.08);
-  color: transparent;
-  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.22);
-}
-
-.bank-row__title {
+.phone-scene__img {
   display: block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #fff;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  image-rendering: auto;
 }
 
-.bank-row__sub {
-  display: block;
-  font-size: 0.62rem;
-  color: rgba(255, 255, 255, 0.42);
-  margin-top: 0.1rem;
-}
-
-.bank-row__amt {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #34d399;
-}
-
-.bank-row__amt--out {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.bank-row--new {
-  animation: bank-row-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-@keyframes bank-balance-bump {
-  0% { color: #34d399; transform: scale(1); }
-  40% { transform: scale(1.04); color: #6ee7b7; }
-  100% { color: #fff; transform: scale(1); }
-}
-
-@keyframes bank-row-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.bank-tabbar {
-  margin-top: auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.15rem;
-  padding: 0.55rem 0.35rem 1.7rem;
-  background: #161618;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  text-align: center;
-  font-size: 0.55rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.38);
-}
-
-.bank-tabbar .is-active {
-  color: #6d85ff;
-  font-weight: 600;
+.iphone-mockup.is-banking .iphone-home-indicator {
+  background: rgba(0, 0, 0, 0.28);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .ttp-wave__ring,
-  .phone-scene--approved.is-active .ttp-check,
-  .bank-balance.is-bump,
-  .bank-row--new {
+  .phone-scene--approved.is-active .ttp-check {
     animation: none !important;
   }
 

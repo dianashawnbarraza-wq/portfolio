@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="Diana Barraza / Shawn Barraza — Staff Product Designer with 10+ years in fintech and healthcare, previously at Square. Banking, payments, and platform work with AI-native workflows.">
   <meta name="twitter:image" content="https://barrazaxd.com/diana_shawn_barraza.png?v=2">
   <link rel="stylesheet" href="ui-system.css?v=2">
-  <link rel="stylesheet" href="styles.css?v=99">
+  <link rel="stylesheet" href="styles.css?v=100">
   <link rel="icon" href="favicon.png?v=2" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -205,55 +205,16 @@
                   <p class="ttp-approved-sub">Landing in your Checking balance…</p>
                 </div>
 
-                <!-- 3. Banking (dark) -->
+                <!-- 3. Original Banking design -->
                 <div class="phone-scene phone-scene--banking" data-phone-scene="banking" aria-hidden="true">
-                  <div class="bank-top">
-                    <div class="bank-time" aria-hidden="true">9:41</div>
-                    <div class="bank-head">
-                      <h3 class="bank-title">Banking</h3>
-                      <span class="bank-gear" aria-hidden="true"></span>
-                    </div>
-                    <div class="bank-tabs" aria-hidden="true">
-                      <span class="is-active">Checking</span>
-                      <span>Savings</span>
-                      <span>Loans</span>
-                    </div>
-                  </div>
-                  <div class="bank-card bank-card--balance">
-                    <div class="bank-account">Account ··903</div>
-                    <div class="bank-balance" data-bank-balance>$465.21</div>
-                    <div class="bank-meta">Available · West Broadway</div>
-                    <div class="bank-actions" aria-hidden="true">
-                      <span>Deposit</span>
-                      <span>Transfer</span>
-                      <span>Pay</span>
-                    </div>
-                  </div>
-                  <div class="bank-card bank-card--activity">
-                    <div class="bank-activity-head">Recent activity</div>
-                    <div class="bank-row bank-row--new" data-bank-sale>
-                      <div class="bank-row__icon" aria-hidden="true">$</div>
-                      <div class="bank-row__main">
-                        <span class="bank-row__title">Sale</span>
-                        <span class="bank-row__sub">Point of Sale · just now</span>
-                      </div>
-                      <div class="bank-row__amt">+$42.00</div>
-                    </div>
-                    <div class="bank-row">
-                      <div class="bank-row__icon bank-row__icon--card" aria-hidden="true"></div>
-                      <div class="bank-row__main">
-                        <span class="bank-row__title">Card payment</span>
-                        <span class="bank-row__sub">Sales</span>
-                      </div>
-                      <div class="bank-row__amt bank-row__amt--out">$302.21</div>
-                    </div>
-                  </div>
-                  <nav class="bank-tabbar" aria-hidden="true">
-                    <span class="is-muted">Checkout</span>
-                    <span class="is-muted">Transactions</span>
-                    <span class="is-active">Banking</span>
-                    <span class="is-muted">More</span>
-                  </nav>
+                  <img
+                    class="phone-scene__img"
+                    src="square-banking.png?v=5"
+                    alt="Square Banking Checking home — original product design"
+                    width="1170"
+                    height="2539"
+                    decoding="async"
+                  >
                 </div>
               </div>
               <div class="iphone-home-indicator" aria-hidden="true"></div>
@@ -616,7 +577,7 @@
       }, totalMs);
     })();
 
-    // Hero phone: Tap to Pay → Banking loop
+    // Hero phone: Tap to Pay → original Banking design
     (function initHeroPhone() {
       const phone = document.querySelector('[data-hero-phone]');
       if (!phone) return;
@@ -627,8 +588,6 @@
         banking: phone.querySelector('[data-phone-scene="banking"]'),
       };
       const caption = phone.querySelector('[data-ttp-caption]');
-      const balance = phone.querySelector('[data-bank-balance]');
-      const saleRow = phone.querySelector('[data-bank-sale]');
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const timers = [];
 
@@ -643,6 +602,7 @@
           el.classList.toggle('is-active', on);
           el.setAttribute('aria-hidden', on ? 'false' : 'true');
         });
+        phone.classList.toggle('is-banking', name === 'banking');
       };
 
       const schedule = (fn, ms) => {
@@ -653,54 +613,31 @@
         clearTimers();
         if (scenes.ttp) scenes.ttp.classList.remove('is-processing');
         if (caption) caption.textContent = 'Ready for payment';
-        if (balance) {
-          balance.textContent = '$423.21';
-          balance.classList.remove('is-bump');
-        }
-        if (saleRow) saleRow.classList.remove('bank-row--new');
 
         setScene('ttp');
 
-        // Tap / read
         schedule(() => {
           if (scenes.ttp) scenes.ttp.classList.add('is-processing');
           if (caption) caption.textContent = 'Processing…';
         }, 2200);
 
-        // Approved
         schedule(() => {
           if (scenes.ttp) scenes.ttp.classList.remove('is-processing');
           setScene('approved');
         }, 3400);
 
-        // Navigate into Banking
         schedule(() => {
           setScene('banking');
-          if (saleRow) {
-            // re-trigger enter animation
-            saleRow.classList.remove('bank-row--new');
-            void saleRow.offsetWidth;
-            saleRow.classList.add('bank-row--new');
-          }
-          if (balance) {
-            balance.textContent = '$465.21';
-            balance.classList.remove('is-bump');
-            void balance.offsetWidth;
-            balance.classList.add('is-bump');
-          }
         }, 5200);
 
-        // Hold on Banking, then loop
-        schedule(runLoop, 10200);
+        schedule(runLoop, 10800);
       };
 
       if (reduceMotion) {
         setScene('banking');
-        if (balance) balance.textContent = '$465.21';
         return;
       }
 
-      // Start after name loads, or immediately if reduced
       const hero = document.querySelector('[data-hero]');
       const kickoff = () => {
         if (hero && !hero.classList.contains('is-ready')) {
