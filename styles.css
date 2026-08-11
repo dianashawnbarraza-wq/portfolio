@@ -270,30 +270,12 @@ nav a.active {
 
 .hero-name__line {
   display: block;
+  overflow: hidden;
 }
 
 .hero-name__text {
-  display: inline;
-}
-
-.hero-name__char {
   display: inline-block;
-  white-space: pre;
-  will-change: opacity, transform, filter;
-}
-
-.hero.is-js .hero-name__char {
-  opacity: 0;
-  transform: translateY(0.4em);
-  filter: blur(4px);
-}
-
-.hero.is-animating .hero-name__char {
-  animation: hero-char-load 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.hero-name__char.is-space {
-  width: 0.28em;
+  white-space: nowrap;
 }
 
 .hero-name-dot {
@@ -301,56 +283,40 @@ nav a.active {
   color: var(--accent-blue);
 }
 
-.hero.is-js .hero-name-dot {
-  opacity: 0;
-  transform: scale(0.4);
+/* Left → right write-in (clip + slight pan). No per-letter bounce. */
+.hero.is-js .hero-name__line .hero-name__text,
+.hero.is-js .hero-name__line .hero-name-dot {
+  clip-path: inset(0 100% 0 0);
+  transform: translateX(-0.35em);
+  opacity: 1;
+}
+
+.hero.is-animating .hero-name__line .hero-name__text,
+.hero.is-animating .hero-name__line .hero-name-dot {
+  animation: hero-name-write 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero.is-animating .hero-name__line:nth-child(1) .hero-name__text {
+  animation-delay: 0.08s;
+}
+
+.hero.is-animating .hero-name__line:nth-child(2) .hero-name__text {
+  animation-delay: 0.32s;
 }
 
 .hero.is-animating .hero-name-dot {
-  animation: hero-dot-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.72s;
 }
 
-.hero-name__cursor {
-  display: inline-block;
-  width: 0.06em;
-  min-width: 3px;
-  height: 0.72em;
-  margin-left: 0.05em;
-  background: var(--accent-blue);
-  vertical-align: -0.05em;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.hero.is-animating .hero-name__cursor {
-  animation: hero-cursor-blink 0.7s steps(1, end) infinite;
-  opacity: 1;
-}
-
-.hero.is-name-done .hero-name__cursor {
-  opacity: 0;
+.hero.is-name-done .hero-name__line .hero-name__text,
+.hero.is-name-done .hero-name__line .hero-name-dot {
+  clip-path: inset(0 0 0 0);
+  transform: none;
   animation: none;
-  transition: opacity 0.25s ease;
 }
 
 .hero-load-bar {
-  height: 2px;
-  width: 0;
-  max-width: min(11rem, 42%);
-  margin: 0.85rem 0 0;
-  border-radius: 999px;
-  background: var(--accent-blue);
-  opacity: 0;
-  transform-origin: left center;
-}
-
-.hero.is-animating .hero-load-bar {
-  opacity: 1;
-  animation: hero-load-bar 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.hero.is-name-done .hero-load-bar {
-  animation: hero-load-bar-out 0.4s ease forwards;
+  display: none;
 }
 
 .hero-reveal {
@@ -755,85 +721,25 @@ nav a.active {
   }
 }
 
-@keyframes hero-char-load {
+@keyframes hero-name-write {
   0% {
-    opacity: 0;
-    transform: translateY(0.4em);
-    filter: blur(4px);
-  }
-  70% {
-    opacity: 1;
-    filter: blur(0);
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(-0.35em);
   }
   100% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
-
-@keyframes hero-dot-in {
-  0% {
-    opacity: 0;
-    transform: scale(0.4);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes hero-cursor-blink {
-  0%,
-  49% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes hero-load-bar {
-  0% {
-    width: 0;
-    opacity: 1;
-  }
-  80% {
-    width: min(11rem, 42%);
-    opacity: 1;
-  }
-  100% {
-    width: min(11rem, 42%);
-    opacity: 1;
-  }
-}
-
-@keyframes hero-load-bar-out {
-  0% {
-    width: min(11rem, 42%);
-    opacity: 1;
-  }
-  100% {
-    width: min(11rem, 42%);
-    opacity: 0;
+    clip-path: inset(0 0 0 0);
+    transform: translateX(0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-name__char,
-  .hero-name-dot,
-  .hero-name__cursor,
-  .hero-load-bar {
+  .hero.is-js .hero-name__line .hero-name__text,
+  .hero.is-js .hero-name__line .hero-name-dot,
+  .hero.is-animating .hero-name__line .hero-name__text,
+  .hero.is-animating .hero-name__line .hero-name-dot {
     animation: none !important;
-    opacity: 1 !important;
+    clip-path: none !important;
     transform: none !important;
-    filter: none !important;
-  }
-
-  .hero-load-bar,
-  .hero-name__cursor {
-    display: none;
   }
 
   .hero-reveal {

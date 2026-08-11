@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="Diana Barraza / Shawn Barraza — Staff Product Designer with 10+ years in fintech and healthcare, previously at Square. Banking, payments, and platform work with AI-native workflows.">
   <meta name="twitter:image" content="https://barrazaxd.com/diana_shawn_barraza.png?v=2">
   <link rel="stylesheet" href="ui-system.css?v=2">
-  <link rel="stylesheet" href="styles.css?v=103">
+  <link rel="stylesheet" href="styles.css?v=104">
   <link rel="icon" href="favicon.png?v=2" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -152,10 +152,9 @@
         <div class="hero-layout">
           <div class="hero-content">
             <h1 class="hero-name" data-hero-name aria-label="Diana Shawn Barraza">
-              <span class="hero-name__line"><span class="hero-name__text" data-hero-line>Diana Shawn</span></span>
-              <span class="hero-name__line"><span class="hero-name__text" data-hero-line>Barraza</span><span class="hero-name-dot" aria-hidden="true">.</span></span>
+              <span class="hero-name__line"><span class="hero-name__text">Diana Shawn</span></span>
+              <span class="hero-name__line"><span class="hero-name__text">Barraza</span><span class="hero-name-dot" aria-hidden="true">.</span></span>
             </h1>
-            <div class="hero-load-bar" data-hero-bar aria-hidden="true"></div>
             <div class="hero-reveal" data-hero-reveal>
               <p class="hero-lead"><strong>A B2B and B2C product designer who knows how to move fast.</strong></p>
               <p class="hero-intro">Previously at Square, I've spent 10+ years designing complex fintech, banking, and healthcare products. I bring the right discovery, process, and tools to the problem and use AI intentionally to accelerate exploration, prototyping, and product decisions.</p>
@@ -532,65 +531,30 @@
     window.addEventListener('scroll', updateHeaderScroll, { passive: true });
     updateHeaderScroll();
 
-    // Hero name load → copy reveal
+    // Hero name: left → right write-in, then copy reveal
     (function initHeroLoad() {
       const hero = document.querySelector('[data-hero]');
-      const nameEl = document.querySelector('[data-hero-name]');
-      if (!hero || !nameEl) return;
+      if (!hero) return;
 
-      const lineEls = [...nameEl.querySelectorAll('[data-hero-line]')];
-      const dotEl = nameEl.querySelector('.hero-name-dot');
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
       hero.classList.add('is-js');
 
-      const finish = () => {
-        hero.classList.add('is-name-done', 'is-ready');
-        hero.classList.remove('is-animating');
-      };
-
       if (reduceMotion) {
-        finish();
+        hero.classList.add('is-name-done', 'is-ready');
         return;
       }
 
-      const chars = [];
-      lineEls.forEach((lineEl) => {
-        const text = lineEl.textContent.trim();
-        lineEl.textContent = '';
-        [...text].forEach((ch) => {
-          const span = document.createElement('span');
-          span.className = 'hero-name__char' + (ch === ' ' ? ' is-space' : '');
-          span.textContent = ch === ' ' ? '\u00a0' : ch;
-          lineEl.appendChild(span);
-          chars.push(span);
-        });
-      });
-
-      const cursor = document.createElement('span');
-      cursor.className = 'hero-name__cursor';
-      cursor.setAttribute('aria-hidden', 'true');
-      const lastLine = nameEl.querySelectorAll('.hero-name__line');
-      (lastLine[lastLine.length - 1] || nameEl).appendChild(cursor);
-
-      const step = 36;
-      const charDuration = 520;
-      chars.forEach((span, i) => {
-        span.style.animationDelay = `${100 + i * step}ms`;
-      });
-      if (dotEl) {
-        dotEl.style.animationDelay = `${100 + chars.length * step + 60}ms`;
-      }
-
+      // Two lines + period; last write delay 0.72s + duration 0.85s
+      const nameMs = 1600;
       hero.classList.add('is-animating');
 
-      const totalMs = 100 + chars.length * step + charDuration + 240;
       window.setTimeout(() => {
         hero.classList.add('is-name-done');
+        hero.classList.remove('is-animating');
         window.setTimeout(() => {
           hero.classList.add('is-ready');
-        }, 160);
-      }, totalMs);
+        }, 120);
+      }, nameMs);
     })();
 
     // Hero phone: Tap to Pay → original Banking design
