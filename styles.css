@@ -271,46 +271,38 @@ nav a.active {
 .hero-name__line {
   display: block;
   overflow: hidden;
+  /* clip box — name swipes up into this, Jess-style */
+  padding-bottom: 0.04em; /* room for descenders */
 }
 
 .hero-name__text {
-  display: inline-block;
+  display: block;
   white-space: nowrap;
+  will-change: transform;
 }
 
 .hero-name-dot {
-  display: inline-block;
   color: var(--accent-blue);
 }
 
-/* Left → right write-in (clip + slight pan). No per-letter bounce. */
-.hero.is-js .hero-name__line .hero-name__text,
-.hero.is-js .hero-name__line .hero-name-dot {
-  clip-path: inset(0 100% 0 0);
-  transform: translateX(-0.35em);
-  opacity: 1;
+/* Masked upward swipe — no letter bounce, no side write */
+.hero.is-js .hero-name__text {
+  transform: translate3d(0, 110%, 0);
 }
 
-.hero.is-animating .hero-name__line .hero-name__text,
-.hero.is-animating .hero-name__line .hero-name-dot {
-  animation: hero-name-write 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+.hero.is-animating .hero-name__text {
+  animation: hero-name-swipe 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .hero.is-animating .hero-name__line:nth-child(1) .hero-name__text {
-  animation-delay: 0.08s;
+  animation-delay: 0.05s;
 }
 
 .hero.is-animating .hero-name__line:nth-child(2) .hero-name__text {
-  animation-delay: 0.32s;
+  animation-delay: 0.16s;
 }
 
-.hero.is-animating .hero-name-dot {
-  animation-delay: 0.72s;
-}
-
-.hero.is-name-done .hero-name__line .hero-name__text,
-.hero.is-name-done .hero-name__line .hero-name-dot {
-  clip-path: inset(0 0 0 0);
+.hero.is-name-done .hero-name__text {
   transform: none;
   animation: none;
 }
@@ -721,24 +713,19 @@ nav a.active {
   }
 }
 
-@keyframes hero-name-write {
+@keyframes hero-name-swipe {
   0% {
-    clip-path: inset(0 100% 0 0);
-    transform: translateX(-0.35em);
+    transform: translate3d(0, 110%, 0);
   }
   100% {
-    clip-path: inset(0 0 0 0);
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero.is-js .hero-name__line .hero-name__text,
-  .hero.is-js .hero-name__line .hero-name-dot,
-  .hero.is-animating .hero-name__line .hero-name__text,
-  .hero.is-animating .hero-name__line .hero-name-dot {
+  .hero.is-js .hero-name__text,
+  .hero.is-animating .hero-name__text {
     animation: none !important;
-    clip-path: none !important;
     transform: none !important;
   }
 

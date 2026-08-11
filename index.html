@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="Diana Barraza / Shawn Barraza — Staff Product Designer with 10+ years in fintech and healthcare, previously at Square. Banking, payments, and platform work with AI-native workflows.">
   <meta name="twitter:image" content="https://barrazaxd.com/diana_shawn_barraza.png?v=2">
   <link rel="stylesheet" href="ui-system.css?v=2">
-  <link rel="stylesheet" href="styles.css?v=104">
+  <link rel="stylesheet" href="styles.css?v=105">
   <link rel="icon" href="favicon.png?v=2" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -153,7 +153,7 @@
           <div class="hero-content">
             <h1 class="hero-name" data-hero-name aria-label="Diana Shawn Barraza">
               <span class="hero-name__line"><span class="hero-name__text">Diana Shawn</span></span>
-              <span class="hero-name__line"><span class="hero-name__text">Barraza</span><span class="hero-name-dot" aria-hidden="true">.</span></span>
+              <span class="hero-name__line"><span class="hero-name__text">Barraza<span class="hero-name-dot" aria-hidden="true">.</span></span></span>
             </h1>
             <div class="hero-reveal" data-hero-reveal>
               <p class="hero-lead"><strong>A B2B and B2C product designer who knows how to move fast.</strong></p>
@@ -544,8 +544,8 @@
         return;
       }
 
-      // Two lines + period; last write delay 0.72s + duration 0.85s
-      const nameMs = 1600;
+      // Two masked lines swipe up; last delay 0.16s + duration 0.95s
+      const nameMs = 1180;
       hero.classList.add('is-animating');
 
       window.setTimeout(() => {
@@ -553,7 +553,7 @@
         hero.classList.remove('is-animating');
         window.setTimeout(() => {
           hero.classList.add('is-ready');
-        }, 120);
+        }, 80);
       }, nameMs);
     })();
 
