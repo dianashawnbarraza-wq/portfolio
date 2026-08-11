@@ -2280,3 +2280,19 @@ body.case-study-body {
   0%, 100% { transform: translate(-12%, 0) rotate(4deg); }
   50% { transform: translate(-12%, -8px) rotate(3.5deg); }
 }
+
+
+/* Linktree real screenshot in example phone */
+.deckk-example__device .phone-shell--before .phone-shell__screen--fit {
+  width: 255px;
+  height: auto;
+  max-height: none;
+  background: #fff;
+}
+
+.deckk-example__device .phone-shell--before .phone-shell__screen--fit img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: inherit;
+}
