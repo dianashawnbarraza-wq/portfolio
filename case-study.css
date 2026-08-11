@@ -2157,30 +2157,28 @@ body.case-study-body {
 
 
 
-/* —— Deckk hero showcase (dark product shots) —— */
+/* —— Deckk hero showcase (phones on soft stage, no card box) —— */
 .deckk-hero-showcase {
   position: relative;
-  margin: 2.5rem 0 0;
-  padding: clamp(2rem, 5vw, 3.25rem) clamp(1rem, 3vw, 2rem) 1.5rem;
-  border-radius: calc(var(--cs-radius, 16px) + 4px);
+  margin: 2.25rem 0 0;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(0.5rem, 2vw, 1rem) 1.25rem;
+  border-radius: 0;
   background:
-    radial-gradient(ellipse 70% 80% at 70% 40%, rgba(124, 58, 237, 0.28), transparent 55%),
-    radial-gradient(ellipse 50% 60% at 20% 80%, rgba(124, 58, 237, 0.12), transparent 50%),
-    linear-gradient(165deg, #121214 0%, #0a0a0c 55%, #08080a 100%);
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow:
-    0 24px 48px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    radial-gradient(ellipse 80% 70% at 55% 45%, rgba(140, 110, 220, 0.18), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(180, 160, 210, 0.12), transparent 55%),
+    linear-gradient(180deg, #e8e4ef 0%, #ddd7e8 48%, #d4cfe0 100%);
+  overflow: visible;
+  border: none;
+  box-shadow: none;
 }
 
 .deckk-hero-showcase__glow {
   pointer-events: none;
   position: absolute;
-  inset: -20% 20% auto;
-  height: 60%;
-  background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.22), transparent 70%);
-  filter: blur(8px);
+  inset: 10% 15% auto;
+  height: 50%;
+  background: radial-gradient(ellipse at center, rgba(150, 120, 230, 0.16), transparent 70%);
+  filter: blur(12px);
 }
 
 .deckk-hero-showcase__stage {
@@ -2196,7 +2194,7 @@ body.case-study-body {
 .deckk-hero-phone {
   margin: 0;
   line-height: 0;
-  filter: drop-shadow(0 28px 40px rgba(0, 0, 0, 0.45));
+  filter: drop-shadow(0 22px 36px rgba(40, 30, 70, 0.22));
 }
 
 .deckk-hero-phone img {
@@ -2206,12 +2204,13 @@ body.case-study-body {
   border-radius: 0;
   border: none;
   background: transparent;
+  box-shadow: none;
 }
 
 .deckk-hero-phone--back {
   width: min(240px, 34vw);
   transform: translate(18%, 4%) rotate(-9deg);
-  opacity: 0.94;
+  opacity: 0.96;
   z-index: 1;
 }
 
@@ -2225,8 +2224,8 @@ body.case-study-body {
   position: relative;
   z-index: 1;
   text-align: center;
-  margin: 1.35rem 0 0;
-  color: rgba(255, 255, 255, 0.55);
+  margin: 1.25rem 0 0;
+  color: rgba(40, 34, 55, 0.55);
   letter-spacing: 0.02em;
 }
 
