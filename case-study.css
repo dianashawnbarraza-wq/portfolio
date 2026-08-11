@@ -2203,9 +2203,9 @@ body.case-study-body {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: clamp(22px, 4vw, 32px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #000;
+  border-radius: 0;
+  border: none;
+  background: transparent;
 }
 
 .deckk-hero-phone--back {
@@ -2295,4 +2295,32 @@ body.case-study-body {
   height: auto;
   display: block;
   border-radius: inherit;
+}
+
+
+/* Deckk device shots already include a phone frame — no extra shell */
+.deckk-device {
+  width: min(100%, 280px);
+  margin: 0 auto;
+  line-height: 0;
+  filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.16));
+}
+
+.deckk-device img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.deckk-hero-phone {
+  /* keep drop shadow only */
+}
+
+.deckk-hero-phone img {
+  outline: none;
+  box-shadow: none;
 }
