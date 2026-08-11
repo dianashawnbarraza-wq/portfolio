@@ -2018,22 +2018,41 @@ body.case-study-body {
 }
 
 
-/* —— Deckk: Linktree failure example —— */
+/* —— Deckk: Linktree failure example (IG → Linktree flow) —— */
 .deckk-example {
   display: grid;
-  grid-template-columns: minmax(220px, 280px) 1fr;
+  grid-template-columns: minmax(0, 1.35fr) minmax(220px, 1fr);
   gap: 2rem;
   align-items: start;
   margin: 1.75rem 0 0.5rem;
 }
 
+.deckk-example__flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.65rem 0.85rem;
+  align-items: end;
+  min-width: 0;
+}
+
 .deckk-example__device {
   margin: 0;
+  min-width: 0;
 }
 
 .deckk-example__device .phone-shell {
-  max-width: 280px;
+  max-width: 100%;
+  width: 100%;
   margin: 0;
+}
+
+.deckk-example__arrow {
+  align-self: center;
+  padding-top: 1.6rem; /* line up with phones below labels */
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-accent, #1d2ed9);
+  line-height: 1;
 }
 
 .deckk-example__copy {
@@ -2135,12 +2154,31 @@ body.case-study-body {
     gap: 1.25rem;
   }
 
-  .deckk-example__device .phone-shell {
+  .deckk-example__flow {
+    grid-template-columns: 1fr auto 1fr;
+    max-width: 520px;
     margin: 0 auto;
   }
 
   .deckk-example__copy {
     padding-top: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .deckk-example__flow {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 0.35rem;
+  }
+
+  .deckk-example__device {
+    width: min(100%, 260px);
+  }
+
+  .deckk-example__arrow {
+    padding-top: 0;
+    transform: rotate(90deg);
   }
 }
 
@@ -2290,12 +2328,16 @@ body.case-study-body {
 }
 
 
-/* Linktree real screenshot in example phone */
+/* Linktree / Instagram screenshots in example phones */
 .deckk-example__device .phone-shell--before .phone-shell__screen--fit {
-  width: 255px;
+  width: 100%;
   height: auto;
   max-height: none;
   background: #fff;
+}
+
+.deckk-example__device .deckk-shot-shell--dark .phone-shell__screen--fit {
+  background: #000;
 }
 
 .deckk-example__device .phone-shell--before .phone-shell__screen--fit img {
