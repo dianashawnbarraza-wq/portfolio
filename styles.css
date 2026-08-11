@@ -2126,3 +2126,12 @@ nav a.active {
   object-fit: cover;
   object-position: center top;
 }
+
+.project-media--deckk {
+  background: linear-gradient(165deg, #e8e4ef 0%, #d4cfe0 100%);
+}
+
+.project-media--deckk img {
+  object-fit: cover;
+  object-position: center center;
+}
