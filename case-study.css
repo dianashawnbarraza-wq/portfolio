@@ -2143,3 +2143,128 @@ body.case-study-body {
     padding-top: 0;
   }
 }
+
+
+/* —— Deckk hero showcase (dark product shots) —— */
+.deckk-hero-showcase {
+  position: relative;
+  margin: 2.5rem 0 0;
+  padding: clamp(2rem, 5vw, 3.25rem) clamp(1rem, 3vw, 2rem) 1.5rem;
+  border-radius: calc(var(--cs-radius, 16px) + 4px);
+  background:
+    radial-gradient(ellipse 70% 80% at 70% 40%, rgba(124, 58, 237, 0.28), transparent 55%),
+    radial-gradient(ellipse 50% 60% at 20% 80%, rgba(124, 58, 237, 0.12), transparent 50%),
+    linear-gradient(165deg, #121214 0%, #0a0a0c 55%, #08080a 100%);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.deckk-hero-showcase__glow {
+  pointer-events: none;
+  position: absolute;
+  inset: -20% 20% auto;
+  height: 60%;
+  background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.22), transparent 70%);
+  filter: blur(8px);
+}
+
+.deckk-hero-showcase__stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: clamp(360px, 52vw, 520px);
+  padding: 0.5rem 0 0.25rem;
+}
+
+.deckk-hero-phone {
+  margin: 0;
+  line-height: 0;
+  filter: drop-shadow(0 28px 40px rgba(0, 0, 0, 0.45));
+}
+
+.deckk-hero-phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: clamp(22px, 4vw, 32px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #000;
+}
+
+.deckk-hero-phone--back {
+  width: min(240px, 34vw);
+  transform: translate(18%, 4%) rotate(-9deg);
+  opacity: 0.94;
+  z-index: 1;
+}
+
+.deckk-hero-phone--front {
+  width: min(280px, 40vw);
+  transform: translate(-12%, 0) rotate(4deg);
+  z-index: 2;
+}
+
+.deckk-hero-showcase__caption {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin: 1.35rem 0 0;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
+}
+
+.deckk-shot-shell .phone-shell__screen--fit {
+  background: #0a0a0a;
+}
+
+.deckk-shot-shell .phone-shell__screen--fit img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: inherit;
+}
+
+@media (max-width: 640px) {
+  .deckk-hero-showcase {
+    padding: 1.75rem 0.75rem 1.15rem;
+  }
+
+  .deckk-hero-showcase__stage {
+    min-height: 300px;
+  }
+
+  .deckk-hero-phone--back {
+    width: min(168px, 42vw);
+    transform: translate(22%, 6%) rotate(-8deg);
+  }
+
+  .deckk-hero-phone--front {
+    width: min(200px, 50vw);
+    transform: translate(-14%, 0) rotate(3deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .deckk-hero-phone--back {
+    animation: deckk-hero-float-back 7s ease-in-out infinite;
+  }
+
+  .deckk-hero-phone--front {
+    animation: deckk-hero-float-front 7s ease-in-out infinite;
+  }
+}
+
+@keyframes deckk-hero-float-back {
+  0%, 100% { transform: translate(18%, 4%) rotate(-9deg); }
+  50% { transform: translate(18%, 1%) rotate(-8deg); }
+}
+
+@keyframes deckk-hero-float-front {
+  0%, 100% { transform: translate(-12%, 0) rotate(4deg); }
+  50% { transform: translate(-12%, -8px) rotate(3.5deg); }
+}

@@ -2117,3 +2117,12 @@ nav a.active {
     padding: 2rem;
   }
 }
+
+.project-media--dark {
+  background: #0a0a0c;
+}
+
+.project-media--dark img {
+  object-fit: cover;
+  object-position: center top;
+}
