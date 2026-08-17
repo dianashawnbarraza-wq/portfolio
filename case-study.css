@@ -356,6 +356,15 @@ body.case-study-body {
   max-width: 100%;
 }
 
+.cs-figure--diagram img {
+  border: none;
+  background: #f3eee4;
+}
+
+.cs-figure--pair img {
+  max-width: min(100%, 560px);
+}
+
 /* Expandable flow diagrams */
 .cs-figure--flow {
   margin: 1.5rem 0 0;

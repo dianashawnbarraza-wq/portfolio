@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="ui-system.css?v=1">
-  <link rel="stylesheet" href="case-study.css?v=55">
+  <link rel="stylesheet" href="case-study.css?v=56">
 </head>
 <body class="case-study-body">
 
@@ -117,29 +117,10 @@
           <p class="cs-lead body-lg">52% of vendors completed payment acceptance.</p>
           <p>I expected the problem to be getting vendors into the portal. The funnel showed three distinct drop-offs.</p>
 
-          <div class="process-steps">
-            <div class="process-step">
-              <span class="process-step__num">1</span>
-              <div class="process-step__content">
-                <h4>Invitation</h4>
-                <p>Vendors weren’t accepting the payment invitation.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">2</span>
-              <div class="process-step__content">
-                <h4>Bank setup</h4>
-                <p>Some entered the portal but abandoned the bank setup.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">3</span>
-              <div class="process-step__content">
-                <h4>Incorrect details</h4>
-                <p>Some completed setup but their bank details failed because the information was incorrect.</p>
-              </div>
-            </div>
-          </div>
+          <figure class="cs-figure cs-figure--wide cs-figure--diagram">
+            <img src="billpay-vendor-funnel.png?v=1" alt="Vendor payment funnel before the redesign: 100% received the email, about 74% clicked through, 52% entered bank details, and 44% were paid. Leaks labeled trust, effort, and correctness." width="1024" height="585" loading="lazy" decoding="async">
+            <figcaption>Before · three leaks. None of them were fixable with a better form.</figcaption>
+          </figure>
         </section>
 
         <section class="cs-section" id="barriers">
@@ -149,6 +130,11 @@
           <p>Vendors who clicked through hit a high-stakes manual task: routing number, account number, entered correctly on a phone, then wait.</p>
           <p>Vendors who completed setup still didn’t reliably get paid. Manually entered details could look valid, pass every check, and fail silently days later.</p>
           <p class="cs-lead body-lg">I wanted to create an ideal system that supported these gaps.</p>
+
+          <figure class="cs-figure cs-figure--wide cs-figure--pair">
+            <img src="billpay-vendor-before.png?v=1" alt="Before: Square Bill Pay payment email from Pasta Donna, then a vendor portal asking for routing and account numbers by hand." width="725" height="1024" loading="lazy" decoding="async">
+            <figcaption>Before · unexpected email, then manual bank entry on a phone.</figcaption>
+          </figure>
         </section>
 
         <section class="cs-section" id="relationship">
@@ -186,29 +172,19 @@
           <p>I gave sellers a way to personally introduce Bill Pay when inviting a vendor to accept payment. A personalized note from the seller explained why the vendor was receiving the invitation.</p>
           <p class="cs-shift">“Here’s a payment notification” <span aria-hidden="true">→</span> “Someone you work with is inviting you to get paid.”</p>
 
-          <div class="phone-compare">
-            <div class="phone-compare__header">
-              <h3 class="phone-compare__title">Payment notification before and after</h3>
-              <p class="phone-compare__hint">Scroll inside each device to view the full email.</p>
+          <div class="cs-prototype-block">
+            <p class="cs-prototype-block__label">Sender · customize the invitation</p>
+            <div class="cs-prototype__embed cs-prototype__embed--tall">
+              <iframe
+                title="Bill Pay sender prototype · customize the vendor invitation note"
+                src="https://embed.figma.com/proto/n7Cun3dAkV0zZZGRIUbioV/Bill-Pay-Screens---Dashboard-Mobile--OCR--Email-Forwarding--Biller-network--Vendor?node-id=172-52757&amp;viewport=1312%2C-260%2C0.2&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=172%3A52757&amp;show-proto-sidebar=0&amp;page-id=168%3A939&amp;embed-host=share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
             </div>
-            <div class="phone-compare__grid">
-              <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label body-sm">Before · unexpected notification</figcaption>
-                <div class="phone-shell phone-shell--before">
-                  <div class="phone-shell__screen" tabindex="0" aria-label="Before payment notification email">
-                    <img src="billpay-vendor-before-01-notification.png?v=1" alt="Before vendor payment notification email" width="530" height="2048" loading="lazy" decoding="async">
-                  </div>
-                </div>
-              </figure>
-              <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label body-sm">After · trusted invitation</figcaption>
-                <div class="phone-shell phone-shell--after">
-                  <div class="phone-shell__screen" tabindex="0" aria-label="After payment notification email">
-                    <img src="billpay-vendor-after-01-notification.png?v=1" alt="After vendor payment notification email" width="530" height="2048" loading="lazy" decoding="async">
-                  </div>
-                </div>
-              </figure>
-            </div>
+            <p class="cs-prototype-block__actions">
+              <a class="cs-external-link" href="https://www.figma.com/proto/n7Cun3dAkV0zZZGRIUbioV/Bill-Pay-Screens---Dashboard-Mobile--OCR--Email-Forwarding--Biller-network--Vendor?node-id=172-52757&amp;viewport=1312%2C-260%2C0.2&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=172%3A52757&amp;show-proto-sidebar=1&amp;page-id=168%3A939" target="_blank" rel="noopener noreferrer">Open sender prototype →</a>
+            </p>
           </div>
         </section>
 
@@ -223,28 +199,20 @@
           <p><strong>Reducing effort.</strong> Plaid replaced the manual entry task with an authenticated bank connection and removed the conditions that caused funnel drop.</p>
           <p><strong>Addressing correctness.</strong> Plaid fixed this too, because it authenticated the account at the source rather than trusting what someone typed.</p>
 
-          <div class="image-gallery image-gallery--three">
-            <figure class="cs-figure cs-figure--gallery">
-              <img src="billpay-vendor-after-02-portal.png?v=1" alt="Vendor payment portal with link bank as the primary action" width="530" height="1821" loading="lazy" decoding="async">
-              <figcaption>Payment portal</figcaption>
-            </figure>
-            <figure class="cs-figure cs-figure--gallery">
-              <img src="billpay-vendor-after-03-plaid-consent.png?v=1" alt="Plaid consent step before bank connection" width="530" height="1160" loading="lazy" decoding="async">
-              <figcaption>Plaid consent</figcaption>
-            </figure>
-            <figure class="cs-figure cs-figure--gallery">
-              <img src="billpay-vendor-after-05-success.png?v=1" alt="Payment success confirmation with payout timeline" width="530" height="1160" loading="lazy" decoding="async">
-              <figcaption>Payment confirmed</figcaption>
-            </figure>
+          <div class="cs-prototype-block">
+            <p class="cs-prototype-block__label">Vendor · new email to Plaid in the portal</p>
+            <div class="cs-prototype__embed cs-prototype__embed--tall">
+              <iframe
+                title="Bill Pay vendor prototype · invitation email through Plaid bank connection"
+                src="https://embed.figma.com/proto/n7Cun3dAkV0zZZGRIUbioV/Bill-Pay-Screens---Dashboard-Mobile--OCR--Email-Forwarding--Biller-network--Vendor?node-id=172-61388&amp;viewport=17%2C144%2C0.33&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=172%3A61388&amp;show-proto-sidebar=0&amp;page-id=172%3A59739&amp;embed-host=share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <p class="cs-prototype-block__actions">
+              <a class="cs-external-link" href="https://www.figma.com/proto/n7Cun3dAkV0zZZGRIUbioV/Bill-Pay-Screens---Dashboard-Mobile--OCR--Email-Forwarding--Biller-network--Vendor?node-id=172-61388&amp;viewport=17%2C144%2C0.33&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=172%3A61388&amp;show-proto-sidebar=1&amp;page-id=172%3A59739" target="_blank" rel="noopener noreferrer">Open vendor prototype →</a>
+            </p>
           </div>
-
-          <figure class="cs-figure cs-figure--wide cs-figure--flow">
-            <button type="button" class="cs-flow-expand" aria-label="Expand Plaid bank connection flow">
-              <img src="billpay-vendor-after-04-plaid-flow.png?v=1" alt="Plaid bank connection flow from consent through bank selection, credentials, and success" width="2048" height="986" loading="lazy" decoding="async">
-              <span class="cs-flow-expand__hint">Click to enlarge</span>
-            </button>
-            <figcaption>Plaid bank connection</figcaption>
-          </figure>
         </section>
 
         <section class="cs-section" id="results">
