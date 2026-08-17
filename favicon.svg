@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="B Logo">
   <title>B Logo</title>
-  <rect width="100" height="100" rx="22" fill="#000000"/>
-  <text x="50" y="52" dominant-baseline="central" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="62" font-weight="700" fill="#ffffff" text-anchor="middle">B</text>
+  <rect x="2.5" y="2.5" width="95" height="95" rx="18" fill="#E4F1F8" stroke="#221F1F" stroke-width="3"/>
+  <text x="50" y="54" dominant-baseline="central" font-family="Figtree, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="58" font-weight="700" fill="#221F1F" text-anchor="middle">B</text>
 </svg>
