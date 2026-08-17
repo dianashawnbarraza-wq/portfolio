@@ -1,14 +1,14 @@
 :root {
-  --color-bg: #F3EEE2;
-  --color-bg-2: #ECE6D2;
-  --color-card: #FBF8F0;
-  --color-ink: #191F1B;
-  --color-muted: #6C685B;
-  --color-faint: #A5A091;
-  --color-line: #DDD6C4;
+  --color-bg: #F7F5EF;
+  --color-bg-2: #EFECE4;
+  --color-card: #FFFEFA;
+  --color-ink: #221F1F;
+  --color-muted: #5C5854;
+  --color-faint: #8A8680;
+  --color-line: #221F1F;
   --color-accent: #1D2ED9;
   --color-error: #B4530A;
-  --font-display: "Instrument Sans", sans-serif;
+  --font-display: "Figtree", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
 }
 
@@ -55,19 +55,19 @@
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  border: 1px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
+  border: 1.5px solid var(--color-ink);
   border-radius: 999px;
   padding: 0.4rem 0.75rem;
-  color: var(--color-accent);
-  background: color-mix(in srgb, var(--color-accent) 6%, var(--color-card));
-  font-family: var(--font-mono);
+  color: var(--color-ink);
+  background: transparent;
+  font-family: var(--font-display);
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1;
 }
 
 .chip-accent {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  background: color-mix(in srgb, var(--color-accent) 12%, var(--color-card));
+  border-color: var(--color-ink);
+  color: var(--color-card);
+  background: var(--color-ink);
 }
