@@ -6,6 +6,7 @@
   --color-muted: #5C5854;
   --color-faint: #8A8680;
   --color-line: #221F1F;
+  --color-sun: #F4E157;
   --color-accent: #1D2ED9;
   --color-error: #B4530A;
   --bg-color: var(--color-bg);
@@ -59,13 +60,35 @@ p {
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+  transition: opacity 0.2s ease;
 }
 
 a:hover {
-  color: var(--text-main);
+  color: var(--color-ink);
+  opacity: 0.72;
+}
+
+.site-header a,
+.logo,
+.mobile-nav-modal a,
+.contact-links a,
+.btn-primary,
+.btn-secondary,
+.modal-actions a {
+  text-decoration: none;
+}
+
+.site-header a:hover,
+.logo:hover,
+.mobile-nav-modal a:hover,
+.contact-links a:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+  opacity: 1;
 }
 
 .container {
@@ -382,15 +405,17 @@ nav ul {
   font-size: 1.05rem;
   font-weight: 500;
   letter-spacing: -0.01em;
-  color: var(--accent-blue);
-  text-decoration: none;
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
   transition: opacity 0.2s ease;
 }
 
 .hero-work-link:hover {
-  color: var(--accent-blue);
-  text-decoration: none;
-  opacity: 0.8;
+  color: var(--color-ink);
+  text-decoration: underline;
+  opacity: 0.72;
 }
 
 .mobile-only-hero-img {
@@ -856,7 +881,7 @@ nav ul {
   align-items: center;
   padding: 0.4375rem 0.875rem;
   border-radius: 999px;
-  background: transparent;
+  background: var(--color-sun);
   border: 1.5px solid var(--color-ink);
   font-family: var(--font-display);
   font-size: 0.75rem;
@@ -866,20 +891,20 @@ nav ul {
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
 .work-filter-pill:hover {
   border-color: var(--color-ink);
   color: var(--color-ink);
-  background: color-mix(in srgb, var(--color-ink) 6%, transparent);
+  background: #f7ea78;
 }
 
 .work-filter-pill.is-active,
 .work-filter-pill.chip-accent {
   background: var(--color-ink);
   border-color: var(--color-ink);
-  color: var(--color-card);
+  color: var(--color-sun);
   font-weight: 500;
 }
 
@@ -1758,14 +1783,14 @@ nav ul {
 }
 
 .modal-content--dialog a {
-  color: var(--color-accent);
+  color: var(--color-ink);
   text-decoration: underline;
   text-underline-offset: 0.15em;
 }
 
 .modal-content--dialog a:hover {
-  color: var(--color-accent);
-  opacity: 0.85;
+  color: var(--color-ink);
+  opacity: 0.72;
 }
 
 .modal-close--dialog {

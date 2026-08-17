@@ -489,16 +489,18 @@ body.case-study-body {
   font-family: var(--font-display, inherit);
   font-size: 0.9375rem;
   font-weight: 600;
-  color: var(--cs-accent, #1D2ED9);
-  text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--cs-accent, #1D2ED9) 45%, transparent);
-  padding-bottom: 0.1rem;
-  transition: opacity 0.15s ease, border-color 0.15s ease;
+  color: var(--cs-text, #221F1F);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+  border-bottom: none;
+  padding-bottom: 0;
+  transition: opacity 0.15s ease;
 }
 
 .cs-external-link:hover {
-  opacity: 0.85;
-  border-bottom-color: var(--cs-accent, #1D2ED9);
+  opacity: 0.72;
+  border-bottom-color: transparent;
 }
 
 .cs-prototype__embed {
@@ -2141,15 +2143,16 @@ body.case-study-body {
   align-items: center;
   gap: 0.2rem;
   font-weight: 600;
-  color: var(--color-accent, #1d2ed9);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease, opacity 0.2s ease;
+  color: var(--color-ink, #221F1F);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+  border-bottom: none;
+  transition: opacity 0.2s ease;
 }
 
 .deckk-example__link:hover {
-  border-bottom-color: currentColor;
-  opacity: 0.88;
+  opacity: 0.72;
 }
 
 .deckk-example__credit {
