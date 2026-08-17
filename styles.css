@@ -7,6 +7,7 @@
   --color-faint: #8A8680;
   --color-line: #221F1F;
   --color-sun: #F4E157;
+  --color-sky: #E4F1F8;
   --color-accent: #1D2ED9;
   --color-error: #B4530A;
   --bg-color: var(--color-bg);
@@ -881,7 +882,7 @@ nav ul {
   align-items: center;
   padding: 0.4375rem 0.875rem;
   border-radius: 999px;
-  background: var(--color-sun);
+  background: transparent;
   border: 1.5px solid var(--color-ink);
   font-family: var(--font-display);
   font-size: 0.75rem;
@@ -891,20 +892,20 @@ nav ul {
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .work-filter-pill:hover {
   border-color: var(--color-ink);
   color: var(--color-ink);
-  background: #f7ea78;
+  background: color-mix(in srgb, var(--color-ink) 6%, transparent);
 }
 
 .work-filter-pill.is-active,
 .work-filter-pill.chip-accent {
   background: var(--color-ink);
   border-color: var(--color-ink);
-  color: var(--color-sun);
+  color: var(--color-card);
   font-weight: 500;
 }
 
@@ -1218,7 +1219,7 @@ nav ul {
   align-items: center;
   padding: 0.35rem 0.75rem;
   border-radius: 980px;
-  background: transparent;
+  background: var(--color-sky);
   border: 1.5px solid var(--color-ink);
   font-size: 0.75rem;
   font-weight: 500;
