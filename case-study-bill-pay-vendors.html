@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="ui-system.css?v=1">
-  <link rel="stylesheet" href="case-study.css?v=56">
+  <link rel="stylesheet" href="case-study.css?v=57">
 </head>
 <body class="case-study-body">
 
@@ -52,13 +52,14 @@
       <button class="cs-mobile-nav-close" id="cs-mobile-nav-close" type="button" aria-label="Close">&times;</button>
       <ul>
         <li><a href="#hero">Overview</a></li>
+        <li><a href="#impact">Results</a></li>
         <li><a href="#situation">Situation</a></li>
         <li><a href="#problem">Problem</a></li>
         <li><a href="#barriers">Barriers</a></li>
         <li><a href="#relationship">Sender relationship</a></li>
         <li><a href="#trust">Trust</a></li>
         <li><a href="#bank-linking">Bank linking</a></li>
-        <li><a href="#results">Results</a></li>
+        <li><a href="#results">What moved</a></li>
       </ul>
     </nav>
 
@@ -68,13 +69,14 @@
         <nav aria-label="Case study navigation">
           <ul class="cs-nav">
             <li><a href="#hero" class="active">Overview</a></li>
+            <li><a href="#impact">Results</a></li>
             <li><a href="#situation">Situation</a></li>
             <li><a href="#problem">Problem</a></li>
             <li><a href="#barriers">Barriers</a></li>
             <li><a href="#relationship">Sender relationship</a></li>
             <li><a href="#trust">Trust</a></li>
             <li><a href="#bank-linking">Bank linking</a></li>
-            <li><a href="#results">Results</a></li>
+            <li><a href="#results">What moved</a></li>
           </ul>
         </nav>
       </aside>
@@ -106,6 +108,22 @@
           </div>
         </section>
 
+        <section class="cs-section" id="impact">
+          <h2>Results</h2>
+          <div class="cs-metrics-row cs-metrics-row--results">
+            <div class="metric-card">
+              <p class="metric-card__value">52% → 73%</p>
+              <p class="metric-card__label body-sm">Vendor payment acceptance</p>
+              <p class="metric-card__context">21-point lift · ~40% relative</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">78% → 49%</p>
+              <p class="metric-card__label body-sm">Manual bank entry</p>
+              <p class="metric-card__context">Behavior moved, not just the headline</p>
+            </div>
+          </div>
+        </section>
+
         <section class="cs-section" id="situation">
           <h2>The situation</h2>
           <p class="cs-lead body-lg">Sending payments converted. Payments struggled to complete.</p>
@@ -131,10 +149,18 @@
           <p>Vendors who completed setup still didn’t reliably get paid. Manually entered details could look valid, pass every check, and fail silently days later.</p>
           <p class="cs-lead body-lg">I wanted to create an ideal system that supported these gaps.</p>
 
-          <figure class="cs-figure cs-figure--wide cs-figure--pair">
-            <img src="billpay-vendor-before.png?v=1" alt="Before: Square Bill Pay payment email from Pasta Donna, then a vendor portal asking for routing and account numbers by hand." width="725" height="1024" loading="lazy" decoding="async">
-            <figcaption>Before · unexpected email, then manual bank entry on a phone.</figcaption>
-          </figure>
+          <div class="phone-compare phone-compare--plain">
+            <div class="phone-compare__grid phone-compare__grid--two">
+              <figure class="phone-compare__item">
+                <figcaption class="phone-compare__label body-sm">Left · vendor notification email</figcaption>
+                <img class="cs-before-shot" src="billpay-vendor-before-email.png?v=1" alt="Before: Square Bill Pay email saying Pasta Donna wants to pay $2,300, with an Accept payment button." width="355" height="921" loading="lazy" decoding="async">
+              </figure>
+              <figure class="phone-compare__item">
+                <figcaption class="phone-compare__label body-sm">Right · vendor acceptance portal</figcaption>
+                <img class="cs-before-shot" src="billpay-vendor-before-portal.png?v=1" alt="Before: vendor portal asking for routing number and account number by hand to get the payment." width="355" height="1024" loading="lazy" decoding="async">
+              </figure>
+            </div>
+          </div>
         </section>
 
         <section class="cs-section" id="relationship">
@@ -174,10 +200,10 @@
 
           <div class="cs-prototype-block">
             <p class="cs-prototype-block__label">Sender · customize the invitation</p>
-            <div class="cs-prototype__embed cs-prototype__embed--tall">
+            <div class="cs-prototype__embed cs-prototype__embed--mobile">
               <iframe
                 title="Bill Pay sender prototype · customize the vendor invitation note"
-                src="https://embed.figma.com/proto/n7Cun3dAkV0zZZGRIUbioV/Bill-Pay-Screens---Dashboard-Mobile--OCR--Email-Forwarding--Biller-network--Vendor?node-id=172-52757&amp;viewport=1312%2C-260%2C0.2&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=172%3A52757&amp;show-proto-sidebar=0&amp;page-id=168%3A939&amp;embed-host=share"
+                src="https://embed.figma.com/proto/n7Cun3dAkV0zZZGRIUbioV/Bill-Pay-Screens---Dashboard-Mobile--OCR--Email-Forwarding--Biller-network--Vendor?node-id=172-52757&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=172%3A52757&amp;show-proto-sidebar=0&amp;hide-ui=1&amp;page-id=168%3A939&amp;embed-host=share"
                 allowfullscreen
                 loading="lazy"
               ></iframe>
@@ -201,10 +227,10 @@
 
           <div class="cs-prototype-block">
             <p class="cs-prototype-block__label">Vendor · new email to Plaid in the portal</p>
-            <div class="cs-prototype__embed cs-prototype__embed--tall">
+            <div class="cs-prototype__embed cs-prototype__embed--mobile">
               <iframe
                 title="Bill Pay vendor prototype · invitation email through Plaid bank connection"
-                src="https://embed.figma.com/proto/n7Cun3dAkV0zZZGRIUbioV/Bill-Pay-Screens---Dashboard-Mobile--OCR--Email-Forwarding--Biller-network--Vendor?node-id=172-61388&amp;viewport=17%2C144%2C0.33&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=172%3A61388&amp;show-proto-sidebar=0&amp;page-id=172%3A59739&amp;embed-host=share"
+                src="https://embed.figma.com/proto/n7Cun3dAkV0zZZGRIUbioV/Bill-Pay-Screens---Dashboard-Mobile--OCR--Email-Forwarding--Biller-network--Vendor?node-id=172-61388&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=172%3A61388&amp;show-proto-sidebar=0&amp;hide-ui=1&amp;page-id=172%3A59739&amp;embed-host=share"
                 allowfullscreen
                 loading="lazy"
               ></iframe>
@@ -216,8 +242,8 @@
         </section>
 
         <section class="cs-section" id="results">
-          <h2>Results</h2>
-          <figure class="cs-results-hero">
+          <h2>What moved</h2>
+          <figure class="cs-results-hero cs-results-hero--flush">
             <img src="billpay-vendor-acceptance-hero.png?v=2" alt="Square Bill Pay vendor acceptance: trusted invitation email through Plaid bank connect">
           </figure>
           <div class="cs-metrics-row cs-metrics-row--results">
@@ -232,7 +258,11 @@
               <p class="metric-card__context">Behavior moved, not just the headline</p>
             </div>
           </div>
-          <p class="cs-lead body-lg">I shipped a design that led with trust and made it easier to accept.</p>
+          <div class="cs-results-close">
+            <p>The number I wanted was completion, not clicks. Vendors were stalling because the first email felt like it came from Square, not from the person they already knew — and because getting paid meant typing a routing number on a phone and hoping it was right.</p>
+            <p>The note on Review made the invitation feel like it came from a real relationship. Plaid made the bank step something you could confirm instead of retype. Manual entry stayed as a fallback, so nobody got stuck. That’s why the mix shifted: fewer people typing account numbers, more people actually getting paid.</p>
+            <p class="cs-lead body-lg">I shipped a design that led with trust and made it easier to accept.</p>
+          </div>
         </section>
 
       </main>
