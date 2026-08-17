@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="ui-system.css?v=1">
-  <link rel="stylesheet" href="case-study.css?v=45">
+  <link rel="stylesheet" href="case-study.css?v=55">
 </head>
 <body class="case-study-body">
 
@@ -53,8 +53,11 @@
       <ul>
         <li><a href="#hero">Overview</a></li>
         <li><a href="#situation">Situation</a></li>
-        <li><a href="#task">Task</a></li>
-        <li><a href="#action">Action</a></li>
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#barriers">Barriers</a></li>
+        <li><a href="#relationship">Sender relationship</a></li>
+        <li><a href="#trust">Trust</a></li>
+        <li><a href="#bank-linking">Bank linking</a></li>
         <li><a href="#results">Results</a></li>
       </ul>
     </nav>
@@ -66,8 +69,11 @@
           <ul class="cs-nav">
             <li><a href="#hero" class="active">Overview</a></li>
             <li><a href="#situation">Situation</a></li>
-            <li><a href="#task">Task</a></li>
-            <li><a href="#action">Action</a></li>
+            <li><a href="#problem">Problem</a></li>
+            <li><a href="#barriers">Barriers</a></li>
+            <li><a href="#relationship">Sender relationship</a></li>
+            <li><a href="#trust">Trust</a></li>
+            <li><a href="#bank-linking">Bank linking</a></li>
             <li><a href="#results">Results</a></li>
           </ul>
         </nav>
@@ -78,7 +84,7 @@
         <section class="cs-hero" id="hero">
           <p class="cs-eyebrow eyebrow">Square · Bill Pay · Vendor acceptance</p>
           <h1>Getting vendors to trust their first Bill Pay payment</h1>
-          <p class="cs-hero-summary body-lg">Vendors were abandoning Bill Pay before payout. I led design across the notification email and payment portal, partnering with engineering and risk from day one to ship a compliant Plaid connection flow in four weeks.</p>
+          <p class="cs-hero-summary body-lg">Sending payments converted. Payments struggled to complete. I owned the experience from bill creation through delivery, then redesigned the vendor side so an unfamiliar notification became a trusted invitation — and bank linking became something people could finish.</p>
 
           <div class="cs-meta-grid">
             <div class="cs-meta-item">
@@ -90,8 +96,8 @@
               <span>Vendor acceptance · Bill Pay · Payments</span>
             </div>
             <div class="cs-meta-item">
-              <label>Timeline</label>
-              <span>4 weeks</span>
+              <label>Owned</label>
+              <span>Bill creation through payment delivery</span>
             </div>
             <div class="cs-meta-item">
               <label>Partners</label>
@@ -101,59 +107,84 @@
         </section>
 
         <section class="cs-section" id="situation">
-          <h2>Situation</h2>
-          <ul>
-            <li>Square Bill Pay vendors were receiving payment notifications but abandoning before completing bank setup</li>
-            <li>Vendor payment acceptance completion was at <strong>52%</strong>. Sellers lacked confidence payments would actually land</li>
-            <li>The initial assumption was that the portal flow had too many inputs and lacked trust</li>
-          </ul>
+          <h2>The situation</h2>
+          <p class="cs-lead body-lg">Sending payments converted. Payments struggled to complete.</p>
+          <p>I designed and owned the end-to-end experience from bill creation through payment delivery. The sender journey was performing as expected. However, the real constraint was on the other side of the transaction: the vendor.</p>
         </section>
 
-        <section class="cs-section" id="task">
-          <h2>Task</h2>
-          <p>Redesign the vendor acceptance experience to increase completion.</p>
-          <p>I knew early this was not just a UX problem. It was a trust and compliance problem that required engineering and risk partners from the start.</p>
-        </section>
+        <section class="cs-section" id="problem">
+          <h2>Problem</h2>
+          <p class="cs-lead body-lg">52% of vendors completed payment acceptance.</p>
+          <p>I expected the problem to be getting vendors into the portal. The funnel showed three distinct drop-offs.</p>
 
-        <section class="cs-section" id="action">
-          <h2>Action</h2>
-          <ul>
-            <li>Before designing anything, brought engineering and risk into the problem framing. Not a handoff conversation, a definition conversation</li>
-            <li>We needed to answer together: what connection methods were technically feasible, and what compliance required around bank account access</li>
-            <li>That early conversation revealed the real constraint: we could not remove manual entry. It had to remain available as a compliant fallback even if we de-emphasized it</li>
-            <li>Knowing that upfront changed the design direction. Instead of eliminating options, I designed a clear primary path through Plaid while keeping manual entry accessible but non-default</li>
-            <li>Worked with engineering to understand Plaid integration requirements early enough that consent flow, messaging, and sequencing were shaped around what the API actually needed, not retrofitted after the fact</li>
-            <li>With a four week timeline, there was no room for late-stage surprises. Early alignment with engineering and risk was the only way to ship something compliant and conversion-optimized at the same time</li>
-          </ul>
-
-          <div class="cs-nested-section" id="action-discovery">
-            <h3 class="cs-nested-section__title">Exploration: Discovery</h3>
-            <p>Research surfaced three recurring concerns during setup: trust with sensitive information, friction finding bank details, and urgency to get paid without extra steps.</p>
-
-            <h4 class="cs-miniheading">Sensitive information</h4>
-            <blockquote class="quote-block">
-              <p class="quote-block__text">“I want to get paid, but putting my bank info into a new payment flow makes me pause. That’s pretty sensitive stuff, so I want to know it’s safe before I enter anything.”</p>
-              <p class="quote-block__attribution">Jordan, Northside Ceramics Co.</p>
-            </blockquote>
-
-            <h4 class="cs-miniheading">Finding bank details</h4>
-            <blockquote class="quote-block">
-              <p class="quote-block__text">“I don’t always have my routing number and account number sitting around. If I have to stop what I’m doing and go find it, I might just come back later.”</p>
-              <p class="quote-block__attribution">Priya, Bloom Street Bakery</p>
-            </blockquote>
-
-            <h4 class="cs-miniheading">Speed and urgency</h4>
-            <blockquote class="quote-block">
-              <p class="quote-block__text">“When someone sends me money, I just want to get it and move on. I don’t want a bunch of extra steps between me and getting paid.”</p>
-              <p class="quote-block__attribution">Alex, Golden Hour Photography</p>
-            </blockquote>
-
-            <p>The payment notification email was failing the same trust test. It was optimized for notification, not conversion. Vendors opened it asking: Is this real? Why am I getting this? What do I need to do? Is it safe?</p>
-            <p>I redesigned the hierarchy to lead with <strong>amount, sender, how to get paid, then details</strong>, not sender, amount, and metadata.</p>
+          <div class="process-steps">
+            <div class="process-step">
+              <span class="process-step__num">1</span>
+              <div class="process-step__content">
+                <h4>Invitation</h4>
+                <p>Vendors weren’t accepting the payment invitation.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">2</span>
+              <div class="process-step__content">
+                <h4>Bank setup</h4>
+                <p>Some entered the portal but abandoned the bank setup.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="process-step__num">3</span>
+              <div class="process-step__content">
+                <h4>Incorrect details</h4>
+                <p>Some completed setup but their bank details failed because the information was incorrect.</p>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div class="cs-nested-section" id="action-design">
-            <h3 class="cs-nested-section__title">Design</h3>
+        <section class="cs-section" id="barriers">
+          <h2>Understanding the barriers</h2>
+          <p>I looked at recipient behavior, support feedback, and the experience from the recipient’s perspective.</p>
+          <p>Vendors received an unexpected payment notification from a platform they didn’t choose, with no word from the person they actually knew.</p>
+          <p>Vendors who clicked through hit a high-stakes manual task: routing number, account number, entered correctly on a phone, then wait.</p>
+          <p>Vendors who completed setup still didn’t reliably get paid. Manually entered details could look valid, pass every check, and fail silently days later.</p>
+          <p class="cs-lead body-lg">I wanted to create an ideal system that supported these gaps.</p>
+        </section>
+
+        <section class="cs-section" id="relationship">
+          <h2>Leveraging the sender / recipient relationship</h2>
+          <p>Creating an ideal flow for vendor acceptance started with leveraging our sender flow.</p>
+
+          <div class="cs-choice-list">
+            <div class="cs-choice cs-choice--no">
+              <span class="cs-choice__mark" aria-hidden="true">✕</span>
+              <div>
+                <h3>Add a new step?</h3>
+                <p>A whole new screen in a flow that was already converting.</p>
+              </div>
+            </div>
+            <div class="cs-choice cs-choice--no">
+              <span class="cs-choice__mark" aria-hidden="true">✕</span>
+              <div>
+                <h3>In-line on bill details?</h3>
+                <p>No new screen, but it loads a data-entry moment with a decision about someone else’s trust.</p>
+              </div>
+            </div>
+            <div class="cs-choice cs-choice--yes">
+              <span class="cs-choice__mark" aria-hidden="true">✓</span>
+              <div>
+                <h3>Leverage the Review step</h3>
+                <p>Showing what gets sent belongs on that screen. Show only once to new recipients. Repeat payments are untouched.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section" id="trust">
+          <h2>The “trust” solution</h2>
+          <p class="cs-lead body-lg">Turn an unfamiliar payment notification into a trusted invitation.</p>
+          <p>I gave sellers a way to personally introduce Bill Pay when inviting a vendor to accept payment. A personalized note from the seller explained why the vendor was receiving the invitation.</p>
+          <p class="cs-shift">“Here’s a payment notification” <span aria-hidden="true">→</span> “Someone you work with is inviting you to get paid.”</p>
 
           <div class="phone-compare">
             <div class="phone-compare__header">
@@ -162,7 +193,7 @@
             </div>
             <div class="phone-compare__grid">
               <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label body-sm">Before</figcaption>
+                <figcaption class="phone-compare__label body-sm">Before · unexpected notification</figcaption>
                 <div class="phone-shell phone-shell--before">
                   <div class="phone-shell__screen" tabindex="0" aria-label="Before payment notification email">
                     <img src="billpay-vendor-before-01-notification.png?v=1" alt="Before vendor payment notification email" width="530" height="2048" loading="lazy" decoding="async">
@@ -170,7 +201,7 @@
                 </div>
               </figure>
               <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label body-sm">After</figcaption>
+                <figcaption class="phone-compare__label body-sm">After · trusted invitation</figcaption>
                 <div class="phone-shell phone-shell--after">
                   <div class="phone-shell__screen" tabindex="0" aria-label="After payment notification email">
                     <img src="billpay-vendor-after-01-notification.png?v=1" alt="After vendor payment notification email" width="530" height="2048" loading="lazy" decoding="async">
@@ -179,135 +210,22 @@
               </figure>
             </div>
           </div>
+        </section>
 
-          <h3 class="cs-subheading">Before payment portal and acceptance flow</h3>
-          <p>Vendors who clicked through landed in a portal that repeated the same notification-first hierarchy before surfacing how to get paid. Manual bank entry and digital check download both added friction.</p>
+        <section class="cs-section" id="bank-linking">
+          <h2>Making bank linking easier for vendors</h2>
+          <p>I reframed the problem from optimizing bank entry to building a faster and more correct path.</p>
+          <p>Plaid shortened that path by letting vendors securely connect an existing bank account, verify the account during the flow, and avoid manual entry.</p>
+          <p>Plaid removed manual entry and an entire class of errors from typing a 9-digit routing number and 17-digit account number — a particular issue on mobile. More importantly, vendors could see and confirm their own bank account during the connection.</p>
 
-          <div class="process-steps">
-            <div class="process-step">
-              <span class="process-step__num">1</span>
-              <div class="process-step__content">
-                <h4>Payment notification</h4>
-                <p>Vendor receives an email with metadata stacked above the accept action.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">2</span>
-              <div class="process-step__content">
-                <h4>Open the payment portal</h4>
-                <p>Vendor chooses between bank transfer or digital check with no clear default.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">3</span>
-              <div class="process-step__content">
-                <h4>Enter ACH details manually</h4>
-                <p>Vendor types routing and account numbers into plain fields.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">4</span>
-              <div class="process-step__content">
-                <h4>Download a digital check</h4>
-                <p>Vendor downloads a check to print and deposit elsewhere.</p>
-              </div>
-            </div>
-          </div>
+          <h3 class="cs-subheading">Tackling “effort” and “correctness” in the vendor portal</h3>
+          <p>I partnered with a second engineer to integrate. And we kept manual entry as a fallback, so vendors always had another way forward.</p>
+          <p><strong>Reducing effort.</strong> Plaid replaced the manual entry task with an authenticated bank connection and removed the conditions that caused funnel drop.</p>
+          <p><strong>Addressing correctness.</strong> Plaid fixed this too, because it authenticated the account at the source rather than trusting what someone typed.</p>
 
-          <p class="cs-gallery-note">Before acceptance flow</p>
-          <div class="image-gallery image-gallery--four">
-            <figure class="cs-figure cs-figure--gallery">
-              <img src="billpay-vendor-before-01-notification.png?v=1" alt="Before vendor payment notification email from Square Bill Pay" width="530" height="2048" loading="lazy" decoding="async">
-              <figcaption>1. Payment notification</figcaption>
-            </figure>
-            <figure class="cs-figure cs-figure--gallery">
-              <img src="billpay-vendor-before-02-portal.png?v=1" alt="Before vendor payment portal with bank transfer and digital check options" width="530" height="1032" loading="lazy" decoding="async">
-              <figcaption>2. Payment portal</figcaption>
-            </figure>
-            <figure class="cs-figure cs-figure--gallery">
-              <img src="billpay-vendor-before-03-ach.png?v=1" alt="Before vendor payment portal with manual routing and account number fields expanded" width="530" height="1367" loading="lazy" decoding="async">
-              <figcaption>3. Manual bank entry</figcaption>
-            </figure>
-            <figure class="cs-figure cs-figure--gallery">
-              <img src="billpay-vendor-before-04-check.png?v=1" alt="Before vendor payment portal with digital check download expanded" width="530" height="1428" loading="lazy" decoding="async">
-              <figcaption>4. Digital check download</figcaption>
-            </figure>
-          </div>
-
-          <h3 class="cs-subheading">After secure bank connection</h3>
-          <p>The new experience carried conversion-first hierarchy from the email into the portal: amount and sender up front, link bank as the primary action, and bill details below. Manual entry and check download stayed available as fallbacks.</p>
-
-          <div class="process-steps">
-            <div class="process-step">
-              <span class="process-step__num">1</span>
-              <div class="process-step__content">
-                <h4>Payment notification</h4>
-                <p>Conversion-first email with amount, sender, and accept action above supporting details.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">2</span>
-              <div class="process-step__content">
-                <h4>Payment portal</h4>
-                <p>Portal leads with “Your payment is ready” and surfaces link bank as the primary action.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">3</span>
-              <div class="process-step__content">
-                <h4>Plaid consent</h4>
-                <p>Vendor reviews how Plaid will connect their account, with manual entry as fallback.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">4</span>
-              <div class="process-step__content">
-                <h4>Bank connection</h4>
-                <p>Vendor selects their bank and authenticates through Plaid.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <span class="process-step__num">5</span>
-              <div class="process-step__content">
-                <h4>Payment confirmed</h4>
-                <p>Vendor sees confirmation that funds are on the way.</p>
-              </div>
-            </div>
-          </div>
-
-          <p class="cs-gallery-note">After acceptance flow</p>
           <div class="image-gallery image-gallery--three">
             <figure class="cs-figure cs-figure--gallery">
-              <img src="billpay-vendor-after-01-notification.png?v=1" alt="After vendor payment notification email with amount-first hierarchy" width="530" height="2048" loading="lazy" decoding="async">
-              <figcaption>1. Payment notification</figcaption>
-            </figure>
-            <figure class="cs-figure cs-figure--gallery">
-              <img src="billpay-vendor-after-02-portal.png?v=1" alt="After vendor payment portal with Your payment is ready and link bank CTA" width="530" height="1821" loading="lazy" decoding="async">
-              <figcaption>2. Payment portal</figcaption>
-            </figure>
-            <figure class="cs-figure cs-figure--gallery">
-              <img src="billpay-vendor-after-03-plaid-consent.png?v=1" alt="Plaid consent modal to continue linking bank account" width="530" height="1160" loading="lazy" decoding="async">
-              <figcaption>3. Plaid consent</figcaption>
-            </figure>
-          </div>
-
-          <figure class="cs-figure cs-figure--wide cs-figure--flow">
-            <button type="button" class="cs-flow-expand" aria-label="Expand Plaid bank connection flow">
-              <img src="billpay-vendor-after-04-plaid-flow.png?v=1" alt="Plaid bank connection flow from consent through bank selection, credentials, and success" width="2048" height="986" loading="lazy" decoding="async">
-              <span class="cs-flow-expand__hint">Click to enlarge</span>
-            </button>
-            <figcaption>4. Plaid bank connection</figcaption>
-          </figure>
-
-          <figure class="cs-figure cs-figure--gallery cs-figure--narrow">
-            <img src="billpay-vendor-after-05-success.png?v=1" alt="Vendor payment success screen confirming funds are on the way" width="530" height="1160" loading="lazy" decoding="async">
-            <figcaption>5. Payment confirmed</figcaption>
-          </figure>
-
-          <h3 class="cs-subheading">Shipped experience</h3>
-          <div class="image-gallery image-gallery--three">
-            <figure class="cs-figure cs-figure--gallery">
-              <img src="billpay-vendor-after-02-portal.png?v=1" alt="Redesigned vendor payment portal with link bank as primary action" width="530" height="1821" loading="lazy" decoding="async">
+              <img src="billpay-vendor-after-02-portal.png?v=1" alt="Vendor payment portal with link bank as the primary action" width="530" height="1821" loading="lazy" decoding="async">
               <figcaption>Payment portal</figcaption>
             </figure>
             <figure class="cs-figure cs-figure--gallery">
@@ -319,7 +237,14 @@
               <figcaption>Payment confirmed</figcaption>
             </figure>
           </div>
-          </div>
+
+          <figure class="cs-figure cs-figure--wide cs-figure--flow">
+            <button type="button" class="cs-flow-expand" aria-label="Expand Plaid bank connection flow">
+              <img src="billpay-vendor-after-04-plaid-flow.png?v=1" alt="Plaid bank connection flow from consent through bank selection, credentials, and success" width="2048" height="986" loading="lazy" decoding="async">
+              <span class="cs-flow-expand__hint">Click to enlarge</span>
+            </button>
+            <figcaption>Plaid bank connection</figcaption>
+          </figure>
         </section>
 
         <section class="cs-section" id="results">
@@ -327,72 +252,19 @@
           <figure class="cs-results-hero">
             <img src="billpay-vendor-acceptance-hero.png?v=1" alt="Square Bill Pay vendor payment acceptance with Plaid bank connection">
           </figure>
-          <div class="cs-metrics-row cs-metrics-row--4 cs-metrics-row--results">
-            <div class="metric-card">
-              <p class="metric-card__value">69% → 87%</p>
-              <p class="metric-card__label body-sm">Notification click-through</p>
-            </div>
+          <div class="cs-metrics-row cs-metrics-row--results">
             <div class="metric-card">
               <p class="metric-card__value">52% → 73%</p>
-              <p class="metric-card__label body-sm">Payment acceptance completion</p>
+              <p class="metric-card__label body-sm">Vendor payment acceptance</p>
+              <p class="metric-card__context">21-point lift · ~40% relative</p>
             </div>
             <div class="metric-card">
               <p class="metric-card__value">78% → 49%</p>
               <p class="metric-card__label body-sm">Manual bank entry</p>
-            </div>
-            <div class="metric-card">
-              <p class="metric-card__value">4 weeks</p>
-              <p class="metric-card__label body-sm">Shipped across product, engineering, and risk</p>
+              <p class="metric-card__context">Behavior moved, not just the headline</p>
             </div>
           </div>
-
-          <div class="results-table-wrap results-table-wrap--prominent">
-            <table class="results-table">
-              <thead>
-                <tr>
-                  <th>Metric</th>
-                  <th>Before</th>
-                  <th>After</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Notification email click-through</td>
-                  <td>69%</td>
-                  <td><strong>87%</strong></td>
-                </tr>
-                <tr>
-                  <td>Vendor payment acceptance completion</td>
-                  <td>52%</td>
-                  <td><strong>73%</strong></td>
-                </tr>
-                <tr>
-                  <td>Manual bank entry</td>
-                  <td>78%</td>
-                  <td><strong>49%</strong></td>
-                </tr>
-                <tr>
-                  <td>Vendor activation</td>
-                  <td>Delayed by setup friction</td>
-                  <td><strong>Faster path to payout</strong></td>
-                </tr>
-                <tr>
-                  <td>Seller confidence</td>
-                  <td>Uncertain vendor completion</td>
-                  <td><strong>Higher acceptance reliability</strong></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <p class="cs-results-interpretation">Notification click-through rose from 69% to 87%. Acceptance completion followed, reaching 73% once vendors had a trusted default path through Plaid.</p>
-
-          <ul>
-            <li>Notification email click-through improved from <strong>69% to 87%</strong></li>
-            <li>Vendor payment acceptance completion jumped from <strong>52% to 73%</strong></li>
-            <li>Manual bank entry dropped from <strong>78% to 49%</strong>. Vendors chose the trusted path when it was clearly the default</li>
-            <li>Shipped in four weeks across product, engineering, and risk without late-stage redesigns</li>
-          </ul>
+          <p class="cs-lead body-lg">I shipped a design that led with trust and made it easier to accept.</p>
         </section>
 
       </main>

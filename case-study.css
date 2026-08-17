@@ -2369,3 +2369,78 @@ body.case-study-body {
   box-shadow: none;
   opacity: 1;
 }
+
+/* Bill Pay vendor · design choices */
+.cs-choice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 1.5rem 0 0.25rem;
+}
+
+.cs-choice {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--cs-border);
+  border-radius: 12px;
+}
+
+.cs-choice h3 {
+  margin: 0 0 0.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--cs-text);
+}
+
+.cs-choice p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--cs-muted);
+}
+
+.cs-choice__mark {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.cs-choice--no .cs-choice__mark {
+  background: #f3f3f5;
+  color: #86868b;
+}
+
+.cs-choice--yes {
+  border-color: rgba(29, 46, 217, 0.22);
+  background: rgba(29, 46, 217, 0.04);
+}
+
+.cs-choice--yes .cs-choice__mark {
+  background: var(--color-accent, #1d2ed9);
+  color: #fff;
+}
+
+.cs-shift {
+  margin: 1.35rem 0 1.75rem;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.45;
+  color: var(--cs-text);
+  background: var(--cs-surface);
+  border-radius: 12px;
+  border: 1px solid var(--cs-border);
+}
+
+.cs-shift span {
+  color: var(--color-accent, #1d2ed9);
+  padding: 0 0.35em;
+}
