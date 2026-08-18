@@ -358,7 +358,19 @@ body.case-study-body {
 
 .cs-figure--diagram img {
   border: none;
-  background: #f3eee4;
+  background: transparent;
+  width: auto;
+  max-width: 100%;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.cs-figure--quotes {
+  max-width: 26rem;
+}
+
+.cs-figure--quotes img {
+  width: 100%;
+  max-width: 100%;
 }
 
 .cs-figure--pair img {
@@ -668,6 +680,14 @@ body.case-study-body {
 .cs-hero {
   padding: 64px 0 48px;
   border-bottom: 1px solid var(--cs-border);
+}
+
+.cs-hero:has(.cs-meta-grid) {
+  border-bottom: none;
+}
+
+.cs-hero:has(.cs-meta-grid) .cs-meta-grid {
+  margin-bottom: 0;
 }
 
 .cs-hero h1 {
