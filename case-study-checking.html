@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="ui-system.css?v=3">
-  <link rel="stylesheet" href="case-study.css?v=59">
+  <link rel="stylesheet" href="case-study.css?v=60">
 </head>
 <body class="case-study-body">
 
@@ -50,13 +50,15 @@
       <button class="cs-mobile-nav-close" id="cs-mobile-nav-close" type="button" aria-label="Close">&times;</button>
       <ul>
         <li><a href="#hero">Overview</a></li>
+        <li><a href="#impact">Results</a></li>
         <li><a href="#situation">Situation</a></li>
-        <li><a href="#task">Task</a></li>
-        <li><a href="#action">Action</a></li>
+        <li><a href="#goal">Goal</a></li>
+        <li><a href="#discovery">Discovery</a></li>
+        <li><a href="#decision">Decision</a></li>
+        <li><a href="#explorations">Explorations</a></li>
         <li><a href="#design">Design</a></li>
-        <li><a href="#results">Results</a></li>
-        <li><a href="#next-phase">Next phase</a></li>
-        <li><a href="#reflection">Reflection</a></li>
+        <li><a href="#debit-card">Debit card system</a></li>
+        <li><a href="#results">What moved</a></li>
       </ul>
     </nav>
 
@@ -66,13 +68,15 @@
         <nav aria-label="Case study navigation">
           <ul class="cs-nav">
             <li><a href="#hero" class="active">Overview</a></li>
+            <li><a href="#impact">Results</a></li>
             <li><a href="#situation">Situation</a></li>
-            <li><a href="#task">Task</a></li>
-            <li><a href="#action">Action</a></li>
+            <li><a href="#goal">Goal</a></li>
+            <li><a href="#discovery">Discovery</a></li>
+            <li><a href="#decision">Decision</a></li>
+            <li><a href="#explorations">Explorations</a></li>
             <li><a href="#design">Design</a></li>
-            <li><a href="#results">Results</a></li>
-            <li><a href="#next-phase">Next phase</a></li>
-            <li><a href="#reflection">Reflection</a></li>
+            <li><a href="#debit-card">Debit card system</a></li>
+            <li><a href="#results">What moved</a></li>
           </ul>
         </nav>
       </aside>
@@ -80,8 +84,9 @@
       <main class="cs-main">
 
         <section class="cs-hero" id="hero">
-          <p class="cs-eyebrow eyebrow">Square · Banking · Cycle Initiative (one quarter)</p>
+          <p class="cs-eyebrow eyebrow">Square · Banking · Checking activation</p>
           <h1>Turning Square Checking from a pass-through account into a financial home</h1>
+          <p class="cs-hero-summary body-lg">Sellers signed up for Checking, then routed every payout out. I diagnosed why, then redesigned mobile and Dashboard so first card spend was possible on day one.</p>
 
           <div class="cs-meta-grid">
             <div class="cs-meta-item">
@@ -90,18 +95,21 @@
             </div>
             <div class="cs-meta-item">
               <label>Scope</label>
-              <span>Strategy · Checking · Debit · Money Movement</span>
+              <span>Checking · Debit · Money movement</span>
             </div>
             <div class="cs-meta-item">
               <label>Timeline</label>
-              <span>Cycle Initiative (one quarter)</span>
+              <span>Three weeks, diagnosis to ship</span>
             </div>
             <div class="cs-meta-item">
               <label>Partners</label>
               <span>PM · Engineering · Data Science · Growth</span>
             </div>
           </div>
+        </section>
 
+        <section class="cs-section" id="impact">
+          <h2>Results</h2>
           <div class="cs-metrics-row">
             <div class="metric-card">
               <p class="metric-card__value">32% → 40%+</p>
@@ -109,126 +117,159 @@
             </div>
             <div class="metric-card">
               <p class="metric-card__value">29% → 48%</p>
-              <p class="metric-card__label body-sm">First card spend</p>
+              <p class="metric-card__label body-sm">First card spend in a month</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">18% → 44%</p>
+              <p class="metric-card__label body-sm">Apple Pay and Wallet</p>
             </div>
           </div>
-
-          <figure class="cs-impact-hero cs-impact-hero--banner">
-            <img src="square-checking-redesign.png?v=1" alt="Square seller in an apron beside the redesigned Checking home with card tracker and Add to Apple Wallet">
-          </figure>
         </section>
 
         <section class="cs-section" id="situation">
-          <h2>Situation</h2>
-          <p class="cs-lead body-lg">Only 32% of sellers who elected Checking in Square onboarding activated.</p>
-          <p>Square scaled Checking enrollment through seller onboarding, and enrollment worked. Activation did not. Sellers completed identity verification, then treated Checking as a pass-through account, transferring every payout out to an external bank.</p>
-          <p>This was an ambiguous problem, because the gap was not awareness. Sellers knew Checking existed. The gap was banking adoption: nobody was using the debit card or the money movement levers that make an account real. The big open question was why.</p>
-          <p>The ask was pointed: fix it on the Square Point of Sale app, where about 80% of first sales take place.</p>
+          <h2>The situation</h2>
+          <p class="cs-lead body-lg">Only 32% of Square sellers who signed up for Checking during Square onboarding activated.</p>
+          <p>Square Checking gave sellers direct access to money. Take a sale on Square, and spend it the same day with a Square debit card instead of waiting on a transfer to an outside bank.</p>
+
+          <figure class="cs-figure cs-figure--wide cs-figure--diagram">
+            <img src="checking-journey-map.png" alt="Journey from Square signup through Checking signup, a sale, and visiting Banking, then moving money out. Only 32% spent from the account or deposited into it.">
+          </figure>
         </section>
 
-        <section class="cs-section" id="task">
-          <h2>Task</h2>
-          <p class="cs-lead body-lg">Separate the opinions from the evidence.</p>
-          <p>The cross-functional team had reasonable instincts, all of them discoverability plays: add a stronger Banking entry point to the Square Daily Sales report email, give Banking better placement in the navigation, create more surface area. My responsibility was to find out what activated sellers actually did, and design against that.</p>
-        </section>
-
-        <section class="cs-section" id="action">
-          <h2>Action</h2>
-          <p class="cs-lead body-lg">The data had an answer: sellers who activated engaged the debit card first.</p>
-          <p>Funnel analysis with Data Science showed debit card engagement was the strongest activation signal we had. Then we looked at the design and found the mismatch:</p>
+        <section class="cs-section" id="goal">
+          <h2>The goal</h2>
+          <p class="cs-lead body-lg">First card spend within a month was the leading indicator I tracked.</p>
+          <p>Spend on the Square debit card runs over Mastercard's network and earns interchange. A payout routed out to an external bank earns nothing.</p>
+          <h3 class="cs-subheading">Constraints</h3>
           <ul>
-            <li>The debit card was buried below the fold</li>
-            <li>The money movement levers sellers expected were also buried</li>
-            <li>There was no system status: nothing told a seller when their card would arrive, or that they could spend immediately</li>
+            <li>Three weeks, diagnosis to shipping</li>
+            <li>Two surfaces. Mobile first (~80% of sales), Square Dashboard web in parallel, not sequential.</li>
           </ul>
-          <p>That last gap made Apple Wallet a key metric. With the virtual card added to Wallet, a seller could take their first sale and spend from it the same day. The reframe: stop making Banking more findable, start making the activating behaviors unmissable.</p>
+        </section>
+
+        <section class="cs-section" id="discovery">
+          <h2>Discovery</h2>
+          <p class="cs-lead body-lg">I didn’t start with new research. I started with what was already known.</p>
+          <p>I read the existing Banking research corpus, then used AI to cluster it against one question: where does Checking stop matching what a seller expects from a bank?</p>
+          <p>I pulled the activation funnel with Data Science and segmented it by first action taken.</p>
+          <p>I audited both surfaces against what the funnel found. The debit card and the money movement levers were below the fold on mobile and buried in navigation on web.</p>
+          <p>Existing insight plus funnel data got me to a diagnosis.</p>
+
+          <figure class="cs-figure cs-figure--wide cs-figure--diagram">
+            <img src="checking-sellers-said.png" alt="What sellers said: they wanted to spend a sale immediately and did not realize they could add the virtual card to Apple Wallet. The card funnel broke while they waited for plastic, because add to wallet existed but was buried.">
+          </figure>
+        </section>
+
+        <section class="cs-section" id="decision">
+          <h2>My decision</h2>
+          <p class="cs-lead body-lg">Three problems, not one.</p>
+          <p>Card spend was the strongest activation signal. Money movement was buried below the fold. And sellers did not know first card spend was even possible on day one, because nothing told them the virtual card was live.</p>
+        </section>
+
+        <section class="cs-section" id="explorations">
+          <h2>Explorations</h2>
+          <ul>
+            <li>Surface the virtual card on first visit</li>
+            <li>Build the card tracker as a state system</li>
+            <li>Position money movement above the fold</li>
+            <li>Build an activation checklist <em>(did not build)</em></li>
+          </ul>
+          <h3 class="cs-subheading">Why?</h3>
+          <p class="cs-lead body-lg">Sellers did not have a knowledge gap. They had an action gap.</p>
+          <p>They knew what a debit card was. What they did not know is that the money sitting in that balance was spendable right now. A checklist teaches people something they already understand, at the moment they are least willing to read it.</p>
         </section>
 
         <section class="cs-section" id="design">
-          <h2>Design</h2>
-          <p class="cs-lead body-lg">Debit and money movement above the fold, with a system that talks back.</p>
+          <h2>The design</h2>
+          <p class="cs-lead body-lg">Debit and money movement above the fold, and a product that tells you what is happening.</p>
+          <p>A visible card tracker replaced silence. It gives the arrival date for the physical card and says the virtual card works today.</p>
+          <p>Add to Apple Wallet sits right after enrollment, when motivation is highest.</p>
+          <p>Deposit, Transfer and Pay moved to the top.</p>
+          <p>Account and routing numbers are one tap away, because that is what makes it read as a real business bank account.</p>
 
-          <div class="phone-compare">
-            <div class="phone-compare__header">
-              <h3 class="phone-compare__title">Square Point of Sale · Before and after</h3>
-              <p class="phone-compare__hint">Scroll inside each device to view the full screen.</p>
+          <h3 class="cs-subheading">Point of Sale · before and after</h3>
+          <div class="cs-prototype-pair">
+            <div class="cs-prototype-block">
+              <p class="cs-prototype-block__label">Before</p>
+              <div class="cs-prototype__embed cs-prototype__embed--mobile">
+                <iframe
+                  title="Square Checking Point of Sale · before"
+                  src="https://embed.figma.com/proto/1dSTyZctUteozMk19tEPid/Portfolio?node-id=1682-21801&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=1682%3A21801&amp;show-proto-sidebar=0&amp;hide-ui=1&amp;page-id=141%3A560&amp;embed-host=share&amp;hotspot-hints=0"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <p class="cs-prototype-block__actions">
+                <a class="cs-external-link" href="https://www.figma.com/proto/1dSTyZctUteozMk19tEPid/Portfolio?node-id=1682-21801&amp;starting-point-node-id=1682%3A21801&amp;show-proto-sidebar=1&amp;page-id=141%3A560" target="_blank" rel="noopener noreferrer">Open before prototype →</a>
+              </p>
             </div>
-            <div class="phone-compare__grid">
-              <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label body-sm">Before</figcaption>
-                <div class="phone-shell phone-shell--before">
-                  <div class="phone-shell__screen" tabindex="0" aria-label="Before redesign, scrollable preview">
-                    <img src="checking-before.png?v=3" alt="Square Point of Sale banking tab before redesign, with debit card and money movement buried below the fold" width="750" height="3004" loading="lazy" decoding="async">
-                  </div>
-                </div>
-              </figure>
-              <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label body-sm">After</figcaption>
-                <div class="phone-shell phone-shell--after">
-                  <div class="phone-shell__screen" tabindex="0" aria-label="After redesign, scrollable preview">
-                    <img src="checking-after.png?v=3" alt="Square Point of Sale banking tab after redesign, with debit card, money movement, and card tracker above the fold" width="751" height="2896" loading="lazy" decoding="async">
-                  </div>
-                </div>
-              </figure>
+            <div class="cs-prototype-block">
+              <p class="cs-prototype-block__label">After</p>
+              <div class="cs-prototype__embed cs-prototype__embed--mobile">
+                <iframe
+                  title="Square Checking Point of Sale · after"
+                  src="https://embed.figma.com/proto/1dSTyZctUteozMk19tEPid/Portfolio?node-id=1672-6840&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=1672%3A6840&amp;show-proto-sidebar=0&amp;hide-ui=1&amp;page-id=141%3A560&amp;embed-host=share&amp;hotspot-hints=0"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <p class="cs-prototype-block__actions">
+                <a class="cs-external-link" href="https://www.figma.com/proto/1dSTyZctUteozMk19tEPid/Portfolio?node-id=1672-6840&amp;starting-point-node-id=1672%3A6840&amp;show-proto-sidebar=1&amp;page-id=141%3A560" target="_blank" rel="noopener noreferrer">Open after prototype →</a>
+              </p>
             </div>
           </div>
 
-          <ul>
-            <li><strong>System status.</strong> A visible "We're printing your card" tracker replaced silence: arrival date for the physical card, and the message that the virtual card is ready now.</li>
-            <li><strong>Spend immediately.</strong> Add to Apple Wallet surfaced at the moment of highest motivation, right after enrollment.</li>
-            <li><strong>Above the fold.</strong> Deposit, Transfer, and Pay promoted to the top of the banking home. The behaviors that predict activation stopped hiding.</li>
-            <li><strong>Ownership.</strong> Account and routing numbers one tap away, reinforcing that this is a real business bank account, not a feature.</li>
-          </ul>
+          <h3 class="cs-subheading">Dashboard · before and after</h3>
+          <div class="cs-prototype-pair">
+            <div class="cs-prototype-block">
+              <p class="cs-prototype-block__label">Before</p>
+              <div class="cs-prototype__embed">
+                <iframe
+                  title="Square Dashboard Checking · before"
+                  src="https://embed.figma.com/design/1dSTyZctUteozMk19tEPid/Portfolio?node-id=1629-48925&amp;embed-host=share&amp;footer=false&amp;viewport-controls=false&amp;page-selector=false&amp;theme=light"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <p class="cs-prototype-block__actions">
+                <a class="cs-external-link" href="https://www.figma.com/design/1dSTyZctUteozMk19tEPid/Portfolio?node-id=1629-48925" target="_blank" rel="noopener noreferrer">Open before in Figma →</a>
+              </p>
+            </div>
+            <div class="cs-prototype-block">
+              <p class="cs-prototype-block__label">After</p>
+              <div class="cs-prototype__embed">
+                <iframe
+                  title="Square Dashboard Checking · after"
+                  src="https://embed.figma.com/design/1dSTyZctUteozMk19tEPid/Portfolio?node-id=1687-21891&amp;embed-host=share&amp;footer=false&amp;viewport-controls=false&amp;page-selector=false&amp;theme=light"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <p class="cs-prototype-block__actions">
+                <a class="cs-external-link" href="https://www.figma.com/design/1dSTyZctUteozMk19tEPid/Portfolio?node-id=1687-21891" target="_blank" rel="noopener noreferrer">Open after in Figma →</a>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section" id="debit-card">
+          <h2>The debit card system</h2>
+          <p class="cs-lead body-lg">Not a pill or static banner. This was one component with four states that each move the seller toward spend.</p>
+
+          <figure class="cs-figure cs-figure--wide cs-figure--diagram">
+            <img src="checking-debit-card-system.png" alt="Four states of the debit card tracker: issued with Add to Apple Wallet, in the mail, delivered but not activated, then active with a nudge toward spend.">
+          </figure>
+          <p>Built in Square's new monochrome design system. Several of these states needed components that did not exist yet, so I defined them and fed them back to the systems team rather than building one-offs.</p>
         </section>
 
         <section class="cs-section" id="results">
-          <h2>Results</h2>
-          <p class="cs-lead body-lg">Behavior changed, not just dashboard numbers.</p>
-          <p>Onboarding-acquired seller activation went from 32% to over 40%. First card spend within a month rose from 29% to 51%. Apple Pay / Wallet adoption climbed from 18% to 44%.</p>
-          <p>Underneath the metrics: sellers began holding and spending balances inside Square instead of routing payouts out. Every change shipped behind an experiment with a pre-registered metric, measured against the 32% baseline.</p>
-        </section>
-
-        <section class="cs-section" id="next-phase">
-          <h2>Next phase</h2>
-          <p class="cs-lead body-lg">With activation fixed: actionable insights.</p>
-          <p>Fixing Checking earned the right to ask a bigger question: what should Square Banking become? Checking AI explorations were also being considered in the Cash Flow team's vision work sessions, where they helped inform a larger Banking vision. As part of that north star work I prototyped a money management hub with AI-powered insights, sequenced deliberately after the foundational behaviors this quarter proved out, because insights only matter to sellers whose money already lives here.</p>
-
-          <div class="phone-compare phone-gallery">
-            <div class="phone-compare__grid phone-compare__grid--three">
-              <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label body-sm">Banking hub · Proactive spend insights in context</figcaption>
-                <div class="phone-shell phone-shell--after">
-                  <div class="phone-shell__screen" tabindex="0" aria-label="Banking hub with AI insights, scrollable preview">
-                    <img src="checking-ai-insights-overview.png?v=4" alt="Square Banking home with AI-powered spending insights surfaced in recent activity and category charts" width="530" height="2329" loading="lazy" decoding="async">
-                  </div>
-                </div>
-              </figure>
-              <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label body-sm">Spend insight · Payroll may not clear</figcaption>
-                <div class="phone-shell phone-shell--after">
-                  <div class="phone-shell__screen phone-shell__screen--fit" aria-label="Payroll spend insight modal preview">
-                    <img src="checking-ai-insight-payroll.png?v=3" alt="AI spend insight modal warning that a scheduled payroll payment may exceed available balance" width="530" height="1160" loading="lazy" decoding="async">
-                  </div>
-                </div>
-              </figure>
-              <figure class="phone-compare__item">
-                <figcaption class="phone-compare__label body-sm">Spend insight · Duplicate charge detected</figcaption>
-                <div class="phone-shell phone-shell--after">
-                  <div class="phone-shell__screen phone-shell__screen--fit" aria-label="Duplicate charge spend insight modal preview">
-                    <img src="checking-ai-insight-duplicate.png?v=3" alt="AI spend insight modal flagging duplicate Adobe charges" width="530" height="1160" loading="lazy" decoding="async">
-                  </div>
-                </div>
-              </figure>
-            </div>
-          </div>
-
-          <p><em>Vision work exploring AI powered cash flow insights as part of a broader Banking hub strategy.</em></p>
-        </section>
-
-        <section class="cs-section" id="reflection">
-          <h2>Reflection</h2>
-          <p class="cs-lead body-lg">Activation was a visibility problem wearing an awareness costume.</p>
-          <p>The room wanted to make Banking easier to find. The data showed activated sellers were already finding it; what they engaged with first was the debit card, and the design was hiding it. Trusting the funnel over the opinions is what moved the number.</p>
+          <h2>The results</h2>
+          <p class="cs-lead body-lg">Behavior moved in the first month, not just the dashboard.</p>
+          <p>Activation among sellers acquired through onboarding went from 32% to over 40%.</p>
+          <p>First card spend within a month went from 29% to 48%.</p>
+          <p>Apple Pay and Wallet adoption went from 18% to 44%.</p>
+          <p>Both surfaces shipped in the same cycle. Every change went out behind an experiment with the metric registered in advance, measured against that 32% baseline.</p>
+          <p>What I would do differently: I focused the initial work on getting sellers from issuance to first spend because that was the funded problem.</p>
         </section>
 
       </main>
