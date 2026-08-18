@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="ui-system.css?v=3">
-  <link rel="stylesheet" href="case-study.css?v=62">
+  <link rel="stylesheet" href="case-study.css?v=63">
 </head>
 <body class="case-study-body">
 
@@ -278,69 +278,27 @@
           <h2>The debit card system</h2>
           <p class="cs-lead body-lg">Not a pill or static banner. This was one component with four states that each move the seller toward spend.</p>
 
-          <div class="cs-card-system" role="img" aria-label="Four states of the debit card tracker: issued with Add to Apple Wallet, in the mail, delivered but not activated, then active with a nudge toward spend.">
-            <article class="cs-card-system__col">
+          <div class="cs-card-system">
+            <figure class="cs-card-system__col">
               <p class="cs-card-system__step"><span>01</span> Issued</p>
-              <div class="cs-tracker">
-                <div class="cs-tracker__head">
-                  <div>
-                    <p class="cs-tracker__title">Spend now with your virtual card</p>
-                    <p class="cs-tracker__sub">Physical card is printing · Arrives Apr 22</p>
-                  </div>
-                </div>
-                <ol class="cs-tracker__progress" aria-hidden="true">
-                  <li class="is-on">Printing</li>
-                  <li>Shipped</li>
-                  <li>Arrived</li>
-                </ol>
-                <div class="cs-tracker__btn">Add to Apple Wallet</div>
-              </div>
-              <p class="cs-card-system__note">The virtual card is live immediately. Primary action is add to wallet.</p>
-            </article>
-            <article class="cs-card-system__col">
+              <img src="checking-tracker-issued.png" width="686" height="332" alt="Square Checking card tracker while printing: Mastercard arriving April 22, with Add to Apple Wallet so spending can start today" loading="lazy" decoding="async">
+              <figcaption class="cs-card-system__note">The virtual card is live immediately. Primary action is add to wallet.</figcaption>
+            </figure>
+            <figure class="cs-card-system__col">
               <p class="cs-card-system__step"><span>02</span> In the mail</p>
-              <div class="cs-tracker">
-                <p class="cs-tracker__title">Your card is on the way</p>
-                <p class="cs-tracker__sub">Shipped · Arrives Apr 22</p>
-                <ol class="cs-tracker__progress" aria-hidden="true">
-                  <li class="is-on">Printing</li>
-                  <li class="is-on">Shipped</li>
-                  <li>Arrived</li>
-                </ol>
-                <div class="cs-tracker__btn">View virtual card</div>
-                <div class="cs-tracker__btn cs-tracker__btn--secondary">Track shipment</div>
-              </div>
-              <p class="cs-card-system__note">Arrival date shown, alongside the fact that the virtual card already works today.</p>
-            </article>
-            <article class="cs-card-system__col">
+              <img src="checking-tracker-shipped.png" width="686" height="288" alt="Square Checking card tracker after shipping, with arrival date and access to the virtual card" loading="lazy" decoding="async">
+              <figcaption class="cs-card-system__note">Arrival date shown, alongside the fact that the virtual card already works today.</figcaption>
+            </figure>
+            <figure class="cs-card-system__col">
               <p class="cs-card-system__step"><span>03</span> Delivered, not activated</p>
-              <div class="cs-tracker">
-                <p class="cs-tracker__title">Activate your physical card</p>
-                <p class="cs-tracker__sub">Delivered · Ending in · 4211</p>
-                <ol class="cs-tracker__progress" aria-hidden="true">
-                  <li class="is-on">Printing</li>
-                  <li class="is-on">Shipped</li>
-                  <li class="is-on">Arrived</li>
-                </ol>
-                <div class="cs-tracker__btn">Activate</div>
-                <div class="cs-tracker__btn cs-tracker__btn--secondary">View virtual card</div>
-              </div>
-              <p class="cs-card-system__note">Activation surfaced in the product instead of left to the mailer.</p>
-            </article>
-            <article class="cs-card-system__col">
+              <img src="checking-tracker-delivered.png" width="686" height="288" alt="Square Checking card tracker after delivery, with activate as the primary action" loading="lazy" decoding="async">
+              <figcaption class="cs-card-system__note">Activation surfaced in the product instead of left to the mailer.</figcaption>
+            </figure>
+            <figure class="cs-card-system__col">
               <p class="cs-card-system__step"><span>04</span> Active, spend</p>
-              <div class="cs-tracker">
-                <div class="cs-tracker__row">
-                  <span class="cs-tracker__thumb" aria-hidden="true"></span>
-                  <div>
-                    <p class="cs-tracker__title">Adam’s card</p>
-                    <p class="cs-tracker__sub">Mastercard ···1455</p>
-                  </div>
-                </div>
-                <div class="cs-tracker__btn cs-tracker__btn--secondary">View spend insights</div>
-              </div>
-              <p class="cs-card-system__note">Nudge toward a first purchase, prompted by behavior the POS already knows about.</p>
-            </article>
+              <img src="checking-tracker-active.png" width="686" height="150" alt="Activated Square debit card as the everyday entry point on Checking home" loading="lazy" decoding="async">
+              <figcaption class="cs-card-system__note">Nudge toward a first purchase, prompted by behavior the POS already knows about.</figcaption>
+            </figure>
           </div>
           <p>Built in Square's new monochrome design system. Several of these states needed components that did not exist yet, so I defined them and fed them back to the systems team rather than building one-offs.</p>
         </section>

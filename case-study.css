@@ -483,9 +483,13 @@ body.case-study-body {
 
 .cs-card-system {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.15rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 1.25rem;
   margin: 1.75rem 0 1.25rem;
+}
+
+.cs-card-system__col {
+  margin: 0;
 }
 
 .cs-card-system__step {
@@ -501,94 +505,13 @@ body.case-study-body {
   margin-right: 0.3rem;
 }
 
-.cs-tracker {
-  background: #fffefa;
-  border: 1.5px solid var(--color-ink, #221F1F);
-  border-radius: 16px;
-  padding: 1rem 0.95rem 1.05rem;
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-}
-
-.cs-tracker__title {
-  margin: 0 !important;
-  color: var(--color-ink, #221F1F) !important;
-  font-size: 0.95rem !important;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.3 !important;
-}
-
-.cs-tracker__sub {
-  margin: 0.2rem 0 0 !important;
-  color: var(--cs-muted, #5C5854) !important;
-  font-size: 0.75rem !important;
-  line-height: 1.35 !important;
-}
-
-.cs-tracker__progress {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.3rem;
-  margin: 0;
-  padding: 0;
-}
-
-.cs-tracker__progress li {
-  margin: 0 !important;
-  padding: 0.35rem 0.2rem;
-  border-radius: 6px;
-  background: #ece8df;
-  color: var(--cs-muted, #5C5854) !important;
-  font-size: 0.5625rem !important;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: 1 !important;
-}
-
-.cs-tracker__progress li.is-on {
-  background: #d7ebf5;
-  color: var(--color-ink, #221F1F) !important;
-}
-
-.cs-tracker__btn {
+.cs-card-system img {
   display: block;
   width: 100%;
-  margin-top: auto;
-  padding: 0.7rem 0.75rem;
-  border: 0;
-  border-radius: 980px;
-  background: var(--color-ink, #221F1F);
-  color: #fffefa;
-  font-family: inherit;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.cs-tracker__btn--secondary {
-  margin-top: 0.35rem;
-  background: #ece8df;
-  color: var(--color-ink, #221F1F);
-}
-
-.cs-tracker__row {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-
-.cs-tracker__thumb {
-  width: 2.35rem;
-  height: 1.5rem;
-  border-radius: 4px;
-  background: linear-gradient(135deg, #221F1F 0 42%, #3a3634 42%);
-  flex-shrink: 0;
+  max-width: 686px;
+  height: auto;
+  background: #fffefa;
+  border-radius: 12px;
 }
 
 .cs-card-system__note {
@@ -598,13 +521,7 @@ body.case-study-body {
   line-height: 1.45 !important;
 }
 
-@media (max-width: 1024px) {
-  .cs-card-system {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
+@media (max-width: 700px) {
   .cs-card-system {
     grid-template-columns: 1fr;
   }
