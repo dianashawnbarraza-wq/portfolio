@@ -54,8 +54,9 @@
         <li><a href="#situation">Situation</a></li>
         <li><a href="#problem">0 to 1</a></li>
         <li><a href="#discovery">Discovery</a></li>
+        <li><a href="#explorations">Explorations</a></li>
         <li><a href="#product">What I built</a></li>
-        <li><a href="#prototype">Prototype</a></li>
+        <li><a href="#prototype">What shipped</a></li>
         <li><a href="#results">The results</a></li>
       </ul>
     </nav>
@@ -70,8 +71,9 @@
             <li><a href="#situation">Situation</a></li>
             <li><a href="#problem">0 to 1</a></li>
             <li><a href="#discovery">Discovery</a></li>
+            <li><a href="#explorations">Explorations</a></li>
             <li><a href="#product">What I built</a></li>
-            <li><a href="#prototype">Prototype</a></li>
+            <li><a href="#prototype">What shipped</a></li>
             <li><a href="#results">The results</a></li>
           </ul>
         </nav>
@@ -166,10 +168,25 @@
 
           <h3 class="cs-subheading">From data stream to decision system</h3>
           <p>My focus was to turn a continuous stream of data into an ordered set of decisions a doctor could finish between house calls.</p>
+        </section>
 
-          <h3 class="cs-subheading">Testing the structure</h3>
-          <p>My first version needed to better reflect the clinical workflow.</p>
-          <p>I started with charts within the patient screen based on what we heard in discovery. The panel liked the visualization, but quickly showed us that this wasn’t how they needed to work through a patient.</p>
+        <section class="cs-section" id="explorations">
+          <h2>Explorations</h2>
+          <p class="cs-lead body-lg">I started with monitoring at the patient level. What I needed was a triage flow.</p>
+          <p>My first version put charts on the patient screen, based on what we heard in discovery. The panel liked the visualization, but quickly showed us that this wasn’t how they needed to work through a patient.</p>
+          <p>A doctor between house calls does not open a chart to explore. They need to know who needs them today, then finish a decision and close the loop.</p>
+
+          <p class="cs-prototype-block__label">Exploration · Patient-level monitoring</p>
+          <figure class="cs-figure">
+            <button type="button" class="cs-ipad-expand" aria-label="View larger: exploration of patient-level blood pressure monitoring">
+              <div class="ipad-shell">
+                <div class="ipad-shell__screen">
+                  <img src="heal-monitoring-after-patient-monitoring.png?v=3" alt="Exploration: Maria Gonzalez patient chart with blood pressure trend, threshold alert, and prescriptions sidebar" width="2240" height="1670" loading="lazy" decoding="async">
+                </div>
+              </div>
+            </button>
+            <figcaption>Patient-level monitoring · Charts and prescriptions in one place, but no way to triage the day</figcaption>
+          </figure>
         </section>
 
         <section class="cs-section" id="product">
@@ -177,7 +194,7 @@
           <p class="cs-lead body-lg">What mattered most was the daily overview: “What do I need to tackle today?”</p>
           <ol>
             <li><strong>Daily Overview.</strong> The screen doctors already open first. Monitoring alerts sit inline beside today's visits and unsigned charts, ordered by what needs attention rather than by when it arrived.</li>
-            <li><strong>Patient Workflow.</strong> Trend charts, device context, and prescriptions in one place, so a doctor can read weeks of readings and act without leaving the chart.</li>
+            <li><strong>Workflow to Review.</strong> From an alert, a doctor reviews the signal, chooses an outcome, and closes the loop without leaving the day’s work.</li>
             <li><strong>The alert logic.</strong> Not every abnormal reading is an alert. Not every alert belongs with a doctor. Not every missing reading means danger. Defining that was the actual product problem, and the artifact that let this scale without me in the room.</li>
           </ol>
 
@@ -216,37 +233,41 @@
             <p class="cs-journey__note">Nothing gets left unresolved.</p>
           </div>
 
-          <h3 class="cs-subheading">The three things a doctor can do</h3>
+          <h3 class="cs-subheading">In Review</h3>
+          <p>Take action, or close the alert. Either way, it leaves a record.</p>
           <ul>
             <li>Change a prescription</li>
-            <li>Book a follow up consult / telemedicine call</li>
+            <li>Book an appointment</li>
+            <li>Contact the patient today</li>
             <li>Acknowledge it and take no action</li>
+            <li>Request device support</li>
           </ul>
         </section>
 
         <section class="cs-section" id="prototype">
-          <h2>Prototype</h2>
-          <p class="cs-lead body-lg">The after: monitoring on the screen doctors already open first, then a patient chart they can finish between house calls.</p>
+          <h2>What shipped</h2>
+          <p class="cs-lead body-lg">Daily Overview, then a Review workflow that turns a signal into an outcome.</p>
+          <p><a class="cs-external-link" href="https://doctor-rpm-prototype.vercel.app/after" target="_blank" rel="noopener noreferrer">Open the after prototype →</a></p>
           <div class="image-gallery">
             <figure class="cs-figure cs-figure--gallery">
-              <button type="button" class="cs-ipad-expand" aria-label="View larger: Heal daily overview with inline monitoring alerts">
+              <button type="button" class="cs-ipad-expand" aria-label="View larger: Heal daily overview with monitoring triage">
                 <div class="ipad-shell ipad-shell--after">
                   <div class="ipad-shell__screen">
-                    <img src="heal-monitoring-after-overview.png?v=3" alt="Heal physician daily overview with inline blood pressure and glucose monitoring alerts beside today’s visits" width="2240" height="1670" loading="lazy" decoding="async">
+                    <img src="heal-monitoring-shipped-overview.png?v=1" alt="Shipped Heal daily overview: monitoring alerts, overdue charts, and next visit on one screen" width="2240" height="1668" loading="lazy" decoding="async">
                   </div>
                 </div>
               </button>
-              <figcaption>Daily Overview · Alerts inline with today’s work</figcaption>
+              <figcaption>Daily Overview · What do I need to tackle today?</figcaption>
             </figure>
             <figure class="cs-figure cs-figure--gallery">
-              <button type="button" class="cs-ipad-expand" aria-label="View larger: Heal patient monitoring workflow">
+              <button type="button" class="cs-ipad-expand" aria-label="View larger: Heal review workflow for a monitoring alert">
                 <div class="ipad-shell ipad-shell--after">
                   <div class="ipad-shell__screen">
-                    <img src="heal-monitoring-after-patient-monitoring.png?v=3" alt="Heal patient monitoring view with blood pressure trend chart and threshold alert" width="2240" height="1670" loading="lazy" decoding="async">
+                    <img src="heal-monitoring-shipped-review.png?v=1" alt="Shipped Heal review workflow: blood pressure trend beside take-action and close-alert choices" width="2240" height="1668" loading="lazy" decoding="async">
                   </div>
                 </div>
               </button>
-              <figcaption>Patient Workflow · Trends, devices, and action</figcaption>
+              <figcaption>Workflow to Review · Signal, decision, close the loop</figcaption>
             </figure>
           </div>
         </section>
