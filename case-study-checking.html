@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="ui-system.css?v=3">
-  <link rel="stylesheet" href="case-study.css?v=61">
+  <link rel="stylesheet" href="case-study.css?v=62">
 </head>
 <body class="case-study-body">
 
@@ -131,9 +131,20 @@
           <p class="cs-lead body-lg">Only 32% of Square sellers who signed up for Checking during Square onboarding activated.</p>
           <p>Square Checking gave sellers direct access to money. Take a sale on Square, and spend it the same day with a Square debit card instead of waiting on a transfer to an outside bank.</p>
 
-          <figure class="cs-figure cs-figure--wide cs-figure--diagram">
-            <img src="checking-journey-map.png?v=2" alt="Journey from Square signup through Checking signup, a sale, and visiting Banking, then moving money out. Only 32% spent from the account or deposited into it.">
-          </figure>
+          <div class="cs-journey" role="img" aria-label="Journey from Square signup through Checking signup, a sale, and visiting Banking, then moving money out. Only 32% spent from the account or deposited into it.">
+            <ol class="cs-journey__steps">
+              <li>Square sign up</li>
+              <li class="cs-journey__arrow" aria-hidden="true">→</li>
+              <li>Checking signup</li>
+              <li class="cs-journey__arrow" aria-hidden="true">→</li>
+              <li>Takes a sale on Square</li>
+              <li class="cs-journey__arrow" aria-hidden="true">→</li>
+              <li>Visits Banking</li>
+              <li class="cs-journey__arrow" aria-hidden="true">→</li>
+              <li class="cs-journey__end">Moves money out</li>
+            </ol>
+            <p class="cs-journey__note">Only 32% spent from the account or deposited into it. The rest routed every payout to an external bank.</p>
+          </div>
         </section>
 
         <section class="cs-section" id="goal">
@@ -155,9 +166,20 @@
           <p>I audited both surfaces against what the funnel found. The debit card and the money movement levers were below the fold on mobile and buried in navigation on web.</p>
           <p>Existing insight plus funnel data got me to a diagnosis.</p>
 
-          <figure class="cs-figure cs-figure--quotes cs-figure--diagram">
-            <img src="checking-sellers-said.png?v=2" alt="What sellers said: they wanted to spend a sale immediately and did not realize they could add the virtual card to Apple Wallet. The card funnel broke while they waited for plastic, because add to wallet existed but was buried.">
-          </figure>
+          <aside class="cs-quotes" aria-label="What sellers said">
+            <p class="cs-quotes__label">What sellers said</p>
+            <blockquote>
+              <p>“I made a sale. Is it possible to spend that money right away?”</p>
+            </blockquote>
+            <blockquote>
+              <p>“I didn’t realize I could just add the card to Apple Wallet and start using it.”</p>
+            </blockquote>
+            <div class="cs-quotes__funnel">
+              <p class="cs-quotes__funnel-label">Where the card funnel broke</p>
+              <p class="cs-quotes__funnel-path">Card issued → ships → seller waits for mail → activates plastic → first spend</p>
+              <p>Adding to wallet existed, but was buried.</p>
+            </div>
+          </aside>
         </section>
 
         <section class="cs-section" id="decision">
@@ -256,9 +278,70 @@
           <h2>The debit card system</h2>
           <p class="cs-lead body-lg">Not a pill or static banner. This was one component with four states that each move the seller toward spend.</p>
 
-          <figure class="cs-figure cs-figure--wide cs-figure--diagram">
-            <img src="checking-debit-card-system.png?v=2" alt="Four states of the debit card tracker: issued with Add to Apple Wallet, in the mail, delivered but not activated, then active with a nudge toward spend.">
-          </figure>
+          <div class="cs-card-system" role="img" aria-label="Four states of the debit card tracker: issued with Add to Apple Wallet, in the mail, delivered but not activated, then active with a nudge toward spend.">
+            <article class="cs-card-system__col">
+              <p class="cs-card-system__step"><span>01</span> Issued</p>
+              <div class="cs-tracker">
+                <div class="cs-tracker__head">
+                  <div>
+                    <p class="cs-tracker__title">Spend now with your virtual card</p>
+                    <p class="cs-tracker__sub">Physical card is printing · Arrives Apr 22</p>
+                  </div>
+                </div>
+                <ol class="cs-tracker__progress" aria-hidden="true">
+                  <li class="is-on">Printing</li>
+                  <li>Shipped</li>
+                  <li>Arrived</li>
+                </ol>
+                <div class="cs-tracker__btn">Add to Apple Wallet</div>
+              </div>
+              <p class="cs-card-system__note">The virtual card is live immediately. Primary action is add to wallet.</p>
+            </article>
+            <article class="cs-card-system__col">
+              <p class="cs-card-system__step"><span>02</span> In the mail</p>
+              <div class="cs-tracker">
+                <p class="cs-tracker__title">Your card is on the way</p>
+                <p class="cs-tracker__sub">Shipped · Arrives Apr 22</p>
+                <ol class="cs-tracker__progress" aria-hidden="true">
+                  <li class="is-on">Printing</li>
+                  <li class="is-on">Shipped</li>
+                  <li>Arrived</li>
+                </ol>
+                <div class="cs-tracker__btn">View virtual card</div>
+                <div class="cs-tracker__btn cs-tracker__btn--secondary">Track shipment</div>
+              </div>
+              <p class="cs-card-system__note">Arrival date shown, alongside the fact that the virtual card already works today.</p>
+            </article>
+            <article class="cs-card-system__col">
+              <p class="cs-card-system__step"><span>03</span> Delivered, not activated</p>
+              <div class="cs-tracker">
+                <p class="cs-tracker__title">Activate your physical card</p>
+                <p class="cs-tracker__sub">Delivered · Ending in · 4211</p>
+                <ol class="cs-tracker__progress" aria-hidden="true">
+                  <li class="is-on">Printing</li>
+                  <li class="is-on">Shipped</li>
+                  <li class="is-on">Arrived</li>
+                </ol>
+                <div class="cs-tracker__btn">Activate</div>
+                <div class="cs-tracker__btn cs-tracker__btn--secondary">View virtual card</div>
+              </div>
+              <p class="cs-card-system__note">Activation surfaced in the product instead of left to the mailer.</p>
+            </article>
+            <article class="cs-card-system__col">
+              <p class="cs-card-system__step"><span>04</span> Active, spend</p>
+              <div class="cs-tracker">
+                <div class="cs-tracker__row">
+                  <span class="cs-tracker__thumb" aria-hidden="true"></span>
+                  <div>
+                    <p class="cs-tracker__title">Adam’s card</p>
+                    <p class="cs-tracker__sub">Mastercard ···1455</p>
+                  </div>
+                </div>
+                <div class="cs-tracker__btn cs-tracker__btn--secondary">View spend insights</div>
+              </div>
+              <p class="cs-card-system__note">Nudge toward a first purchase, prompted by behavior the POS already knows about.</p>
+            </article>
+          </div>
           <p>Built in Square's new monochrome design system. Several of these states needed components that did not exist yet, so I defined them and fed them back to the systems team rather than building one-offs.</p>
         </section>
 
