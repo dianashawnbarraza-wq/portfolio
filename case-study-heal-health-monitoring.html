@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Study · Preventative care with data-driven patient health monitoring</title>
+  <title>Case Study · Building Heal’s remote monitoring product from zero</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="favicon.svg?v=5" type="image/svg+xml">
   <link rel="icon" href="favicon.png?v=5" type="image/png" sizes="32x32">
@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ui-system.css?v=3">
-  <link rel="stylesheet" href="case-study.css?v=59">
+  <link rel="stylesheet" href="ui-system.css?v=4">
+  <link rel="stylesheet" href="case-study.css?v=65">
 </head>
 <body class="case-study-body">
 
@@ -50,12 +50,13 @@
       <button class="cs-mobile-nav-close" id="cs-mobile-nav-close" type="button" aria-label="Close">&times;</button>
       <ul>
         <li><a href="#hero">Overview</a></li>
-        <li><a href="#impact">Impact</a></li>
+        <li><a href="#impact">Results</a></li>
         <li><a href="#situation">Situation</a></li>
-        <li><a href="#task">Task</a></li>
-        <li><a href="#action">Action</a></li>
-        <li><a href="#design">Design</a></li>
-        <li><a href="#results-expanded">Results</a></li>
+        <li><a href="#problem">0 to 1</a></li>
+        <li><a href="#discovery">Discovery</a></li>
+        <li><a href="#product">What I built</a></li>
+        <li><a href="#prototype">Prototype</a></li>
+        <li><a href="#results">The results</a></li>
       </ul>
     </nav>
 
@@ -65,12 +66,13 @@
         <nav aria-label="Case study navigation">
           <ul class="cs-nav">
             <li><a href="#hero" class="active">Overview</a></li>
-            <li><a href="#impact">Impact</a></li>
+            <li><a href="#impact">Results</a></li>
             <li><a href="#situation">Situation</a></li>
-            <li><a href="#task">Task</a></li>
-            <li><a href="#action">Action</a></li>
-            <li><a href="#design">Design</a></li>
-            <li><a href="#results-expanded">Results</a></li>
+            <li><a href="#problem">0 to 1</a></li>
+            <li><a href="#discovery">Discovery</a></li>
+            <li><a href="#product">What I built</a></li>
+            <li><a href="#prototype">Prototype</a></li>
+            <li><a href="#results">The results</a></li>
           </ul>
         </nav>
       </aside>
@@ -78,9 +80,9 @@
       <main class="cs-main">
 
         <section class="cs-hero" id="hero">
-          <p class="cs-eyebrow eyebrow">Heal · Healthcare · Patient &amp; Provider</p>
-          <h1>Preventative care with data-driven patient health monitoring</h1>
-          <p class="cs-hero-summary body-lg">Heal was an on-demand healthcare company that sent doctors to patients’ homes for accessible, same-day care. I worked across patient and provider experiences. As Design DRI, I led an end-to-end health monitoring product that gave doctors visibility into chronic conditions between visits, a capability that proved essential to Heal’s Medicare approval.</p>
+          <p class="cs-eyebrow eyebrow">Heal · Healthcare · Provider app</p>
+          <h1>Building Heal’s remote monitoring product from zero</h1>
+          <p class="cs-hero-summary body-lg">The dashboard already existed. Remote monitoring did not. I defined and built the path from a device reading to a clinical decision, so doctors could act on chronic care between house calls.</p>
 
           <div class="cs-meta-grid">
             <div class="cs-meta-item">
@@ -88,225 +90,180 @@
               <span>Design DRI</span>
             </div>
             <div class="cs-meta-item">
-              <label>Timeline</label>
-              <span>1 month to validated MVP design</span>
+              <label>Scope</label>
+              <span>0→1 remote monitoring · Provider workflow</span>
             </div>
             <div class="cs-meta-item">
-              <label>Team</label>
-              <span>Product · Clinical</span>
+              <label>Timeline</label>
+              <span>One month to validated MVP</span>
             </div>
             <div class="cs-meta-item">
               <label>Partners</label>
-              <span>PM · Engineering · Medicine</span>
+              <span>PM · Engineering · Head of Medicine</span>
             </div>
           </div>
+        </section>
 
+        <section class="cs-section" id="impact">
+          <h2>Results</h2>
           <div class="cs-metrics-row cs-metrics-row--4">
-            <div class="metric-card">
-              <p class="metric-card__value">39% → 47%</p>
-              <p class="metric-card__label body-sm">Repeat patient rate</p>
-            </div>
-            <div class="metric-card">
-              <p class="metric-card__value">&gt;$4M/yr</p>
-              <p class="metric-card__label body-sm">Recurring net margin</p>
-            </div>
             <div class="metric-card">
               <p class="metric-card__value">↓ 39%</p>
               <p class="metric-card__label body-sm">Unnecessary prescriptions</p>
             </div>
             <div class="metric-card">
+              <p class="metric-card__value">39% → 47%</p>
+              <p class="metric-card__label body-sm">Repeat patient rate</p>
+            </div>
+            <div class="metric-card">
               <p class="metric-card__value">Medicare</p>
               <p class="metric-card__label body-sm">Monitoring approved</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-card__value">&gt;$4M/yr</p>
+              <p class="metric-card__label body-sm">Recurring net margin</p>
             </div>
           </div>
         </section>
 
-        <section class="cs-section cs-section--impact" id="impact">
-          <figure class="cs-impact-hero">
-            <button type="button" class="cs-ipad-expand" aria-label="View larger: Heal patient detail monitoring with blood pressure trend chart">
-              <div class="ipad-shell ipad-shell--hero ipad-shell--after">
-                <div class="ipad-shell__screen">
-                  <img src="heal-monitoring-after-patient-monitoring.png?v=3" alt="Heal patient detail monitoring view with blood pressure trend chart and threshold alert" width="2240" height="1670" loading="eager" decoding="async">
-                </div>
-              </div>
-              <span class="cs-ipad-expand__hint">Click to enlarge</span>
-            </button>
-          </figure>
-          <h2>Impact</h2>
-
-          <div class="results-table-wrap results-table-wrap--prominent">
-            <table class="results-table">
-              <thead>
-                <tr>
-                  <th>Metric</th>
-                  <th>Before</th>
-                  <th>After</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Repeat patient rate</td>
-                  <td>39%</td>
-                  <td><strong>47%</strong> (goal: 45%)</td>
-                </tr>
-                <tr>
-                  <td>Recurring revenue</td>
-                  <td>One-off house calls</td>
-                  <td><strong>&gt;$4M/year in net margin</strong></td>
-                </tr>
-                <tr>
-                  <td>Unnecessary prescriptions</td>
-                  <td>Baseline</td>
-                  <td><strong>39% reduction</strong></td>
-                </tr>
-                <tr>
-                  <td>Acute episodes &amp; outcomes</td>
-                  <td>Limited remote visibility</td>
-                  <td><strong>Reduced acute episodes, improved outcomes</strong></td>
-                </tr>
-                <tr>
-                  <td>Medicare coverage</td>
-                  <td>Not yet approved for monitoring</td>
-                  <td><strong>Monitoring paid by Medicare, free for patients</strong></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <p class="cs-results-interpretation">User-centered design translated into high-growth, high-margin recurring revenue. Monitoring became the foundation for preventative care at home and shifted Heal’s model from episodic visits to ongoing primary care.</p>
-        </section>
-
         <section class="cs-section" id="situation">
-          <h2>Situation</h2>
-          <p class="cs-lead body-lg">Between visits, doctors were blind.</p>
-          <p>Heal provided on-demand, same-day doctor house calls, bringing care into patients’ homes rather than treating every visit as a one-off appointment. Our ambition was bigger: primary, preventative care delivered by Heal doctors, not episodic urgent visits.</p>
-          <p>The obstacle was visibility. A doctor saw a patient for an hour at home, then nothing until the next call. For adults 65 and older living with chronic conditions like hypertension and diabetes, the moments that matter most happen in that gap: the readings that drift, the medication that stops working, the early signal of an acute episode. Remote monitoring data technically existed in the system, but it lived behind notifications with no way to act on exceptions inline. Without a durable view into patient health over time, chronic conditions were harder to manage, repeat engagement suffered, and Heal could not demonstrate the preventative value Medicare required.</p>
+          <h2>The situation</h2>
+          <p class="cs-lead body-lg">The dashboard already existed. Remote monitoring did not.</p>
+          <p>Heal sent doctors to patients' homes for same day care. The next step was turning those episodic visits into continuous primary care.</p>
+          <p>For patients over 65 with hypertension or diabetes, the moments that matter happen between visits. A reading that drifts. A medication that stops working.</p>
+          <p>Remote monitoring did not exist. Heal decided to prescribe Bluetooth devices, connected through Wellbe, to patients with chronic conditions, and there was no product for what a doctor would do once that data started arriving.</p>
+          <p>So my job was to define and build that product. Not a screen, the whole path from a device reading to a clinical decision, from zero.</p>
         </section>
 
-        <section class="cs-section" id="task">
-          <h2>Task</h2>
-          <p class="cs-lead body-lg">Design an end-to-end patient health monitoring experience for physicians, against a hard growth target.</p>
-          <p>As Design DRI, I partnered across product, engineering, and clinical teams to define how monitoring would work for the doctors recommending it, the patients living with chronic conditions, and the business model behind recurring care.</p>
-          <p>We set a concrete goal: increase Heal’s repeat patient rate from <strong>39% to 45%</strong> by introducing patient monitoring, while building the clinical and product foundation Medicare approval required.</p>
-          <p><strong>Constraints:</strong></p>
+        <section class="cs-section" id="problem">
+          <h2>The 0 to 1 problem</h2>
+          <p class="cs-lead body-lg">Build a new care model.</p>
+          <p>Move Heal from episodic home visits to continuous primary care. Success meant repeat patient rate at 39% to 45%, Medicare approval, and clinicians able to act on monitoring without a second workflow.</p>
+          <h3 class="cs-subheading">Constraints</h3>
           <ul>
-            <li><strong>Clinical safety.</strong> A missed threshold alert is not a UX bug, it is a patient outcome. Alert visibility could not depend on a doctor remembering to check a notification tray.</li>
-            <li><strong>One month.</strong> The MVP design had to be validated with practicing physicians inside a single month, which shaped every process decision below.</li>
-            <li><strong>High-volume practice days.</strong> Doctors reviewing monitoring data between house calls needed one-glance comprehension, not exploration.</li>
-            <li><strong>Regulatory bar.</strong> Medicare’s chronic care requirements set the floor for documentation, review cadence, and care continuity. The workflow had to satisfy them by default, not by discipline.</li>
+            <li><strong>Clinical safety.</strong> A missed threshold is a patient outcome, not a UX bug.</li>
+            <li><strong>One month.</strong> Validated with practicing physicians inside a single month.</li>
+            <li><strong>Reimbursement.</strong> The workflow had to satisfy Medicare's chronic care rules by default.</li>
           </ul>
         </section>
 
-        <section class="cs-section" id="action">
-          <h2>Action</h2>
-          <p class="cs-lead body-lg">Discovery with clinicians, then rapid prototyping with a standing doctor panel.</p>
+        <section class="cs-section" id="discovery">
+          <h2>Discovery</h2>
+          <p class="cs-lead body-lg">One month meant building the research cadence into the sprint, not running discovery before it.</p>
+          <p>I started with an interview with Heal's Head of Medicine: how and when would a doctor recommend monitoring, and which conditions should we target first.</p>
+          <p>With engineering I mapped the device ecosystem from zero: which Bluetooth devices to support, how a reading gets from a patient's home through Wellbe to the patient’s phone to Apple Health to the Heal cloud.</p>
 
-          <div class="cs-accordion">
-            <details class="cs-accordion-item" open>
-              <summary>Discovery · Arriving at an ideal patient journey</summary>
-              <div class="cs-accordion-body">
-                <p>I began with an interview with the Head of Medicine, then worked alongside a project manager to establish a doctor panel for weekly feedback sessions.</p>
-                <p>Together we answered two critical questions for the MVP: how and when a doctor would recommend monitoring to a patient predisposed to or living with a condition, and which conditions to target first. Working with the panel and engineering, we co-created a patient journey for Medicare patients with chronic conditions, mapping when data collection, physician review, and intervention should happen across the care cycle.</p>
-                <figure class="cs-figure cs-figure--flow">
-                  <button type="button" class="cs-flow-expand" aria-label="Expand patient journey flow">
-                    <img src="heal-monitoring-journey-flow.png?v=1" alt="Patient journey from initial Heal visit through in-person equipment setup to virtual follow-up monitoring" width="1024" height="206" loading="lazy" decoding="async">
-                    <span class="cs-flow-expand__hint">Click to enlarge</span>
-                  </button>
-                  <figcaption>Discovery · Ideal patient journey from initial visit to virtual monitoring follow-up</figcaption>
-                </figure>
-              </div>
-            </details>
-
-            <details class="cs-accordion-item">
-              <summary>Prototyping · Information architecture and data visualization</summary>
-              <div class="cs-accordion-body">
-                <p>I designed an initial physician experience focused on information architecture, data visualization, and the panel’s core request: medication and patient history in one place.</p>
-                <p>Early feedback was positive, with clear gaps to close. Doctors needed to contact patients directly, manage how long monitoring would run, and interact with charts that surfaced detail on demand rather than static summaries. I iterated through weekly panel sessions, tightening workflows for clinical decision-making while keeping every screen scannable during high-volume practice days.</p>
-              </div>
-            </details>
+          <h3 class="cs-subheading">Which measures, and why</h3>
+          <p>We selected against HEDIS, the measure set more than 90 percent of US health plans use to score care quality.</p>
+          <div class="cs-chips" aria-label="HEDIS measures">
+            <span class="chip">Blood glucose</span>
+            <span class="chip">Oxygen saturation</span>
+            <span class="chip">Blood pressure</span>
+            <span class="chip">HbA1C</span>
+            <span class="chip">BMI</span>
+            <span class="chip">Heart rate</span>
           </div>
+
+          <h3 class="cs-subheading">From data stream to decision system</h3>
+          <p>My focus was to turn a continuous stream of data into an ordered set of decisions a doctor could finish between house calls.</p>
+
+          <h3 class="cs-subheading">Testing the structure</h3>
+          <p>My first version needed to better reflect the clinical workflow.</p>
+          <p>I started with charts within the patient screen based on what we heard in discovery. The panel liked the visualization, but quickly showed us that this wasn’t how they needed to work through a patient.</p>
         </section>
 
-        <section class="cs-section" id="design">
-          <h2>Design</h2>
-          <p class="cs-lead body-lg">From a schedule-first tool to a monitoring-first morning briefing.</p>
-          <p>The existing physician app centered on daily logistics: appointments, patient lookup, and chart review. Monitoring data lived behind a notification bell, competing with every other ping for attention.</p>
-          <p>The redesign rests on one decision: in clinical work, an alert is not an interruption to the doctor’s day, it is the doctor’s day. So threshold alerts moved out of notifications and onto the surface where doctors already start each morning. The new Overview is a briefing that answers the question every physician asks first, which of today’s patients needs my attention, by placing inline monitoring alerts, upcoming appointments, and patient status in a single prioritized view.</p>
+        <section class="cs-section" id="product">
+          <h2>What I built</h2>
+          <p class="cs-lead body-lg">What mattered most was the daily overview: “What do I need to tackle today?”</p>
+          <ol>
+            <li><strong>Daily Overview.</strong> The screen doctors already open first. Monitoring alerts sit inline beside today's visits and unsigned charts, ordered by what needs attention rather than by when it arrived.</li>
+            <li><strong>Patient Workflow.</strong> Trend charts, device context, and prescriptions in one place, so a doctor can read weeks of readings and act without leaving the chart.</li>
+            <li><strong>The alert logic.</strong> Not every abnormal reading is an alert. Not every alert belongs with a doctor. Not every missing reading means danger. Defining that was the actual product problem, and the artifact that let this scale without me in the room.</li>
+          </ol>
 
-          <h3 class="cs-subheading">Before · Schedule-centric workflow</h3>
+          <div class="cs-journey" role="img" aria-label="Alert logic from a reading through signal, priority, owner, and action to reviewed.">
+            <ol class="cs-journey__steps">
+              <li>Reading</li>
+              <li class="cs-journey__arrow" aria-hidden="true">→</li>
+              <li>Signal</li>
+              <li class="cs-journey__arrow" aria-hidden="true">→</li>
+              <li>Priority</li>
+              <li class="cs-journey__arrow" aria-hidden="true">→</li>
+              <li>Owner</li>
+              <li class="cs-journey__arrow" aria-hidden="true">→</li>
+              <li>Action</li>
+              <li class="cs-journey__arrow" aria-hidden="true">→</li>
+              <li class="cs-journey__end cs-journey__end--ink">Reviewed</li>
+            </ol>
+            <p class="cs-journey__note">Not every abnormal reading is an alert. Not every alert belongs with a doctor.</p>
+          </div>
+
+          <h3 class="cs-subheading">Closing the loop</h3>
+          <p>Nothing gets left unresolved. Every item has a clear outcome.</p>
+
+          <div class="cs-journey" role="img" aria-label="Closing the loop from signal through review, action, and documented to timeline.">
+            <ol class="cs-journey__steps">
+              <li>Signal</li>
+              <li class="cs-journey__arrow" aria-hidden="true">→</li>
+              <li>Review</li>
+              <li class="cs-journey__arrow" aria-hidden="true">→</li>
+              <li>Action</li>
+              <li class="cs-journey__arrow" aria-hidden="true">→</li>
+              <li>Documented</li>
+              <li class="cs-journey__arrow" aria-hidden="true">→</li>
+              <li class="cs-journey__end cs-journey__end--ink">Timeline</li>
+            </ol>
+            <p class="cs-journey__note">Nothing gets left unresolved.</p>
+          </div>
+
+          <h3 class="cs-subheading">The three things a doctor can do</h3>
           <ul>
-            <li><strong>Appointments:</strong> daily schedule</li>
-            <li><strong>Patient detail:</strong> overview, history, prescriptions</li>
+            <li>Change a prescription</li>
+            <li>Book a follow up consult / telemedicine call</li>
+            <li>Acknowledge it and take no action</li>
           </ul>
+        </section>
 
+        <section class="cs-section" id="prototype">
+          <h2>Prototype</h2>
+          <p class="cs-lead body-lg">The after: monitoring on the screen doctors already open first, then a patient chart they can finish between house calls.</p>
           <div class="image-gallery">
             <figure class="cs-figure cs-figure--gallery">
-              <button type="button" class="cs-ipad-expand" aria-label="View larger: Before Heal appointments daily schedule">
-                <div class="ipad-shell">
-                  <div class="ipad-shell__screen">
-                    <img src="heal-monitoring-before-appointments.png?v=3" alt="Before Heal physician app: appointments daily schedule with today's visits" width="2240" height="1670" loading="lazy" decoding="async">
-                  </div>
-                </div>
-              </button>
-              <figcaption>Appointments · Daily schedule</figcaption>
-            </figure>
-            <figure class="cs-figure cs-figure--gallery">
-              <button type="button" class="cs-ipad-expand" aria-label="View larger: Before Heal patient detail overview">
-                <div class="ipad-shell">
-                  <div class="ipad-shell__screen">
-                    <img src="heal-monitoring-before-patient-overview.png?v=3" alt="Before Heal patient detail: overview, history, and prescriptions sidebar" width="2240" height="1670" loading="lazy" decoding="async">
-                  </div>
-                </div>
-              </button>
-              <figcaption>Patient detail · Overview, history, prescriptions</figcaption>
-            </figure>
-          </div>
-
-          <h3 class="cs-subheading">After · Monitoring-first briefing</h3>
-          <ul>
-            <li><strong>Overview:</strong> morning briefing with inline monitoring alerts instead of buried notifications</li>
-            <li><strong>Patient detail:</strong> monitoring tab with trend charts, device context, and prescriptions, so a doctor can read weeks of readings in seconds and judge signal against device noise</li>
-          </ul>
-
-          <div class="image-gallery">
-            <figure class="cs-figure cs-figure--gallery">
-              <button type="button" class="cs-ipad-expand" aria-label="View larger: After Heal morning briefing overview">
+              <button type="button" class="cs-ipad-expand" aria-label="View larger: Heal daily overview with inline monitoring alerts">
                 <div class="ipad-shell ipad-shell--after">
                   <div class="ipad-shell__screen">
-                    <img src="heal-monitoring-after-overview.png?v=3" alt="After Heal physician overview: morning briefing with inline BP and glucose monitoring alerts" width="2240" height="1670" loading="lazy" decoding="async">
+                    <img src="heal-monitoring-after-overview.png?v=3" alt="Heal physician daily overview with inline blood pressure and glucose monitoring alerts beside today’s visits" width="2240" height="1670" loading="lazy" decoding="async">
                   </div>
                 </div>
               </button>
-              <figcaption>Overview · Morning briefing with inline alerts</figcaption>
+              <figcaption>Daily Overview · Alerts inline with today’s work</figcaption>
             </figure>
             <figure class="cs-figure cs-figure--gallery">
-              <button type="button" class="cs-ipad-expand" aria-label="View larger: After Heal patient detail monitoring">
+              <button type="button" class="cs-ipad-expand" aria-label="View larger: Heal patient monitoring workflow">
                 <div class="ipad-shell ipad-shell--after">
                   <div class="ipad-shell__screen">
-                    <img src="heal-monitoring-after-patient-monitoring.png?v=3" alt="After Heal patient detail: monitoring tab with blood pressure trend chart and threshold alert" width="2240" height="1670" loading="lazy" decoding="async">
+                    <img src="heal-monitoring-after-patient-monitoring.png?v=3" alt="Heal patient monitoring view with blood pressure trend chart and threshold alert" width="2240" height="1670" loading="lazy" decoding="async">
                   </div>
                 </div>
               </button>
-              <figcaption>Patient detail · Monitoring with trend charts</figcaption>
+              <figcaption>Patient Workflow · Trends, devices, and action</figcaption>
             </figure>
           </div>
         </section>
 
-        <section class="cs-section" id="results-expanded">
-          <h2>Results</h2>
-          <p class="cs-lead body-lg">Physician visibility unlocked preventative care at home.</p>
-          <ul>
-            <li>Repeat patient rate increased to <strong>47%</strong>, exceeding the 45% goal, while acute episodes fell and health outcomes improved</li>
-            <li>With monitoring paid by Medicare, the program was free for patients and drove recurring net margins of <strong>more than $4M per year</strong></li>
-            <li>Unnecessary prescriptions dropped <strong>39%</strong> for monitored patients, because doctors adjusted care based on trends instead of single readings</li>
-            <li>Monitoring capabilities directly supported Heal’s Medicare approval, the unlock that made ongoing primary care at home economically viable</li>
-          </ul>
+        <section class="cs-section" id="results">
+          <h2>The results</h2>
+          <p class="cs-lead body-lg">We did not just redesign a view. We built the workflow Heal needed to make monitoring part of primary care.</p>
+          <p><strong>39% fewer</strong> unnecessary prescriptions for monitored patients. The clearest evidence the workflow changed clinical reasoning and not just the screen.</p>
+          <p><strong>39% to 47%</strong> repeat patient rate, above the 45 percent goal, while acute episodes fell.</p>
+          <p><strong>Medicare approved.</strong> Monitoring became free to patients and made home primary care economically viable.</p>
+          <p><strong>Over $4M a year</strong> in recurring net margin.</p>
         </section>
 
       </main>
     </div>
   </div>
 
-  <script src="case-study.js?v=18"></script>
+  <script src="case-study.js?v=19"></script>
 </body>
 </html>

@@ -119,7 +119,7 @@
     { file: 'case-study-deckk.html', title: 'Deckk: Reimagining the Link-in-Bio with AI' },
     { file: 'case-study-flyhomes-tour-booking.html', title: 'Automating tour scheduling so buyers could move faster' },
     { file: 'case-study-heal-primary-care.html', title: 'From one-time visits to ongoing primary care' },
-    { file: 'case-study-heal-health-monitoring.html', title: 'Preventative care with data-driven patient health monitoring' },
+    { file: 'case-study-heal-health-monitoring.html', title: 'Building Heal’s remote monitoring product from zero' },
   ];
 
   function initCaseStudyNav() {

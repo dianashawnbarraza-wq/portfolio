@@ -317,6 +317,13 @@ body.case-study-body {
   margin: 1.5rem 0 1rem;
 }
 
+.cs-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1.5rem;
+}
+
 .cs-miniheading {
   font-size: 0.9375rem;
   font-weight: 600;
@@ -403,6 +410,12 @@ body.case-study-body {
 
 .cs-journey__steps li.cs-journey__end {
   background: #f0b49a;
+}
+
+.cs-journey__steps li.cs-journey__end--ink {
+  background: var(--color-ink, #221F1F);
+  color: #fffefa !important;
+  border-color: var(--color-ink, #221F1F);
 }
 
 .cs-journey__arrow {
@@ -819,7 +832,8 @@ body.case-study-body {
   background: var(--cs-surface);
 }
 
-.cs-section ul {
+.cs-section ul,
+.cs-section ol {
   margin: 0 0 1rem;
   padding-left: 1.25rem;
 }
