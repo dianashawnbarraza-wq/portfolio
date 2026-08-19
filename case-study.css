@@ -634,20 +634,21 @@ body.case-study-body {
 }
 
 .cs-flow-lightbox__inner {
-  width: auto;
-  max-width: calc(100vw - 48px);
-  max-height: calc(100vh - 72px);
-  overflow: auto;
+  width: fit-content;
+  max-width: min(1080px, calc(100vw - 64px));
+  max-height: calc(100vh - 88px);
+  overflow: hidden;
   border-radius: var(--cs-radius);
   background: #edf1f6;
-  -webkit-overflow-scrolling: touch;
 }
 
 .cs-flow-lightbox__img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
   display: block;
+  width: auto;
+  height: auto;
+  max-width: min(1080px, calc(100vw - 64px));
+  max-height: calc(100vh - 88px);
+  object-fit: contain;
 }
 
 .cs-figure figcaption {
