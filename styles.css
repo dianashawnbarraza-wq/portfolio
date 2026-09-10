@@ -1052,7 +1052,8 @@ nav ul {
 .experience-logo--on-dark {
   box-sizing: border-box;
   padding: 10px 5px;
-  background: #000;
+  background: #fff;
+  border: 1px solid var(--color-line, #D8D3C8);
   border-radius: 10px;
 }
 
@@ -2116,7 +2117,7 @@ nav ul {
   align-items: center;
   justify-content: center;
   padding: 2.5rem 2rem;
-  background: #000;
+  background: #fff;
 }
 
 .project-media--logo img {
