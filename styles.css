@@ -376,9 +376,9 @@ nav ul {
   margin: 0 0 1rem;
   font-family: var(--font-display);
   font-size: clamp(1.15rem, 1.8vw, 1.35rem);
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
   color: var(--text-main);
   max-width: none;
 }
@@ -1047,6 +1047,19 @@ nav ul {
   height: 48px;
   object-fit: contain;
   display: block;
+}
+
+.experience-logo--on-dark {
+  box-sizing: border-box;
+  padding: 10px 5px;
+  background: #000;
+  border-radius: 10px;
+}
+
+.experience-current {
+  color: var(--text-muted);
+  font-style: italic;
+  font-weight: 500;
 }
 
 .experience-info-cell {
@@ -2096,4 +2109,23 @@ nav ul {
 .project-media--deckk img {
   object-fit: cover;
   object-position: center center;
+}
+
+.project-media--logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 2rem;
+  background: #000;
+}
+
+.project-media--logo img {
+  width: min(72%, 280px);
+  height: auto;
+  object-fit: contain;
+  transform: none !important;
+}
+
+.glass-card.project-card:hover .project-media--logo img {
+  transform: none !important;
 }
