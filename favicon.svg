@@ -1,5 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="B">
-  <title>B</title>
-  <rect width="100" height="100" fill="#F7F5EF"/>
-  <path fill="#221F1F" fill-rule="evenodd" d="M23.5 87V13h25.07q7.64 0 13.3 2.33 5.67 2.32 8.84 7.02 3.17 4.69 3.17 11.69 0 4.35-2.16 8.01-2.15 3.66-6.04 6.28 5.2 2.64 8.01 7.01 2.81 4.36 2.81 10.56 0 6.74-3.06 11.47-3.07 4.72-8.58 7.18Q59.36 87 51.93 87Zm14.12-12.83h12.92q5.18 0 8.15-2.58 2.97-2.58 2.97-6.9 0-4.56-3.27-7.15-3.26-2.59-9-2.59H37.62Zm0-31.04h11.27q4.74 0 7.51-2.45 2.77-2.46 2.77-6.83 0-4.46-3.07-6.9-3.07-2.43-8.35-2.43H37.62Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Rocket">
+  <title>Rocket</title>
+  <rect width="64" height="64" rx="14" fill="#141310"/>
+  <!-- Intensifying rocket: body + growing flame -->
+  <g transform="translate(32 34)">
+    <g class="rocket">
+      <!-- fins -->
+      <path d="M-7 10 L-14 18 L-6 14 Z" fill="#F7F7F4"/>
+      <path d="M7 10 L14 18 L6 14 Z" fill="#F7F7F4"/>
+      <!-- body -->
+      <path d="M0 -22 C8 -14 9 2 7 12 L-7 12 C-9 2 -8 -14 0 -22 Z" fill="#F7F7F4"/>
+      <!-- window -->
+      <circle cx="0" cy="-4" r="3.2" fill="#141310"/>
+      <!-- flame core + bloom (intensify) -->
+      <g class="flame">
+        <path class="flame-outer" d="M-5 13 C-8 22 0 30 0 30 C0 30 8 22 5 13 Z" fill="#F4A261"/>
+        <path class="flame-inner" d="M-2.5 13 C-4 19 0 24 0 24 C0 24 4 19 2.5 13 Z" fill="#F4E157"/>
+      </g>
+    </g>
+  </g>
+  <style>
+    .rocket {
+      transform-origin: 0px 0px;
+      animation: lift 1.1s ease-in-out infinite;
+    }
+    .flame-outer {
+      transform-origin: 0px 13px;
+      animation: intensify-outer 1.1s ease-in-out infinite;
+    }
+    .flame-inner {
+      transform-origin: 0px 13px;
+      animation: intensify-inner 1.1s ease-in-out infinite;
+    }
+    @keyframes lift {
+      0%, 100% { transform: translateY(2px) scale(0.96); }
+      50% { transform: translateY(-3px) scale(1.06); }
+    }
+    @keyframes intensify-outer {
+      0%, 100% { transform: scaleY(0.7) scaleX(0.85); opacity: 0.75; }
+      50% { transform: scaleY(1.35) scaleX(1.15); opacity: 1; }
+    }
+    @keyframes intensify-inner {
+      0%, 100% { transform: scaleY(0.65) scaleX(0.8); opacity: 0.85; }
+      50% { transform: scaleY(1.45) scaleX(1.2); opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .rocket, .flame-outer, .flame-inner { animation: none; }
+    }
+  </style>
 </svg>
