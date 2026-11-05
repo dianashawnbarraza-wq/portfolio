@@ -752,6 +752,11 @@ nav ul {
     opacity 0.45s ease 0.05s;
 }
 
+.cite__shot--square img {
+  object-position: center 28%;
+  transform: scale(1.04);
+}
+
 .cite:hover .cite__shot img,
 .cite:focus-within .cite__shot img,
 .cite.is-open .cite__shot img {
