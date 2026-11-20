@@ -16,17 +16,20 @@
   <meta property="og:url" content="https://barrazaxd.com/">
   <meta property="og:site_name" content="Diana Barraza · Shawn Barraza · Product Design">
   <meta property="og:locale" content="en_US">
-  <meta property="og:image" content="https://barrazaxd.com/diana_shawn_barraza.png?v=2">
-  <meta property="og:image:alt" content="Diana Shawn Barraza, Staff Product Designer and AI-native designer">
+  <meta property="og:image" content="https://barrazaxd.com/og-share.png?v=1">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Diana Shawn Barraza — Staff product designer and AI-native builder">
   <meta property="profile:first_name" content="Diana">
   <meta property="profile:last_name" content="Barraza">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Diana Barraza · Shawn Barraza | Staff Product Designer · AI-Native Designer">
   <meta name="twitter:description" content="Staff Product Designer and AI-native designer. Former Square. UX and product design for fintech, healthcare, and enterprise AI.">
-  <meta name="twitter:image" content="https://barrazaxd.com/diana_shawn_barraza.png?v=2">
-  <meta name="twitter:image:alt" content="Diana Shawn Barraza, Staff Product Designer and AI-native designer">
+  <meta name="twitter:image" content="https://barrazaxd.com/og-share.png?v=1">
+  <meta name="twitter:image:alt" content="Diana Shawn Barraza — Staff product designer and AI-native builder">
   <link rel="stylesheet" href="ui-system.css?v=7">
-  <link rel="stylesheet" href="styles.css?v=162">
+  <link rel="stylesheet" href="styles.css?v=170">
   <link rel="icon" href="favicon.svg?v=15" type="image/svg+xml">
   <link rel="icon" href="favicon.png?v=15" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=15">
@@ -63,7 +66,9 @@
         "isPartOf": { "@id": "https://barrazaxd.com/#website" },
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://barrazaxd.com/diana_shawn_barraza.png?v=2"
+          "url": "https://barrazaxd.com/og-share.png?v=1",
+          "width": 1200,
+          "height": 630
         },
         "about": { "@id": "https://barrazaxd.com/#person" },
         "mainEntity": { "@id": "https://barrazaxd.com/#person" }
@@ -773,6 +778,26 @@
     })();
 
   </script>
+  <!-- Classic script: unlock scroll even if the ES module fails to load -->
+  <script>
+    (function () {
+      const unlockBootFallback = () => {
+        if (!document.body.classList.contains("is-booting")) return;
+        document.body.classList.add("is-logo-ready");
+        document.body.classList.remove("is-booting", "is-boot-leaving");
+        window.dispatchEvent(new Event("site-boot-done"));
+        const bootEl = document.getElementById("site-boot");
+        if (bootEl) {
+          bootEl.setAttribute("aria-busy", "false");
+          bootEl.remove();
+        }
+      };
+      window.setTimeout(unlockBootFallback, 6000);
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted) unlockBootFallback();
+      });
+    })();
+  </script>
   <script type="module">
     import { mountOrb } from "./vendor/thinking-orbs/orb-core.js?v=3";
 
@@ -977,10 +1002,21 @@
       await removeBoot(orb);
     };
 
-    if (!boot || !svg) {
-      document.body.classList.remove("is-booting");
+    // Safety: never leave overflow:hidden stuck if the intro animation fails
+    const unlockBoot = () => {
+      if (!document.body.classList.contains("is-booting")) return;
       document.body.classList.add("is-logo-ready");
+      document.body.classList.remove("is-booting", "is-boot-leaving");
       window.dispatchEvent(new Event("site-boot-done"));
+      if (boot) {
+        boot.setAttribute("aria-busy", "false");
+        boot.remove();
+      }
+    };
+    window.setTimeout(unlockBoot, 9000);
+
+    if (!boot || !svg) {
+      unlockBoot();
     } else if (reduceMotion) {
       boot.classList.add("is-name-in", "is-orb-in");
       await wait(200);
@@ -990,16 +1026,22 @@
 
       const handle = { orb: null };
       window.setTimeout(() => {
-        handle.orb = mountOrb(svg, {
-          state: "searching",
-          size: 320,
-          label: "Loading",
-          speed: 1.05,
-        });
+        try {
+          handle.orb = mountOrb(svg, {
+            state: "searching",
+            size: 320,
+            label: "Loading",
+            speed: 1.05,
+          });
+        } catch (_) {
+          handle.orb = null;
+        }
         boot.classList.add("is-orb-in");
       }, 480);
 
-      window.setTimeout(() => morphNameToLogo(handle.orb), 3200);
+      window.setTimeout(() => {
+        morphNameToLogo(handle.orb).catch(() => unlockBoot());
+      }, 3200);
     }
   </script>
   <script>
@@ -1042,17 +1084,23 @@
     const mobileNavModal = document.getElementById('mobile-nav-modal');
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileNavClose = document.getElementById('mobile-nav-close');
+    const setModalOpen = (open) => {
+      document.body.classList.toggle('is-modal-open', open);
+    };
     hamburgerBtn.addEventListener('click', () => {
       mobileNavModal.classList.add('active');
+      setModalOpen(true);
     });
 
     mobileNavClose.addEventListener('click', () => {
       mobileNavModal.classList.remove('active');
+      setModalOpen(false);
     });
 
     mobileNavModal.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileNavModal.classList.remove('active');
+        setModalOpen(false);
       });
     });
 
@@ -1122,20 +1170,24 @@
 
     function openModal() {
       modal.classList.add('active');
+      document.body.classList.add('is-modal-open');
     }
 
     function closeModal() {
       modal.classList.remove('active');
+      document.body.classList.remove('is-modal-open');
     }
 
     function openComingSoon() {
       comingSoonModal.classList.add('active');
       comingSoonModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('is-modal-open');
     }
 
     function closeComingSoon() {
       comingSoonModal.classList.remove('active');
       comingSoonModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('is-modal-open');
     }
 
     glassCards.forEach(card => {

@@ -40,7 +40,16 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  /* Clip only on the root. Clipping html+body nests scrollports and traps
+     iOS Safari (can't leave the header / rubber-bands at the footer). */
+  overflow-x: clip;
+}
+
+/* Smooth scroll fights touch dragging on iOS — keep instant on phones */
+@media (max-width: 768px), (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -51,12 +60,14 @@ body {
   font-weight: 400;
   letter-spacing: -0.022em;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
   padding-top: var(--header-height);
 }
 
-body.is-booting {
+body.is-booting,
+body.is-modal-open {
   overflow: hidden;
+  /* No touch-action:none — if is-booting/is-modal-open sticks, iOS can't scroll */
+  overscroll-behavior: none;
 }
 
 /* Intro: name + searching orb */
@@ -455,11 +466,14 @@ nav ul {
   flex-direction: column;
   justify-content: center;
   min-height: 100dvh;
-  width: 100vw;
+  width: auto;
   max-width: none;
   margin-top: calc(-1 * var(--header-height));
+  /* Full-bleed breakout; clip both axes so cite popovers can't widen the page
+     (overflow-x:clip alone leaves overflow-y:visible and still expands scrollWidth) */
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
+  overflow: clip;
   padding:
     calc(var(--header-height) + 2.5rem)
     max(60px, calc((100vw - 1400px) / 2 + 60px))
@@ -3174,26 +3188,38 @@ nav ul {
 /* Modal */
 .modal {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
   z-index: 2000;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  /* Collapse when closed — fixed full-viewport shells trap iOS scroll */
+  inset: auto;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .modal.active {
+  inset: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 
 .modal-content.fullscreen-modal {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  width: 100vw;
-  height: 100vh;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   max-width: none;
   background-color: var(--color-bg);
   color: var(--color-ink);
@@ -3208,6 +3234,13 @@ nav ul {
   z-index: 2001;
   transform: translateY(20px) scale(0.95);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Inactive fullscreen layers must not stay as a compositor sheet on iOS */
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal:not(.active) .modal-content.fullscreen-modal {
+  display: none;
 }
 
 .modal.active .modal-content.fullscreen-modal {
@@ -3216,6 +3249,9 @@ nav ul {
 
 .modal--dialog {
   background: rgba(0, 0, 0, 0.55);
+}
+
+.modal--dialog.active {
   padding: 24px;
 }
 
@@ -3392,10 +3428,35 @@ nav ul {
   .hero--fullscreen {
     min-height: 100dvh;
     margin-top: calc(-1 * var(--header-height));
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    overflow: clip;
     padding:
       calc(var(--header-height) + 1.75rem)
       16px
       4.5rem;
+  }
+
+  /* Touch: keep closed previews out of scroll overflow; pin open ones in-viewport */
+  .cite:not(.is-open) .cite__pop {
+    display: none;
+  }
+
+  .cite.is-open .cite__pop {
+    display: block;
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+    top: max(5.5rem, 18vh);
+    bottom: auto;
+    transform: none;
+    transform-origin: top center;
+    z-index: 200;
+  }
+
+  .cite.is-open .cite__pop::after {
+    display: none;
   }
 
   .hero-layout {
